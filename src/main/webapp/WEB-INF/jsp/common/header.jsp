@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -186,6 +187,20 @@
 		#navbar .btn:hover {
 		color : #fff;
 		}
+		
+	    @font-face {
+	     font-family: 'hanaBold';
+	     src: local(HanaB); 
+  		}
+	    @font-face {
+	     font-family: 'hanaMedium';
+	     src: url(${pageContext.request.contextPath}/resources/css/font/HanaM.ttf) format('truetype'); 
+  		}
+	    @font-face {
+	     font-family: 'hanaLight';
+	     src: url(${pageContext.request.contextPath}/resources/css/font/HanaL.ttf) format('truetype'); 
+  		}
+  		
 </style>
 </head>
 	 <!-- The Modal -->
@@ -242,9 +257,11 @@
 		</div>
 		<nav class="navbar navbar-expand-lg  py-4" id="navbar">
 			<div class="container">
-			  <a class="navbar-brand" href="index.html">
+				
+				<img alt="" src="${pageContext.request.contextPath }/resources/images/hana3.jpg" style="width: 170px">
+<!-- 			  <a class="navbar-brand" href="index.html">
 			  	Mega<span>kit.</span>
-			  </a>
+			  </a> -->
 	
 			  <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample09" aria-controls="navbarsExample09" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="fa fa-bars"></span>
@@ -281,14 +298,21 @@
 						<ul class="dropdown-menu" aria-labelledby="dropdown05">
 							<li><a class="dropdown-item" href="./reservation.html">간편 상담 예약</a></li>
 							<li><a class="dropdown-item" href="event_info.html">지점 이벤트 정보</a></li>
-	
 							<li><a class="dropdown-item" href="blog-single.html">브랜치 등록</a></li>
 						</ul>
 				  </li>
 				   <li class="nav-item"><a class="nav-link" href="contact.html">고객지원</a></li>
 				</ul>
-	
-				 	<button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px">로그인</button>
+					<c:choose>
+						<c:when test="${empty userVO }">
+						 	<button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px">로그인</button>
+						 	<button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;margin-left: 0px" >회원가입</button>
+						</c:when>
+						<c:otherwise>
+						 	<button id="logoutBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px">로그아웃</button>
+							
+						</c:otherwise>
+					</c:choose>
 			  </div>
 			</div>
 		</nav>
@@ -304,6 +328,12 @@
 	                    $('#myModal').show();
 	                	
 	                });
+	                
+	                $('#logoutBtn').click(function(){
+	                	location.href = '${pageContext.request.contextPath}/logout'
+	                	
+	                });
+	                
 	        });
 	        
 	    	 // 외부영역 클릭 시 팝업 닫기
