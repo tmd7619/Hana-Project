@@ -5,9 +5,7 @@ public class MemberVO {
 	private String id;
 	private String password;
 	private String name;
-	
-	
-	
+ 	
 	public String getName() {
 		return name;
 	}
@@ -39,7 +37,7 @@ public class MemberVO {
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", name=" + name + ", type=" + type + "]";
 	}
-	
-	
+
+
 	
 }
