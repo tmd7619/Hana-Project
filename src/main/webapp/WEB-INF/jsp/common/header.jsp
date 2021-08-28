@@ -193,9 +193,9 @@
      <!-- Modal content -->
      <div id="modal-content">
                     <div class="login-form">
+                    
                         <h2>Login</h2>
-                        <form action="<%= request.getContextPath()%>/loginProcess.do" method="post" name="loginForm"
-                        onsubmit="return checkForm()">
+                        <form action="${pageContext.request.contextPath }/login" method="post" name="loginForm">
                             <div class="group-input">
                                 <label for="username">UserID </label>
                                 <input type="text" id="username" name="id">
@@ -204,7 +204,7 @@
                                 <label for="pass">Password </label>
                                 <input type="password" id="password" name="password">
                             </div>
-                            <button type="submit" class="site-btn login-btn">Sign In</button>
+                            <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In</button>
                         </form>
                         <div class="switch-login">
                             <a href="<%=request.getContextPath() %>/register.do" class="or-login">Or Create An Account</a>

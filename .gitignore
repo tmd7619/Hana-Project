@@ -161,7 +161,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # Mac
-src/.DS_Store
+*.DS_Store
 pom.xml
 
 

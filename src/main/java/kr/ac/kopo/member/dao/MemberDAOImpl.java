@@ -16,8 +16,9 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberVO login(MemberVO member) {
 		
+		System.out.println(member);
 		MemberVO userVO = sqlSession.selectOne("member.MemberDAO.login" , member);
-		
+		System.out.println("userVO:" + userVO);
 		
 		return userVO;
 	}

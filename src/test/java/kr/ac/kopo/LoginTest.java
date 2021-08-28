@@ -2,6 +2,7 @@ package kr.ac.kopo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,6 +19,10 @@ public class LoginTest {
 	MemberService service;
 	
 	
+	@Autowired
+	SqlSessionTemplate sqlSession;
+	
+	
 	@Test
 	public void loginTest() {
 		
@@ -26,9 +31,14 @@ public class LoginTest {
 		member.setId("test");
 		member.setPassword("1234");
 		
-		MemberVO userVO = service.login(member);
+//		MemberVO userVO = service.login(member);
 		
-		System.out.println(userVO);
+		
+		MemberVO userVO = sqlSession.selectOne("member.MemberDAO.login", member);
+		
+		
+		System.out.println("가져온디비" + userVO);
+		
 		
 		
 		
