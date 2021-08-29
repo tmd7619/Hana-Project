@@ -232,9 +232,8 @@
     <!--End Modal-->
 
 
-
 	<!-- Header Start --> 
-	
+	<a href="https//192.168.0.129:8000"> nodejs 서버호출 </a>	
 	<header class="navigation">
 		<div class="header-top ">
 			<div class="container">
