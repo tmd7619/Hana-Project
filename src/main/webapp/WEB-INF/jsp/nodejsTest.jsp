@@ -9,14 +9,14 @@
     <body>
     
     
-        <script src="https://192.168.0.129:8000/socket.io/socket.io.js"></script>
+        <script src="https://192.168.217.49:8000/socket.io/socket.io.js"></script>
         <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
         <script>
             $(document).ready(function(){
-                var socket = io("https://192.168.0.129:8000");
-                console.log(socket);
+                var socket = io("https://192.168.217.49:8000");
             });
-            
         </script>
     </body>
 </html>
+
+

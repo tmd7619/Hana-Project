@@ -233,7 +233,6 @@
 
 
 	<!-- Header Start --> 
-	<a href="https//192.168.0.129:8000"> nodejs 서버호출 </a>	
 	<header class="navigation">
 		<div class="header-top ">
 			<div class="container">
@@ -256,8 +255,9 @@
 		</div>
 		<nav class="navbar navbar-expand-lg  py-4" id="navbar">
 			<div class="container">
-				
+				<a href="${pageContext.request.contextPath }/">
 				<img alt="" src="${pageContext.request.contextPath }/resources/images/hana3.jpg" style="width: 170px">
+				</a>
 <!-- 			  <a class="navbar-brand" href="index.html">
 			  	Mega<span>kit.</span>
 			  </a> -->
@@ -268,39 +268,41 @@
 		  
 			  <div class="collapse navbar-collapse text-center" id="navbarsExample09">
 				<ul class="navbar-nav ml-auto">
-				  <li class="nav-item active">
-					<a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-				  </li>
+	<%-- 			  <li class="nav-item active">
+					<a class="nav-link" href="${pageContext.request.contextPath }/">Home <span class="sr-only">(current)</span></a>
+				  </li> --%>
 				  <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">거래 관리</a>
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">실시간 상담</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown03">
-							<li><a class="dropdown-item" href="about.html">계좌 이체</a></li>
-							<li><a class="dropdown-item" href="pricing.html">거래 내역 조회</a></li>
+							<li><a class="dropdown-item" href="about.html">1 : 1 채팅 상담</a></li>
+							<li><a class="dropdown-item" href="pricing.html">상담 내역 조회</a></li>
 						</ul>
 				  </li>
 				  <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">온라인 투자 상담</a>
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">브랜치 커뮤니티</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown03">
-						<li><a class="dropdown-item" href="about.html">실시간 상담하기</a></li>
-						<li><a class="dropdown-item" href="pricing.html">상담 내역 조회</a></li>
+						<li><a class="dropdown-item" href="about.html">실시간 소통하기</a></li>
+						<li><a class="dropdown-item" href="pricing.html">주제별 소통 목록</a></li>
 					</ul>
 			      </li>
 				  <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">자산 관리</a>
+					<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My 리워드</a>
 					<ul class="dropdown-menu" aria-labelledby="dropdown03">
 						<li><a class="dropdown-item" href="about.html">온라인 자산 리밸런싱</a></li>
 						<li><a class="dropdown-item" href="pricing.html">보유 자산 조회</a></li>
 					</ul>
 			      </li>
 				   <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My 브랜치</a>
+						<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이달의 금융상품</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown05">
 							<li><a class="dropdown-item" href="./reservation.html">간편 상담 예약</a></li>
 							<li><a class="dropdown-item" href="event_info.html">지점 이벤트 정보</a></li>
 							<li><a class="dropdown-item" href="blog-single.html">브랜치 등록</a></li>
 						</ul>
 				  </li>
-				   <li class="nav-item"><a class="nav-link" href="contact.html">고객지원</a></li>
+				   <li class="nav-item">
+<!-- 				   <a class="nav-link" href="contact.html">고객지원</a> -->
+				   </li>
 				</ul>
 					<c:choose>
 						<c:when test="${empty userVO }">
