@@ -201,6 +201,7 @@
 	     src: url(${pageContext.request.contextPath}/resources/css/font/HanaL.ttf) format('truetype'); 
   		}
   		
+  		
 </style>
 </head>
 	 <!-- The Modal -->
@@ -234,25 +235,6 @@
 
 	<!-- Header Start --> 
 	<header class="navigation">
-		<div class="header-top ">
-			<div class="container">
-				<div class="row justify-content-between align-items-center">
-					<div class="col-lg-2 col-md-4">
-						<div class="header-top-socials text-center text-lg-left text-md-left">
-							<a href="https://www.facebook.com/themefisher" target="_blank"><i class="ti-facebook"></i></a>
-							<a href="https://twitter.com/themefisher" target="_blank"><i class="ti-twitter"></i></a>
-							<a href="https://github.com/themefisher/" target="_blank"><i class="ti-github"></i></a>
-						</div>
-					</div>
-					<div class="col-lg-10 col-md-8 text-center text-lg-right text-md-right">
-						<div class="header-top-info">
-							<a href="tel:+23-345-67890">Call Us : <span>+23-345-67890</span></a>
-							<a href="mailto:support@gmail.com" ><i class="fa fa-envelope mr-2"></i><span>support@gmail.com</span></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 		<nav class="navbar navbar-expand-lg  py-4" id="navbar">
 			<div class="container">
 				<a href="${pageContext.request.contextPath }/">
@@ -292,16 +274,16 @@
 						<li><a class="dropdown-item" href="pricing.html">보유 자산 조회</a></li>
 					</ul>
 			      </li>
-				   <li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이달의 금융상품</a>
+<%-- 				   <li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/event" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">이달의 금융상품</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown05">
 							<li><a class="dropdown-item" href="./reservation.html">간편 상담 예약</a></li>
 							<li><a class="dropdown-item" href="event_info.html">지점 이벤트 정보</a></li>
 							<li><a class="dropdown-item" href="blog-single.html">브랜치 등록</a></li>
 						</ul>
-				  </li>
+				  </li> --%>
 				   <li class="nav-item">
-<!-- 				   <a class="nav-link" href="contact.html">고객지원</a> -->
+				  	 <a class="nav-link" href="${pageContext.request.contextPath}/event">이달의 금융상품</a>
 				   </li>
 				</ul>
 					<c:choose>
