@@ -9,6 +9,7 @@
 <body>
 		<jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
 	
+		<a href="${pageContext.request.contextPath}/chat-ws">웹소켓 이용 EchoHandler</a>
 		<!-- Section Start -->
 		<section class="slider">
 			<div class="container">
