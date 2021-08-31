@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,12 +17,12 @@ import kr.ac.kopo.consultation.chat.vo.RoomVO;
 @Controller
 public class ChatController {
 	
-//	@RequestMapping(value = "/chating", method =RequestMethod.GET, headers = "Connection!=Upgrade")
 	
 	List<RoomVO> roomList = new ArrayList<RoomVO>();
 	static int roomNumber = 0;
 	
-	@RequestMapping("/chating")
+//	@RequestMapping("/chating")
+	@RequestMapping(value = "/chating", method =RequestMethod.GET, headers = "Connection!=Upgrade")
 	public ModelAndView chat() {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("ws3");
