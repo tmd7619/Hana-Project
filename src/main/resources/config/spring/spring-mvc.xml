@@ -71,13 +71,13 @@
 			<ref bean="loginInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors> -->
-	<websocket:handlers>
+	
+	<!-- <websocket:handlers>
 		<websocket:mapping handler="webSocketHandler" path="/echo"/>
 		<websocket:mapping handler="chatHandler" path="/chat-ws"/>
-	</websocket:handlers>
+	</websocket:handlers> -->
 	
-	<bean class="kr.ac.kopo.chat.controller.WebsocketHandler" id="webSocketHandler"/>
-	<bean class="kr.ac.kopo.chat.controller.ChatWebSocketHandler" id="chatHandler"/>
+	<bean class="kr.ac.kopo.consultation.chat.controller.WebsocketHandler" id="webSocketHandler"/>
 	
 	
 </beans>

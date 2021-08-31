@@ -5,10 +5,15 @@
 <mapper namespace="member.MemberDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
 	
 	
+	<resultMap type="memberVO" id="memberMap">
+		<result column="user_id" property="userId" />
+		<result column="reg_date" property="regDate" />
+	</resultMap>
+	
 	<select id="login" parameterType="memberVO" resultType="memberVO">
-		select id, password, name
-		from t_member
-		where id = #{id} and password = #{password}
+		select user_id, password, username
+		from member
+		where user_id = #{userId} and password = #{password}
 	
 	</select>
 	

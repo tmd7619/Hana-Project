@@ -15,7 +15,7 @@
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
 
 	
-	<div class="main-wrapper ">
+<!-- 	<div class="main-wrapper "> -->
 	<section class="page-title bg-1">
 	  <div class="container">
 	    <div class="row">

@@ -28,7 +28,7 @@ public class LoginTest {
 		
 		MemberVO member = new MemberVO();
 		
-		member.setId("test");
+		member.setUserId("test");
 		member.setPassword("1234");
 		
 //		MemberVO userVO = service.login(member);

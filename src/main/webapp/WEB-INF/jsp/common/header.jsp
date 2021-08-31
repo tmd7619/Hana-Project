@@ -214,7 +214,7 @@
                         <form action="${pageContext.request.contextPath }/login" method="post" name="loginForm">
                             <div class="group-input">
                                 <label for="username">UserID </label>
-                                <input type="text" id="username" name="id">
+                                <input type="text" id="username" name="userId">
                             </div>
                             <div class="group-input">
                                 <label for="pass">Password </label>
@@ -256,7 +256,7 @@
 				  <li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">실시간 상담</a>
 						<ul class="dropdown-menu" aria-labelledby="dropdown03">
-							<li><a class="dropdown-item" href="about.html">1 : 1 채팅 상담</a></li>
+							<li><a class="dropdown-item" href="${pageContext.request.contextPath }/chating">1 : 1 채팅 상담</a></li>
 							<li><a class="dropdown-item" href="pricing.html">상담 내역 조회</a></li>
 						</ul>
 				  </li>

@@ -1,4 +1,4 @@
-package kr.ac.kopo.chat.controller;
+package kr.ac.kopo.consultation.chat.controller;
 
 import java.util.Date;
 import java.util.Map;
@@ -9,7 +9,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-public class ChatWebSocketHandler extends TextWebSocketHandler {
+public class ChatWebSocketHandler2 extends TextWebSocketHandler {
 
     // 접속한 유저들의 목록을 담기 위한 Map 선언
     // ConcurrentHashMap은 Hashtable과 유사하지만 멀티스래드 환경에서 더 안전하다
@@ -20,22 +20,11 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
   http://blog.leekyoungil.com/?p=159
   http://limkydev.tistory.com/64
     */
-    private Map<String, WebSocketSession> users = new ConcurrentHashMap<>();
+    private Map<String, WebSocketSession> users = new ConcurrentHashMap<>(); // 웹 소켓 세션을 담아둘 맵
+
 
     @Override
-    public void afterConnectionEstablished(
-            WebSocketSession session) throws Exception {
-
-        // session에서 id를 가져와서 로그에 남긴다(없어도 되는 과정)
-        log(session.getId() + " 연결 됨");
-
-        // 위에서 선언한 users라는 map에 user를 담는 과정(필수)
-        // map에 담는 이유는 메세지를 일괄적으로 뿌려주기 위해서이다
-        users.put(session.getId(), session);
-    }
-
-    @Override
-    protected void handleTextMessage(
+    protected void handleTextMessage( // 메세지 전송 메서드
             WebSocketSession session, TextMessage message) throws Exception {
         log(session.getId() + "로부터 메시지 수신: " + message.getPayload());
 
@@ -53,6 +42,18 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         }
     }
 
+    @Override
+    public void afterConnectionEstablished(
+    		WebSocketSession session) throws Exception {
+    	
+    	// session에서 id를 가져와서 로그에 남긴다(없어도 되는 과정)
+    	log(session.getId() + " 연결 됨");
+    	
+    	// 위에서 선언한 users라는 map에 user를 담는 과정(필수)
+    	// map에 담는 이유는 메세지를 일괄적으로 뿌려주기 위해서이다
+    	users.put(session.getId(), session);
+    }
+    
     @Override
     public void handleTransportError(
             WebSocketSession session, Throwable exception) throws Exception {

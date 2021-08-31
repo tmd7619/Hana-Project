@@ -304,11 +304,11 @@ a:focus {
 }
 
 .page-title {
-  padding: 100px 0;
 }
 
 .page-title .block h1 {
   color: #fff;
+  text-align: center;
 }
 
 .page-title .block p {
