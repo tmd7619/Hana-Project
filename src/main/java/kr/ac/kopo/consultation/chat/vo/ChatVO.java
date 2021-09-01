@@ -7,7 +7,6 @@ public class ChatVO {
 	private String content; // 대화 내용
 	private String chatDate; // 대화 날짜
 	
-	
 	public String getClerkName() {
 		return clerkName;
 	}

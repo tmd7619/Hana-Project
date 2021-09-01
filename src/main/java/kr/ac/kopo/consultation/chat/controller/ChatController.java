@@ -24,7 +24,6 @@ public class ChatController {
 	ChatService service;
 	
 	List<RoomVO> roomList = new ArrayList<RoomVO>();
-	static int roomNumber = 0;
 	
 //	@RequestMapping("/chat")
 	@RequestMapping(value = "/chat", method =RequestMethod.GET, headers = "Connection!=Upgrade")
@@ -53,10 +52,10 @@ public class ChatController {
 	 */
 	@RequestMapping("/createRoom")
 	public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object, Object> params){
-		String roomName = (String) params.get("roomName"); // 방이름 가져오
+		String roomName = (String) params.get("roomName"); // 방이름 가져오기 
 		if(roomName != null && !roomName.trim().equals("")) {
 			RoomVO room = new RoomVO();
-			room.setRoomNumber(++roomNumber);
+//			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
 			roomList.add(room);
 			int check = service.insertRoom(room);
