@@ -1,5 +1,9 @@
 package kr.ac.kopo.consultation.chat.dao;
 
-public class ChatDAO {
+import kr.ac.kopo.consultation.chat.vo.RoomVO;
 
+public interface ChatDAO {
+	
+	 int insertRoom(RoomVO roomVO);
+	
 }

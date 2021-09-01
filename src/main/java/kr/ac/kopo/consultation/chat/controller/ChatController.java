@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,20 +13,24 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.ac.kopo.consultation.chat.service.ChatService;
 import kr.ac.kopo.consultation.chat.vo.RoomVO;
 
 @Controller
 public class ChatController {
 	
 	
+	@Autowired
+	ChatService service;
+	
 	List<RoomVO> roomList = new ArrayList<RoomVO>();
 	static int roomNumber = 0;
 	
-//	@RequestMapping("/chating")
-	@RequestMapping(value = "/chating", method =RequestMethod.GET, headers = "Connection!=Upgrade")
+//	@RequestMapping("/chat")
+	@RequestMapping(value = "/chat", method =RequestMethod.GET, headers = "Connection!=Upgrade")
 	public ModelAndView chat() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("ws3");
+		mav.setViewName("chat");
 		return mav;
 	}
 	
@@ -48,12 +53,19 @@ public class ChatController {
 	 */
 	@RequestMapping("/createRoom")
 	public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object, Object> params){
-		String roomName = (String) params.get("roomName");
+		String roomName = (String) params.get("roomName"); // 방이름 가져오
 		if(roomName != null && !roomName.trim().equals("")) {
 			RoomVO room = new RoomVO();
 			room.setRoomNumber(++roomNumber);
 			room.setRoomName(roomName);
 			roomList.add(room);
+			int check = service.insertRoom(room);
+			
+			if(check != 0) {
+				System.out.println("room 생성 완료 ");
+				
+			}
+			
 		}
 		return roomList;
 	}

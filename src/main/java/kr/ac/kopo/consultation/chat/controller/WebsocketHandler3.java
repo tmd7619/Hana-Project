@@ -8,7 +8,7 @@ import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-public class WebsocketHandler2 extends TextWebSocketHandler {
+public class WebsocketHandler3 extends TextWebSocketHandler {
 
     // afterConnectionEstablished : 웹소켓이 연결되면 호출되는 함수
     // 웹소켓이 연결 되는 것 = 프론트에서 웹소켓이 정확한 경로를 잡아 생성 되는 것
@@ -39,7 +39,7 @@ public class WebsocketHandler2 extends TextWebSocketHandler {
     }
     
     // json 형태의 문자열을 파라미터로 받아서, Simple.json의 파서를 이용해서 JSONObject로 파싱처리 해주는 함수
-	private static JSONObject jsonToObjectParser(String jsonStr) {
+	public static JSONObject jsonToObjectParser(String jsonStr) {
 		JSONParser parser = new JSONParser();
 		JSONObject obj = null;
 		try {

@@ -86,7 +86,7 @@
 		});
 	}
 	
-	function createRoom(){
+	function createRoom(){// 방생성 버튼을 누르면 /createRoom 호
 		$("#createRoom").click(function(){
 			var msg = {	roomName : $('#roomName').val()	};
 

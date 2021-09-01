@@ -20,6 +20,7 @@
 			text-align: left;
 			padding: 5px 5px 5px 15px;
 			color: #FFBB00;
+			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}
 		.chating{
@@ -50,7 +51,8 @@
 	var ws;
 
 	function wsOpen(){
-		ws = new WebSocket("ws://localhost/chating");
+		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
+		ws = new WebSocket("ws://" + location.host + "/chating/"+$("#roomNumber").val());
 		wsEvt();
 	}
 		
@@ -104,6 +106,7 @@
 	function send() {
 		var option ={
 			type: "message",
+			roomNumber: $("#roomNumber").val(),
 			sessionId : $("#sessionId").val(),
 			userName : $("#userName").val(),
 			msg : $("#chatting").val()
@@ -113,27 +116,10 @@
 	}
 </script>
 <body>
-
-	<jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
-	<section class="page-title bg-1">
-	  <div class="container">
-	    <div class="row">
-	      <div class="col-md-12">
-	        <div class="block text-center">
-   			<h1 class="text-capitalize mb-4 text-lg" style="text-align: center;">실시간 채팅상담 </h1>
-	          <ul class="list-inline">
-	            <li class="list-inline-item"></li>
-	            <li class="list-inline-item"><span class="text-white">/</span></li>
-	            <li class="list-inline-item"><a href="#" class="text-white-50">Our blog</a></li>
-	          </ul>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</section>
 	<div id="container" class="container">
-		<h1>채팅</h1>
+		<h1>${roomName}의 채팅방</h1>
 		<input type="hidden" id="sessionId" value="">
+		<input type="hidden" id="roomNumber" value="${roomNumber}">
 		
 		<div id="chating" class="chating">
 		</div>
@@ -157,7 +143,5 @@
 			</table>
 		</div>
 	</div>
-	
-	<jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
 </body>
 </html>

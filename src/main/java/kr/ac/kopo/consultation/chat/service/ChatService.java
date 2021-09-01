@@ -1,5 +1,10 @@
 package kr.ac.kopo.consultation.chat.service;
 
-public class ChatService {
+import kr.ac.kopo.consultation.chat.vo.RoomVO;
+
+public interface ChatService {
+	
+	
+	 int insertRoom(RoomVO roomVo);
 
 }
