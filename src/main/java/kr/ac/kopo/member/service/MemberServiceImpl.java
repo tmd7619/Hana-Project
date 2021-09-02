@@ -20,8 +20,12 @@ public class MemberServiceImpl implements MemberService {
 		MemberVO userVO = memberDAO.login(member);
 		return userVO;
 	}
-	
-	
-	
+
+	@Override
+	public int registerBranch(MemberVO userVO) {
+		int check = memberDAO.registerBranch(userVO);
+		return check;
+	}
+
 
 }

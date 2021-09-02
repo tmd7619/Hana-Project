@@ -504,6 +504,7 @@ ul.dropdown-menu li {
 .bg-1 {
   background: #01888c;
   background-size: cover;
+  margin-bottom: 60px;
 }
 
 .bg-2 {

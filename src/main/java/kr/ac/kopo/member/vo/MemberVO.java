@@ -11,6 +11,16 @@ public class MemberVO {
 	private String email;
 	private String address;
 	private String regDate;
+	private String branchName; // 등록한 지점이름
+
+	public String getBranchName() {
+		return branchName;
+	}
+
+	public void setBranchName(String branchName) {
+		this.branchName = branchName;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
@@ -65,15 +75,20 @@ public class MemberVO {
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "MemberVO [userId=" + userId + ", password=" + password + ", username=" + username + ", nickname="
-				+ nickname + ", birth=" + birth + ", phone=" + phone + ", email=" + email + ", address=" + address
-				+ ", regDate=" + regDate + "]";
+		return "MemberVO{" +
+				"userId='" + userId + '\'' +
+				", password='" + password + '\'' +
+				", username='" + username + '\'' +
+				", nickname='" + nickname + '\'' +
+				", birth='" + birth + '\'' +
+				", phone='" + phone + '\'' +
+				", email='" + email + '\'' +
+				", address='" + address + '\'' +
+				", regDate='" + regDate + '\'' +
+				", branchName='" + branchName + '\'' +
+				'}';
 	}
- 	
-	
-
-	
 }

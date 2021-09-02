@@ -10,7 +10,7 @@
 		<result column="reg_date" property="regDate" />
 	</resultMap>
 
-	<!--
+	<!--e
 		parameterType : #{}으로 넘어온 값
 		resultType : select 문을 통해 조회된 정보를 담을 객체 정의
 	-->
@@ -19,9 +19,18 @@
 		select user_id, password, username, reg_date
 		from member
 		where user_id = #{userId} and password = #{password}
-	
+
 	</select>
-	
+
+	<update id="newBranch" parameterType="memberVO">
+			update member set branch_name = #{branchName}
+			where user_id = #{userId}
+
+
+	</update>
+
+
+
 	
 	
 </mapper>
