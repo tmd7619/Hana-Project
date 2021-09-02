@@ -9,9 +9,14 @@
 		<result column="user_id" property="userId" />
 		<result column="reg_date" property="regDate" />
 	</resultMap>
-	
-	<select id="login" parameterType="memberVO" resultType="memberVO">
-		select user_id, password, username
+
+	<!--
+		parameterType : #{}으로 넘어온 값
+		resultType : select 문을 통해 조회된 정보를 담을 객체 정의
+	-->
+	<!-- resultlMap을 사용할 경우, resultType을 따로 명시하지 않아도 된다.	-->
+	<select id="login" parameterType="memberVO"  resultMap="memberMap" >
+		select user_id, password, username, reg_date
 		from member
 		where user_id = #{userId} and password = #{password}
 	

@@ -169,5 +169,7 @@ final-project.iml
 .idea/
 *.iml
 *.idea
+META-INF/
+classes/
 
 # End of https://www.gitignore.io/api/git,java,maven,eclipse,windows

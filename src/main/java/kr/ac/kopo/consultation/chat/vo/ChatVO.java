@@ -5,8 +5,8 @@ public class ChatVO {
 	private String clerkName; // 지점직원 이름
 	private String userName; // 사용자 이름
 	private String content; // 대화 내용
+
 	private String chatDate; // 대화 날짜
-	
 	public String getClerkName() {
 		return clerkName;
 	}
@@ -31,15 +31,14 @@ public class ChatVO {
 	public void setChatDate(String chatDate) {
 		this.chatDate = chatDate;
 	}
-	
-	
+
 	@Override
 	public String toString() {
 		return "ChatVO [clerkName=" + clerkName + ", userName=" + userName + ", content=" + content + ", chatDate="
 				+ chatDate + "]";
 	}
+
 	
-	
-	
+
 	
 }

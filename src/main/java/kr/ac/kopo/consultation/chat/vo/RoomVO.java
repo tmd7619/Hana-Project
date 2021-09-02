@@ -1,8 +1,10 @@
 package kr.ac.kopo.consultation.chat.vo;
 
 public class RoomVO {
-	int roomNumber;
-	String roomName;
+	int roomNumber; // 방인원
+	String roomName; // 방이름 (대기중인 고객명)
+	String enterDate; // 입장한 시간
+	String endDate; // 상담 종료 시간
 	
 	public int getRoomNumber() {
 		return roomNumber;

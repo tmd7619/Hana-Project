@@ -213,11 +213,11 @@
                         <h2>Login</h2>
                         <form action="${pageContext.request.contextPath }/login" method="post" name="loginForm">
                             <div class="group-input">
-                                <label for="username">UserID </label>
-                                <input type="text" id="username" name="userId">
+                                <label for="userId">UserID </label>
+                                <input type="text" id="userId" name="userId">
                             </div>
                             <div class="group-input">
-                                <label for="pass">Password </label>
+                                <label for="password">Password </label>
                                 <input type="password" id="password" name="password">
                             </div>
                             <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In</button>

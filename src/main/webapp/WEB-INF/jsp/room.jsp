@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <meta charset="UTF-8">
 	<title>Room</title>
 	<style>
@@ -72,7 +71,26 @@
 		}
 	</style>
 </head>
-
+<body>
+	<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+	<div class="container" style="text-align: center">
+		<h1>채팅방</h1>
+		<div id="roomContainer" class="roomContainer">
+			<table id="roomList" class="roomList"></table>
+		</div>
+		<div>
+			<table class="inputTable">
+				<tr>
+					<th>방 제목</th>
+					<th><input type="text" name="roomName" id="roomName"></th>
+					<th><button id="createRoom">방 만들기</button></th>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 	var ws;
 	window.onload = function(){
@@ -85,8 +103,8 @@
 			createChatingRoom(result);
 		});
 	}
-	
-	function createRoom(){// 방생성 버튼을 누르면 /createRoom 호
+
+	function createRoom(){// 방생성 버튼을 누르면 /createRoom 호출
 		$("#createRoom").click(function(){
 			var msg = {	roomName : $('#roomName').val()	};
 
@@ -109,10 +127,10 @@
 				var rn = d.roomName.trim();
 				var roomNumber = d.roomNumber;
 				tag += "<tr>"+
-							"<td class='num'>"+(idx+1)+"</td>"+
-							"<td class='room'>"+ rn +"</td>"+
-							"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
-						"</tr>";	
+						"<td class='num'>"+(idx+1)+"</td>"+
+						"<td class='room'>"+ rn +"</td>"+
+						"<td class='go'><button type='button' onclick='goRoom(\""+roomNumber+"\", \""+rn+"\")'>참여</button></td>" +
+						"</tr>";
 			});
 			$("#roomList").empty().append(tag);
 		}
@@ -134,21 +152,4 @@
 		});
 	}
 </script>
-<body>
-	<div class="container">
-		<h1>채팅방</h1>
-		<div id="roomContainer" class="roomContainer">
-			<table id="roomList" class="roomList"></table>
-		</div>
-		<div>
-			<table class="inputTable">
-				<tr>
-					<th>방 제목</th>
-					<th><input type="text" name="roomName" id="roomName"></th>
-					<th><button id="createRoom">방 만들기</button></th>
-				</tr>
-			</table>
-		</div>
-	</div>
-</body>
 </html>

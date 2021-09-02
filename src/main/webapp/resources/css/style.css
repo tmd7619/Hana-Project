@@ -276,7 +276,7 @@ input[type="email"]:focus, input[type="password"]:focus, input[type="text"]:focu
 }
 
 .text-lg {
-  font-size: 3.75rem;
+  font-size: 3.00rem;
 }
 
 .no-spacing {
@@ -1327,7 +1327,7 @@ h3.quote::before {
     margin-bottom: 30px;
     padding-bottom: 0px;
   }
-  .dropdown-menu {
+  .fropdown-menu {
     display: none;
     width: 100%;
     text-align: center;

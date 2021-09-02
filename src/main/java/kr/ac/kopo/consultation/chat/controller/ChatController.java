@@ -19,6 +19,8 @@ import kr.ac.kopo.consultation.chat.vo.RoomVO;
 @Controller
 public class ChatController {
 
+    private static int roomNumber = 0 ;
+
 
     @Autowired
     ChatService service;
@@ -51,11 +53,11 @@ public class ChatController {
      * @return
      */
     @RequestMapping("/createRoom")
-    public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object, Object> params){
-        String roomName = (String) params.get("roomName"); // 방이름 가져오기
+    public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object,Object> params){
+        String roomName = (String) params.get("roomName");
         if(roomName != null && !roomName.trim().equals("")) {
             RoomVO room = new RoomVO();
-//			room.setRoomNumber(++roomNumber);
+			room.setRoomNumber(++roomNumber);
             room.setRoomName(roomName);
             roomList.add(room);
             int check = service.insertRoom(room);

@@ -73,8 +73,4 @@
    <script src="${pageContext.request.contextPath}/resources/plugins/counterup/jquery.waypoints.min.js"></script>
    <script src="${pageContext.request.contextPath}/resources/plugins/counterup/jquery.counterup.min.js"></script>
 
-   <!-- Google Map -->
-   <script src="${pageContext.request.contextPath}/resources/plugins/google-map/map.js"></script>
-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap"></script>    
-   
    <script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
