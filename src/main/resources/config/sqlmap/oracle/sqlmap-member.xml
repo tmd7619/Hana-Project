@@ -8,6 +8,7 @@
 	<resultMap type="memberVO" id="memberMap">
 		<result column="user_id" property="userId" />
 		<result column="reg_date" property="regDate" />
+		<result column="branch_name" property="branchName"/>
 	</resultMap>
 
 	<!--e
@@ -16,7 +17,7 @@
 	-->
 	<!-- resultlMap을 사용할 경우, resultType을 따로 명시하지 않아도 된다.	-->
 	<select id="login" parameterType="memberVO"  resultMap="memberMap" >
-		select user_id, password, username, reg_date
+		select user_id, password, username, reg_date, branch_name
 		from member
 		where user_id = #{userId} and password = #{password}
 

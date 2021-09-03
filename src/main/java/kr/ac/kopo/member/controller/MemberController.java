@@ -37,9 +37,12 @@ public class MemberController {
 		
 		// 로그인 성공
 		model.addAttribute("userVO", userVO);
-		
-		
+
 		session.setAttribute("userVO", userVO); // redirect로 인해, session에 미리 등록해준다.
+
+		if(!(userVO.getBranchName().equals("지점미등록")))
+			session.setAttribute("branchName" , userVO.getBranchName());
+
 		String dest = (String)session.getAttribute("dest");
 		if(dest != null) { // 로그인 페이지 전에 다른 url
 			session.removeAttribute("dest"); // dest session은 이제 필요 없기 때문에, 세션 제거
@@ -77,6 +80,7 @@ public class MemberController {
 		int check = service.registerBranch(userVO);
 		if(check != 0 ){
 			session.setAttribute("branchName" , title);
+			System.out.println("지점 등록이 완료되었습니다.");
 		}
 
 

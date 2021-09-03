@@ -48,7 +48,7 @@
         #my_modal {
             display: none;
             width: 500px;
-            height: 300px;
+            height: 400px;
             padding: 20px 60px;
             background-color: #fefefe;
             border: 1px solid #888;
@@ -60,11 +60,11 @@
 
         #my_modal .modal_close_btn {
             position: relative;
-            left: 10px;
         }
 
         #branch_btn{
             float: right;
+            padding-top: 40px;
         }
 
     </style>
@@ -95,7 +95,8 @@
     </section>
 
     <div id="my_modal" style="text-align: center">
-       <div style="padding-top: 100px;font-weight: bold">지점을 등록하시겠습니까?</div>
+        <h1><div id="title" style="padding-top: 100px;"></div></h1>
+       <h3><div style="padding-top: 50px;font-weight: bold">지점을 등록하시겠습니까?</div></h3>
         <br>
         <div id="branch_btn">
                 <button type="submit" onclick="btn_click(clickTitle)" >지점등록</button>
@@ -114,7 +115,7 @@
             <div class="option">
                 <div>
                     <form onsubmit="searchPlaces(); return false;">
-                        <input type="hidden" value="하나은행" id="keyword" size="15">
+                        <input type="hidden" value="철산역 하나은행" id="keyword" size="15">
                     </form>
                 </div>
             </div>
@@ -133,7 +134,7 @@
         var mapContainer = document.getElementById('map'), // 지도를 표시할 div
             mapOption = {
                 center: new kakao.maps.LatLng(37.566826, 126.9786567), // 지도의 중심좌표
-                level: 3 // 지도의 확대 레벨
+                level: 5 // 지도의 확대 레벨
             };
         // 지도를 생성합니다
         var map = new kakao.maps.Map(mapContainer, mapOption);
@@ -212,9 +213,9 @@
             // 지도에 표시할 원을 생성합니다
             var circle = new kakao.maps.Circle({
                 center: new kakao.maps.LatLng(lat, lon),  // 원의 중심좌표 입니다
-                radius: 3000, // 미터 단위의 원의 반지름입니다
+                radius: 1500, // 미터 단위의 원의 반지름입니다
                 strokeWeight: 5, // 선의 두께입니다
-                strokeColor: '#27b2a5', // 선의 색깔입니다
+                strokeColor: '#68e0d5', // 선의 색깔입니다
                 strokeOpacity: 0, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
                 strokeStyle: 'dashed', // 선의 스타일 입니다
                 fillColor: '#27b2a5', // 채우기 색깔입니다
@@ -224,10 +225,7 @@
             circle.setMap(map);
         }
 
-
-
-
-            // 키워드로 장소를 검색합니다
+        // 키워드로 장소를 검색합니다
             searchPlaces();
 
             // 키워드 검색을 요청하는 함수입니다
@@ -321,7 +319,8 @@
                 map.setBounds(bounds);
             }
 
-            // 검색결과 항목을 Element로 반환하는 함수입니다
+
+        // 검색결과 항목을 Element로 반환하는 함수입니다
             function getListItem(index, places) {
 
                 var el = document.createElement('li'),
@@ -353,7 +352,6 @@
                         spriteSize: new kakao.maps.Size(36, 691), // 스프라이트 이미지의 크기
                         spriteOrigin: new kakao.maps.Point(0, (idx * 46) + 10), // 스프라이트 이미지 중 사용할 영역의 좌상단 좌표
                         offset: new kakao.maps.Point(13, 37),  // 마커 좌표에 일치시킬 이미지 내에서의 좌표
-                        level: 5
                     },
                     markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imgOptions),
                     marker = new kakao.maps.Marker({
@@ -408,9 +406,9 @@
 
             // 검색결과 목록 또는 마커를 클릭했을 때 호출되는 함수입니다
             // 인포윈도우에 장소명을 표시합니다
-            var clickTitle ;
+            var clickTitle ; // 마커에 표시된 지점 이름 저장 변수
 
-            function displayInfowindow(marker, title, ) {
+            function displayInfowindow(marker, title) {
                 var content = '<div style="padding:5px;z-index:1;">' + title + '</div>';
 
                 infowindow.setContent(content)
@@ -418,18 +416,21 @@
                 clickTitle = title;
 
                 kakao.maps.event.addListener(marker, 'click', function() {
+                    let title = document.getElementById("title")
+                    title.innerText = clickTitle;
                     modal('my_modal')
                 });
 
             }
 
 
-            // 검색결과 목록의 자식 Element를 제거하는 함수입니다
+        // 검색결과 목록의 자식 Element를 제거하는 함수입니다
             function removeAllChildNods(el) {
                 while (el.hasChildNodes()) {
                     el.removeChild(el.lastChild);
                 }
             }
+
 
         function modal(id) {
             var zIndex = 9999;
@@ -482,8 +483,10 @@
         console.log(clickTitle)
         let title2 = clickTitle.replace(" ", "")
         console.log(title2)
-        location.href = '${pageContext.request.contextPath}/register/branch?title=' + title2 ;
+        location.href = '${pageContext.request.contextPath}/register/branch?title=' + title ;
     }
+
+
 
 
 

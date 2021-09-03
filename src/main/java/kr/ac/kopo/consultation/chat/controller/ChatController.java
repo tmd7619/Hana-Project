@@ -1,10 +1,7 @@
 package kr.ac.kopo.consultation.chat.controller;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import kr.ac.kopo.consultation.chat.service.ChatService;
+import kr.ac.kopo.consultation.chat.vo.RoomVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,13 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.ac.kopo.consultation.chat.service.ChatService;
-import kr.ac.kopo.consultation.chat.vo.RoomVO;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class ChatController {
 
-    private static int roomNumber = 0 ;
 
 
     @Autowired
@@ -57,6 +55,7 @@ public class ChatController {
         String roomName = (String) params.get("roomName");
         if(roomName != null && !roomName.trim().equals("")) {
             RoomVO room = new RoomVO();
+            int roomNumber = 0 ; // 채팅방 입장인원 0명으로 초기화
 			room.setRoomNumber(++roomNumber);
             room.setRoomName(roomName);
             roomList.add(room);
