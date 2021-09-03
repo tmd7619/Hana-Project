@@ -46,7 +46,7 @@
 						<div class="block">
 							<span class="d-block mb-3 text-white text-capitalize">Hana Financial Group </span>
 							<c:choose>
-								<c:when test="${not empty userVO && not empty branchName}">
+								<c:when test="${not empty userVO && not empty sessionScope.branchName}">
 									로그인완료 , 지점까지 완료
 								</c:when>
 								<c:when test="${not empty userVO && empty sessionScope.branchName}">

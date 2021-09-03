@@ -1,6 +1,7 @@
 package kr.ac.kopo.member.controller;
-import kr.ac.kopo.member.service.MemberService;
-import kr.ac.kopo.member.vo.MemberVO;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import kr.ac.kopo.member.service.MemberService;
+import kr.ac.kopo.member.vo.MemberVO;
 
 
 // 원래는 {} 배열 형태로, 여러개 등록 가능
@@ -40,9 +41,11 @@ public class MemberController {
 
 		session.setAttribute("userVO", userVO); // redirect로 인해, session에 미리 등록해준다.
 
-		if(!(userVO.getBranchName().equals("지점미등록")))
+		if(!(userVO.getBranchName().equals("지점미등록"))) {
 			session.setAttribute("branchName" , userVO.getBranchName());
-
+		} else {
+			System.out.println("지점 미등록 세션 등록 x");
+		}
 		String dest = (String)session.getAttribute("dest");
 		if(dest != null) { // 로그인 페이지 전에 다른 url
 			session.removeAttribute("dest"); // dest session은 이제 필요 없기 때문에, 세션 제거
