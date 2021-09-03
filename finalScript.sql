@@ -35,6 +35,9 @@ values(member_seq.nextval,'test2','1234','최민기','최밍키','951121','010-6
 commit;
 rollback;
 
+update member set branch_name = '지점미등록' where user_id = 'test2';
+
+
 select * from member;
 ----------------------------------------------------------------------------------------------------------------------
 
