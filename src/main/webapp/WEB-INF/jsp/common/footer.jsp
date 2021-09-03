@@ -1,76 +1,87 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-    <!-- Footer Section Begin -->
-    <footer class="footer-section">
-       <div class="copyright-reserved">
-        </div> 
+    <footer class="ftco-footer">
         <div class="container">
-            <div class="row">
-               		<div class="col">
-                    <div class="footer-widget">
-                        <h5>온라인 투자 상담</h5>
-                        <ul style="padding-left: 0px">
-                            <li><a href="#">About Us</a></li>
-                            <li><a href="#">Checkout</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Serivius</a></li>
+            <div class="row mb-5">
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2 logo"><a href="#">Counselor</a></h2>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Explore</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>What We Do</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Plans &amp; Pricing</a></li>
                         </ul>
                     </div>
                 </div>
-               			<div class="col">
-                    <div class="footer-widget">
-                        <h5>자산 관리</h5>
-                        <ul style="padding-left: 0px">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Legal</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Join us</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Blog</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Privacy &amp; Policy</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
                         </ul>
                     </div>
                 </div>
-                			<div class="col">
-                    <div class="footer-widget">
-                        <h5>자산 관리</h5>
-                        <ul style="padding-left: 0px">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Company</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About Us</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Blog</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Careers</a></li>
                         </ul>
                     </div>
                 </div>
-              		<div class="col">
-                    <div class="footer-widget">
-                        <h5>자산 관리</h5>
-                        <ul style="padding-left: 0px">
-                            <li><a href="#">My Account</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Shopping Cart</a></li>
-                            <li><a href="#">Shop</a></li>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Company</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About Us</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Blog</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Careers</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
-     
+        <div class="container-fluid px-0 py-5 bg-black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <p class="mb-0" style="color: rgba(255,255,255,.5);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                            Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart color-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
-    <!-- Footer Section End -->
 
-   <!--Essential Scripts=====================================-->
 
-   <!-- Main jQuery -->
-   <script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery.js"></script>
-   <script src="${pageContext.request.contextPath}/resources/js/contact.js"></script>
-   <!-- Bootstrap 4.3.1 -->
-   <script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/js/popper.js"></script>
-   <script src="${pageContext.request.contextPath}/resources/plugins/bootstrap/js/bootstrap.min.js"></script>
-  <!--  Magnific Popup-->
-   <script src="${pageContext.request.contextPath}/resources/plugins/magnific-popup/dist/jquery.magnific-popup.min.js"></script>
-   <!-- Slick Slider -->
-   <script src="${pageContext.request.contextPath}/resources/plugins/slick-carousel/slick/slick.min.js"></script>
-   <!-- Counterup -->
-   <script src="${pageContext.request.contextPath}/resources/plugins/counterup/jquery.waypoints.min.js"></script>
-   <script src="${pageContext.request.contextPath}/resources/plugins/counterup/jquery.counterup.min.js"></script>
 
-   <script src="${pageContext.request.contextPath}/resources/js/script.js"></script>
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
+
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/popper.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.stellar.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/jquery.animateNumber.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/scrollax.min.js"></script>
+    <script src="${pageContext.request.contextPath}/resources/js/main.js"></script>

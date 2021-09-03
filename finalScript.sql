@@ -15,8 +15,7 @@ birth varchar2(30) NOT NULL,
 phone varchar2(20) NOT NULL, -- unique 키 고려 ?
 email varchar2(50) NOT NULL,
 address varchar2(200) NOT NULL,
-reg_date date default sysdate ,
-branch_name varchar2(50) default '지점미등록' -- 지점 등록시, update 되는 컬럼
+reg_date date default sysdate
 );
 DROP SEQUENCE Member_seq;
 CREATE SEQUENCE Member_seq -- member 테이블 시퀀스
@@ -62,5 +61,25 @@ insert into chat_room(chat_room_id, room_number, room_name)
 values(chat_room_seq.nextval, 1 , '윤승원' );
 
 select * from chat_room;
-
 ---------------------------------------------------------------------------------------
+
+DROP TABLE Private_banker;
+CREATE TABLE Private_banker
+(
+PrivateBanker_Info_id NUMBER  NOT NULL , 
+pb_name              VARCHAR2(20)  NOT NULL UNIQUE ,
+pb_rank              VARCHAR2(20)  NOT NULL , 
+pb_phone             VARCHAR2(30)  NOT NULL , 
+pb_email             VARCHAR2(100) NOT NULL , -- pb email
+branch_name          VARCHAR2(50) NOT  NULL
+-- CONSTRAINT FK_PrivateBanker_Info_branch_name FOREIGN KEY(branch_name) REFERENCES Branch_Info(branch_name)
+);
+DROP SEQUENCE Private_banker_seq;
+CREATE SEQUENCE  Private_banker_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+insert into private_banker(PrivateBanker_Info_id, pb_name, pb_rank, pb_phone, pb_email, branch_name)
+    values(Private_banker_seq.nextval, '김피비', '대리', '010-6211-1211', 'tmd714@naver.com', '강서지점');
+
+
+

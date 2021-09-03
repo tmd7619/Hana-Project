@@ -114,7 +114,7 @@
 </script>
 <body>
 
-	<jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/jsp/common/header2.jsp"></jsp:include>
 	<section class="page-title bg-1">
 	  <div class="container">
 	    <div class="row">
@@ -158,6 +158,6 @@
 		</div>
 	</div>
 	
-	<jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/jsp/common/footer2.jsp"></jsp:include>
 </body>
 </html>

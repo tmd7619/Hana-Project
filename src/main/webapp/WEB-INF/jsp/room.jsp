@@ -72,7 +72,7 @@
 	</style>
 </head>
 <body>
-	<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+	<jsp:include page="/WEB-INF/jsp/common/header2.jsp"/>
 	<div class="container" style="text-align: center">
 		<h1>채팅방</h1>
 		<div id="roomContainer" class="roomContainer">
@@ -88,7 +88,7 @@
 			</table>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+	<jsp:include page="/WEB-INF/jsp/common/footer2.jsp"/>
 </body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
