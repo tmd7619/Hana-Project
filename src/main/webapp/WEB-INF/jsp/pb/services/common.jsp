@@ -33,10 +33,10 @@
                     <div class="icon-wrap">
                         <div class="number d-flex align-items-center justify-content-center"><span>01</span></div>
                         <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-calendar"></span>
+                            <a href="${pageContext.request.contextPath}/pb/scheduler"><span class="flaticon-calendar"></span> </a>
                         </div>
                     </div>
-                    <h2>Make Schedule</h2>
+                    <h2>스케줄 관리하기</h2>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                             <span class="flaticon-qa"></span>
                         </div>
                     </div>
-                    <h2>Start Discussion</h2>
+                    <h2>상담 진행하기</h2>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 </div>
             </div>
@@ -60,7 +60,7 @@
                             <span class="flaticon-checklist"></span>
                         </div>
                     </div>
-                    <h2>Enjoy Plan</h2>
+                    <h2>상담 내역확인</h2>
                     <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
                 </div>
             </div>

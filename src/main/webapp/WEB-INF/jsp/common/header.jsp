@@ -372,7 +372,7 @@
                     </c:when>
                     <c:when test="${not empty bankerVO }">
                         <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">PB Service</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/pb/services" class="nav-link">PB Service</a></li>
                     </c:when>
                 </c:choose>
             </ul>

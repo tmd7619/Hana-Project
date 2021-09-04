@@ -100,4 +100,11 @@ public class ChatController {
         }
         return mv;
     }
+
+
+    @RequestMapping("chatTest")
+    public String chatTest(){
+        return "chatTest2";
+    }
+
 }

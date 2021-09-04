@@ -8534,7 +8534,7 @@ h1, h2, h3, h4, h5,
       height: 50px;
       border-radius: 50%;
       z-index: 1;
-      background: #589167;
+      background: #008485;
       border: 5px solid #fff; }
       .services-2 .icon-wrap .number span {
         font-weight: 500;
@@ -8563,7 +8563,7 @@ h1, h2, h3, h4, h5,
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: #589167;
+      background: #008485;
       content: '';
       z-index: -1;
       -moz-transition: all 0.3s ease;
@@ -8583,9 +8583,9 @@ h1, h2, h3, h4, h5,
     -moz-box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.15); }
     .services-2:hover .icon-wrap .number span {
-      color: #589167; }
+      color: #008485; }
   .services-2:hover .icon {
-    background: #589167;
+    background: #008485;
     -webkit-box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.15);
     -moz-box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 4px 15px -6px rgba(0, 0, 0, 0.15); }
