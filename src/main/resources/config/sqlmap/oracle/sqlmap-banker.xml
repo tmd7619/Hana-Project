@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="banker.BankerDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+	
+	
+	<resultMap type="bankerVO" id="bankerMap">
+		<result column="pb_id" property="pbId" />
+		<result column="pb_password" property="pbPassword"/>
+		<result column="pb_name" property="pbName"/>
+	</resultMap>
+
+	<!--e
+		parameterType : #{}으로 넘어온 값
+		resultType : select 문을 통해 조회된 정보를 담을 객체 정의
+	-->
+	<!-- resultlMap을 사용할 경우, resultType을 따로 명시하지 않아도 된다.	-->
+	<select id="login" parameterType="bankerVO"  resultMap="bankerMap" >
+		select pb_id, pb_password, pb_name
+		from Private_banker
+		where pb_id = #{pbId} and pb_password = #{pbPassword}
+
+	</select>
+
+
+	
+</mapper>

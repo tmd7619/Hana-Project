@@ -67,6 +67,8 @@ DROP TABLE Private_banker;
 CREATE TABLE Private_banker
 (
 PrivateBanker_Info_id NUMBER  NOT NULL , 
+pb_id                VARCHAR2(30) NOT NULL,
+pb_password          VARCHAR2(50) NOT NULL,
 pb_name              VARCHAR2(20)  NOT NULL UNIQUE ,
 pb_rank              VARCHAR2(20)  NOT NULL , 
 pb_phone             VARCHAR2(30)  NOT NULL , 
@@ -78,8 +80,9 @@ DROP SEQUENCE Private_banker_seq;
 CREATE SEQUENCE  Private_banker_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
-insert into private_banker(PrivateBanker_Info_id, pb_name, pb_rank, pb_phone, pb_email, branch_name)
-    values(Private_banker_seq.nextval, '김피비', '대리', '010-6211-1211', 'tmd714@naver.com', '강서지점');
+insert into private_banker(PrivateBanker_Info_id,pb_id ,pb_password,pb_name, pb_rank, pb_phone, pb_email, branch_name)
+    values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리', '010-6211-1211', 'tmd714@naver.com', '강서지점');
+commit;
 
 
 

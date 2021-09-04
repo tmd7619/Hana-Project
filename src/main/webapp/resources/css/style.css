@@ -8225,7 +8225,7 @@ h1, h2, h3, h4, h5,
 
 .hero-wrap {
   width: 100%;
-  height: 850px;
+  height: 650px;
   position: inherit;
   background-size: cover;
   background-repeat: no-repeat;
@@ -8473,9 +8473,9 @@ h1, h2, h3, h4, h5,
   position: relative; }
   @media (min-width: 768px) {
     .ftco-intro .intro {
-      margin-top: -70px; } }
+      margin-top: 0px; } }
   .ftco-intro .intro.aside-stretch {
-    background: #589167; }
+    background: #27b2a5; }
     .ftco-intro .intro.aside-stretch:after {
       position: absolute;
       top: 0;
@@ -8483,7 +8483,7 @@ h1, h2, h3, h4, h5,
       bottom: 0;
       content: '';
       width: 360%;
-      background: #589167;
+      background: #27b2a5;
       z-index: 99; }
     @media (max-width: 991.98px) {
       .ftco-intro .intro.aside-stretch:after {
@@ -8492,12 +8492,12 @@ h1, h2, h3, h4, h5,
 
 .intro {
   width: 100%;
-  background: #589167;
+  background: #27b2a5;
   padding: 30px; }
   .intro.color-1 {
-    background: #528760; }
+    background: #27b2a5; }
   .intro.color-2 {
-    background: #4e815c; }
+    background: #27b2a5; }
   .intro .icon {
     margin-right: 20px; }
     .intro .icon span {

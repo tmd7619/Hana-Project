@@ -34,9 +34,29 @@
                 background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
                 overflow: hidden; /* 모달 띄웠을 시, 옆에 스크롤 제거 */
             }
+            .modal2 {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                background-color: rgb(0,0,0); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+                overflow: hidden; /* 모달 띄웠을 시, 옆에 스크롤 제거 */
+            }
 
             /* Modal Content/Box */
             #modal-content {
+                background-color: #fefefe;
+                margin: 15% auto; /* 15% from the top and centered */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 30%; /* Could be more or less, depending on screen size */
+            }
+            /* Modal Content/Box */
+            #modal-content2 {
                 background-color: #fefefe;
                 margin: 15% auto; /* 15% from the top and centered */
                 padding: 20px;
@@ -240,7 +260,7 @@
                 outline: 0px;
                 border: 0px;
             }
-            #loginBtn, #logoutBtn{
+            #loginBtn, #logoutBtn, #loginBtn2{
 
                 border-radius: 50px;
             }
@@ -259,7 +279,7 @@
         <div id="modal-content">
             <div class="login-form">
 
-                <h2>Login</h2>
+                <h2>고객 로그인</h2>
                 <form action="${pageContext.request.contextPath }/login" method="post" name="loginForm">
                     <div class="group-input">
                         <label for="userId">UserID </label>
@@ -273,7 +293,33 @@
                 </form>
                 <div class="switch-login">
                     <a href="<%=request.getContextPath() %>/register.do" class="or-login">Or Create An Account</a>
-                    <a id="kakao-login-btn" style="padding-left: 30px"></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!--End Modal-->
+
+    <!-- The Modal -->
+    <div id="myModal2" class="modal2" >
+        <!-- Modal content -->
+        <div id="modal-content2">
+            <div class="login-form">
+
+                <h2>PB 로그인</h2>
+                <form action="${pageContext.request.contextPath }/pb/login" method="post" name="loginForm">
+                    <div class="group-input">
+                        <label for="userId">UserID </label>
+                        <input type="text" id="아이디 입력" name="pbId">
+                    </div>
+                    <div class="group-input">
+                        <label for="password">Password </label>
+                        <input type="password" id="패스워드 입력" name="pbPassword">
+                    </div>
+                    <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In</button>
+                </form>
+                <div class="switch-login">
+                    <a href="<%=request.getContextPath() %>/register.do" class="or-login">Or Create An Account</a>
                 </div>
             </div>
         </div>
@@ -316,23 +362,36 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">PB 찾기</a></li>
-                <li class="nav-item"><a href="counselor.html" class="nav-link">온라인 투자 상담</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">문의 게시판</a></li>
-                <li class="nav-item"><a href="pricing.html" class="nav-link">My 리워드</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                <c:choose>
+                    <c:when test="${empty bankerVO}">
+                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">PB 찾기</a></li>
+                        <li class="nav-item"><a href="counselor.html" class="nav-link">온라인 투자 상담</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">문의 게시판</a></li>
+                        <li class="nav-item"><a href="pricing.html" class="nav-link">My 리워드</a></li>
+                    </c:when>
+                    <c:when test="${not empty bankerVO }">
+                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">PB Service</a></li>
+                    </c:when>
+                </c:choose>
             </ul>
         </div>
         <c:choose>
-            <c:when test="${empty userVO }">
-                <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">로그인</button>
-                <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 5px;padding: .5rem 1.5rem;">회원가입</button>
+            <c:when test="${empty userVO && empty bankerVO}">
+                <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">고객 로그인</button>
+                <button id="loginBtn2" class="btn btn-solid-border btn-round-full" style="margin-left: 5px;padding: .5rem 1.5rem;">PB 로그인</button>
             </c:when>
-            <c:otherwise>
+            <c:when test="${not empty userVO }">
                 <button id="logoutBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">로그아웃</button>
-            </c:otherwise>
+            </c:when>
+            <c:when test="${empty bankerVO}">
+                <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">고객 로그인</button>
+                <button id="loginBtn2" class="btn btn-solid-border btn-round-full" style="margin-left: 5px;padding: .5rem 1.5rem;">PB 로그인</button>
+            </c:when>
+            <c:when test="${not empty bankerVO && empty userVO }">
+                <button id="logoutBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">로그아웃</button>
+            </c:when>
         </c:choose>
     </div>
 </nav>
@@ -346,7 +405,7 @@
 
             });
             $('#loginBtn2').click(function(){
-                $('#myModal').show();
+                $('#myModal2').show();
 
             });
 
@@ -362,6 +421,10 @@
             var LayerPopup = $(".modal");
             if(LayerPopup.has(e.target).length === 0){
                 $('#myModal').hide();
+            }
+            var LayerPopup = $(".modal2");
+            if(LayerPopup.has(e.target).length === 0){
+                $('#myModal2').hide();
             }
         });
     </script>
