@@ -2,17 +2,23 @@ package kr.ac.kopo.banker.controller;
 
 import kr.ac.kopo.banker.service.BankerService;
 import kr.ac.kopo.banker.vo.BankerVO;
+import kr.ac.kopo.banker.vo.SchedulerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 // 원래는 {} 배열 형태로, 여러개 등록 가능
-@Controller
+@Controller("bankerController")
 public class BankerController {
 
     @Autowired
@@ -57,10 +63,56 @@ public class BankerController {
         return "pb/services/common";
     }
 
-    @RequestMapping("/pb/scheduler")
-    public String viewScheduler(){
-        return "pb/services/scheduler";
+//    @RequestMapping("/pb/scheduler")
+//    public String viewScheduler(){
+//        return "scheduler2";
+//    }
+//
+//    @RequestMapping("/pb/scheduler/popup")
+//        public String viewPopup(){
+//
+//        return "pb/services/schedulePopup";
+//    }
+
+
+
+    //일정 관리 페이지
+    @RequestMapping(value = "/schedule")
+    public String schedule(Model model)throws Exception {
+
+        model.addAttribute("showSchedule" , service.showSchedule());
+
+        return "pb/services/schedule";
     }
+
+
+    //일정 추가 팝업
+    @RequestMapping(value = "/schedulePopup")
+    public String test2() throws Exception {
+        return "pb/services/schedulePopup";
+    }
+
+    //일정 추가 버튼 클릭 Ajax
+    @ResponseBody
+    @RequestMapping(value = "/addSchedule", method = RequestMethod.POST)
+    public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO) throws Exception{
+        Map<Object,Object>map = new HashMap<Object,Object>();
+
+        service.addSchedule(schedulerVO);
+
+        return map;
+    }
+
+    //일정 보이기 (임시)
+    @ResponseBody
+    @RequestMapping(value = "/showSchedule")
+    public List<SchedulerVO> showSchedule() throws Exception {
+
+        List<SchedulerVO> list = service.showSchedule();
+
+        return list;
+    }
+
 
 
 

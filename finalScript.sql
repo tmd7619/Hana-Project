@@ -110,3 +110,21 @@ CREATE SEQUENCE  matching_client_info_seq  MINVALUE 1 MAXVALUE 9999
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+drop table pb_scheduler ;
+create table pb_scheduler(
+    scheduler_id number primary key,
+    title varchar2(50) not null,
+    start_date date default sysdate,
+    end_date date,
+    memo varchar2(20) ,
+    pb_name  varchar2(30),
+    pb_branch_name varchar2(50),
+    available number(1) ,
+    private_banker_id number
+);
+
+drop sequence pb_scheduler;
+CREATE SEQUENCE  pb_scheduler_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+

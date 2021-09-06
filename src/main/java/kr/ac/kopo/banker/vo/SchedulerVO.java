@@ -8,6 +8,17 @@ public class SchedulerVO {
     private String pbName; // 담당 직원 이름
     private String pbBranchName; // 담당 직원 브랜치명
     private int    available; // 상담 가능 여부 : 0 : 불가능  1 : 가능
+    private String memo;
+
+    public String getMemo() {
+        return memo;
+    }
+
+
+
+    public void setMemo(String memo) {
+        this.memo = memo;
+    }
 
     public String getTitle() {
         return title;
@@ -57,6 +68,7 @@ public class SchedulerVO {
         this.available = available;
     }
 
+
     @Override
     public String toString() {
         return "SchedulerVO{" +
@@ -66,6 +78,7 @@ public class SchedulerVO {
                 ", pbName='" + pbName + '\'' +
                 ", pbBranchName='" + pbBranchName + '\'' +
                 ", available=" + available +
+                ", memo='" + memo + '\'' +
                 '}';
     }
 }
