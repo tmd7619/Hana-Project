@@ -46,7 +46,7 @@
 </style>
 <body>
 
-    <jsp:include page="/WEB-INF/jsp/common/header2.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
 
     <!-- 	<div class="main-wrapper "> -->
     <section class="page-title bg-1">
@@ -77,7 +77,7 @@
         </div>
     </main>
 
-    <jsp:include page="/WEB-INF/jsp/common/footer2.jsp"></jsp:include>
+    <jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
 
 </body>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c68f95dd575cfcf0f41226a101951816"></script>
