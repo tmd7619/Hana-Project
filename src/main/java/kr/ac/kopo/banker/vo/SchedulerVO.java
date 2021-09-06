@@ -1,0 +1,71 @@
+package kr.ac.kopo.banker.vo;
+
+public class SchedulerVO {
+
+    private String title; // 스케줄 제목
+    private String startDate; // 시작 시간
+    private String endDate; // 끝나는 시간
+    private String pbName; // 담당 직원 이름
+    private String pbBranchName; // 담당 직원 브랜치명
+    private int    available; // 상담 가능 여부 : 0 : 불가능  1 : 가능
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    public String getPbName() {
+        return pbName;
+    }
+
+    public void setPbName(String pbName) {
+        this.pbName = pbName;
+    }
+
+    public String getPbBranchName() {
+        return pbBranchName;
+    }
+
+    public void setPbBranchName(String pbBranchName) {
+        this.pbBranchName = pbBranchName;
+    }
+
+    public int getAvailable() {
+        return available;
+    }
+
+    public void setAvailable(int available) {
+        this.available = available;
+    }
+
+    @Override
+    public String toString() {
+        return "SchedulerVO{" +
+                "title='" + title + '\'' +
+                ", startDate='" + startDate + '\'' +
+                ", endDate='" + endDate + '\'' +
+                ", pbName='" + pbName + '\'' +
+                ", pbBranchName='" + pbBranchName + '\'' +
+                ", available=" + available +
+                '}';
+    }
+}
