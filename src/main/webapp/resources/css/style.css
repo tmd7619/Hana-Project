@@ -38,7 +38,11 @@
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  color :black;;
+}
+
+
 
 html {
   font-family: sans-serif;
@@ -8027,13 +8031,13 @@ h1, h2, h3, h4, h5,
   position: relative;
   z-index: 0;
   width: 100%;
-  background: #008485; }
+  background: transparent; }
   .wrap .phone {
     z-index: 1; }
     .wrap .phone span {
       color: #fff; }
     .wrap .phone a {
-      color: #fff;
+      color: black;
       font-size: 12px; }
 
 .social-media {
@@ -8237,7 +8241,7 @@ h1, h2, h3, h4, h5,
     position: relative; }
     .hero-wrap.hero-wrap-2 .overlay {
       width: 100%;
-      height: 400px;
+      height: 300px;
       position: absolute;
       top: 0;
       left: 0;
@@ -8254,14 +8258,13 @@ h1, h2, h3, h4, h5,
       background: linear-gradient(45deg, #589167 0%, rgba(88, 145, 103, 0) 100%);
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#589167', endColorstr='#589167', GradientType=1 ); }
     .hero-wrap.hero-wrap-2 .slider-text {
-      height: 400px !important; }
+      height: 250px ; }
 
 .slider-text {
-  height: 850px;
+  height: 600px;
   position: relative; }
   .slider-text h1 {
     font-size: 60px;
-    color: #000000;
     line-height: 1.1;
     font-weight: 500; }
     .slider-text h1 span {
@@ -8483,7 +8486,6 @@ h1, h2, h3, h4, h5,
       bottom: 0;
       content: '';
       width: 360%;
-      background: #27b2a5;
       z-index: 99; }
     @media (max-width: 991.98px) {
       .ftco-intro .intro.aside-stretch:after {
@@ -8574,7 +8576,7 @@ h1, h2, h3, h4, h5,
     .services-2 .icon span {
       font-size: 70px;
       color: #000000; }
-  .services-2 h2 {
+  .services-2 h2 {.wrap .phone
     font-size: 24px;
     font-weight: 500; }
   .services-2:hover .icon-wrap .number {
@@ -8841,7 +8843,6 @@ textarea.form-control {
     box-shadow: 0px 24px 48px -13px rgba(0, 0, 0, 0.11); }
 
 .ftco-section {
-  padding: 6em 0;
   position: relative; }
   @media (max-width: 767.98px) {
     .ftco-section {
