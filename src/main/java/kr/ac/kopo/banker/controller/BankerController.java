@@ -18,6 +18,13 @@ public class BankerController {
     @Autowired
     private BankerService service;
 
+    @RequestMapping("/pb")
+    public String viewIndex(){
+
+        return "index";
+    }
+
+
     @RequestMapping(value = "/pb/login", method = RequestMethod.POST)
     public String login(BankerVO banker, Model model, HttpSession session) {
 
@@ -41,7 +48,7 @@ public class BankerController {
             return "redirect:" + dest;  // 로그인 전 페이지로 redirect
         }
 
-        return "redirect:/"; // 스프링에서는 redirect 시 , 포워드 처럼 루트패스 다음으로 경로를 잡아줌
+        return "redirect:/pb"; // 스프링에서는 redirect 시 , 포워드 처럼 루트패스 다음으로 경로를 잡아줌
     }
 
     @RequestMapping("/pb/services")

@@ -7,9 +7,10 @@
     <title>Insert title here</title>
 </head>
 <body>
-        <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
-<div class="hero-wrap" style="background-image: url('${pageContext.request.contextPath}/resources/images/bg_1.jpg');" data-stellar-background-ratio="0.5">
+<div class="hero-wrap" data-stellar-background-ratio="0.1">
+    <%--    <img src="${pageContext.request.contextPath}/resources/images/consultant.png">--%>
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-center">
@@ -27,7 +28,7 @@
     </div>
 </div>
 
-<section class="ftco-intro">
+<section class="ftco-intro" style="margin-top : -150px">
     <div class="container">
         <div class="row no-gutters">
             <div class="col-md-4 d-flex">
@@ -66,7 +67,7 @@
         </div>
     </div>
 </section>
-        <jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
 
 
 </body>

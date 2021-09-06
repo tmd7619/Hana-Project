@@ -17,6 +17,14 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService service;
+
+	@RequestMapping("/client/bankerList")
+	public String searchBanker(){
+
+		return "client/searchBanker/bankerList";
+	}
+
+
 	
 	@RequestMapping(value = "/login" , method=RequestMethod.POST)
 	public String login(MemberVO member , Model model, HttpSession session) {
@@ -73,8 +81,6 @@ public class MemberController {
 			session.setAttribute("branchName" , title);
 			System.out.println("지점 등록이 완료되었습니다.");
 		}
-
-
 		return "redirect:/";
 	}
 

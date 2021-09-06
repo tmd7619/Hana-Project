@@ -35,17 +35,17 @@
 <body>
     <jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
 
-<section class="hero-wrap hero-wrap-2" style="color: black!important;background-image: url('${pageContext.request.contextPath}/resources/images/bg_5.jpg');" data-stellar-background-ratio="0.5">
-    <div class="overlay"></div>
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-end justify-content-center">
-            <div class="col-md-9 ftco-animate mb-5 text-center">
-                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Services <i class="fa fa-chevron-right"></i></span></p>
-                <h1 class="mb-0 bread">Services</h1>
+    <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
+        <div class="overlay" style="background: #27b2a5;"></div>
+        <div class="container">
+            <div class="row no-gutters slider-text align-items-end justify-content-center">
+                <div class="col-md-9 ftco-animate mb-5 text-center">
+                    <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Services <i class="fa fa-chevron-right"></i></span></p>
+                    <h1 class="mb-0 bread" style="color: #fff">Services</h1>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
 <!-- calendar 태그 -->
 <div id='calendar-container'>

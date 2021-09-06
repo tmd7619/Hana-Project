@@ -29,7 +29,7 @@ public class ChatController {
     @RequestMapping(value = "/chat", method =RequestMethod.GET, headers = "Connection!=Upgrade")
     public ModelAndView chat() {
         ModelAndView mav = new ModelAndView();
-        mav.setViewName("chat");
+        mav.setViewName("room");
         return mav;
     }
 

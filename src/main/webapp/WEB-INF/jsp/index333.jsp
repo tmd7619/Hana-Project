@@ -56,12 +56,12 @@
                             <input type="text" placeholder="Search...">
                             <div class="select__option">
                                 <select>
-                                    <option value="">Choose Categories</option>
-                                </select>
-                            </div>
-                            <div class="select__option">
-                                <select>
-                                    <option value="">Choose Location</option>
+                                    <option value="">분야별 카테고리</option>
+                                    <option value="">주식 설계</option>
+                                    <option value="">채권 설계</option>
+                                    <option value="">부동산 설계</option>
+                                    <option value="">세금 설계</option>
+                                    <option value="">펀드 설계</option>
                                 </select>
                             </div>
                             <button type="submit">Explore Now</button>
@@ -73,7 +73,6 @@
                         <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png" alt=""> #부동산 분야</a></li>
                         <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png" alt=""> #펀드 분야</a></li>
                         <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png" alt=""> #세금 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-6.png" alt=""> All Categories</a></li>
                     </ul>
                 </div>
             </div>

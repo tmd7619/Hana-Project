@@ -9,15 +9,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet">
-
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
-
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.theme.default.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
-
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/flaticon.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
         <style type="text/css">
@@ -355,7 +351,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Counselor</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/">Counselor</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -364,8 +360,8 @@
             <ul class="navbar-nav ml-auto">
                 <c:choose>
                     <c:when test="${empty bankerVO}">
-                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.html" class="nav-link">PB 찾기</a></li>
+                        <li class="nav-item active"><a href="${pageContext.request.contextPath}/" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/client/bankerList" class="nav-link">PB 찾기</a></li>
                         <li class="nav-item"><a href="counselor.html" class="nav-link">온라인 투자 상담</a></li>
                         <li class="nav-item"><a href="services.html" class="nav-link">문의 게시판</a></li>
                         <li class="nav-item"><a href="pricing.html" class="nav-link">My 리워드</a></li>
