@@ -39,13 +39,14 @@
             </div>
             <div class = "domain">
                 <input class = "date" id = "startDate" type = "text" name = "startDate" id = "startDate">
-                <input  class = "date" type="text" name="time" id="timepicker">
+                <input  class = "date" type="text" name="startTime" id="timepicker">
             </div>
             <div class = "domain">
                 <h3 class = "zTree-h3"> 종료 </h3>
             </div>
             <div class = "domain">
                 <input class = "date" id = "endDate" type = "text" name = "endDate" id = "endDate">
+                <input  class = "date" type="text" name="endTime" id="timepicker2">
             </div>
             <div class = "domain">
                 <h3 class = "zTree-h3"> 메모 </h3>
@@ -64,7 +65,7 @@
 
     // add schedule popup open
     function click_add() {
-        var url = "schedulePopup";
+        var url = "/pb/addSchedule";
         var name = "schedulePopup";
         var option = "width = 600, height = 600 left = 100, top=50,location=no";
         window.open(url,name,option)
@@ -122,7 +123,7 @@
 
         $.ajax({
             data : scheduleData,
-            url : "addSchedule",
+            url : "/pb/addSchedule",
             type : "POST",
             dataType : "json",
             contentType : "application/json; charset=UTF-8",
@@ -139,6 +140,16 @@
         maxTime: '18:00pm',
         defaultTime: '9',
         // startTime: '00:00',
+        dynamic: false,
+        dropdown: true,
+        scrollbar: true
+    });
+    $('#timepicker2').timepicker({
+        timeFormat: 'p HH:mm',
+        interval: 60,
+        minTime: '09',
+        maxTime: '18:00pm',
+        defaultTime: '10',
         dynamic: false,
         dropdown: true,
         scrollbar: true

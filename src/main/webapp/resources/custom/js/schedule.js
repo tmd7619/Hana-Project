@@ -1,6 +1,6 @@
 // add schedule popup open
 function click_add() {
-	var url = "schedulePopup";
+	var url = "/pb/schedulePopup";
 	var name = "schedulePopup";
 	var option = "width = 600, height = 600 left = 100, top=50,location=no";
 	window.open(url,name,option)
@@ -53,7 +53,7 @@ function click_ok(){
 	
 	$.ajax({
 		data : scheduleData,
-		url : "addSchedule",
+		url : "/pb/addSchedule",
 		type : "POST",
 		dataType : "json",
 		contentType : "application/json; charset=UTF-8",

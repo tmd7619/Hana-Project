@@ -9,14 +9,23 @@ public class SchedulerVO {
     private String pbBranchName; // 담당 직원 브랜치명
     private int    available; // 상담 가능 여부 : 0 : 불가능  1 : 가능
     private String memo;
-    private String time;
+    private String startTime;
+    private String endTime;
 
-    public String getTime() {
-        return time;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTime(String time) {
-        this.time = time;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
     }
 
     public String getMemo() {
@@ -85,7 +94,8 @@ public class SchedulerVO {
                 ", pbBranchName='" + pbBranchName + '\'' +
                 ", available=" + available +
                 ", memo='" + memo + '\'' +
-                ", time='" + time + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
                 '}';
     }
 }

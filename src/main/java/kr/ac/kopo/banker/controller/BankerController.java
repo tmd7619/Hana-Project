@@ -63,18 +63,6 @@ public class BankerController {
         return "pb/services/common";
     }
 
-//    @RequestMapping("/pb/scheduler")
-//    public String viewScheduler(){
-//        return "scheduler2";
-//    }
-//
-//    @RequestMapping("/pb/scheduler/popup")
-//        public String viewPopup(){
-//
-//        return "pb/services/schedulePopup";
-//    }
-
-
 
     //일정 관리 페이지
     @RequestMapping(value = "/pb/scheduler")
@@ -87,16 +75,18 @@ public class BankerController {
 
 
     //일정 추가 팝업
-    @RequestMapping(value = "/schedulePopup")
+    @RequestMapping(value = "/pb/schedulePopup")
     public String test2() throws Exception {
         return "pb/services/schedulePopup";
     }
 
     //일정 추가 버튼 클릭 Ajax
     @ResponseBody
-    @RequestMapping(value = "/addSchedule", method = RequestMethod.POST)
+    @RequestMapping(value = "/pb/addSchedule", method = RequestMethod.POST)
     public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO, HttpSession session) throws Exception{
         Map<Object,Object>map = new HashMap<Object,Object>();
+
+        System.out.println("controller :" + schedulerVO);
 
         BankerVO bankVO = (BankerVO)session.getAttribute("bankerVO");
         service.addSchedule(schedulerVO, bankVO);
@@ -106,7 +96,7 @@ public class BankerController {
 
     //일정 보이기 (임시)
     @ResponseBody
-    @RequestMapping(value = "/showSchedule")
+    @RequestMapping(value = "/pb/showSchedule")
     public List<SchedulerVO> showSchedule() throws Exception {
 
         List<SchedulerVO> list = service.showSchedule();
