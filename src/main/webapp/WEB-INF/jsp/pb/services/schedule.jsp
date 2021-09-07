@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"%>
 <%@page import = "java.util.List" %>
 <%@page import = "java.util.ArrayList" %>
-<%@ page import="kr.ac.kopo.banker.vo.SchedulerVO" %>
+<%@ page import="kr.ac.kopo.scheduler.vo.SchedulerVO" %>
 
 <%
   List<SchedulerVO> list = (ArrayList<SchedulerVO>)request.getAttribute("showSchedule");

@@ -50,50 +50,11 @@ public class BankerController {
         return "redirect:/pb"; // 스프링에서는 redirect 시 , 포워드 처럼 루트패스 다음으로 경로를 잡아줌
     }
 
+    @RequestMapping("/pb/services")
+    public String viewServices(){
 
-
-
-//    //일정 관리 페이지
-//    @RequestMapping(value = "/pb/scheduler")
-//    public String schedule(Model model)throws Exception {
-//
-//        model.addAttribute("showSchedule" , service.showSchedule());
-//
-//        return "pb/services/schedule";
-//    }
-//
-//
-//    //일정 추가 팝업
-//    @RequestMapping(value = "/pb/schedulePopup")
-//    public String test2() throws Exception {
-//        return "pb/services/schedulePopup";
-//    }
-//
-//    //일정 추가 버튼 클릭 Ajax
-//    @ResponseBody
-//    @RequestMapping(value = "/pb/addSchedule", method = RequestMethod.POST)
-//    public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO, HttpSession session) throws Exception{
-//        Map<Object,Object>map = new HashMap<Object,Object>();
-//
-//        System.out.println("controller :" + schedulerVO);
-//
-//        BankerVO bankVO = (BankerVO)session.getAttribute("bankerVO");
-//        service.addSchedule(schedulerVO, bankVO);
-//
-//        return map;
-//    }
-//
-//    //일정 보이기 (임시)
-//    @ResponseBody
-//    @RequestMapping(value = "/pb/showSchedule")
-//    public List<SchedulerVO> showSchedule() throws Exception {
-//
-//        List<SchedulerVO> list = service.showSchedule();
-//
-//        return list;
-//    }
-
-
+        return "pb/services/common";
+    }
 
 
 }

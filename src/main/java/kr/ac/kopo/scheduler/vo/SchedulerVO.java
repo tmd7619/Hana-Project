@@ -1,4 +1,4 @@
-package kr.ac.kopo.banker.vo;
+package kr.ac.kopo.scheduler.vo;
 
 public class SchedulerVO {
 

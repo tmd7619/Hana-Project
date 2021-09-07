@@ -1,6 +1,5 @@
 package kr.ac.kopo.client.service;
 
-import kr.ac.kopo.banker.dao.BankerDAO;
 import kr.ac.kopo.member.vo.BankerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,7 @@ import java.util.List;
 public class ClientServiceImpl implements ClientService {
 
     @Autowired
-    BankerDAO bankerDAO;
+//    BankerDAO bankerDAO;
 
 
 //    @Override

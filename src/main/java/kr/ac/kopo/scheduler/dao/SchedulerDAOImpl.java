@@ -1,6 +1,6 @@
-package kr.ac.kopo.banker.dao;
+package kr.ac.kopo.scheduler.dao;
 
-import kr.ac.kopo.banker.vo.SchedulerVO;
+import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -8,21 +8,12 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class BankerDAOImpl implements BankerDAO{
+public class SchedulerDAOImpl implements SchedulerDAO {
 
     @Autowired
     SqlSessionTemplate sqlSessionTemplate ;
 
-    String namespace = "banker.BankerDAO.";
-
-//    @Override
-//    public BankerVO login(BankerVO banker)  {
-//
-//        BankerVO bankerVO = sqlSessionTemplate.selectOne("banker.BankerDAO.login" , banker);
-//        System.out.println("DB에서 조회된 PB 로그인 정보 : " + bankerVO );
-//
-//        return bankerVO;
-//    }
+    private String namespace = "scheduler.SchedulerDAO.";
 
     @Override
     public List<SchedulerVO> showSchedule() {
@@ -40,5 +31,4 @@ public class BankerDAOImpl implements BankerDAO{
         System.out.println("dao에서 넘어온 스케줄 : " + schedulerVO);
         sqlSessionTemplate.insert(namespace +"addSchedule" , schedulerVO);
     }
-
 }

@@ -10,7 +10,7 @@
 		<typeAlias type="kr.ac.kopo.member.vo.BankerVO" alias="bankerVO"/>
 		<typeAlias type="kr.ac.kopo.consultation.chat.vo.RoomVO" alias="roomVO"/>
 		<typeAlias type="kr.ac.kopo.consultation.chat.vo.ChatVO" alias="chatVO"/>
-		<typeAlias type="kr.ac.kopo.banker.vo.SchedulerVO" alias="schedulerVO"/>
+		<typeAlias type="kr.ac.kopo.scheduler.vo.SchedulerVO" alias="schedulerVO"/>
 
 	</typeAliases>
 

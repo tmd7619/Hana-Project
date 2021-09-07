@@ -1,26 +1,18 @@
-package kr.ac.kopo.banker.service;
+package kr.ac.kopo.scheduler.service;
 
-import kr.ac.kopo.banker.dao.BankerDAO;
+import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.banker.vo.SchedulerVO;
+import kr.ac.kopo.scheduler.dao.SchedulerDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class BankServiceImpl implements BankerService {
+public class SchedulerServiceImpl  implements  SchedulerService{
 
     @Autowired
-    BankerDAO dao;
-
-//
-//
-//    @Override
-//    public BankerVO login(BankerVO banker) {
-//        BankerVO bankerVO = dao.login(banker);
-//        return bankerVO;
-//    }
+    SchedulerDAO dao;
 
     public List<SchedulerVO> showSchedule()  {
         List<SchedulerVO> schedulerVO = dao.showSchedule();
@@ -45,6 +37,9 @@ public class BankServiceImpl implements BankerService {
 
         dao.addSchedule(dto);
     }
+
+
+
 
 
 }
