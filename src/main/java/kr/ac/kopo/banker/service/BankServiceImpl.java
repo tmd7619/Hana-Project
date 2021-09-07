@@ -22,13 +22,17 @@ public class BankServiceImpl implements BankerService {
     }
 
     public List<SchedulerVO> showSchedule() throws Exception {
+        List<SchedulerVO> schedulerVO = dao.showSchedule();
 
-
-        return dao.showSchedule();
+        return schedulerVO;
     }
 
     public void addSchedule(SchedulerVO dto) throws Exception{
-
+        System.out.println("service 넘어옴 : " + dto);
+        String time = dto.getTime();
+        time = time.substring(3);
+        System.out.println("변환 후 " +time);
+        dto.setStartDate(dto.getStartDate() +" "+time +":00");
         dao.addSchedule(dto);
     }
 

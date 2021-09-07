@@ -97,6 +97,7 @@ public class BankerController {
     @RequestMapping(value = "/addSchedule", method = RequestMethod.POST)
     public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO) throws Exception{
         Map<Object,Object>map = new HashMap<Object,Object>();
+        System.out.println("controller :" + schedulerVO);
 
         service.addSchedule(schedulerVO);
 

@@ -9,13 +9,19 @@ public class SchedulerVO {
     private String pbBranchName; // 담당 직원 브랜치명
     private int    available; // 상담 가능 여부 : 0 : 불가능  1 : 가능
     private String memo;
+    private String time;
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
 
     public String getMemo() {
         return memo;
     }
-
-
-
     public void setMemo(String memo) {
         this.memo = memo;
     }
@@ -79,6 +85,7 @@ public class SchedulerVO {
                 ", pbBranchName='" + pbBranchName + '\'' +
                 ", available=" + available +
                 ", memo='" + memo + '\'' +
+                ", time='" + time + '\'' +
                 '}';
     }
 }

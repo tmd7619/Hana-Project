@@ -84,10 +84,10 @@
             dayNamesMin: ['일','월','화','수','목','금','토'],
             dayNames: ['일요일','월요일','화요일','수요일','목요일','금요일','토요일'],
 
-            // //timepicker 설정
-            // timeFormat  :'HH:mm:ss',
-            // controlType:'select' ,
-            // oneLine :true
+            //timepicker 설정
+            timeFormat  :'HH:mm',
+            controlType:'select' ,
+            oneLine :true
         });
         $("#startDate").datepicker();
         $("#endDate").datepicker();
@@ -133,12 +133,12 @@
         });
     };
     $('#timepicker').timepicker({
-        timeFormat: 'p h:mm',
+        timeFormat: 'p HH:mm',
         interval: 60,
         minTime: '09',
-        maxTime: '11:00pm',
-        defaultTime: '14',
-        startTime: '00:00',
+        maxTime: '18:00pm',
+        defaultTime: '9',
+        // startTime: '00:00',
         dynamic: false,
         dropdown: true,
         scrollbar: true

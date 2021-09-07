@@ -107,14 +107,27 @@
 
   <!--sidebar start-->
   <!--sidebar end-->
+    <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+
+  <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
+    <div class="overlay" style="background: #27b2a5;"></div>
+    <div class="container">
+      <div class="row no-gutters slider-text align-items-end justify-content-center">
+        <div class="col-md-9 ftco-animate mb-5 text-center">
+          <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Services <i class="fa fa-chevron-right"></i></span></p>
+          <h1 class="mb-0 bread" style="color: #fff">Services</h1>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!--main content start-->
-  <section id="main-content">
+  <section id="main-content" style="width: 70%; margin-left: 15% ;">
     <section class="wrapper">
       <div class="row">
         <div class="col-lg-12">
           <h3 class="page-header">
-            <i style = "width:32px;height:32px;background-image:url('resources/custom/img/calendar.png');"></i>
+<%--            <i style = "width:32px;height:32px;background-image:url('resources/custom/img/calendar.png');"></i>--%>
             일정 관리
           </h3>
           <ol class="breadcrumb">
@@ -197,10 +210,14 @@
         Licensing information: https://bootstrapmade.com/license/
         Purchase the pro version form: https://bootstrapmade.com/buy/?theme=NiceAdmin
       -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
     </div>
   </div>
 </section>
+
+<jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+
+
+
 <!-- 부트스트랩 기본 템플릿 -->
 <!-- container section end -->
 

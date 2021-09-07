@@ -32,16 +32,18 @@
 
 	<select id="showSchedule" parameterType = "String" resultMap="schedulerMap">
 		SELECT
-			title,start_date,end_date,memo
+-- 			title,to_char(start_date, 'yyyy:mm:dd') start_date,
+-- 			to_char(end_date,'yyyy:mm:dd') end_date ,memo
+		   title,start_date,end_date ,memo
 		FROM
 			pb_scheduler
 	</select>
 
 	<insert id="addSchedule" parameterType = "schedulerVO">
 		INSERT INTO
-			pb_scheduler(pb_scheduler_id , title ,start_date,end_date,memo)
+			pb_scheduler(pb_scheduler_id , title ,start_date,end_date,memo , time)
 		VALUES
-			(pb_scheduler_seq.nextval, #{title}, #{startDate}, #{endDate}, #{memo})
+			(pb_scheduler_seq.nextval, #{title}, #{startDate}, #{endDate}, #{memo} ,#{time} )
 	</insert>
 
 

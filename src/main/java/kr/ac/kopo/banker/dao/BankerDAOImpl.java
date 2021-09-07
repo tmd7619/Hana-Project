@@ -27,8 +27,12 @@ public class BankerDAOImpl implements BankerDAO{
 
     @Override
     public List<SchedulerVO> showSchedule() {
+        List<SchedulerVO> list = sqlSessionTemplate.selectList(namespace+"showSchedule");
+        for(SchedulerVO sce :list){
+            System.out.println(sce);
+        }
+        return list;
 
-        return sqlSessionTemplate.selectList(namespace+"showSchedule");
     }
 
     @Override

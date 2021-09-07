@@ -112,19 +112,21 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 drop table pb_scheduler ;
 create table pb_scheduler(
-    scheduler_id number primary key,
+    pb_scheduler_id number primary key,
     title varchar2(50) not null,
-    start_date date default sysdate,
-    end_date date,
+    start_date varchar2(50) ,
+    end_date varchar2(50),
     memo varchar2(20) ,
     pb_name  varchar2(30),
     pb_branch_name varchar2(50),
     available number(1) ,
-    private_banker_id number
+    private_banker_id number ,
+    time varchar2(50) 
 );
 
-drop sequence pb_scheduler;
+drop sequence pb_scheduler_seq;
 CREATE SEQUENCE  pb_scheduler_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
+select * from pb_scheduler;
 

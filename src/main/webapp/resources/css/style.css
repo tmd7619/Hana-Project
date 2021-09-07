@@ -8237,7 +8237,7 @@ h1, h2, h3, h4, h5,
   position: relative;
   z-index: 0; }
   .hero-wrap.hero-wrap-2 {
-    height: 400px !important;
+    height: 300px;
     position: relative; }
     .hero-wrap.hero-wrap-2 .overlay {
       width: 100%;
