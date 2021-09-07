@@ -1,11 +1,14 @@
 package kr.ac.kopo.member.dao;
 
-import kr.ac.kopo.member.vo.MemberVO;
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 
 public interface MemberDAO {
-	
-	MemberVO login(MemberVO member);
-	int registerBranch( MemberVO userVO);
+
+
+	BankerVO bankerLogin(BankerVO banker);
+	ClientVO clientLogin(ClientVO member);
+	int registerBranch( ClientVO userVO);
 	
 
 }

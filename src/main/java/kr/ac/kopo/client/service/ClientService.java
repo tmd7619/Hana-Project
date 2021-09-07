@@ -1,6 +1,6 @@
 package kr.ac.kopo.client.service;
 
-import kr.ac.kopo.banker.vo.BankerVO;
+import kr.ac.kopo.member.vo.BankerVO;
 
 import java.util.List;
 

@@ -6,9 +6,9 @@
 
 	<typeAliases>
 <!-- 		<typeAlias type="kr.ac.kopo.board.vo.BoardVO" alias="boardVO"/> -->		
-		<typeAlias type="kr.ac.kopo.member.vo.MemberVO" alias="memberVO"/>
+		<typeAlias type="kr.ac.kopo.member.vo.ClientVO" alias="clientVO"/>
+		<typeAlias type="kr.ac.kopo.member.vo.BankerVO" alias="bankerVO"/>
 		<typeAlias type="kr.ac.kopo.consultation.chat.vo.RoomVO" alias="roomVO"/>
-		<typeAlias type="kr.ac.kopo.banker.vo.BankerVO" alias="bankerVO"/>
 		<typeAlias type="kr.ac.kopo.consultation.chat.vo.ChatVO" alias="chatVO"/>
 		<typeAlias type="kr.ac.kopo.banker.vo.SchedulerVO" alias="schedulerVO"/>
 

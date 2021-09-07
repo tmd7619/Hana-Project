@@ -1,6 +1,6 @@
 package kr.ac.kopo.member.controller;
 import kr.ac.kopo.member.service.MemberService;
-import kr.ac.kopo.member.vo.MemberVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,14 +24,12 @@ public class MemberController {
 		return "client/searchBanker/bankerList";
 	}
 
-
-	
 	@RequestMapping(value = "/login" , method=RequestMethod.POST)
-	public String login(MemberVO member , Model model, HttpSession session) {
+	public String login(ClientVO member , Model model, HttpSession session) {
 		
 		
 		System.out.println("loginForm에서 넘어온 정보" + member);
-		MemberVO userVO = service.login(member);
+		ClientVO userVO = service.clientLogin(member);
 		System.out.println("DB에서 넘어온 정보(userVO) : " + userVO);
 		
 		if(userVO == null) {
@@ -72,7 +70,7 @@ public class MemberController {
 		System.out.println("넘어온 지점 이름 : " + title);
 
 		HttpSession session = request.getSession();
-		MemberVO userVO = (MemberVO) session.getAttribute("userVO");
+		ClientVO userVO = (ClientVO) session.getAttribute("userVO");
 		System.out.println(userVO);
 		userVO.setBranchName(title);
 

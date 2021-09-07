@@ -5,10 +5,10 @@
 <mapper namespace="client.ClientDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
 
 
-	<select id="searchBankerList" resultMap="bankerMap">
-		select pb_name, pb_rank, pb_email, branch_name
-		from private_banker
-	</select>
+<!--	<select id="searchBankerList" resultMap="bankerMap">-->
+<!--		select pb_name, pb_rank, pb_email, branch_name-->
+<!--		from private_banker-->
+<!--	</select>-->
 	
 
 

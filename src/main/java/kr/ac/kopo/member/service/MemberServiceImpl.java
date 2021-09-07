@@ -1,10 +1,10 @@
 package kr.ac.kopo.member.service;
 
+import kr.ac.kopo.member.dao.MemberDAO;
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import kr.ac.kopo.member.dao.MemberDAO;
-import kr.ac.kopo.member.vo.MemberVO;
 
 
 @Service
@@ -15,14 +15,20 @@ public class MemberServiceImpl implements MemberService {
 	
 
 	@Override
-	public MemberVO login(MemberVO member) {
-		
-		MemberVO userVO = memberDAO.login(member);
+	public ClientVO clientLogin(ClientVO member) {
+
+		ClientVO userVO = memberDAO.clientLogin(member);
 		return userVO;
 	}
 
 	@Override
-	public int registerBranch(MemberVO userVO) {
+	public BankerVO bankerLogin(BankerVO banker) {
+		BankerVO bankerVO = memberDAO.bankerLogin(banker);
+		return bankerVO;
+	}
+
+	@Override
+	public int registerBranch(ClientVO userVO) {
 		int check = memberDAO.registerBranch(userVO);
 		return check;
 	}

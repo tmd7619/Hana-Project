@@ -1,6 +1,6 @@
 package kr.ac.kopo.client.dao;
 
-import kr.ac.kopo.banker.vo.BankerVO;
+import kr.ac.kopo.member.vo.BankerVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;

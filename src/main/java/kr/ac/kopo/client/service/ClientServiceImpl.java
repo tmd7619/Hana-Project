@@ -1,7 +1,7 @@
 package kr.ac.kopo.client.service;
 
 import kr.ac.kopo.banker.dao.BankerDAO;
-import kr.ac.kopo.banker.vo.BankerVO;
+import kr.ac.kopo.member.vo.BankerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

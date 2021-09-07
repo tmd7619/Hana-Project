@@ -8,7 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import kr.ac.kopo.member.service.MemberService;
-import kr.ac.kopo.member.vo.MemberVO;
+import kr.ac.kopo.member.vo.ClientVO;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -26,7 +26,7 @@ public class LoginTest {
 	@Test
 	public void loginTest() {
 		
-		MemberVO member = new MemberVO();
+		ClientVO member = new ClientVO();
 		
 		member.setUserId("test");
 		member.setPassword("1234");
@@ -34,7 +34,7 @@ public class LoginTest {
 //		MemberVO userVO = service.login(member);
 		
 		
-		MemberVO userVO = sqlSession.selectOne("member.MemberDAO.login", member);
+		ClientVO userVO = sqlSession.selectOne("member.MemberDAO.login", member);
 		
 		
 		System.out.println("가져온디비" + userVO);
