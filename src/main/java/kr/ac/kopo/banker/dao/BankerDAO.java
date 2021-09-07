@@ -10,5 +10,5 @@ public interface BankerDAO {
     BankerVO login(BankerVO banker);
 
     List<SchedulerVO> showSchedule() ;
-    void addSchedule(SchedulerVO schedulerVO);
+    void addSchedule(SchedulerVO schedulerVO );
 }

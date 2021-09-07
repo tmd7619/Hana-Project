@@ -9,7 +9,7 @@ public interface BankerService {
 
     BankerVO login(BankerVO banker);
      List<SchedulerVO> showSchedule() throws Exception;
-     void addSchedule(SchedulerVO schedulerVO) throws Exception;
+     void addSchedule(SchedulerVO schedulerVO, BankerVO bankerVO) throws Exception;
 
 
 }

@@ -27,12 +27,17 @@ public class BankServiceImpl implements BankerService {
         return schedulerVO;
     }
 
-    public void addSchedule(SchedulerVO dto) throws Exception{
+    public void addSchedule(SchedulerVO dto, BankerVO bankerVO) throws Exception{
+
         System.out.println("service 넘어옴 : " + dto);
         String time = dto.getTime();
         time = time.substring(3);
         System.out.println("변환 후 " +time);
         dto.setStartDate(dto.getStartDate() +" "+time +":00");
+
+        dto.setPbName(bankerVO.getPbName());
+        dto.setPbBranchName(bankerVO.getBranchName());
+
         dao.addSchedule(dto);
     }
 

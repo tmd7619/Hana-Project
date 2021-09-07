@@ -77,7 +77,7 @@ public class BankerController {
 
 
     //일정 관리 페이지
-    @RequestMapping(value = "/schedule")
+    @RequestMapping(value = "/pb/scheduler")
     public String schedule(Model model)throws Exception {
 
         model.addAttribute("showSchedule" , service.showSchedule());
@@ -95,11 +95,11 @@ public class BankerController {
     //일정 추가 버튼 클릭 Ajax
     @ResponseBody
     @RequestMapping(value = "/addSchedule", method = RequestMethod.POST)
-    public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO) throws Exception{
+    public Map<Object,Object> addSchedule(@RequestBody SchedulerVO schedulerVO, HttpSession session) throws Exception{
         Map<Object,Object>map = new HashMap<Object,Object>();
-        System.out.println("controller :" + schedulerVO);
 
-        service.addSchedule(schedulerVO);
+        BankerVO bankVO = (BankerVO)session.getAttribute("bankerVO");
+        service.addSchedule(schedulerVO, bankVO);
 
         return map;
     }
