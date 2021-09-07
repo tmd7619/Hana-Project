@@ -21,13 +21,13 @@ public class BankServiceImpl implements BankerService {
         return bankerVO;
     }
 
-    public List<SchedulerVO> showSchedule() throws Exception {
+    public List<SchedulerVO> showSchedule()  {
         List<SchedulerVO> schedulerVO = dao.showSchedule();
 
         return schedulerVO;
     }
 
-    public void addSchedule(SchedulerVO dto, BankerVO bankerVO) throws Exception{
+    public void addSchedule(SchedulerVO dto, BankerVO bankerVO) {
 
         System.out.println("service 넘어옴 : " + dto);
         String startTime = dto.getStartTime();

@@ -361,7 +361,7 @@
                 <c:choose>
                     <c:when test="${empty bankerVO}">
                         <li class="nav-item active"><a href="${pageContext.request.contextPath}/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/client/bankerList" class="nav-link">PB 찾기</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/client/searchList" class="nav-link">PB 찾기</a></li>
                         <li class="nav-item"><a href="counselor.html" class="nav-link">온라인 투자 상담</a></li>
                         <li class="nav-item"><a href="services.html" class="nav-link">문의 게시판</a></li>
                         <li class="nav-item"><a href="pricing.html" class="nav-link">My 리워드</a></li>

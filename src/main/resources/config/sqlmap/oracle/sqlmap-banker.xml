@@ -10,6 +10,9 @@
 		<result column="pb_password" property="pbPassword"/>
 		<result column="pb_name" property="pbName"/>
 		<result column="branch_name" property="branchName"/>
+		<result column="pb_email" property="pbEmail"/>
+		<result column="pb_rank" property="pbRank"/>
+
 	</resultMap>
 
 	<resultMap id="schedulerMap" type="schedulerVO">

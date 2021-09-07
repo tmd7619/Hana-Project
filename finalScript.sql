@@ -74,8 +74,8 @@ pb_id                VARCHAR2(30) NOT NULL,
 pb_password          VARCHAR2(50) NOT NULL,
 pb_name              VARCHAR2(20)  NOT NULL UNIQUE ,
 pb_rank              VARCHAR2(20)  NOT NULL , 
-pb_phone             VARCHAR2(30)  NOT NULL , 
-pb_email             VARCHAR2(100) NOT NULL , -- pb email
+pb_phone             VARCHAR2(30)  , 
+pb_email             VARCHAR2(100) , -- pb email
 branch_name          VARCHAR2(50) NOT  NULL ,
 tag_name             VARCHAR2(150) , 
 user_id              VARCHAR2(50) ,  -- 관리중인 고객
@@ -110,7 +110,7 @@ CREATE SEQUENCE  matching_client_info_seq  MINVALUE 1 MAXVALUE 9999
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-drop table pb_scheduler ;
+drop table pb_scheduler ; -- pb 스케줄 테이블 
 create table pb_scheduler(
     pb_scheduler_id number primary key,
     title varchar2(50) not null,
@@ -119,9 +119,10 @@ create table pb_scheduler(
     memo varchar2(20) ,
     pb_name  varchar2(30),
     pb_branch_name varchar2(50),
-    available number(1) ,
+    available number(1) default 0, -- 0 : 예약중(상담x) , 1 : 예약가능(상담o)
     private_banker_id number ,
-    time varchar2(50) 
+    start_time varchar2(50) ,
+    end_time varchar2(50)
 );
 
 drop sequence pb_scheduler_seq;
@@ -129,4 +130,7 @@ CREATE SEQUENCE  pb_scheduler_seq  MINVALUE 1 MAXVALUE 9999
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from pb_scheduler;
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 

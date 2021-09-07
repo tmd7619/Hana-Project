@@ -17,7 +17,7 @@ public class BankerDAOImpl implements BankerDAO{
     String namespace = "banker.BankerDAO.";
 
     @Override
-    public BankerVO login(BankerVO banker) {
+    public BankerVO login(BankerVO banker)  {
 
         BankerVO bankerVO = sqlSessionTemplate.selectOne("banker.BankerDAO.login" , banker);
         System.out.println("DB에서 조회된 PB 로그인 정보 : " + bankerVO );
@@ -40,6 +40,6 @@ public class BankerDAOImpl implements BankerDAO{
 
         System.out.println("dao에서 넘어온 스케줄 : " + schedulerVO);
         sqlSessionTemplate.insert(namespace +"addSchedule" , schedulerVO);
-
     }
+
 }
