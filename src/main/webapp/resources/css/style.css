@@ -9167,7 +9167,7 @@ textarea.form-control {
     right: 0;
     content: '';
     height: 400px;
-    background: #589167;
+    background: #27b2a5;
     opacity: .8; }
   .testimony-section .owl-carousel {
     margin: 0; }
@@ -9221,6 +9221,8 @@ textarea.form-control {
     right: 50%;
     margin-right: -80px; }
   .testimony-section .owl-dots {
+    margin-top:30px;
+    margin-bottom: 50px;
     text-align: center; }
     .testimony-section .owl-dots .owl-dot {
       width: 10px;
@@ -9247,7 +9249,7 @@ textarea.form-control {
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: #589167; }
+    background: #008485; }
     .testimony-wrap .icon span {
       color: #fff; }
   .testimony-wrap .user-img {
@@ -9332,7 +9334,7 @@ textarea.form-control {
   .ftco-counter .text strong.number {
     font-weight: 500;
     font-size: 40px;
-    color: #589167; }
+    color: #008485; }
   .ftco-counter .text span {
     display: block;
     font-size: 16px;

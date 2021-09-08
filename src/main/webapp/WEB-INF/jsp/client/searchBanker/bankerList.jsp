@@ -70,6 +70,9 @@
 
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
+<jsp:include page="/WEB-INF/jsp/client/searchBanker/bankerProfile.jsp"/>
+
+
 <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
     <div class="overlay" style="background: #27b2a5;"></div>
     <div class="container">
@@ -111,7 +114,8 @@
                             <li><i class="fa fa-tags"></i><c:out value="${banker.branchName}"/></li>
                             <li><c:out value="${banker.mainField}"/> </li>
                         </ul>
-                        <img class="pb_thumbnail" src="${pageContext.request.contextPath}/resources/images/user2.png" />
+                        <div><img class="pb_thumbnail" src="${pageContext.request.contextPath}/resources/images/user2.png" />
+<%--                            <button class="btn btn-light btn-sm " id="profileBtn">프로필보기</button></div>--%>
                         <h3><a href="#"><c:out value="${banker.pbName}"/></a></h3>
                         <p><c:out value="${banker.introContent}"/> </p>
                         <ul class="blog__item__widget" >

@@ -932,6 +932,8 @@
   content: "\f10c";
 }
 .fa-quote-left:before {
+  color: #fff;
+
   content: "\f10d";
 }
 .fa-quote-right:before {
