@@ -77,8 +77,9 @@ pb_rank              VARCHAR2(20)  NOT NULL ,
 pb_phone             VARCHAR2(30)  , 
 pb_email             VARCHAR2(100) , -- pb email
 branch_name          VARCHAR2(50) NOT  NULL ,
-tag_name             VARCHAR2(150) , 
-user_id              VARCHAR2(50) ,  -- 관리중인 고객
+tag_name             VARCHAR2(15) , 
+user_id              VARCHAR2(50) ,  -- 관리중인 고객 
+main_field           VARCHAR2(50) , -- 담당 분야 
 CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
 
@@ -86,13 +87,14 @@ DROP SEQUENCE Private_banker_seq;
 CREATE SEQUENCE  Private_banker_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
-insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name, pb_rank, pb_phone, pb_email, branch_name)
-    values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리', '010-6211-1211', 'tmd714@naver.com', '강서지점');
+insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name, pb_rank, pb_phone, pb_email, branch_name, main_field)
+    values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리', 
+    '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 설계');
 commit;
 
 select * from private_banker ;
 
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-----------------------------------------------------------------문-------------------------------------------------------------------------------------------------------------
 
 
 drop table matching_client_info;
@@ -117,9 +119,9 @@ create table pb_scheduler(
     start_date varchar2(50) ,
     end_date varchar2(50),
     memo varchar2(20) ,
-    pb_name  varchar2(30),
-    pb_branch_name varchar2(50),
-    available number(1) default 0, -- 0 : 예약중(상담x) , 1 : 예약가능(상담o)
+    pb_name  varchar2(30) not null ,
+    pb_branch_name varchar2(50) not null,
+    impossible number(1) not null , -- 1 : 10시 ~ 11시 마감 ......
     private_banker_id number ,
     start_time varchar2(50) ,
     end_time varchar2(50)

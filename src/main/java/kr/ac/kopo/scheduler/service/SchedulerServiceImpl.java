@@ -35,6 +35,21 @@ public class SchedulerServiceImpl  implements  SchedulerService{
         dto.setPbName(bankerVO.getPbName());
         dto.setPbBranchName(bankerVO.getBranchName());
 
+        if(startTime.equals("10:00"))// 10 : 00 ~ 11 : 00
+            dto.setImpossible(1);
+        else if(startTime.equals("11:00")) // 11 : 00 ~ 12 : 00
+            dto.setImpossible(2);
+        else if(startTime.equals("13:00")) // 13 ~ 14
+            dto.setImpossible(3);
+        else if(startTime.equals("14:00")) // 14 ~ 15
+            dto.setImpossible(4);
+        else if(startTime.equals("15:00")) // 15 ~ 16
+            dto.setImpossible(5);
+        else if(startTime.equals("16:00"))// 16 ~17
+            dto.setImpossible(6);
+        else
+            System.out.println("not read");
+
         dao.addSchedule(dto);
     }
 

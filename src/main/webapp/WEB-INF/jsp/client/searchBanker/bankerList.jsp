@@ -36,6 +36,8 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/style.css" type="text/css">
 </head>
+<style>
+</style>
 
 <body>
 <!-- Page Preloder -->
@@ -82,16 +84,21 @@
                 <div class="blog__item__large">
                     <div class="blog__item__text">
                         <ul class="blog__item__tags">
-                            <li><i class="fa fa-tags"></i> Travel</li>
-                            <li>Videos</li>
+                            <li><i class="fa fa-tags"></i> ${bankerList.get(i).branchName}</li>
+                            <li>${bankerList.get(i).mainField}</li>
                         </ul>
-                        <h3><a href="#">Internet Banner Advertising Most Reliable</a></h3>
-                        <ul class="blog__item__widget">
-                            <li><i class="fa fa-clock-o"></i> 19th March, 2019</li>
-                            <li><i class="fa fa-user"></i> John Smith</li>
+                        <h3><a href="#">${bankerList.get(i).pbName}</a></h3>
+                        <p>안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다. </p>
+
+                        <ul class="blog__item__widget" >
+                            <h3><p style="color: black">상담 가능 시간</p></h3>
+                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">11:00</button></li>
+                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">10:00</button></li>
+                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">13:00</button></li>
+                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">14:00</button></li>
+                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">15:00</button></li>
+                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">16:00</button></li>
                         </ul>
-                        <p>One of my favourite things I like to watch is the bloopers and outtakes that are shown of
-                            mistakes made during the making of a movie.</p>
                     </div>
                 </div>
                 <div class="blog__item__large">

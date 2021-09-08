@@ -31,10 +31,10 @@
 	<insert id="addSchedule" parameterType = "schedulerVO">
 		INSERT INTO
 			pb_scheduler(pb_scheduler_id , title ,start_date,end_date,memo ,start_time ,end_time  ,
-			             pb_name, pb_branch_name)
+			             pb_name, pb_branch_name , impossible)
 		VALUES
 			(pb_scheduler_seq.nextval, #{title}, #{startDate}, #{endDate}, #{memo} ,#{startTime} ,#{endTime},
-			 #{pbName} , #{pbBranchName} )
+			 #{pbName} , #{pbBranchName} , #{impossible} )
 	</insert>
 
 

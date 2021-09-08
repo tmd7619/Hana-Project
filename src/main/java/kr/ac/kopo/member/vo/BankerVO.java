@@ -9,6 +9,15 @@ public class BankerVO {
     private String pbPhone;
     private String pbEmail;
     private String branchName;
+    private String mainField;
+
+    public String getMainField() {
+        return mainField;
+    }
+
+    public void setMainField(String mainField) {
+        this.mainField = mainField;
+    }
 
     public String getPbId() {
         return pbId;
@@ -66,6 +75,7 @@ public class BankerVO {
         this.branchName = branchName;
     }
 
+
     @Override
     public String toString() {
         return "BankerVO{" +
@@ -76,6 +86,7 @@ public class BankerVO {
                 ", pbPhone='" + pbPhone + '\'' +
                 ", pbEmail='" + pbEmail + '\'' +
                 ", branchName='" + branchName + '\'' +
+                ", mainField='" + mainField + '\'' +
                 '}';
     }
 }

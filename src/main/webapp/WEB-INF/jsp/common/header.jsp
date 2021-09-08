@@ -246,7 +246,8 @@
                 font-size: 14px;
                 font-size: 0.8125rem;
                 font-weight: 400;
-                padding: 1rem 2.5rem;
+                padding: 10px 15px 10px 15px;
+                /*padding: 1rem 2.5rem;*/
                 text-transform: uppercase;
                 border-radius: 0;
                 transition: all 0.2s ease;

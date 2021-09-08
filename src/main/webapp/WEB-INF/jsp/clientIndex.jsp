@@ -19,9 +19,16 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/style.css" type="text/css">
+    <style>
+
+        .hero__text .hero__categories__tags li a {
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+
 
 <%--<div class="hero-wrap" data-stellar-background-ratio="0.1">--%>
 <%--&lt;%&ndash;    <img src="${pageContext.request.contextPath}/resources/images/consultant.png">&ndash;%&gt;--%>

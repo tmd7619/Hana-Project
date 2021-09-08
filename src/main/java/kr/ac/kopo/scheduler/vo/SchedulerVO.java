@@ -7,7 +7,7 @@ public class SchedulerVO {
     private String endDate; // 끝나는 시간
     private String pbName; // 담당 직원 이름
     private String pbBranchName; // 담당 직원 브랜치명
-    private int    available; // 상담 가능 여부 : 0 : 불가능  1 : 가능
+    private int    impossible; // 상담 불가능한 시간
     private String memo;
     private String startTime;
     private String endTime;
@@ -75,14 +75,13 @@ public class SchedulerVO {
         this.pbBranchName = pbBranchName;
     }
 
-    public int getAvailable() {
-        return available;
+    public int getImpossible() {
+        return impossible;
     }
 
-    public void setAvailable(int available) {
-        this.available = available;
+    public void setImpossible(int impossible) {
+        this.impossible = impossible;
     }
-
 
     @Override
     public String toString() {
@@ -92,7 +91,7 @@ public class SchedulerVO {
                 ", endDate='" + endDate + '\'' +
                 ", pbName='" + pbName + '\'' +
                 ", pbBranchName='" + pbBranchName + '\'' +
-                ", available=" + available +
+                ", impossible=" + impossible +
                 ", memo='" + memo + '\'' +
                 ", startTime='" + startTime + '\'' +
                 ", endTime='" + endTime + '\'' +

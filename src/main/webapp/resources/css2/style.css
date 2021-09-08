@@ -2234,7 +2234,7 @@ ol {
 	font-weight: 700;
 	text-transform: uppercase;
 	margin-right: 15px;
-	color: #f03250;
+	color: #008485;
 	position: relative;
 	font-size: 12px;
 }
@@ -2245,7 +2245,7 @@ ol {
 	top: 6px;
 	height: 4px;
 	width: 4px;
-	background: #f03250;
+	background: #008485;
 	border-radius: 50%;
 	content: "";
 }
@@ -2311,7 +2311,7 @@ ol {
 }
 
 .blog__item__large .blog__item__text {
-	padding: 25px 30px 40px;
+	padding: 25px 50px ;
 }
 
 .blog__item__large .blog__item__text .blog__item__tags {
@@ -2327,7 +2327,7 @@ ol {
 }
 
 .blog__item__large .blog__item__text .blog__item__widget {
-	margin-bottom: 25px;
+	margin-top : 25px;
 }
 
 .blog__item__large .blog__item__text p {
