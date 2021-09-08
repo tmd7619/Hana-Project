@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -37,6 +39,14 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css2/style.css" type="text/css">
 </head>
 <style>
+
+    .pb_thumbnail{
+        margin-left: 30px;
+        float: right;
+        max-width: 15%;
+    }
+
+
 </style>
 
 <body>
@@ -64,11 +74,11 @@
             <div class="col-lg-12">
                 <div class="hero__text">
                     <ul class="hero__categories__tags">
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-1.png" alt=""> #주식 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-2.png" alt=""> #채권 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png" alt=""> #부동산 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png" alt=""> #펀드 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png" alt=""> #세금 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-1.png" alt=""> 주식 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-2.png" alt=""> 채권 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png" alt=""> 부동산 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png" alt=""> 펀드 분야</a></li>
+                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png" alt=""> 세금 분야</a></li>
                     </ul>
                 </div>
             </div>
@@ -81,86 +91,59 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8">
+                <c:forEach items="${bankerList}" var="banker" varStatus="loop">
                 <div class="blog__item__large">
                     <div class="blog__item__text">
                         <ul class="blog__item__tags">
-                            <li><i class="fa fa-tags"></i> ${bankerList.get(i).branchName}</li>
-                            <li>${bankerList.get(i).mainField}</li>
+                            <li><i class="fa fa-tags"></i><c:out value="${banker.branchName}"/></li>
+                            <li><c:out value="${banker.mainField}"/> </li>
                         </ul>
-                        <h3><a href="#">${bankerList.get(i).pbName}</a></h3>
-                        <p>안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다. </p>
-
+                        <img class="pb_thumbnail" src="${pageContext.request.contextPath}/resources/images/user2.png" />
+                        <h3><a href="#"><c:out value="${banker.pbName}"/></a></h3>
+                        <p><c:out value="${banker.introContent}"/> </p>
                         <ul class="blog__item__widget" >
                             <h3><p style="color: black">상담 가능 시간</p></h3>
-                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">11:00</button></li>
-                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">10:00</button></li>
-                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">13:00</button></li>
-                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">14:00</button></li>
-                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">15:00</button></li>
-                            <li><button class="btn btn-light btn-sm" style="margin-bottom: 10px;">16:00</button></li>
+                                <c:if test="${fn:contains(banker.impossible,'1')}">
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">10:00</button></li>
+                                </c:if>
+                                <c:if test="${not fn:contains(banker.impossible,'1')}">
+                                  <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">10:00</button></li>
+                                </c:if>
+                                <c:if test="${fn:contains(banker.impossible,'2')}">
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">11:00</button></li>
+                                </c:if>
+                                <c:if test="${not fn:contains(banker.impossible,'2')}">
+                                    <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">11:00</button></li>
+                                </c:if>
+                                <c:if test="${fn:contains(banker.impossible,'3')}">
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">13:00</button></li>
+                                </c:if>
+                                <c:if test="${not fn:contains(banker.impossible,'3')}">
+                                    <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">13:00</button></li>
+                                </c:if>
+                                <c:if test="${fn:contains(banker.impossible,'4')}">
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">14:00</button></li>
+                                </c:if>
+                                <c:if test="${not fn:contains(banker.impossible,'4')}">
+                                    <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">14:00</button></li>
+                                </c:if>
+                                <c:if test="${fn:contains(banker.impossible,'5')}">
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">15:00</button></li>
+                                </c:if>
+                                <c:if test="${not fn:contains(banker.impossible,'5')}">
+                                    <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">15:00</button></li>
+                                </c:if>
+                                <c:if test="${fn:contains(banker.impossible,'6')}">
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">16:00</button></li>
+                                </c:if>
+                                <c:if test="${not fn:contains(banker.impossible,'6')}">
+                                  <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">16:00</button></li>
+                                </c:if>
                         </ul>
+
                     </div>
                 </div>
-                <div class="blog__item__large">
-                    <div class="blog__item__text">
-                        <ul class="blog__item__tags">
-                            <li><i class="fa fa-tags"></i> Travel</li>
-                            <li>Videos</li>
-                        </ul>
-                        <h3><a href="#">Internet Banner Advertising Most Reliable</a></h3>
-                        <ul class="blog__item__widget">
-                            <li><i class="fa fa-clock-o"></i> 19th March, 2019</li>
-                            <li><i class="fa fa-user"></i> John Smith</li>
-                        </ul>
-                        <p>One of my favourite things I like to watch is the bloopers and outtakes that are shown of
-                            mistakes made during the making of a movie.</p>
-                    </div>
-                </div>
-                <div class="blog__item__large">
-                    <div class="blog__item__text">
-                        <ul class="blog__item__tags">
-                            <li><i class="fa fa-tags"></i> Travel</li>
-                            <li>Videos</li>
-                        </ul>
-                        <h3><a href="#">Internet Banner Advertising Most Reliable</a></h3>
-                        <ul class="blog__item__widget">
-                            <li><i class="fa fa-clock-o"></i> 19th March, 2019</li>
-                            <li><i class="fa fa-user"></i> John Smith</li>
-                        </ul>
-                        <p>One of my favourite things I like to watch is the bloopers and outtakes that are shown of
-                            mistakes made during the making of a movie.</p>
-                    </div>
-                </div>
-                <div class="blog__item__large">
-                    <div class="blog__item__text">
-                        <ul class="blog__item__tags">
-                            <li><i class="fa fa-tags"></i> Travel</li>
-                            <li>Videos</li>
-                        </ul>
-                        <h3><a href="#">Internet Banner Advertising Most Reliable</a></h3>
-                        <ul class="blog__item__widget">
-                            <li><i class="fa fa-clock-o"></i> 19th March, 2019</li>
-                            <li><i class="fa fa-user"></i> John Smith</li>
-                        </ul>
-                        <p>One of my favourite things I like to watch is the bloopers and outtakes that are shown of
-                            mistakes made during the making of a movie.</p>
-                    </div>
-                </div>
-                <div class="blog__item__large">
-                    <div class="blog__item__text">
-                        <ul class="blog__item__tags">
-                            <li><i class="fa fa-tags"></i> Travel</li>
-                            <li>Videos</li>
-                        </ul>
-                        <h3><a href="#">Internet Banner Advertising Most Reliable</a></h3>
-                        <ul class="blog__item__widget">
-                            <li><i class="fa fa-clock-o"></i> 19th March, 2019</li>
-                            <li><i class="fa fa-user"></i> John Smith</li>
-                        </ul>
-                        <p>One of my favourite things I like to watch is the bloopers and outtakes that are shown of
-                            mistakes made during the making of a movie.</p>
-                    </div>
-                </div>
+                </c:forEach>
 
                 <div class="blog__pagination">
                     <a href="#"><i class="fa fa-long-arrow-left"></i> Pre</a>

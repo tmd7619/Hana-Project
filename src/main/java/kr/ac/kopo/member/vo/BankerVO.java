@@ -10,6 +10,33 @@ public class BankerVO {
     private String pbEmail;
     private String branchName;
     private String mainField;
+    private String introContent;
+    private String mainContent;
+    private String impossible;
+
+    public String getImpossible() {
+        return impossible;
+    }
+
+    public void setImpossible(String impossible) {
+        this.impossible = impossible;
+    }
+
+    public String getIntroContent() {
+        return introContent;
+    }
+
+    public void setIntroContent(String introContent) {
+        this.introContent = introContent;
+    }
+
+    public String getMainContent() {
+        return mainContent;
+    }
+
+    public void setMainContent(String mainContent) {
+        this.mainContent = mainContent;
+    }
 
     public String getMainField() {
         return mainField;
@@ -87,6 +114,9 @@ public class BankerVO {
                 ", pbEmail='" + pbEmail + '\'' +
                 ", branchName='" + branchName + '\'' +
                 ", mainField='" + mainField + '\'' +
+                ", introContent='" + introContent + '\'' +
+                ", mainContent='" + mainContent + '\'' +
+                ", impossible='" + impossible + '\'' +
                 '}';
     }
 }

@@ -13,6 +13,8 @@
             <result column="branch_name" property="branchName"/>
             <result column="tag_name" property="tagName"/>
             <result column="main_field" property="mainField"/>
+            <result column="intro_content" property="introContent"/>
+            <result column="main_content" property="mainContent"/>
         </resultMap>
 
         <resultMap id="schedulerMap" type="SchedulerVO">
@@ -22,13 +24,20 @@
 
     <select id="searchBanker" resultMap="bankerMap">
         select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
+        , main_content, intro_content
         from private_banker
     </select>
 
 
-    <select id="availableSearchBanker" resultMap="schedulerMap">
-            select pb_name, pb_branch_name , impossible
-            from pb_scheduler
+    <select id="availableSearchBanker" resultMap="bankerMap">
+        select s.impossible,  p.pb_name, p.pb_rank, p.pb_phone, p.pb_email, p.branch_name,
+                p.tag_name, p.main_field, p.main_content, p.intro_content
+        from private_banker p ,
+             (SELECT pb_name, LISTAGG(impossible,',') WITHIN GROUP (ORDER BY impossible) as impossible
+              FROM pb_scheduler
+              GROUP BY pb_name
+              ORDER BY impossible) s
+        where p.pb_name = s.pb_name
     </select>
 
 

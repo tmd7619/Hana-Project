@@ -79,7 +79,9 @@ pb_email             VARCHAR2(100) , -- pb email
 branch_name          VARCHAR2(50) NOT  NULL ,
 tag_name             VARCHAR2(15) , 
 user_id              VARCHAR2(50) ,  -- 관리중인 고객 
-main_field           VARCHAR2(50) , -- 담당 분야 
+main_field           VARCHAR2(50) , -- 담당 분야
+intro_content        VARCHAR2(300) , -- 소개글 
+main_content          VARCHAR2(1000) , -- 메인 소개
 CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
 
@@ -87,14 +89,17 @@ DROP SEQUENCE Private_banker_seq;
 CREATE SEQUENCE  Private_banker_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
-insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name, pb_rank, pb_phone, pb_email, branch_name, main_field)
-    values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리', 
-    '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 설계');
+insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content)
+    values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리' , 
+    '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 설계' ,
+        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.'
+);
 commit;
 
 select * from private_banker ;
 
------------------------------------------------------------------문-------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 drop table matching_client_info;
@@ -122,7 +127,6 @@ create table pb_scheduler(
     pb_name  varchar2(30) not null ,
     pb_branch_name varchar2(50) not null,
     impossible number(1) not null , -- 1 : 10시 ~ 11시 마감 ......
-    private_banker_id number ,
     start_time varchar2(50) ,
     end_time varchar2(50)
 );

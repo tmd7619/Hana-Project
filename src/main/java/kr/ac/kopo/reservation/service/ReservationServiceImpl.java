@@ -2,7 +2,6 @@ package kr.ac.kopo.reservation.service;
 
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.reservation.dao.ReservationDAO;
-import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +21,9 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<SchedulerVO> availableSearchBanker() { // 상담 가능한 자산관리사 조회
+    public List<BankerVO> availableSearchBanker() { // 상담 가능한 자산관리사 조회
 
-        List<SchedulerVO> scheduledBanker = reservationDAO.availableSearchBanker(); // 모든 자산관리사 스케줄 조회
+        List<BankerVO> scheduledBanker = reservationDAO.availableSearchBanker(); // 모든 자산관리사 스케줄 조회
 
         return scheduledBanker;
     }

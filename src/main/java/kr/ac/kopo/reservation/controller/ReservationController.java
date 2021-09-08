@@ -2,7 +2,6 @@ package kr.ac.kopo.reservation.controller;
 
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.reservation.service.ReservationService;
-import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,14 +23,17 @@ public class ReservationController {
         ModelAndView mav = new ModelAndView();
 
         List<BankerVO> bankerVOList = service.searchBanker();
+        List<BankerVO> checkBankerList = service.availableSearchBanker();
 
-        System.out.println("reser 컨트롤러 : "  + bankerVOList);
+            // 상담 가능한 PB 조회
+            for(int i = 0; i < bankerVOList.size(); i ++){
+                for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
+                    if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
+                        bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
+                    }
+                }
+            }
         mav.addObject("bankerList" , bankerVOList);
-
-        List<SchedulerVO> schedulerVO = service.availableSearchBanker();
-        System.out.println("resr  : " + schedulerVO);
-        mav.addObject("impossibleTime" , schedulerVO);
-
         mav.setViewName("client/searchBanker/bankerList");
 
         return mav;
