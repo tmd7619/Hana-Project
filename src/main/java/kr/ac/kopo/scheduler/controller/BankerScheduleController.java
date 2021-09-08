@@ -1,8 +1,8 @@
 package kr.ac.kopo.scheduler.controller;
 
-import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.scheduler.service.SchedulerService;
+import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,14 +20,23 @@ import java.util.Map;
 public class BankerScheduleController {
 
     @Autowired
-    SchedulerService service;
+    private SchedulerService service;
 
 
     //일정 관리 페이지
     @RequestMapping(value = "/pb/scheduler")
-    public String schedule(Model model)throws Exception {
+    public String schedule(Model model , HttpSession session)throws Exception {
 
-        model.addAttribute("showSchedule" , service.showSchedule());
+        BankerVO banker = (BankerVO)session.getAttribute("bankerVO");
+
+        List<SchedulerVO> schedulerVO = service.showSchedule(banker);
+
+        for(SchedulerVO s :schedulerVO){
+            System.out.println(s);
+        }
+
+        model.addAttribute("showSchedule" , schedulerVO);
+
 
         return "pb/services/schedule";
     }
@@ -56,9 +65,11 @@ public class BankerScheduleController {
     //일정 보이기 (임시)
     @ResponseBody
     @RequestMapping(value = "/pb/showSchedule")
-    public List<SchedulerVO> showSchedule() throws Exception {
+    public List<SchedulerVO> showSchedule(HttpSession session) throws Exception {
 
-        List<SchedulerVO> list = service.showSchedule();
+        BankerVO banker = (BankerVO)session.getAttribute("bankerVO");
+
+        List<SchedulerVO> list = service.showSchedule(banker);
 
         return list;
     }

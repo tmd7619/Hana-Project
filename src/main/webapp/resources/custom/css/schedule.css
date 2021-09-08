@@ -3,9 +3,9 @@
 .add-button {
     position: absolute;
     top: 1px;
-    right: 230px;
-    background: #2C3E50;
-    border: 0;
+    right: 150px;
+	background: darkgrey;
+	border: 0;
     color: white;
     height: 35px;
     border-radius: 3px;

@@ -10,6 +10,8 @@
 		<result column="start_date" property="startDate"/>
 		<result column="start_time" property="startTime"/>
 		<result column="end_time" property="endTime"/>
+		<result column="pb_branch_name" property="pbBranchName"/>
+		<result column="pb_name" property="pbName"/>
 	</resultMap>
 
 	<!--e
@@ -26,6 +28,7 @@
 		   title,start_date,end_date ,memo
 		FROM
 			pb_scheduler
+		WHERE pb_Name = #{pbName} and pb_branch_name = #{pbBranchName}
 	</select>
 
 	<insert id="addSchedule" parameterType = "schedulerVO">

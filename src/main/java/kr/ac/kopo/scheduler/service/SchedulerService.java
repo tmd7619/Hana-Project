@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface SchedulerService {
 
-    List<SchedulerVO> showSchedule() throws Exception;
+    List<SchedulerVO> showSchedule(BankerVO banker) throws Exception;
     void addSchedule(SchedulerVO schedulerVO, BankerVO bankerVO) throws Exception;
 
 }

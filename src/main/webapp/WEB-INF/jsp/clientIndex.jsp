@@ -49,7 +49,7 @@
 <%--    </div>--%>
 <%--</div>--%>
 <!-- Hero Section Begin -->
-<section class="hero set-bg" style="background-color: #008485">
+<section class="hero set-bg" style="background-color: #27b2a5">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">

@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <hr>
+    <hr style="margin-top: 100px;
+    margin-bottom: 50px;">
     <footer class="ftco-footer" style="padding: 0;">
         <div class="container">
             <div class="row mb-5">

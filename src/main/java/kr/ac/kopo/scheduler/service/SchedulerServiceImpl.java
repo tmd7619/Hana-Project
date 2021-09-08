@@ -14,8 +14,8 @@ public class SchedulerServiceImpl  implements  SchedulerService{
     @Autowired
     SchedulerDAO dao;
 
-    public List<SchedulerVO> showSchedule()  {
-        List<SchedulerVO> schedulerVO = dao.showSchedule();
+    public List<SchedulerVO> showSchedule(BankerVO banker)  {
+        List<SchedulerVO> schedulerVO = dao.showSchedule(banker);
 
         return schedulerVO;
     }

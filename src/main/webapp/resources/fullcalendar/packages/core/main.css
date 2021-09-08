@@ -674,9 +674,15 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
   z-index: 1; }
 
 .fc-button-group > .fc-button:not(:first-child) {
+  background: #F7F7F7;
+  color: black;
+  border: #F7F7F7;
   margin-left: -1px; }
 
 .fc-button-group > .fc-button:not(:last-child) {
+  background: #F7F7F7;
+  color: black;
+  border: #F7F7F7;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
@@ -710,8 +716,11 @@ Lots taken from Flatly (MIT): https://bootswatch.com/4/flatly/bootstrap.css
 
 /* inner content */
 .fc-toolbar > * > :not(:first-child) {
-  margin-left: .75em; }
-
+  color: black;
+  background: #f7f7f7;
+  margin-left: .75em;
+  border: #f7f7f7;
+}
 .fc-toolbar h2 {
   font-size: 1.75em;
   margin: 0; }

@@ -14,11 +14,14 @@ commit;
 
 -- pb_table--------------------------------------------------------------------------------
 
+
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name)
     values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 설계' ,
-        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.'
+        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
+        , '#친절한  #유쾌한  #웃음이많은  #신속해결사'
+        
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
@@ -28,11 +31,13 @@ insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.'
 );
 
-insert into private_banker(Private_Banker_id,pb_id ,pb식_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content)
+insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content, tag_name)
     values(Private_banker_seq.nextval,'test5' ,'1234','박피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '광명지점' , '부동산 설계' ,
-        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.'
+        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
+        , '#진중한  #믿음직한'        
+
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,

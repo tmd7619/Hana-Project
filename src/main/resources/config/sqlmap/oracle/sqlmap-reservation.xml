@@ -15,6 +15,7 @@
             <result column="main_field" property="mainField"/>
             <result column="intro_content" property="introContent"/>
             <result column="main_content" property="mainContent"/>
+            <result column="tag_name" property="tagName"/>
         </resultMap>
 
         <resultMap id="schedulerMap" type="SchedulerVO">

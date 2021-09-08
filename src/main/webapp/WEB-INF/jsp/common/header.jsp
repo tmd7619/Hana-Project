@@ -245,7 +245,7 @@
                 display: inline-block;
                 font-size: 14px;
                 font-size: 0.8125rem;
-                font-weight: 400;
+                font-weight: bold;
                 padding: 10px 15px 10px 15px;
                 /*padding: 1rem 2.5rem;*/
                 text-transform: uppercase;

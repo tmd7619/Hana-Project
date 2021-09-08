@@ -401,12 +401,13 @@ ol {
 
 .hero__text .hero__categories__tags {
 	text-align: center;
+	margin-bottom: 30px;
 }
 
 .hero__text .hero__categories__tags li {
 	list-style: none;
 	display: inline-block;
-	margin-right: 5px;
+	margin-right: 40px;
 }
 
 .hero__text .hero__categories__tags li:last-child {
@@ -518,7 +519,7 @@ ol {
 	border: none;
 	font-size: 14px;
 	font-weight: 700;
-	background: #f03250;
+	background: mediumaquamarine;
 	color: #ffffff;
 	text-transform: uppercase;
 }
@@ -2416,7 +2417,7 @@ ol {
 	border-radius: 5px;
 	background: #ffffff;
 	padding: 30px 30px 10px 30px;
-	margin-bottom: 50px;
+	margin-top: 50px;
 }
 
 .blog__sidebar__recent h5 {
@@ -2449,7 +2450,7 @@ ol {
 	font-size: 11px;
 	text-transform: uppercase;
 	font-weight: 700;
-	color: #f03250;
+	color: #27b2a5;
 	margin-bottom: 10px;
 }
 

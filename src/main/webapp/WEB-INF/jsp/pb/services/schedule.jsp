@@ -18,7 +18,7 @@
   <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
   <link rel="shortcut icon" href="img/favicon.png">
 
-  <title>Form Validation | Creative - Bootstrap 3 Responsive Admin Template</title>
+  <title></title>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <!-- 부트스트랩 기본 템플릿 -->
   <!-- Bootstrap CSS -->
@@ -66,8 +66,9 @@
         header: {
           left: 'prev,next today',
           center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+          right: 'dayGridMonth,listMonth'
         },
+
         locale : "ko",
         //defaultDate: "2019-08-22",
         navLinks: true, // can click day/week names to navigate views
@@ -83,6 +84,9 @@
             title : '<%= dto.getTitle() %>',
             start : '<%= dto.getStartDate() %>',
             end : '<%= dto.getEndDate() %>',
+            backgroundColor : "#27b2a5",
+            borderColor :  "#27b2a5",
+            color : "#ffffff",
           },
           <%
               }

@@ -136,9 +136,9 @@
     $('#timepicker').timepicker({
         timeFormat: 'p HH:mm',
         interval: 60,
-        minTime: '09',
-        maxTime: '18:00pm',
-        defaultTime: '9',
+        minTime: '10:00am',
+        maxTime: '17:00pm',
+        defaultTime: '10',
         // startTime: '00:00',
         dynamic: false,
         dropdown: true,
@@ -147,9 +147,9 @@
     $('#timepicker2').timepicker({
         timeFormat: 'p HH:mm',
         interval: 60,
-        minTime: '09',
-        maxTime: '18:00pm',
-        defaultTime: '10',
+        minTime: '10:00am',
+        maxTime: '17:00pm',
+        defaultTime: '11',
         dynamic: false,
         dropdown: true,
         scrollbar: true

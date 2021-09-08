@@ -46,6 +46,19 @@
         max-width: 15%;
     }
 
+    .btn-light.disabled, .btn-light:disabled{
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
+    #tagName{
+        color: #27b2a5;
+        font-weight: normal;
+    }
+
+
+
+
 
 </style>
 
@@ -74,11 +87,11 @@
             <div class="col-lg-12">
                 <div class="hero__text">
                     <ul class="hero__categories__tags">
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-1.png" alt=""> 주식 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-2.png" alt=""> 채권 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png" alt=""> 부동산 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png" alt=""> 펀드 분야</a></li>
-                        <li><a href="#"><img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png" alt=""> 세금 분야</a></li>
+                        <li><a href="#"><%--<img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-3.png" alt="">--%> 부동산 분야</a></li>
+                        <li><a href="#"><%--<img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-1.png" alt="">--%> 주식 분야</a></li>
+                        <li><a href="#"><%--<img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-2.png" alt="">--%> 채권 분야</a></li>
+                        <li><a href="#"><%--<img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-4.png" alt="">--%> 펀드 분야</a></li>
+                        <li><a href="#"><%--<img src="${pageContext.request.contextPath}/resources/css2/img/hero/cat-5.png" alt="">--%> 세금 분야</a></li>
                     </ul>
                 </div>
             </div>
@@ -104,43 +117,44 @@
                         <ul class="blog__item__widget" >
                             <h3><p style="color: black">상담 가능 시간</p></h3>
                                 <c:if test="${fn:contains(banker.impossible,'1')}">
-                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">10:00</button></li>
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;font-weight: lighter">10:00</button></li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'1')}">
                                   <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">10:00</button></li>
                                 </c:if>
                                 <c:if test="${fn:contains(banker.impossible,'2')}">
-                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">11:00</button></li>
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;font-weight: lighter">11:00</button></li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'2')}">
                                     <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">11:00</button></li>
                                 </c:if>
                                 <c:if test="${fn:contains(banker.impossible,'3')}">
-                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">13:00</button></li>
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;font-weight: lighter">13:00</button></li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'3')}">
                                     <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">13:00</button></li>
                                 </c:if>
                                 <c:if test="${fn:contains(banker.impossible,'4')}">
-                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">14:00</button></li>
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;"font-weight: lighter>14:00</button></li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'4')}">
                                     <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">14:00</button></li>
                                 </c:if>
                                 <c:if test="${fn:contains(banker.impossible,'5')}">
-                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">15:00</button></li>
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;font-weight: lighter">15:00</button></li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'5')}">
                                     <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">15:00</button></li>
                                 </c:if>
                                 <c:if test="${fn:contains(banker.impossible,'6')}">
-                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;">16:00</button></li>
+                                  <li><button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;font-weight: lighter">16:00</button></li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'6')}">
                                   <li><button class="btn btn-light btn-sm " style="margin-bottom: 10px;">16:00</button></li>
                                 </c:if>
                         </ul>
 
+                    <div id="tagName"><c:out value="${banker.tagName}"/></div>
                     </div>
                 </div>
                 </c:forEach>
@@ -161,8 +175,31 @@
                             <button type="submit"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
+                    <div class="blog__sidebar__categories">
+                        <h5>TOP 5 조회 목록</h5>
+                        <ul>
+                            <li><a href="#">Finance <span>18</span></a></li>
+                            <li><a href="#">Business <span>20</span></a></li>
+                            <li><a href="#">Loan <span>07</span></a></li>
+                            <li><a href="#">Consulting <span>22</span></a></li>
+                            <li><a href="#">Credit <span>19</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="blog__sidebar__tags">
+                        <h5>인기 태그 목록</h5>
+                        <a href="#">Business</a>
+                        <a href="#">Marketing</a>
+                        <a href="#">Payment</a>
+                        <a href="#">Travel</a>
+                        <a href="#">Finance</a>
+                        <a href="#">Videos</a>
+                        <a href="#">Ideas</a>
+                        <a href="#">Unique</a>
+                        <a href="#">Music</a>
+                        <a href="#">Key</a>
+                    </div>
                     <div class="blog__sidebar__recent">
-                        <h5>Recent Post</h5>
+                        <h5>최근 상담한 자산관리사</h5>
                         <a href="#" class="blog__sidebar__recent__item">
                             <div class="blog__sidebar__recent__item__pic">
                                 <img src="img/blog/recent-1.jpg" alt="">
@@ -213,29 +250,6 @@
                                 <p><i class="fa fa-clock-o"></i> 19th March, 2019</p>
                             </div>
                         </a>
-                    </div>
-                    <div class="blog__sidebar__categories">
-                        <h5>Categories</h5>
-                        <ul>
-                            <li><a href="#">Finance <span>18</span></a></li>
-                            <li><a href="#">Business <span>20</span></a></li>
-                            <li><a href="#">Loan <span>07</span></a></li>
-                            <li><a href="#">Consulting <span>22</span></a></li>
-                            <li><a href="#">Credit <span>19</span></a></li>
-                        </ul>
-                    </div>
-                    <div class="blog__sidebar__tags">
-                        <h5>Popular Tag</h5>
-                        <a href="#">Business</a>
-                        <a href="#">Marketing</a>
-                        <a href="#">Payment</a>
-                        <a href="#">Travel</a>
-                        <a href="#">Finance</a>
-                        <a href="#">Videos</a>
-                        <a href="#">Ideas</a>
-                        <a href="#">Unique</a>
-                        <a href="#">Music</a>
-                        <a href="#">Key</a>
                     </div>
                 </div>
             </div>

@@ -1,5 +1,6 @@
 package kr.ac.kopo.scheduler.dao;
 
+import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.scheduler.vo.SchedulerVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ public class SchedulerDAOImpl implements SchedulerDAO {
     private String namespace = "scheduler.SchedulerDAO.";
 
     @Override
-    public List<SchedulerVO> showSchedule() {
-        List<SchedulerVO> list = sqlSessionTemplate.selectList(namespace+"showSchedule");
+    public List<SchedulerVO> showSchedule(BankerVO banker) {
+        List<SchedulerVO> list = sqlSessionTemplate.selectList(namespace+"showSchedule" ,banker);
         for(SchedulerVO sce :list){
             System.out.println(sce);
         }

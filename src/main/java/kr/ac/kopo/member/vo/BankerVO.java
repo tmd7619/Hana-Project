@@ -8,11 +8,21 @@ public class BankerVO {
     private String pbRank;
     private String pbPhone;
     private String pbEmail;
-    private String branchName;
+    private String pbBranchName;
     private String mainField;
     private String introContent;
     private String mainContent;
     private String impossible;
+    private String tagName;
+
+
+    public String getTagName() {
+        return tagName;
+    }
+
+    public void setTagName(String tagName) {
+        this.tagName = tagName;
+    }
 
     public String getImpossible() {
         return impossible;
@@ -95,11 +105,11 @@ public class BankerVO {
     }
 
     public String getBranchName() {
-        return branchName;
+        return pbBranchName;
     }
 
     public void setBranchName(String branchName) {
-        this.branchName = branchName;
+        this.pbBranchName = branchName;
     }
 
 
@@ -112,11 +122,12 @@ public class BankerVO {
                 ", pbRank='" + pbRank + '\'' +
                 ", pbPhone='" + pbPhone + '\'' +
                 ", pbEmail='" + pbEmail + '\'' +
-                ", branchName='" + branchName + '\'' +
+                ", branchName='" + pbBranchName + '\'' +
                 ", mainField='" + mainField + '\'' +
                 ", introContent='" + introContent + '\'' +
                 ", mainContent='" + mainContent + '\'' +
                 ", impossible='" + impossible + '\'' +
+                ", tagName='" + tagName + '\'' +
                 '}';
     }
 }
