@@ -56,6 +56,10 @@
         font-weight: normal;
     }
 
+    #profileBtn{
+        cursor: pointer;
+    }
+
 
 
 
@@ -114,7 +118,7 @@
                             <li><i class="fa fa-tags"></i><c:out value="${banker.branchName}"/></li>
                             <li><c:out value="${banker.mainField}"/> </li>
                         </ul>
-                        <div><img class="pb_thumbnail" src="${pageContext.request.contextPath}/resources/images/user2.png" />
+                        <div><a id="profileBtn"><img class="pb_thumbnail" src="${pageContext.request.contextPath}/resources/images/user2.png" /></a>
 <%--                            <button class="btn btn-light btn-sm " id="profileBtn">프로필보기</button></div>--%>
                         <h3><a href="#"><c:out value="${banker.pbName}"/></a></h3>
                         <p><c:out value="${banker.introContent}"/> </p>

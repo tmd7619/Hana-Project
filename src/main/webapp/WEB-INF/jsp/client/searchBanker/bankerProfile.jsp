@@ -16,7 +16,7 @@
     /* Modal Content/Box */
     #modal-content3 {
         background-color: #fefefe;
-        padding: 20px;
+        padding: 40px;
         border: 1px solid #888;
         width: 70%; /* Could be more or less, depending on screen size */
         margin-top:10%;
@@ -26,7 +26,7 @@
         overflow: scroll;
     }
 
-    .fa fa-quote-left{
+    .fa-quote-left:before{
         color: #fff;
     }
 
