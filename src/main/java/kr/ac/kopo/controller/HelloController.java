@@ -12,6 +12,13 @@ public class HelloController {
 		return "clientIndex";
 //		return "iframeTest";
 	}
+
+	@RequestMapping("/test")
+	public String testView() {
+
+		return "client/searchBanker/reservationModal";
+//		return "iframeTest";
+	}
 	
 	
 }
