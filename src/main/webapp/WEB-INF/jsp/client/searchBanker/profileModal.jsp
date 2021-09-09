@@ -37,9 +37,8 @@
         color: #fff;
     }
 
+
 </style>
-
-
 
 <!-- Modal Scrollable -->
 <div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
@@ -47,7 +46,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalScrollableTitle">Modal scrollable title</h5>
+                <h5 class="modal-title" id="exampleModalScrollableTitle">Private Banker Profile</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -256,8 +255,7 @@
                 </section>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
+<%--                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">닫기</button>--%>
             </div>
         </div>
     </div>

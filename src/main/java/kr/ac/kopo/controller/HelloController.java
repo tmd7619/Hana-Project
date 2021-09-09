@@ -16,7 +16,7 @@ public class HelloController {
 	@RequestMapping("/test")
 	public String testView() {
 
-		return "client/searchBanker/reservationModal";
+		return "client/searchBanker/";
 //		return "iframeTest";
 	}
 	
