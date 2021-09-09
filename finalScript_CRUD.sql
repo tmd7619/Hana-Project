@@ -2,11 +2,11 @@
 
 -- member
 
-insert into member(member_id,user_id,password,username,nickname,birth,phone,email,address)
+insert into Client(Client_id,user_id,password,username,nickname,birth,phone,email,address)
 values(member_seq.nextval,'test','1234','윤승원','윤또깡','951126','010-6211-7619','tmd814@naver.com','경기도부천시'
 );
-insert into member(member_id,user_id,password,username,nickname,birth,phone,email,address)
-values(member_seq.nextval,'test2','1234','최민기','최밍키','951121','010-6211-7619','tmd814@naver.com','경기도부천시'
+insert into Client(Client_id,user_id,password,username,nickname,birth,phone,email,address)
+values(Client_seq.nextval,'test2','1234','최민기','최밍키','951121','010-6211-7619','tmd814@naver.com','경기도부천시'
 );
 commit;
 

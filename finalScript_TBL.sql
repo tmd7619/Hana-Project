@@ -16,10 +16,10 @@
 */
 
 DROP TABLE Member CASCADE CONSTRAINTS;
-DROP TABLE Member;
 
-CREATE TABLE Member( -- 회원정보 테이블
-member_id           number  not null,
+DROP TABLE Client;
+CREATE TABLE Client( -- 손님 테이블
+client_id           number  not null, -- 손님테이블 시퀀스 값
 user_id varchar2(30) PRIMARY KEY ,
 password varchar2(50) NOT NULL,
 username varchar2(30) UNIQUE,
@@ -31,27 +31,27 @@ address varchar2(200) NOT NULL,
 reg_date date default sysdate 
 );
 
-DROP SEQUENCE Member_seq;
-CREATE SEQUENCE Member_seq -- member 테이블 시퀀스
+DROP SEQUENCE Client_seq;
+CREATE SEQUENCE Client_seq -- 손님 테이블 시퀀스
 INCREMENT BY 1
 START WITH 1
 MINVALUE 1
 MAXVALUE 1000
 NOCACHE;
 
-insert into member(member_id,user_id,password,username,nickname,birth,phone,email,address)
+insert into Client(Client_id,user_id,password,username,nickname,birth,phone,email,address)
 values(member_seq.nextval,'test','1234','윤승원','윤또깡','951126','010-6211-7619','tmd814@naver.com','경기도부천시'
 );
-insert into member(member_id,user_id,password,username,nickname,birth,phone,email,address)
-values(member_seq.nextval,'test2','1234','최민기','최밍키','951121','010-6211-7619','tmd814@naver.com','경기도부천시'
+insert into Client(Client_id,user_id,password,username,nickname,birth,phone,email,address)
+values(Client_seq.nextval,'test2','1234','최민기','최밍키','951121','010-6211-7619','tmd814@naver.com','경기도부천시'
 );
 commit;
 rollback;
 
-update member set branch_name = '지점미등록' where user_id = 'test2';
+update Client set branch_name = '지점미등록' where user_id = 'test2';
 
 
-select * from member;
+select * from Client;
 ----------------------------------------------------------------------------------------------------------------------
 
 DROP TABLE CHAT_ROOM;
@@ -143,5 +143,19 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from pb_scheduler;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+drop table reservation ; -- 상담 예약 테이블
+create table reservation(
+    reservation_id number primary key,
+    rsrv date not null,
+    rsrv_type varchar2(200),
+    rsrv_coment varchar2(500) , 
+    user_id  varchar2(50) , -- foreign key 
+    user_name varchar2(100) 
+);
+drop sequence reservation_seq ;
+CREATE SEQUENCE  reservation_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
 
 
