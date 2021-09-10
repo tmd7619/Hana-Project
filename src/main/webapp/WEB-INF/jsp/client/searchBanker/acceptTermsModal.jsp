@@ -98,19 +98,24 @@
     #staticBackdrop{
         overflow: hidden;
     }
+    .modal-dialog,
+    .modal-content {
+        /* 80% of window height */
+        height: 80%;
+    }
+
 
 </style>
 
-<!-- Button trigger modal -->
-<button id="termsModal" type="button" class="btn btn-primary" >
-    Launch static backdrop modal
-</button>
+<%--<!-- Button trigger modal -->--%>
+<%--<button id="termsModal" type="button" class="btn btn-primary" >--%>
+<%--    Launch static backdrop modal--%>
+<%--</button>--%>
 
 
 <!--  acceptTermsModal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">서비스 이용 약관동의</h5>

@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<meta charset="UTF-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<meta charset="UTF-8">
 	<title>Chating</title>
 	<style>
 		*{
@@ -20,6 +20,7 @@
 			text-align: left;
 			padding: 5px 5px 5px 15px;
 			color: #FFBB00;
+			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}
 		.chating{
@@ -50,15 +51,16 @@
 	var ws;
 
 	function wsOpen(){
-		ws = new WebSocket("ws://localhost/chating");
+		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
+		ws = new WebSocket("ws://" + location.host + "/chating/"+$("#roomNumber").val());
 		wsEvt();
 	}
-		
+
 	function wsEvt() {
 		ws.onopen = function(data){
 			//소켓이 열리면 동작
 		}
-		
+
 		ws.onmessage = function(data) {
 			//메시지를 받으면 동작
 			var msg = data.data;
@@ -67,15 +69,15 @@
 				if(d.type == "getId"){
 					var si = d.sessionId != null ? d.sessionId : "";
 					if(si != ''){
-						$("#sessionId").val(si); 
+						$("#sessionId").val(si);
 					}
 				}else if(d.type == "message"){
 					if(d.sessionId == $("#sessionId").val()){
-						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>");	
+						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>");
 					}else{
 						$("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
 					}
-						
+
 				}else{
 					console.warn("unknown type!")
 				}
@@ -91,6 +93,7 @@
 
 	function chatName(){
 		var userName = $("#userName").val();
+
 		if(userName == null || userName.trim() == ""){
 			alert("사용자 이름을 입력해주세요.");
 			$("#userName").focus();
@@ -104,6 +107,7 @@
 	function send() {
 		var option ={
 			type: "message",
+			roomNumber: $("#roomNumber").val(),
 			sessionId : $("#sessionId").val(),
 			userName : $("#userName").val(),
 			msg : $("#chatting").val()
@@ -113,51 +117,32 @@
 	}
 </script>
 <body>
+<div id="container" class="container">
+	<h1>${roomName}의 채팅방</h1>
+	<input type="hidden" id="sessionId" value="">
+	<input type="hidden" id="roomNumber" value="${roomNumber}">
 
-	<jsp:include page="/WEB-INF/jsp/common/header.jsp"></jsp:include>
-	<section class="page-title bg-1">
-	  <div class="container">
-	    <div class="row">
-	      <div class="col-md-12">
-	        <div class="block text-center">
-   			<h1 class="text-capitalize mb-4 text-lg" style="text-align: center;">실시간 채팅상담 </h1>
-	          <ul class="list-inline">
-	            <li class="list-inline-item"></li>
-	            <li class="list-inline-item"><span class="text-white">/</span></li>
-	            <li class="list-inline-item"><a href="#" class="text-white-50">Our blog</a></li>
-	          </ul>
-	        </div>
-	      </div>
-	    </div>
-	  </div>
-	</section>
-	<div id="container" class="container">
-		<h1>채팅</h1>
-		<input type="hidden" id="sessionId" value="">
-		
-		<div id="chating" class="chating">
-		</div>
-		
-		<div id="yourName">
-			<table class="inputTable">
-				<tr>
-					<th>사용자명</th>
-					<th><input type="text" name="userName" id="userName"></th>
-					<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
-				</tr>
-			</table>
-		</div>
-		<div id="yourMsg">
-			<table class="inputTable">
-				<tr>
-					<th>메시지</th>
-					<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
-					<th><button onclick="send()" id="sendBtn">보내기</button></th>
-				</tr>
-			</table>
-		</div>
+	<div id="chating" class="chating">
 	</div>
-	
-	<jsp:include page="/WEB-INF/jsp/common/footer.jsp"></jsp:include>
+
+	<div id="yourName">
+		<table class="inputTable">
+			<tr>
+				<th>사용자명</th>
+				<th><input type="text" name="userName" id="userName"></th>
+				<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
+			</tr>
+		</table>
+	</div>
+	<div id="yourMsg">
+		<table class="inputTable">
+			<tr>
+				<th>메시지</th>
+				<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
+				<th><button onclick="send()" id="sendBtn">보내기</button></th>
+			</tr>
+		</table>
+	</div>
+</div>
 </body>
 </html>

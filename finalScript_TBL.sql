@@ -147,8 +147,8 @@ select * from pb_scheduler;
 drop table reservation ; -- 상담 예약 테이블
 create table reservation(
     reservation_id number primary key,
-    rsrv date not null,
-    rsrv_type varchar2(200),
+    rsrv date not null, -- 상담시간 
+    rsrv_type varchar2(200), 
     rsrv_coment varchar2(500) , 
     user_id  varchar2(50) , -- foreign key 
     user_name varchar2(100) 

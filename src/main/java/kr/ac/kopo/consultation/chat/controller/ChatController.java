@@ -18,15 +18,12 @@ import java.util.stream.Collectors;
 @Controller
 public class ChatController {
 
-
-
     @Autowired
     ChatService service;
 
     List<RoomVO> roomList = new ArrayList<RoomVO>();
 
-    //	@RequestMapping("/chat")
-    @RequestMapping(value = "/chat", method =RequestMethod.GET, headers = "Connection!=Upgrade")
+   @RequestMapping(value = "/chat", method = RequestMethod.GET, headers = "Connection!=Upgrade")
     public ModelAndView chat() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("room");
@@ -99,12 +96,6 @@ public class ChatController {
             mv.setViewName("room");
         }
         return mv;
-    }
-
-
-    @RequestMapping("chatTest")
-    public String chatTest(){
-        return "chatTest2";
     }
 
 }

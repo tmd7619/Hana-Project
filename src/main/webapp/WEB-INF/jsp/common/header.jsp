@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/flaticon.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <style type="text/css">
             /* The Modal (background) */
             .modal {
@@ -266,7 +267,48 @@
                 color : #01888c!important;
             }
 
+            noticeIcon{
+                transform-origin: 50% 0%;
+                animation-name: shake;
+                animation-duration: 2s;
+                animation-iteration-count: infinite;
+                animation-delay: 0.5s;
+            }
 
+            @keyframes shake{
+                0%{
+                    transform: rotate(0deg);
+                }
+                10%{
+                    transform: rotate(45deg);
+                }
+                20%{
+                    transform: rotate(-45deg);
+                }
+                30%{
+                    transform: rotate(30deg);
+                }
+                40%{
+                    transform: rotate(-30deg);
+                }
+                50%{
+                    transform: rotate(10deg);
+                }
+                60%{
+                    transform: rotate(-10deg);
+                }
+                70%{
+                    transform: rotate(0deg);
+                }
+                100%{
+                    transform: rotate(0deg);
+                }
+            }
+
+            .fa-bell:before{
+                color: #008485;
+                position: relative;
+            }
         </style>
     </head>
 
@@ -388,6 +430,7 @@
             </c:when>
             <c:when test="${not empty bankerVO && empty userVO }">
                 <button id="logoutBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">로그아웃</button>
+                <i id="noticeIcon" class="fa fa-bell" style="font-size:24px;margin-left:20px"></i>
             </c:when>
         </c:choose>
     </div>

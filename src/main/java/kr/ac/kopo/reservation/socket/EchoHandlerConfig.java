@@ -1,4 +1,4 @@
-package kr.ac.kopo.consultation.chat.controller;
+package kr.ac.kopo.reservation.socket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -9,16 +9,14 @@ import org.springframework.web.socket.server.support.HttpSessionHandshakeInterce
 
 @Configuration
 @EnableWebSocket
-public class WebSocketConfig implements WebSocketConfigurer{
-
-	@Autowired
-	ChatWebSocketHandler chatWebSocketHandler;
-
-	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(chatWebSocketHandler, "/chating/{roomNumber}")
-				.addInterceptors(new HttpSessionHandshakeInterceptor()) ;
-	}
+public class EchoHandlerConfig implements WebSocketConfigurer {
 
 
+    @Autowired
+    EchoHandler echoHandler;
 
+    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
+        registry.addHandler(echoHandler, "/echo-ws")
+                .addInterceptors(new HttpSessionHandshakeInterceptor()).withSockJS() ;
+    }
 }

@@ -13,10 +13,10 @@ public class HelloController {
 //		return "iframeTest";
 	}
 
-	@RequestMapping("/test")
+	@RequestMapping("/echo-ws")
 	public String testView() {
 
-		return "client/searchBanker/";
+		return "client/reservation/socket";
 //		return "iframeTest";
 	}
 	

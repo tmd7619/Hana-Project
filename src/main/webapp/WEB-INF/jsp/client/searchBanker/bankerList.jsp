@@ -89,7 +89,7 @@
     }
 
     #joinForm {
-        width: 460px;
+        width: 90%;
         margin: 0 auto;
     }
 
@@ -165,6 +165,7 @@
 
 
 
+
 </style>
 
 <body>
@@ -235,20 +236,20 @@
                                 <%--                            </button>--%>
                             <a id="profileBtn"><img class="pb_thumbnail"
                                                     src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
-                            <h3><a href="#"><c:out value="${banker.pbName}"/></a></h3>
+                            <h3><div id="pbName"><c:out value="${banker.pbName}"/> 자산관리사</div></h3>
                             <p><c:out value="${banker.introContent}"/></p>
                             <ul class="blog__item__widget">
                                 <h3><p style="color: black">상담 가능 시간</p></h3>
                                 <c:if test="${fn:contains(banker.impossible,'1')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px;font-weight: lighter">10:00
+                                                style="margin-bottom: 10px;font-weight: lighter" value="10:00">10:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'1')}">
                                     <li>
-                                        <button id="termsModal" class="btn btn-light btn-sm" style="margin-bottom: 10px;">10:00
+                                        <button id="termsModal" class="btn btn-light btn-sm" style="margin-bottom: 10px;" value="10:00">10:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -426,9 +427,9 @@
 
 
 <!--  acceptTermsModal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog">
+<div id="staticBackdrop" class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="staticBackdropLabel">서비스 이용 약관동의</h5>
@@ -506,9 +507,70 @@
     </div>
 </div>
 
+<div class="modal fade" id="sendModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel">온라인 상담신청</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+<%--                    <div class="form-group">--%>
+<%--                        <label for="recipient-name" class="control-label">상담 정보</label>--%>
+<%--                        <div id="recipient-name" >성함 : ${userVO.username}</div>--%>
+<%--                        <div >상담 시간 : ${}</div>--%>
+<%--                    </div>--%>
+                    <div class="form-group">
+                        <label for="message-text" class="control-label">상담 요청 내용 :</label>
+                        <textarea class="form-control" id="message-text"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="sendMsg" type="button" class="btn btn-primary">확인</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="sendModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">상담 신청을 하시겠습니까?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group" >
+                        상담사 이름 : <span id="pb"></span><br>
+                        상담 시간  : <span id="time"></span>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="sendMsg2" type="button" class="btn btn-primary">상담 신청하기</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script>
+
+    var consultTime;
+    var username = '${sessionScope.userVO.username}';
+    var reserveComment ;
+    var pbName ;
+
     $(function () {
         $("#profileBtn").click(function () {
             $('#exampleModalScrollable').modal();
@@ -516,7 +578,10 @@
     })
     $(function () {
         $("#termsModal").click(function () {
+            consultTime = $(this).attr('value');
+            pbName = document.getElementById("pbName").innerText
             $('#staticBackdrop').modal('show');
+
         })
     })
 
@@ -529,10 +594,39 @@
 
     $(function (){
         $("#reservationBtn").click(function (){
-            confirm('상담예약을 하시겠습니까?' )
+            $('#staticBackdrop').modal('hide');
+            $('#sendModal').modal('show');
         })
 
     })
+
+    $(function (){
+
+        $('#sendMsg').click(function (){
+           reserveComment =  $('#message-text').val();
+            $('#sendModal').modal('hide');
+            $('#sendModal2').modal('show');
+            $("#time").text(consultTime)
+            $("#pb").text(pbName)
+
+        })
+
+    })
+
+    <%--var sendMessage = {--%>
+
+
+    <%--}--%>
+    <%-- // 예약 정보 DB 저장 ajax--%>
+    <%--$.ajax({--%>
+    <%--    type : "POST",--%>
+    <%--    url : "${pageContext.request.contextPath}/client/sendReservation" ,--%>
+    <%--    dataType :'json' ,--%>
+    <%--    contentType : 'application/json',--%>
+    <%--    data : JSON.stringify()--%>
+    <%--})--%>
+
+
 </script>
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
 
