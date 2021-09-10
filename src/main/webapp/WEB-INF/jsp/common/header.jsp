@@ -437,9 +437,11 @@
 </nav>
 <!-- END nav -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <script type="text/javascript">
 
-        $(document).ready(function() {
+
+    $(document).ready(function() {
             $('#loginBtn').click(function(){
                 $('#myModal').show();
 
@@ -467,4 +469,16 @@
                 $('#myModal2').hide();
             }
         });
+
+
+        var socket  = null;
+        $(document).ready(function(){
+            // 웹소켓 연결
+            sock = new SockJS("<c:url value="/client/searchList"/>");
+            socket = sock;
+
+            // 데이터를 전달 받았을때
+            sock.onmessage = onMessage; // toast 생성
+        });
+
     </script>
