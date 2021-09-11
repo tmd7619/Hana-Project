@@ -23,12 +23,17 @@
             <result column="pb_branch_name" property="pbBranchName"/>
         </resultMap>
 
+        <resultMap id="reservationMap" type="reservationVO">
+            <result column="rsrv_time" property="rsrvTime"/>
+            <result column="rsrv_coment" property="rsrvComent"/>
+            <result column="pb_name" property="pbName"/>
+        </resultMap>
+
     <select id="searchBanker" resultMap="bankerMap">
         select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
         , main_content, intro_content
         from private_banker
     </select>
-
 
     <select id="availableSearchBanker" resultMap="bankerMap">
         select s.impossible,  p.pb_name, p.pb_rank, p.pb_phone, p.pb_email, p.branch_name,
@@ -40,6 +45,11 @@
               ORDER BY impossible) s
         where p.pb_name = s.pb_name
     </select>
+
+    <insert id="insertReservation" parameterType="reservationVO">
+        insert into reservation(reservation_id , rsrv_time , rsrv_coment, username, pb_name, pb_branch_name)
+            values (reservation_seq.nextval, #{rsrvTime} , #{rsrvComent} , #{username} , #{pbName} , #{pbBranchName})
+    </insert>
 
 
 

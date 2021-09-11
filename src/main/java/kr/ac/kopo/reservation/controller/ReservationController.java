@@ -1,9 +1,13 @@
 package kr.ac.kopo.reservation.controller;
 
+import com.google.gson.Gson;
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.reservation.service.ReservationService;
+import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -37,6 +41,22 @@ public class ReservationController {
         mav.setViewName("client/searchBanker/bankerList");
 
         return mav;
+    }
+
+    @PostMapping("client/sendReservation")
+    public String insertReservation(@RequestBody String sendMessage){
+        System.out.println(sendMessage);
+        Gson gson = new Gson();
+
+        ReservationVO reservationVO = gson.fromJson(sendMessage,ReservationVO.class );
+
+        int check = service.insertReservation(reservationVO);
+
+        if(check != 0){
+
+            return "cleint/searchBanker/completeModal";
+        } else
+            return "redirect:/client/searchBanker/bankerList";
     }
 
 }

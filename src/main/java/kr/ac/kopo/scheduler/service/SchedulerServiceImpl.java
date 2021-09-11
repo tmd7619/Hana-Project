@@ -20,7 +20,7 @@ public class SchedulerServiceImpl  implements  SchedulerService{
         return schedulerVO;
     }
 
-    public void addSchedule(SchedulerVO dto, BankerVO bankerVO) {
+    public int addSchedule(SchedulerVO dto, BankerVO bankerVO) {
 
         System.out.println("service 넘어옴 : " + dto);
         String startTime = dto.getStartTime();
@@ -50,7 +50,10 @@ public class SchedulerServiceImpl  implements  SchedulerService{
         else
             System.out.println("not read");
 
-        dao.addSchedule(dto);
+
+        int check = dao.addSchedule(dto);
+
+        return check;
     }
 
 

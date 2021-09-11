@@ -8,6 +8,6 @@ import java.util.List;
 public interface SchedulerService {
 
     List<SchedulerVO> showSchedule(BankerVO banker) throws Exception;
-    void addSchedule(SchedulerVO schedulerVO, BankerVO bankerVO) throws Exception;
+    int addSchedule(SchedulerVO schedulerVO, BankerVO bankerVO) throws Exception;
 
 }

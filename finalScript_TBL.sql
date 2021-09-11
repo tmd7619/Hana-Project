@@ -129,7 +129,7 @@ create table pb_scheduler(
     title varchar2(200) not null,
     start_date varchar2(50) ,
     end_date varchar2(50),
-    memo varchar2(500) ,
+    memo varchar2(500) default '상담 예약 ',
     pb_name  varchar2(30) not null ,
     pb_branch_name varchar2(50) not null,
     impossible number(1) not null , -- 1 : 10시 ~ 11시 마감 ......
@@ -147,15 +147,18 @@ select * from pb_scheduler;
 drop table reservation ; -- 상담 예약 테이블
 create table reservation(
     reservation_id number primary key,
-    rsrv date not null, -- 상담시간 
-    rsrv_type varchar2(200), 
+    rsrv_time varchar2(100) not null, -- 상담시간 
     rsrv_coment varchar2(500) , 
     user_id  varchar2(50) , -- foreign key 
-    user_name varchar2(100) 
+    username varchar2(100) not null,
+    pb_name varchar2(30) not null,
+    pb_branch_name varchar2(200) not null
 );
 drop sequence reservation_seq ;
 CREATE SEQUENCE  reservation_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+select * from reservation;
 
 
 

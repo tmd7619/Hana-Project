@@ -227,6 +227,7 @@
                         <div class="blog__item__text">
                             <ul class="blog__item__tags">
                                 <li><i class="fa fa-tags"></i><c:out value="${banker.branchName}"/></li>
+                                <input class="pbBranchName" type="hidden" value="<c:out value="${banker.branchName}"/>" />
                                 <li><c:out value="${banker.mainField}"/></li>
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
@@ -234,7 +235,8 @@
                             <a id="profileBtn"><img class="pb_thumbnail"
                                                     src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
                             <h3>
-                                <span id="pbName"><c:out value="${banker.pbName}"/></span> 자산관리사
+                                <span ><c:out value="${banker.pbName}"/></span> 자산관리사
+                                <input class="pbName" type="hidden" value="<c:out value="${banker.pbName}"/>" />
                             </h3>
                             <p><c:out value="${banker.introContent}"/></p>
                             <ul class="blog__item__widget">
@@ -571,6 +573,7 @@
     var reserveComment;
     var pbName;
     var sendMessage;
+    var pbBranchName;
     $(function () {
         $("#profileBtn").click(function () {
             $('#exampleModalScrollable').modal();
@@ -579,7 +582,11 @@
     $(function () {
         $("#termsModal").click(function () {
             consultTime = $(this).attr('value');
-            pbName = document.getElementById("pbName").innerText
+            var parent = $(this).parents('.blog__item__large')
+            pbName = parent.find('.pbName').val();
+            pbBranchName = parent.find('.pbBranchName').val();
+
+
             $('#staticBackdrop').modal('show');
 
         })
@@ -609,11 +616,13 @@
             $("#pb").text(pbName)
             sendMessage = {
                 "username": username,
-                "rsrv_time": consultTime,
-                "rsrv_coment": reserveComment,
-                "pb_name": pbName
+                "rsrvTime": consultTime,
+                "rsrvComent": reserveComment,
+                "pbName": pbName ,
+                "pbBranchName" : pbBranchName
             }
-
+            console.log(sendMessage)
+            console.log(JSON.stringify(sendMessage))
             $('#sendMsg2').click(function () {
                 socket.send(username+","+sendMessage.rsrv_time+","+sendMessage.pb_name);
                 // 예약 정보 DB 저장 ajax

@@ -27,9 +27,14 @@ public class SchedulerDAOImpl implements SchedulerDAO {
     }
 
     @Override
-    public void addSchedule(SchedulerVO schedulerVO) {
+    public int addSchedule(SchedulerVO schedulerVO) {
 
         System.out.println("dao에서 넘어온 스케줄 : " + schedulerVO);
-        sqlSessionTemplate.insert(namespace +"addSchedule" , schedulerVO);
+        int check =sqlSessionTemplate.insert(namespace +"addSchedule" , schedulerVO);
+        if(check != 0){
+            System.out.println("pb 스케줄 삽입 완료..");
+        }
+
+        return check;
     }
 }

@@ -8,5 +8,5 @@ import java.util.List;
 public interface SchedulerDAO {
 
     List<SchedulerVO> showSchedule(BankerVO banker) ;
-    void addSchedule(SchedulerVO schedulerVO );
+    int addSchedule(SchedulerVO schedulerVO );
 }

@@ -1,6 +1,7 @@
 package kr.ac.kopo.reservation.dao;
 
 import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -30,5 +31,17 @@ public class ReservationDAOImpl implements ReservationDAO {
         List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace +"availableSearchBanker");
 
         return impossibleBankerList;
+    }
+
+    @Override
+    public int insertReservation(ReservationVO reservationVO) {
+
+        int check = sqlSessionTemplate.insert(namespace +"insertReservation" , reservationVO);
+        if(check != 0){
+            System.out.println("에약 정보 insert 완료");
+        }
+
+        return check;
+
     }
 }
