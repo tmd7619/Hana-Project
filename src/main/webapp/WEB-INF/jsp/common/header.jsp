@@ -267,12 +267,13 @@
                 color : #01888c!important;
             }
 
-            noticeIcon{
+            #noticeIcon{
                 transform-origin: 50% 0%;
                 animation-name: shake;
                 animation-duration: 2s;
-                animation-iteration-count: infinite;
+                /*animation-iteration-count: infinite;*/
                 animation-delay: 0.5s;
+                animation-iteration-count:2;
             }
 
             @keyframes shake{
@@ -309,6 +310,15 @@
                 color: #008485;
                 position: relative;
             }
+
+            .toast{
+                z-index: 500;
+                width: 250px;
+                height: 150px;
+                line-height: 20px;
+
+            }
+
         </style>
     </head>
 
@@ -430,15 +440,26 @@
             </c:when>
             <c:when test="${not empty bankerVO && empty userVO }">
                 <button id="logoutBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">로그아웃</button>
-                <i id="noticeIcon" class="fa fa-bell" style="font-size:24px;margin-left:20px"></i>
             </c:when>
         </c:choose>
+                <i  id="noticeIcon" class="fa fa-bell" style="font-size:24px;margin-left:20px;position: relative">
+                    <div id="msgStack" style="position: absolute"></div>
+                </i>
     </div>
 </nav>
 <!-- END nav -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <%--toast--%>
+
+
+
     <script type="text/javascript">
+
+    document.getElementById("noticeIcon").style.display = "none";
 
 
     $(document).ready(function() {
@@ -473,12 +494,41 @@
 
         var socket  = null;
         $(document).ready(function(){
+
             // 웹소켓 연결
             sock = new SockJS("<c:url value="/client/searchList"/>");
             socket = sock;
 
             // 데이터를 전달 받았을때
-            sock.onmessage = onMessage; // toast 생성
+            sock.onmessage = function(event){
+                $('#noticeIcon').show();
+                onMessage(event);
+
+
+            }
         });
+
+        $('#noticeIcon').click(function (){
+            $(".toast").toast({"animation": true, "autohide": false});
+            $('.toast').toast('show');
+
+        })
+        $('#closeMsg').click(function (){
+            $('#msgStack').hide();
+        })
+
+    // toast생성 및 추가
+    function onMessage(evt){
+        var data = evt.data;
+        // toast
+        let toast = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' style='z-index: 100;'>";
+        toast += "<div class='toast-header'><!--<i class='fas fa-bell mr-2'>--></i><strong class='mr-auto'>알림</strong>";
+        toast += "<small class='text-muted'>just now</small><button id='closeMsg' type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>";
+        toast += "<span aria-hidden='true'>&times;</span></button>";
+        toast += "</div> <div class='toast-body'>" + data + "</div></div>";
+        // toast += "<button id='acceptBtn>'>수락하기</button></div>";
+        $("#msgStack").append(toast);   // msgStack div에 생성한 toast 추가
+    };
+
 
     </script>
