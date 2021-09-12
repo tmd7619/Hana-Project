@@ -244,7 +244,7 @@
                                 <c:if test="${fn:contains(banker.impossible,'1')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px;font-weight: lighter" value="10:00">10:00
+                                                style="margin-bottom: 10px;font-weight: lighter" value="10:00" >10:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -264,7 +264,7 @@
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'2')}">
                                     <li>
-                                        <button class="btn btn-light btn-sm " style="margin-bottom: 10px;">11:00
+                                        <button class="btn btn-light btn-sm" style="margin-bottom: 10px;" value="11:00">11:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -277,20 +277,20 @@
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'3')}">
                                     <li>
-                                        <button class="btn btn-light btn-sm " style="margin-bottom: 10px;">13:00
+                                        <button value="13:00" class="btn btn-light btn-sm " style="margin-bottom: 10px;">13:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${fn:contains(banker.impossible,'4')}">
                                     <li>
-                                        <button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;"
-                                                font-weight: lighter>14:00
+                                        <button class="btn btn-light btn-sm disabled" style="margin-bottom: 10px;
+                                                font-weight:lighter">14:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'4')}">
                                     <li>
-                                        <button class="btn btn-light btn-sm " style="margin-bottom: 10px;">14:00
+                                        <button value="14:00" class="btn btn-light btn-sm " style="margin-bottom: 10px;">14:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -303,7 +303,7 @@
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'5')}">
                                     <li>
-                                        <button class="btn btn-light btn-sm " style="margin-bottom: 10px;">15:00
+                                        <button value="15:00" class="btn btn-light btn-sm " style="margin-bottom: 10px;">15:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -316,7 +316,7 @@
                                 </c:if>
                                 <c:if test="${not fn:contains(banker.impossible,'6')}">
                                     <li>
-                                        <button class="btn btn-light btn-sm " style="margin-bottom: 10px;">16:00
+                                        <button value="16:00" class="btn btn-light btn-sm " style="margin-bottom: 10px;">16:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -556,12 +556,15 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="sendMsg2" type="button" class="btn btn-primary">상담 신청하기</button>
+                <button id="sendMsg2" type="button" class="btn btn-primary" data-dismiss="modal">상담 신청하기</button>
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
 </div>
+
+
+
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -574,38 +577,33 @@
     var pbName;
     var sendMessage;
     var pbBranchName;
-    $(function () {
-        $("#profileBtn").click(function () {
-            $('#exampleModalScrollable').modal();
-        })
-    })
-    $(function () {
-        $("#termsModal").click(function () {
-            consultTime = $(this).attr('value');
-            var parent = $(this).parents('.blog__item__large')
-            pbName = parent.find('.pbName').val();
-            pbBranchName = parent.find('.pbBranchName').val();
 
 
-            $('#staticBackdrop').modal('show');
-
-        })
+    $("#profileBtn").click(function () {
+        $('#exampleModalScrollable').modal();
     })
 
-    $(function () {
-        $("#termsCloseBtn").click(function () {
-            $('#staticBackdrop').modal('hide');
-        })
+
+    $(".btn.btn-light.btn-sm").click(function () {
+        consultTime = $(this).val()
+        var parent = $(this).parents('.blog__item__large')
+        pbName = parent.find('.pbName').val();
+        pbBranchName = parent.find('.pbBranchName').val();
+
+        $('#staticBackdrop').modal('show');
 
     })
 
-    $(function () {
-        $("#reservationBtn").click(function () {
-            $('#staticBackdrop').modal('hide');
-            $('#sendModal').modal('show');
-        })
-
+    $("#termsCloseBtn").click(function () {
+        $('#staticBackdrop').modal('hide');
     })
+
+
+    $("#reservationBtn").click(function () {
+        $('#staticBackdrop').modal('hide');
+        $('#sendModal').modal('show');
+    })
+
 
     $(function () {
         $('#sendMsg').click(function () {
@@ -624,7 +622,7 @@
             console.log(sendMessage)
             console.log(JSON.stringify(sendMessage))
             $('#sendMsg2').click(function () {
-                socket.send(username+","+sendMessage.rsrv_time+","+sendMessage.pb_name);
+                socket.send(username+","+pbName+","+consultTime+","+reserveComment);
                 // 예약 정보 DB 저장 ajax
                 $.ajax({
                     type: "POST",
@@ -633,9 +631,9 @@
                     contentType: 'application/json',
                     data: JSON.stringify(sendMessage),
                     success: function () {
-                        socket.send(username, consultTime, pbName);
                     }
                 })
+                window.location.href = '${pageContext.request.contextPath}/client/searchList';
             })
         })
 

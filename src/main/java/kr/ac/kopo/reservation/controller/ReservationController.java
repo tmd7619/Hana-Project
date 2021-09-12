@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
@@ -42,21 +43,19 @@ public class ReservationController {
 
         return mav;
     }
-
+    @ResponseBody
     @PostMapping("client/sendReservation")
-    public String insertReservation(@RequestBody String sendMessage){
+    public String insertReservation(@RequestBody String sendMessage) {
         System.out.println(sendMessage);
         Gson gson = new Gson();
 
-        ReservationVO reservationVO = gson.fromJson(sendMessage,ReservationVO.class );
+        ReservationVO reservationVO = gson.fromJson(sendMessage, ReservationVO.class);
 
         int check = service.insertReservation(reservationVO);
 
-        if(check != 0){
-
-            return "cleint/searchBanker/completeModal";
-        } else
-            return "redirect:/client/searchBanker/bankerList";
+        if (check != 0) {
+            System.out.println("예약 완료");
+        }
+        return "예약완료";
     }
-
 }
