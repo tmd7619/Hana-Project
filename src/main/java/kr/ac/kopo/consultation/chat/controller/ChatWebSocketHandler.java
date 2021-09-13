@@ -1,5 +1,7 @@
 package kr.ac.kopo.consultation.chat.controller;
 
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -15,10 +17,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+
+
 @Component
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
-    //HashMap<String, WebSocketSession> sessionMap = new HashMap<>(); //웹소켓 세션을 담아둘 맵
+    private static int cnt = 0;
+
+
+    HashMap<String, WebSocketSession> sessionMap = new HashMap<>(); //웹소켓 세션을 담아둘 맵
     List<HashMap<String, Object>> rls = new ArrayList<>(); //웹소켓 세션을 담아둘 리스트 ---roomListSessions
 
     @SuppressWarnings("unchecked")
@@ -26,11 +33,21 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         //소켓 연결
 
-        String userId = getMemberId(session);
-        System.out.println(userId);
+        String bankerId = getBankerId(session);
+        if(bankerId != "") {
+            sessionMap.put(bankerId, session); // 세션 정보 저장
+        }
+        System.out.println("현재 banker session Id :" + session.getId());
+
+        String userId = getUserId(session);
+        if (userId != "") {
+            sessionMap.put(userId , session);
+        }
+        System.out.println("현재 user session.getId :" + session.getId());
+
         boolean flag = false;
         String url = session.getUri().toString();
-        System.out.println(url);
+        System.out.println("session url : " + url);
         String roomNumber = url.split("/chating/")[1];
         int idx = rls.size(); //방의 사이즈를 조사한다.
         if (rls.size() > 0) {
@@ -119,12 +136,22 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         return obj;
     }
 
-    //    // 웹소켓에 id 가져오기
-    // 접속한 유저의 http세션을 조회하여 id를 얻는 함수
-    private String getMemberId(WebSocketSession session) {
+    // 웹소켓에 user id 가져오기 (Client)
+    private String getUserId(WebSocketSession session){
         Map<String, Object> httpSession = session.getAttributes();
-        String m_id = (String) httpSession.get("userVO"); // 세션에 저장된 m_id 기준 조회
-        return m_id == null ? null : m_id;
+        ClientVO userVO = (ClientVO)httpSession.get("userVO");
+
+        System.out.println("웹소켓 VO 잘 가져옴 ? :  " + userVO);
+        return userVO.getUserId();
+    }
+
+    // 웹소켓에 banker id 가져오기 (banker)
+    private String getBankerId(WebSocketSession session){
+        Map<String, Object> httpSession = session.getAttributes();
+        BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
+
+        System.out.println("웹소켓 VO 잘 가져옴 ? :  " + bankerVO);
+        return bankerVO.getPbId();
     }
 
 

@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
 	<meta charset="UTF-8">
 	<title>Chating</title>
 	<style>
@@ -19,31 +21,61 @@
 		.container h1{
 			text-align: left;
 			padding: 5px 5px 5px 15px;
-			color: #FFBB00;
-			border-left: 3px solid #FFBB00;
-			margin-bottom: 20px;
+			color: #27b2a5;
+			/*border-left: 3px solid #008485;*/
 		}
 		.chating{
-			background-color: #000;
-			width: 500px;
-			height: 500px;
+			background-color: #e6efef;
+			width: 300px;
+			height: 300px;
 			overflow: auto;
+			padding-bottom: 50px;
 		}
 		.chating .me{
-			color: #F6F6F6;
+			color: #3c3c3c;
 			text-align: right;
+			word-break: keep-all;
+
+			border-top-left-radius: 10px;
+			border-bottom-left-radius: 10px;
+
+			position: relative;
+			padding: 9px 0 6px;
+			margin: 5px 5px 15px 50px;
+			background: #fff;
+			top: 0;
+			z-index: 5;
 		}
+
 		.chating .others{
-			color: #FFE400;
+			color: #008485;
 			text-align: left;
+
+			border-top-right-radius: 10px;
+			border-bottom-right-radius: 10px;
+
+			position: relative;
+			padding: 9px 0 6px;
+			margin: 5px 50px 15px 5px;
+			background: #fff;
+			top: 0;
+			z-index: 5;
+
+
 		}
 		input{
-			width: 330px;
+			width: 180px;
 			height: 25px;
 		}
 		#yourMsg{
 			display: none;
 		}
+
+		#bubble{
+			color: #27b2a5;
+		}
+
+
 	</style>
 </head>
 
@@ -93,7 +125,7 @@
 
 	function chatName(){
 		var userName = $("#userName").val();
-
+		console.log("현재 로그인 값" + userName)
 		if(userName == null || userName.trim() == ""){
 			alert("사용자 이름을 입력해주세요.");
 			$("#userName").focus();
@@ -110,7 +142,7 @@
 			roomNumber: $("#roomNumber").val(),
 			sessionId : $("#sessionId").val(),
 			userName : $("#userName").val(),
-			msg : $("#chatting").val()
+			msg : $("#chatting").val() ,
 		}
 		ws.send(JSON.stringify(option))
 		$('#chatting').val("");
@@ -118,7 +150,8 @@
 </script>
 <body>
 <div id="container" class="container">
-	<h1>${roomName}의 채팅방</h1>
+	<i id="bubble" class="fas fa-comments fa-2x text-warning"></i>
+	<h1>${roomName} PB의 채팅 상담</h1>
 	<input type="hidden" id="sessionId" value="">
 	<input type="hidden" id="roomNumber" value="${roomNumber}">
 
@@ -130,7 +163,7 @@
 			<tr>
 				<th>사용자명</th>
 				<th><input type="text" name="userName" id="userName"></th>
-				<th><button onclick="chatName()" id="startBtn">이름 등록</button></th>
+				<th><button onclick="chatName()" id="startBtn">입장하기</button></th>
 			</tr>
 		</table>
 	</div>

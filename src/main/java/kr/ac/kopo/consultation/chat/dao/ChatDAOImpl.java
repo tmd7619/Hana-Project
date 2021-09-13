@@ -14,8 +14,8 @@ public class ChatDAOImpl implements ChatDAO {
 	
 	@Override
 	public int insertRoom(RoomVO roomVO) {
-		
-		int check  = sqlSession.insert("chat.chatDAO.insertRoom" , roomVO);
+		System.out.println("in DAOImpl :" + roomVO);
+		int check  = sqlSession.insert("chat.ChatDAO.insertRoom" , roomVO);
 		
 		return check;
 	}

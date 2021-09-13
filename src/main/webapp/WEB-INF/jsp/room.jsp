@@ -19,7 +19,7 @@
 		.container h1{
 			text-align: left;
 			padding: 5px 5px 5px 15px;
-			color: #FFBB00;
+			color: #27b2a5;
 			border-left: 3px solid #FFBB00;
 			margin-bottom: 20px;
 		}

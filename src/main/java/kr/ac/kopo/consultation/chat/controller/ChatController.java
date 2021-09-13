@@ -2,6 +2,7 @@ package kr.ac.kopo.consultation.chat.controller;
 
 import kr.ac.kopo.consultation.chat.service.ChatService;
 import kr.ac.kopo.consultation.chat.vo.RoomVO;
+import kr.ac.kopo.member.vo.BankerVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -18,10 +20,20 @@ import java.util.stream.Collectors;
 @Controller
 public class ChatController {
 
+
+    private static int cnt;
+
     @Autowired
     ChatService service;
 
     List<RoomVO> roomList = new ArrayList<RoomVO>();
+
+    @RequestMapping("/pb/waitngRoom")
+    public String waitRoom(){
+
+        return "pb/services/waitRoom";
+    }
+
 
    @RequestMapping(value = "/chat", method = RequestMethod.GET, headers = "Connection!=Upgrade")
     public ModelAndView chat() {
@@ -48,21 +60,24 @@ public class ChatController {
      * @return
      */
     @RequestMapping("/createRoom")
-    public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object,Object> params){
+    public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object,Object> params , HttpSession session){
+        BankerVO bankerVO = (BankerVO)session.getAttribute("bankerVO");
+
         String roomName = (String) params.get("roomName");
+
         if(roomName != null && !roomName.trim().equals("")) {
             RoomVO room = new RoomVO();
             int roomNumber = 0 ; // 채팅방 입장인원 0명으로 초기화
 			room.setRoomNumber(++roomNumber);
-            room.setRoomName(roomName);
+            room.setRoomName(bankerVO.getPbName()); // 방 이름은 현재 로그인된 PB name
             roomList.add(room);
+            System.out.println(roomList.get(0));
             int check = service.insertRoom(room);
 
             if(check != 0) {
                 System.out.println("room 생성 완료 ");
 
             }
-
         }
         return roomList;
     }
@@ -75,6 +90,7 @@ public class ChatController {
      */
     @RequestMapping("/getRoom")
     public @ResponseBody List<RoomVO> getRoom(@RequestParam HashMap<Object, Object> params){
+
         return roomList;
     }
 
@@ -83,13 +99,14 @@ public class ChatController {
      * @return
      */
     @RequestMapping("/moveChating")
-    public ModelAndView chating(@RequestParam HashMap<Object, Object> params) {
+    public ModelAndView chating(@RequestParam HashMap<Object, Object> params, HttpSession session) {
+        BankerVO bankerVO = (BankerVO)session.getAttribute("bankerVO");
         ModelAndView mv = new ModelAndView();
         int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
 
         List<RoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
         if(new_list != null && new_list.size() > 0) {
-            mv.addObject("roomName", params.get("roomName"));
+            mv.addObject("roomName", bankerVO.getPbName());
             mv.addObject("roomNumber", params.get("roomNumber"));
             mv.setViewName("chat");
         }else {

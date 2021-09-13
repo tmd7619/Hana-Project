@@ -404,7 +404,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="${pageContext.request.contextPath}/">Counselor</a>
+        <a class="navbar-brand" href="${pageContext.request.contextPath}/">하나My PB</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
         </button>
@@ -427,7 +427,7 @@
             </ul>
         </div>
         <c:choose>
-            <c:when test="${empty userVO && empty bankerVO}">
+            <c:when test="${empty userVO || empty bankerVO}">
                 <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">고객 로그인</button>
                 <button id="loginBtn2" class="btn btn-solid-border btn-round-full" style="margin-left: 5px;padding: .5rem 1.5rem;">PB 로그인</button>
             </c:when>

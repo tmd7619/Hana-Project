@@ -25,10 +25,14 @@ public class EchoHandler  extends TextWebSocketHandler {
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         sessions.add(session);
-        String bankerId =  getBankerId(session); // 유저 아이디 가져오기
-        System.out.println("banker id ? : "+bankerId);
+        // 세션 2개 이상이 넘어올 경우 인식 안됨??
+//        String bankerId =  getBankerId(session); // 유저 아이디 가져오기
+        String userId =  getUserId(session); // 유저 아이디 가져오기
+        //System.out.println("banker id ? : "+bankerId);
+        System.out.println("user Id ? ? : "+userId);
 
-        userSessionsMap.put(bankerId , session); // 로그인한 유저 아이디 저장
+        //userSessionsMap.put(bankerId , session); // 로그인한 유저 아이디 저장
+        userSessionsMap.put(userId , session); // 로그인한 유저 아이디 저장
 
     }
 
@@ -68,16 +72,16 @@ public class EchoHandler  extends TextWebSocketHandler {
         Map<String, Object> httpSession = session.getAttributes();
         ClientVO userVO = (ClientVO)httpSession.get("userVO");
 
-        System.out.println("웹소켓 VO 잘 가져옴 ? :  " + userVO);
+        System.out.println("userVO 잘 가져옴 ? :  " + userVO);
         return userVO.getUserId();
     }
 
-    // 웹소켓에 user id 가져오기 (Client)
+    // 웹소켓에 banker id 가져오기 (Banker)
     private String getBankerId(WebSocketSession session){
         Map<String, Object> httpSession = session.getAttributes();
         BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
 
-        System.out.println("웹소켓 VO 잘 가져옴 ? :  " + bankerVO);
+        System.out.println("bankerVO 잘 가져옴 ? :  " + bankerVO);
         return bankerVO.getPbId();
     }
 
