@@ -54,28 +54,28 @@ update Client set branch_name = '지점미등록' where user_id = 'test2';
 select * from Client;
 ----------------------------------------------------------------------------------------------------------------------
 
-DROP TABLE CHAT_ROOM;
-CREATE TABLE CHAT_ROOM(
-CHAT_ROOM_ID NUMBER PRIMARY KEY, -- CHATROOM 시퀀스
+DROP TABLE Consulting_ROOM;
+CREATE TABLE Consulting_ROOM(
+Consulting_ROOM_id NUMBER PRIMARY KEY, -- Consulting_ROOM 시퀀스
 ROOM_NUMBER NUMBER NOT NULL, -- 채팅방 번호
-ROOM_NAME VARCHAR2(30) NOT NULL ,-- 채팅방 이름
+ROOM_MASTER VARCHAR2(30) NOT NULL ,-- 방을 개설한 PB name
 ENTER_DATE DATE DEFAULT SYSDATE,
 END_DATE DATE
 );
 
-DROP SEQUENCE chat_room_seq;
-CREATE SEQUENCE chat_room_seq -- chatroom 테이블 시퀀스
+DROP SEQUENCE Consulting_ROOM_seq;
+CREATE SEQUENCE Consulting_ROOM_seq -- Consulting_ROOM 테이블 시퀀스
 INCREMENT BY 1
 START WITH 1
 MINVALUE 1
 MAXVALUE 1000
 NOCACHE;
 
-insert into chat_room(chat_room_id, room_number, room_name)
-values(chat_room_seq.nextval, 1 , '윤승원' );
+insert into Consulting_ROOM(Consulting_ROOM_id, room_number, ROOM_MASTER)
+values(Consulting_ROOM_seq.nextval, 1 , '윤승원' );
 commit;
 rollback;
-select * from chat_room;
+select * from Consulting_ROOM;
 ---------------------------------------------------------------------------------------
 
 DROP TABLE Private_banker;

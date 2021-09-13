@@ -19,4 +19,8 @@ public class ChatServiceImpl implements ChatService{
 		return check;
 	}
 
+	@Override
+	public RoomVO searchRoom(RoomVO roomVO) {
+		return null;
+	}
 }

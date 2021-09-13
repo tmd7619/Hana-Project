@@ -5,6 +5,7 @@ import kr.ac.kopo.consultation.chat.vo.RoomVO;
 public interface ChatService {
 	
 	
-	 int insertRoom(RoomVO roomVo);
+	 int insertRoom(RoomVO roomVO);
+	 RoomVO searchRoom(RoomVO roomVO);
 
 }

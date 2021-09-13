@@ -15,7 +15,7 @@ public class WebSocketConfig implements WebSocketConfigurer{
 	ChatWebSocketHandler chatWebSocketHandler;
 
 	public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-		registry.addHandler(chatWebSocketHandler, "/chating/{roomNumber}")
+		registry.addHandler(chatWebSocketHandler, "/chatting/{roomNumber}")
 				.addInterceptors(new HttpSessionHandshakeInterceptor()) ;
 	}
 

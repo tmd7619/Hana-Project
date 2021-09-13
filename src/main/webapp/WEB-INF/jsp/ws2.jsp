@@ -10,7 +10,7 @@
 	var wsocket;
 	
 	function connect() {
-		wsocket = new WebSocket("ws://localhost:9999/chating");
+		wsocket = new WebSocket("ws://localhost:9999/chatting");
 		wsocket.onopen = onOpen;
 		//서버로부터 메시지를 받으면 호출되는 함수 지정
 		wsocket.onmessage = onMessage;

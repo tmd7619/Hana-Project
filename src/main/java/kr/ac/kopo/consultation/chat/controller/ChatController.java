@@ -7,15 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Random;
 
 @Controller
 public class ChatController {
@@ -34,7 +31,6 @@ public class ChatController {
         return "pb/services/waitRoom";
     }
 
-
    @RequestMapping(value = "/chat", method = RequestMethod.GET, headers = "Connection!=Upgrade")
     public ModelAndView chat() {
         ModelAndView mav = new ModelAndView();
@@ -42,76 +38,49 @@ public class ChatController {
         return mav;
     }
 
-
-    /**
-     * 방 페이지
-     * @return
-     */
-    @RequestMapping("/room")
-    public ModelAndView room() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("room");
-        return mv;
-    }
-
-    /**
-     * 방 생성하기
-     * @param params
-     * @return
-     */
+    // 상담 room create
     @RequestMapping("/createRoom")
-    public @ResponseBody List<RoomVO> createRoom(@RequestParam HashMap<Object,Object> params , HttpSession session){
+    public ModelAndView createRoom(HttpSession session){
+
+        ModelAndView mav = new ModelAndView();
+
         BankerVO bankerVO = (BankerVO)session.getAttribute("bankerVO");
+        RoomVO room = new RoomVO();
+        Random random = new Random();
+        int roomNumber = random.nextInt(1000000)+1; // 룸번호 랜덤으로 생성
+        room.setRoomNumber(roomNumber);
+        room.setRoomMaster(bankerVO.getPbName()); // 방 주인
 
-        String roomName = (String) params.get("roomName");
+        System.out.println("createRoom : " + room );
 
-        if(roomName != null && !roomName.trim().equals("")) {
-            RoomVO room = new RoomVO();
-            int roomNumber = 0 ; // 채팅방 입장인원 0명으로 초기화
-			room.setRoomNumber(++roomNumber);
-            room.setRoomName(bankerVO.getPbName()); // 방 이름은 현재 로그인된 PB name
-            roomList.add(room);
-            System.out.println(roomList.get(0));
-            int check = service.insertRoom(room);
 
-            if(check != 0) {
-                System.out.println("room 생성 완료 ");
+           // int check = service.insertRoom(room); // 상담 room 생성하기
 
-            }
-        }
-        return roomList;
+//            if(check != 0) {
+//                System.out.println("room 생성 완료 ");
+//            }
+
+            mav.addObject("roomVO" , room);
+            mav.setViewName("pb/services/moveConsultingRoom");
+
+        return mav;
     }
 
-
-    /**
-     * 방 정보가져오기
-     * @param params
-     * @return
-     */
-    @RequestMapping("/getRoom")
-    public @ResponseBody List<RoomVO> getRoom(@RequestParam HashMap<Object, Object> params){
-
-        return roomList;
-    }
 
     /**
      * 채팅방
      * @return
      */
-    @RequestMapping("/moveChating")
-    public ModelAndView chating(@RequestParam HashMap<Object, Object> params, HttpSession session) {
-        BankerVO bankerVO = (BankerVO)session.getAttribute("bankerVO");
-        ModelAndView mv = new ModelAndView();
-        int roomNumber = Integer.parseInt((String) params.get("roomNumber"));
+    @RequestMapping("/moveChatting")
+    public ModelAndView chatting(RoomVO roomVO) {
 
-        List<RoomVO> new_list = roomList.stream().filter(o->o.getRoomNumber()==roomNumber).collect(Collectors.toList());
-        if(new_list != null && new_list.size() > 0) {
-            mv.addObject("roomName", bankerVO.getPbName());
-            mv.addObject("roomNumber", params.get("roomNumber"));
+        ModelAndView mv = new ModelAndView();
+        System.out.println("movechatting에서 넘어온 roomVo : " + roomVO);
+
+
+            mv.addObject("roomMaster", roomVO.getRoomMaster());
+            mv.addObject("roomNumber", roomVO.getRoomNumber());
             mv.setViewName("chat");
-        }else {
-            mv.setViewName("room");
-        }
         return mv;
     }
 

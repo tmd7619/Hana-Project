@@ -19,6 +19,19 @@ public class HelloController {
 		return "client/reservation/socket";
 //		return "iframeTest";
 	}
-	
+
+	@RequestMapping("/testChat")
+	public String testChat(){
+
+		return "pb/services/consultingRoom";
+	}
+
+	@RequestMapping("/waitRoom")
+	public String testWait(){
+
+		return "pb/services/waitRoom";
+	}
+
+
 	
 }

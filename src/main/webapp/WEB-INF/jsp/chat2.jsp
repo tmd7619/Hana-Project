@@ -24,14 +24,14 @@
 			color: #27b2a5;
 			/*border-left: 3px solid #008485;*/
 		}
-		.chatting{
+		.chating{
 			background-color: #e6efef;
 			width: 300px;
 			height: 300px;
 			overflow: auto;
 			padding-bottom: 50px;
 		}
-		.chatting .me{
+		.chating .me{
 			color: #3c3c3c;
 			text-align: right;
 			word-break: keep-all;
@@ -47,7 +47,7 @@
 			z-index: 5;
 		}
 
-		.chatting .others{
+		.chating .others{
 			color: #008485;
 			text-align: left;
 
@@ -84,7 +84,7 @@
 
 	function wsOpen(){
 		//웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-		ws = new WebSocket("ws://" + location.host + "/chatting/"+$("#roomNumber").val());
+		ws = new WebSocket("ws://" + location.host + "/chating/"+$("#roomNumber").val());
 		wsEvt();
 	}
 
@@ -105,9 +105,9 @@
 					}
 				}else if(d.type == "message"){
 					if(d.sessionId == $("#sessionId").val()){
-						$("#chatWindow").append("<p class='me'>나 :" + d.msg + "</p>");
+						$("#chating").append("<p class='me'>나 :" + d.msg + "</p>");
 					}else{
-						$("#chatWindow").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
+						$("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
 					}
 
 				}else{
@@ -151,11 +151,11 @@
 <body>
 <div id="container" class="container">
 	<i id="bubble" class="fas fa-comments fa-2x text-warning"></i>
-	<h1>${roomMaster} PB의 채팅 상담</h1>
+	<h1>${roomName} PB의 채팅 상담</h1>
 	<input type="hidden" id="sessionId" value="">
 	<input type="hidden" id="roomNumber" value="${roomNumber}">
 
-	<div id="chatWindow" class="chatting">
+	<div id="chating" class="chating">
 	</div>
 
 	<div id="yourName">
