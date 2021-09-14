@@ -30,6 +30,7 @@
 <%--        <svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#27b2a5"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#27b2a5"/>--%>
 <%--        </svg>--%>
 <%--    </div>--%>
+    <div>
     <div class="waitMent">
         <h2>잠시 대기해주세요. 고객님께서 들어오고 있습니다.</h2>
     </div>
@@ -38,11 +39,6 @@
             <span class="sr-only">Loading...</span>
         </div>
     </div>
-
-
-
-
-
-
+    </div>
 </body>
 </html>

@@ -23,7 +23,7 @@ public class HelloController {
 	@RequestMapping("/testChat")
 	public String testChat(){
 
-		return "pb/services/consultingRoom";
+		return "chatIndex";
 	}
 
 	@RequestMapping("/waitRoom")

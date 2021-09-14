@@ -94,8 +94,12 @@ user_id              VARCHAR2(50) ,  -- 관리중인 고객
 main_field           VARCHAR2(50) , -- 담당 분야
 intro_content        VARCHAR2(300) , -- 소개글 
 main_content          VARCHAR2(1000) , -- 메인 소개
+code_num            NUMBER(6) NOT NULL UNIQUE  , -- 사번 
 CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
+
+
+
 
 DROP SEQUENCE Private_banker_seq;
 CREATE SEQUENCE  Private_banker_seq  MINVALUE 1 MAXVALUE 9999  

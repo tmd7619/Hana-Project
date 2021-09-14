@@ -16,35 +16,35 @@ commit;
 
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
     values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 설계' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#친절한  #유쾌한  #웃음이많은  #신속해결사'
+        , '#친절한  #유쾌한  #웃음이많은  #신속해결사' ,123123
         
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , code_num)
     values(Private_banker_seq.nextval,'test4' ,'1234','윤피비', '과장' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '주식 설계' ,
-        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.'
+        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' ,121212
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content, tag_name)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content, tag_name , code_num)
     values(Private_banker_seq.nextval,'test5' ,'1234','박피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '광명지점' , '부동산 설계' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#진중한  #믿음직한'        
+        , '#진중한  #믿음직한' ,212121
 
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , code_num)
     values(Private_banker_seq.nextval,'test6' ,'1234','최피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '금천구지점' , '세금 설계' ,
-        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.'
+        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' , 321321
 );
 commit;
 

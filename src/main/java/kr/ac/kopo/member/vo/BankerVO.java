@@ -14,7 +14,15 @@ public class BankerVO {
     private String mainContent;
     private String impossible;
     private String tagName;
+    private int    codeNum;
 
+    public int getCodeNum() {
+        return codeNum;
+    }
+
+    public void setCodeNum(int codeNum) {
+        this.codeNum = codeNum;
+    }
 
     public String getTagName() {
         return tagName;

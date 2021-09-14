@@ -18,7 +18,7 @@ import java.util.Random;
 public class ChatController {
 
 
-    private static int cnt;
+    private static int cnt = 0;
 
     @Autowired
     ChatService service;
@@ -77,10 +77,11 @@ public class ChatController {
         ModelAndView mv = new ModelAndView();
         System.out.println("movechatting에서 넘어온 roomVo : " + roomVO);
 
-
             mv.addObject("roomMaster", roomVO.getRoomMaster());
             mv.addObject("roomNumber", roomVO.getRoomNumber());
-            mv.setViewName("chat");
+
+            mv.setViewName("chatIndex");
+
         return mv;
     }
 

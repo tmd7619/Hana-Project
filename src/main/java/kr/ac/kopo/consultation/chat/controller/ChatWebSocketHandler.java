@@ -22,9 +22,6 @@ import java.util.Map;
 @Component
 public class ChatWebSocketHandler extends TextWebSocketHandler {
 
-    private static int cnt = 0;
-
-
     HashMap<String, WebSocketSession> sessionMap = new HashMap<>(); //웹소켓 세션을 담아둘 맵
     List<HashMap<String, Object>> rls = new ArrayList<>(); //웹소켓 세션을 담아둘 리스트 ---roomListSessions
 
@@ -64,6 +61,9 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         if (flag) { //존재하는 방이라면 세션만 추가한다.
             HashMap<String, Object> map = rls.get(idx);
             map.put(session.getId(), session);
+
+
+
         } else { //최초 생성하는 방이라면 방번호와 세션을 추가한다.
             HashMap<String, Object> map = new HashMap<String, Object>();
             map.put("roomNumber", roomNumber);
@@ -82,8 +82,24 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
     public void handleTextMessage(WebSocketSession session, TextMessage message) {
         //메시지 발송
         String msg = message.getPayload();
-        JSONObject obj = jsonToObjectParser(msg);
+        JSONObject obj = jsonToObjectParser(msg); // msg, roomNumber, sesssionId, type, userName 넘어옴
 
+        String data = (String)obj.get("userName");
+
+        Map<String, Object> httpSession = session.getAttributes();
+        ClientVO userVO = (ClientVO)httpSession.get("userVO");
+        BankerVO bankerVO = (BankerVO)httpSession.get("bankerVO");
+
+        if(data.length() == 4){
+            obj.replace("userName", userVO.getUsername() + " 손님");
+        } else if (data.length() == 6){
+            obj.replace("userName" , bankerVO.getPbName() + " PB");
+        } else{
+            System.out.println("잘못 입력했습니다.");
+        }
+
+
+        System.out.println("in handleText  obj : " + obj);
         String rN = (String) obj.get("roomNumber");
         HashMap<String, Object> temp = new HashMap<String, Object>();
         if (rls.size() > 0) {
@@ -141,7 +157,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         Map<String, Object> httpSession = session.getAttributes();
         ClientVO userVO = (ClientVO)httpSession.get("userVO");
 
-        System.out.println("웹소켓 VO 잘 가져옴 ? :  " + userVO);
+        System.out.println("웹소켓 Client VO 잘 가져옴 ? :  " + userVO);
         return userVO.getUserId();
     }
 
@@ -150,7 +166,7 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         Map<String, Object> httpSession = session.getAttributes();
         BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
 
-        System.out.println("웹소켓 VO 잘 가져옴 ? :  " + bankerVO);
+        System.out.println("웹소켓 banker VO 잘 가져옴 ? :  " + bankerVO);
         return bankerVO.getPbId();
     }
 

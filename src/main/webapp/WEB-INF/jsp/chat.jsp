@@ -26,10 +26,12 @@
 		}
 		.chatting{
 			background-color: #e6efef;
-			width: 300px;
-			height: 300px;
+			width: 310px;
+			height: 310px;
 			overflow: auto;
 			padding-bottom: 50px;
+			margin-bottom: 5px;
+
 		}
 		.chatting .me{
 			color: #3c3c3c;
@@ -73,6 +75,35 @@
 
 		#bubble{
 			color: #27b2a5;
+		}
+
+		.spinner-border{
+			color: #27b2a5;
+			width: 100%;
+			text-align: center;
+		}
+
+		#loader{
+			margin-top: 30px;
+			width: 70px;
+			height: 70px;
+		}
+
+		.waitMent{
+			text-align: center;
+			margin-top: 250px;
+		}
+		.checkNum{
+			margin-left : 10px;
+			width: 90px;
+		}
+
+		#startBtn{
+			margin-left: 15px;
+		}
+
+		#sendBtn{
+			margin-left: 10px;
 		}
 
 
@@ -135,7 +166,7 @@
 			$("#yourMsg").show();
 		}
 	}
-
+    // 메세지 보내는 처리
 	function send() {
 		var option ={
 			type: "message",
@@ -149,6 +180,28 @@
 	}
 </script>
 <body>
+<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+
+
+<%--<div>--%>
+<%--	<div class="waitMent">--%>
+<%--		<h2>잠시 대기해주세요. 고객님께서 들어오고 있습니다.</h2>--%>
+<%--	</div>--%>
+<%--	<div  class="d-flex justify-content-center">--%>
+<%--		<div id="loader" class="spinner-border" role="status">--%>
+<%--			<span class="sr-only">Loading...</span>--%>
+<%--		</div>--%>
+<%--	</div>--%>
+<%--</div>--%>
+
+		<div id="ftco-loader" class="show fullscreen">
+			<div class="waitMent">
+				<h2>잠시 대기해주세요. 고객님께서 들어오고 있습니다.</h2>
+			</div>
+			<svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#27b2a5"/>
+			</svg>
+		</div>
+
 <div id="container" class="container">
 	<i id="bubble" class="fas fa-comments fa-2x text-warning"></i>
 	<h1>${roomMaster} PB의 채팅 상담</h1>
@@ -161,9 +214,14 @@
 	<div id="yourName">
 		<table class="inputTable">
 			<tr>
-				<th>사용자명</th>
-				<th><input type="text" name="userName" id="userName"></th>
-				<th><button onclick="chatName()" id="startBtn">입장하기</button></th>
+				<c:if test="${empty userVO}">
+				<th>사번을 입력하세요 :   </th>
+				</c:if>
+				<c:if test="${not empty userVO}">
+					<th>계좌 비밀번호 입력 : </th>
+				</c:if>
+					<th><input class="checkNum" type="password" name="userName" id="userName"></th>
+					<th><button class="btn btn-outline-success" onclick="chatName()" id="startBtn">확인</button></th>
 			</tr>
 		</table>
 	</div>
@@ -171,11 +229,23 @@
 		<table class="inputTable">
 			<tr>
 				<th>메시지</th>
-				<th><input id="chatting" placeholder="보내실 메시지를 입력하세요."></th>
-				<th><button onclick="send()" id="sendBtn">보내기</button></th>
+				<th><input style="margin-left: 10px" id="chatting" placeholder="  메시지를 입력하세요."></th>
+				<th><button class="btn btn-info" onclick="send()" id="sendBtn">보내기</button></th>
 			</tr>
 		</table>
 	</div>
 </div>
 </body>
+<script>
+		var checkUser = '${userVO.username}'
+
+		if( checkUser == '' ){
+			// $('#ftco-loader').show()
+			$('#ftco-loader').hide();
+
+		} else {
+			$('#ftco-loader').hide();
+		}
+
+</script>
 </html>

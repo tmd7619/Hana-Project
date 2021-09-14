@@ -427,7 +427,7 @@
             </ul>
         </div>
         <c:choose>
-            <c:when test="${empty userVO || empty bankerVO}">
+            <c:when test="${empty userVO && empty bankerVO}">
                 <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">고객 로그인</button>
                 <button id="loginBtn2" class="btn btn-solid-border btn-round-full" style="margin-left: 5px;padding: .5rem 1.5rem;">PB 로그인</button>
             </c:when>
