@@ -165,5 +165,21 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from reservation;
 
+--------------------------------------------------------------------------------------------------
+
+drop table Assets_Info ;
+create table Assets_Info(
+    client_id varchar2(50) primary key ,  -- 식별관계 pk키
+    assets_info_id number, 
+    deposit number , 
+    fund number,
+    insurance number ,
+    stock number ,
+    bond number 
+    
+);
+drop sequence Assets_Info_seq ;
+CREATE SEQUENCE  Assets_Info_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 
