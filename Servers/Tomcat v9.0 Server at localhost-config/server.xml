@@ -29,9 +29,7 @@
   <Listener className="org.apache.catalina.mbeans.GlobalResourcesLifecycleListener"/>
   <Listener className="org.apache.catalina.core.ThreadLocalLeakPreventionListener"/>
 
-  <!-- Global JNDI resources
-       Documentation at /docs/jndi-resources-howto.html
-  -->
+
   <GlobalNamingResources>
     <!-- Editable user database that can also be used by
          UserDatabaseRealm to authenticate users
@@ -45,6 +43,21 @@
        Documentation at /docs/config/service.html
    -->
   <Service name="Catalina">
+
+<!--    <Connector-->
+<!--            port="8443"-->
+<!--            protocol="org.apache.coyote.http11.Http11Protocol"-->
+<!--            maxThreads="150"-->
+<!--            SSLEnabled="true"-->
+<!--            scheme="https"-->
+<!--            secure="true"-->
+<!--            keystoreFile="/Users/seungwon/intellij/bin/.keystore"-->
+<!--            keystorePass="123123"-->
+<!--            keystoreType="pkcs12"-->
+<!--            clientAuth="false"-->
+<!--            sslProtocol="TLS"-->
+<!--    />-->
+
 
     <!--The connectors can use a shared executor, you can define one or more named thread pools-->
     <!--
@@ -60,6 +73,8 @@
          APR (HTTP/AJP) Connector: /docs/apr.html
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
+
+
     <Connector connectionTimeout="20000" port="9999" protocol="HTTP/1.1" redirectPort="8443"/>
     <!-- A "Connector" using the shared thread pool-->
     <!--
@@ -122,6 +137,7 @@
     <Engine name="Catalina" defaultHost="localhost" jvmRoute="jvm1">
     -->
     <Engine defaultHost="localhost" name="Catalina">
+
 
       <!--For clustering, please take a look at documentation at:
           /docs/cluster-howto.html  (simple how to)
