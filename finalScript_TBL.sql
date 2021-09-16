@@ -184,4 +184,26 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from assets_info;
 
+--------------------------------------------------------------------------------------------------
+
+drop table Financial_Products ;
+create table Financial_Products(
+    financial_code number(6) primary key,
+    financial_products_id number not null , 
+    product_name varchar2(200) not null,
+    product_type varchar2(100) not null,
+    product_grade varchar2(100) not null,
+    product_terms varchar2(2000) not null
+
+);
+
+drop sequence Financial_Products_seq ;
+CREATE SEQUENCE Financial_Products_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+select * from Financial_Products;
+
+
+
+
 
