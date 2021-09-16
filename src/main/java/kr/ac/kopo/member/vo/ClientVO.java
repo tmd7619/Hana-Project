@@ -1,5 +1,9 @@
 package kr.ac.kopo.member.vo;
 
+/**
+ * @author HP
+ *
+ */
 public class ClientVO {
 	
 	private String userId;
@@ -78,17 +82,11 @@ public class ClientVO {
 
 	@Override
 	public String toString() {
-		return "MemberVO{" +
-				"userId='" + userId + '\'' +
-				", password='" + password + '\'' +
-				", username='" + username + '\'' +
-				", nickname='" + nickname + '\'' +
-				", birth='" + birth + '\'' +
-				", phone='" + phone + '\'' +
-				", email='" + email + '\'' +
-				", address='" + address + '\'' +
-				", regDate='" + regDate + '\'' +
-				", branchName='" + branchName + '\'' +
-				'}';
+		return "ClientVO [userId=" + userId + ", password=" + password + ", username=" + username + ", nickname="
+				+ nickname + ", birth=" + birth + ", phone=" + phone + ", email=" + email + ", address=" + address
+				+ ", regDate=" + regDate + ", branchName=" + branchName + "]";
 	}
+
+	
+	
 }

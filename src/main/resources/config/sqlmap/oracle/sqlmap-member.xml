@@ -29,7 +29,7 @@
 
 	<select id="clientLogin" parameterType="clientVO"  resultMap="clientMap" >
 		select user_id, password, username, reg_date
-		from member
+		from client
 		where user_id = #{userId} and password = #{password}
 	</select>
 

@@ -75,8 +75,6 @@
 		<websocket:mapping handler="chatHandler" path="/chat-ws"/>
 	</websocket:handlers> -->
 
-	<bean class="kr.ac.kopo.consultation.chat.controller.WebsocketHandler" id="webSocketHandler"/>
-
 
 <!--	<websocket:handlers>-->
 <!--		<websocket:mapping handler="chatWebSocketHandler" path="/chat" />-->

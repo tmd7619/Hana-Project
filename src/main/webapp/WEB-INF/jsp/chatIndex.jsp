@@ -8,16 +8,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link href="${pageContext.request.contextPath}/resources/admin/img/logo/logo.png" rel="icon">
     <title>온라인 상담</title>
+    <link href="${pageContext.request.contextPath}/resources/admin/img/logo/logo.png" rel="icon">
     <link href="${pageContext.request.contextPath}/resources/admin/vendor/fontawesome-free/css/all.min.css"
           rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/admin/vendor/bootstrap/css/bootstrap.min.css"
           rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/admin/css/ruang-admin.min.css" rel="stylesheet">
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> <!--chartjs -->    
 </head>
 
 <style>
@@ -146,6 +146,11 @@
 
     .text-warning {
         color: #FFFFFF !important;
+    }
+    
+    .card-body{
+    	padding-top :0px;
+    
     }
 
 </style>
@@ -665,9 +670,9 @@
                                 <h6 class="m-0 font-weight-bold text-primary">고객 자산 현황</h6>
                             </div>
                             <div class="card-body">
-                                <div class="chart-pie pt-4">
-                                    <canvas id="myPieChart"></canvas>
-                                </div>
+                                    <canvas id="clientChart"></canvas>
+                           <!--      <div class="chart-pie pt-4">
+                                </div> -->
                             </div>
                         </div>
 <%--                    <div class="card mb-4">--%>
@@ -906,17 +911,81 @@
 </div>
 </div>
 <script>
-
-    var pieChatDate;
-    var pieChatOption;
-
-    var myPieChart = document.getElementById("myPieChart");
-    if (myPieChart) {
-        new Chart(myPieChart,
-            { type: 'pie', data: pieChatDate, options: pieChatOption
-            });
+	var userId = {
+    		userId : "${userVO.userId}"
     }
+    console.log(userId)
+    	
 
+    var clientAssets;
+	var deposit ;
+	var fund;
+	var bond;
+	var wrap;
+	var stock;
+    /* 고객 자산 정보 가져오기  */
+    $.ajax({
+    	type:"POST",
+    	url : "${pageContext.request.contextPath}/client/assets" ,
+    	data : JSON.stringify(userId),
+    	contentType: "application/json; charset=utf-8;",
+    	dataType : "json",
+    	success : function(res){
+    		console.log(res);
+    		deposit = res.deposit
+    		fund = res.fund
+    		bond = res.bond
+    		wrapAccount = res.wrapAccount
+    		stock = res.stock
+    		new Chart(document.getElementById("clientChart"), {
+    		    type: 'doughnut',
+    		    data: {
+    		      labels: ["예금", "펀드", "랩어카운트", "주식", "채권"],
+    		      datasets: [
+    		        {
+    		          label: "${userVO.username} 고객님의 자산 보유 현황",
+    		          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+    		          data: [deposit,fund,wrapAccount,stock,bond]
+    		        }
+    		      ]
+    		    },
+    		    options: {
+    		      title: {
+    		        display: true,
+    		        text: '${userVO.username} 고객님의 자산 보유 현황'
+    		      }
+    		    }
+    			});
+    		
+    	},
+    	error:function(XMLHttpRequest, textStatus, errorThrown){
+    		alert()
+    	}
+    });
+    
+ 	/* 자산현황 차트 처리 */
+/*    
+	new Chart(document.getElementById("clientChart"), {
+    type: 'doughnut',
+    data: {
+      labels: ["예금", "펀드", "랩어카운트", "주식", "채권"],
+      datasets: [
+        {
+          label: "${userVO.username} 고객님의 자산 보유 현황",
+          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+          data: [deposit,fund,wrap,stock,bond]
+        }
+      ]
+    },
+    options: {
+      title: {
+        display: true,
+        text: '${userVO.username} 고객님의 자산 보유 현황'
+      }
+    }
+	}); */
+    
+    
 
 </script>
 

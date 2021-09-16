@@ -76,3 +76,11 @@ where p.pb_name = s.pb_name;
 
 
 
+--------pb_scheduler-----------------------------------------------------------------------------------------------------
+
+--------assets_info-----------------------------------------------------------------------------------------------------
+
+insert into assets_info(client_id, assets_info_id, deposit, fund, wrap_account, stock, bond)
+    values('test', assets_info_seq.nextval, 2000000, 1500000, 5000000, 2000000, 500000);
+commit;
+

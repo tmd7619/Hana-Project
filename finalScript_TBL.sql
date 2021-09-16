@@ -94,8 +94,8 @@ user_id              VARCHAR2(50) ,  -- 관리중인 고객
 main_field           VARCHAR2(50) , -- 담당 분야
 intro_content        VARCHAR2(300) , -- 소개글 
 main_content          VARCHAR2(1000) , -- 메인 소개
-code_num            NUMBER(6) NOT NULL UNIQUE  , -- 사번 
-CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
+code_num            NUMBER(6) NOT NULL UNIQUE  -- 사번 
+--CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
 
 
@@ -173,7 +173,7 @@ create table Assets_Info(
     assets_info_id number, 
     deposit number , 
     fund number,
-    insurance number ,
+    wrap_account number ,
     stock number ,
     bond number 
     
@@ -182,5 +182,6 @@ drop sequence Assets_Info_seq ;
 CREATE SEQUENCE  Assets_Info_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
+select * from assets_info;
 
 
