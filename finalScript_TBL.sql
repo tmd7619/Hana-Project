@@ -192,7 +192,7 @@ create table Financial_Products(
     financial_products_id number not null , 
     product_name varchar2(200) not null,
     product_type varchar2(100) not null,
-    product_grade varchar2(100) not null,
+    product_grade varchar2(100) not null, -- 매우 높은 위험, 높은 위험, 다소 높은 위험, 보통 위험, 낮은 위험
     product_terms varchar2(2000) not null
 
 );

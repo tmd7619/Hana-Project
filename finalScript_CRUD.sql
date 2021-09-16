@@ -92,31 +92,41 @@ commit;
 --------Financial_Products-----------------------------------------------------------------------------------------------------
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432873' , Financial_Products_seq.nextval, '금융상품1' , '펀드' , '매우위험','약관입니당~');
+    values('432873' , Financial_Products_seq.nextval, '금융상품1' , '펀드' , '매우 높은 위험','약관입니당~');
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432871' , Financial_Products_seq.nextval, '금융상품1' , '펀드' , '매우위험','약관입니당~');
+    values('432871' , Financial_Products_seq.nextval, '금융상품1' , '펀드' , '매우 높은 위험','약관입니당~');
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432872' , Financial_Products_seq.nextval, '금융상품2' , '펀드' , '매우위험','약관입니당~');
+    values('432872' , Financial_Products_seq.nextval, '금융상품2' , '펀드' , '높은 위험','약관입니당~');
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432874' , Financial_Products_seq.nextval, '금융상품3' , '펀드' , '매우위험','약관입니당~');
+    values('432874' , Financial_Products_seq.nextval, '금융상품3' , '펀드' , '다소 높은 위험','약관입니당~');
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432875' , Financial_Products_seq.nextval, '금융상품4' , '펀드' , '매우위험','약관입니당~');
+    values('432875' , Financial_Products_seq.nextval, '금융상품4' , '펀드' , '보통 위험','약관입니당~');
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432876' , Financial_Products_seq.nextval, '금융상품5' , '펀드' , '매우위험','약관입니당~');
+    values('432876' , Financial_Products_seq.nextval, '금융상품5' , '펀드' , '보통 위험','약관입니당~');
     
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432877' , Financial_Products_seq.nextval, '금융상품6' , '펀드' , '매우위험','약관입니당~');
+    values('432877' , Financial_Products_seq.nextval, '금융상품6' , '예금' , '낮은 위험','약관입니당~');
 
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432878' , Financial_Products_seq.nextval, '금융상품7' , '펀드' , '매우위험','약관입니당~');
+    values('432878' , Financial_Products_seq.nextval, '금융상품7' , '예금' , '낮은 위험','약관입니당~');
     
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('432879' , Financial_Products_seq.nextval, '금융상품8' , '펀드' , '매우위험','약관입니당~');
+    values('132879' , Financial_Products_seq.nextval, '금융상품12' , '채권' , '보통 위험','약관입니당~');
+    
+    insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('232879' , Financial_Products_seq.nextval, '금융상품13' , '채권' , '낮은 위험','약관입니당~');
+    
+    insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('332879' , Financial_Products_seq.nextval, '금융상품14' , '랩어카운트' , '보통 위험','약관입니당~');
+    
+    insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('422879' , Financial_Products_seq.nextval, '금융상품15' , '예금' , '낮은 위험','약관입니당~');
+    
     
 COMMIT;
 

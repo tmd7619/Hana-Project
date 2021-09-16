@@ -16,6 +16,7 @@
           rel="stylesheet" type="text/css">
     <link href="${pageContext.request.contextPath}/resources/admin/css/ruang-admin.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/resources/css2/nice-select.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script> <!--chartjs -->    
 </head>
@@ -152,7 +153,22 @@
     	padding-top :0px;
     
     }
-
+    
+    #productList{
+    	table-layout:fixed;
+    
+    }
+    #productList th{
+        position: sticky;
+    	top: 0px;
+    }
+    
+    .table-responsive{
+    	height : 350px;
+    }
+	.table th{
+		border-top: 0px;
+	}
 </style>
 <script type="text/javascript">
     var ws;
@@ -757,14 +773,22 @@
                     <div class="card">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Invoice</h6>
-                            <a class="m-0 float-right btn btn-danger btn-sm" href="#">View More <i
-                                    class="fas fa-chevron-right"></i></a>
+                             <div class="select__option" style="float : right">
+                                <select name="products">
+                                    <option value="">상품 분류</option>
+                                    <option value="">예금 상품</option>
+                                    <option value="">채권 상품</option>
+                                    <option value="">펀드 상품</option>
+                                    <option value="">파생 상품</option>
+                                    <option value="">랩 어카운트</option>
+                                </select>
+                            </div>
+                            <!-- <a class="m-0 float-right btn btn-danger btn-sm" href="#">View More <i
+                                    class="fas fa-chevron-right"></i></a> -->
                         </div>
-                        <div class="table-responsive">
-                            <table id="productList" class="table align-items-center table-flush">
-                            
-                            
-                            
+                        <div class="table-responsive" >
+                            <table id="productList" class="table align-items-center table-flush" >
+									
                             </table>
                         </div>
                         <div class="card-footer"></div>
@@ -940,12 +964,10 @@
     		});
     	},
     	error:function(XMLHttpRequest, textStatus, errorThrown){
-    		alert()
     	}
     });
     
     /* 금융상품 list 가져오기  */
-    
     var productType = '펀드';
     
      $.ajax({
@@ -955,10 +977,43 @@
     	contentType: "application/json; charset=utf-8;",
     	dataType : "text",
     	success : function(res){
+    		$("#productList").empty();
     		$('#productList').append(res)
     	}
-    	
      });
+     
+     var productsector
+     
+     $("select[name=products]").change(function(){
+    	 productsector = $("select[name=products] option:selected").text();
+    	 
+    	 $.ajax({
+    	    	type:"POST",
+    	    	url : "${pageContext.request.contextPath}/products/change" ,
+    	    	data : productsector,
+    	    	contentType: "application/json; charset=utf-8;",
+    	    	dataType : "text",
+    	    	success : function(res){
+    	    		$("#productList").empty();
+    	    		$('#productList').append(res)
+    	    		
+    	    		
+    	    	}
+    	     });
+    	 
+    	  console.log($(this).val()); //value값 가져오기
+    	  console.log($("select[name=products] option:selected").text()); //text값 가져오기
+    	});
+     
+     /* 투자 등급에 따른 css 버튼 색깔 설정 
+     	badge badge-danger :  매우 높은 위험
+     	badge badge-warning : 높은 위험
+     	badge badge-success : 다소 높은 위험
+     	badge badge-info : 보통 위험
+     	badge badge-primary : 낮은 위험
+     */
+     
+     
 
 </script>
 
