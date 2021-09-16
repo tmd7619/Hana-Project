@@ -761,53 +761,10 @@
                                     class="fas fa-chevron-right"></i></a>
                         </div>
                         <div class="table-responsive">
-                            <table class="table align-items-center table-flush">
-                                <thead class="thead-light">
-                                <tr>
-                                    <th>상품코드</th>
-                                    <th>상품분류</th>
-                                    <th>상품명</th>
-                                    <th>위험등급</th>
-                                    <th>약관안내</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td><a href="#">RA0449</a></td>
-                                    <td>Udin Wayang</td>
-                                    <td>Nasi Padang</td>
-                                    <td><span class="badge badge-success">Delivered</span></td>
-                                    <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">RA5324</a></td>
-                                    <td>Jaenab Bajigur</td>
-                                    <td>Gundam 90' Edition</td>
-                                    <td><span class="badge badge-warning">Shipping</span></td>
-                                    <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">RA8568</a></td>
-                                    <td>Rivat Mahesa</td>
-                                    <td>Oblong T-Shirt</td>
-                                    <td><span class="badge badge-danger">Pending</span></td>
-                                    <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">RA1453</a></td>
-                                    <td>Indri Junanda</td>
-                                    <td>Hat Rounded</td>
-                                    <td><span class="badge badge-info">Processing</span></td>
-                                    <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#">RA1998</a></td>
-                                    <td>Udin Cilok</td>
-                                    <td>Baby Powder</td>
-                                    <td><span class="badge badge-success">Delivered</span></td>
-                                    <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                                </tr>
-                                </tbody>
+                            <table id="productList" class="table align-items-center table-flush">
+                            
+                            
+                            
                             </table>
                         </div>
                         <div class="card-footer"></div>
@@ -915,7 +872,6 @@
     		userId : "${userVO.userId}"
     }
     console.log(userId)
-    	
 
     var clientAssets;
 	var deposit ;
@@ -923,6 +879,7 @@
 	var bond;
 	var wrap;
 	var stock;
+	
     /* 고객 자산 정보 가져오기  */
     $.ajax({
     	type:"POST",
@@ -981,60 +938,29 @@
     		    }
     		  }
     		});
-    		
-    		
-/*     		new Chart(document.getElementById("clientChart"), {
-    		    type: 'doughnut',
-    		    data: {
-    		      labels: ["예금", "펀드", "랩어카운트", "주식", "채권"],
-    		      datasets: [
-    		        {
-    		          label: "${userVO.username} 고객님의 자산 보유 현황",
-    		          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-    		          data: [deposit,fund,wrapAccount,stock,bond]
-    		        }
-    		      ]
-    		    },
-    		    options: {
-    		      title: {
-    		        display: true,
-    		        text: '${userVO.username} 고객님의 자산 보유 현황'
-    		      }
-    		    }
-    			}); */
-    		
     	},
     	error:function(XMLHttpRequest, textStatus, errorThrown){
     		alert()
     	}
     });
     
- 	/* 자산현황 차트 처리 */
-/*    
-	new Chart(document.getElementById("clientChart"), {
-    type: 'doughnut',
-    data: {
-      labels: ["예금", "펀드", "랩어카운트", "주식", "채권"],
-      datasets: [
-        {
-          label: "${userVO.username} 고객님의 자산 보유 현황",
-          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-          data: [deposit,fund,wrap,stock,bond]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: true,
-        text: '${userVO.username} 고객님의 자산 보유 현황'
-      }
-    }
-	}); */
+    /* 금융상품 list 가져오기  */
     
+    var productType = '펀드';
     
+     $.ajax({
+    	type:"POST",
+    	url : "${pageContext.request.contextPath}/products" ,
+    	data : productType,
+    	contentType: "application/json; charset=utf-8;",
+    	dataType : "text",
+    	success : function(res){
+    		$('#productList').append(res)
+    	}
+    	
+     });
 
 </script>
-
 
 
 <%--<!-- Scroll to top -->--%>

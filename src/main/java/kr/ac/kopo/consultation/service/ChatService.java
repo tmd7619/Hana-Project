@@ -1,6 +1,6 @@
-package kr.ac.kopo.consultation.chat.service;
+package kr.ac.kopo.consultation.service;
 
-import kr.ac.kopo.consultation.chat.vo.RoomVO;
+import kr.ac.kopo.consultation.vo.RoomVO;
 
 public interface ChatService {
 	

@@ -1,4 +1,4 @@
-package kr.ac.kopo.consultation.chat.controller;
+package kr.ac.kopo.consultation.socket;
 
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;

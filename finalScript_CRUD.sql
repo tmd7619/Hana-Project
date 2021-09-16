@@ -84,3 +84,43 @@ insert into assets_info(client_id, assets_info_id, deposit, fund, wrap_account, 
     values('test', assets_info_seq.nextval, 2000000, 1500000, 5000000, 2000000, 500000);
 commit;
 
+
+
+--------assets_info-----------------------------------------------------------------------------------------------------
+
+
+--------Financial_Products-----------------------------------------------------------------------------------------------------
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432873' , Financial_Products_seq.nextval, '금융상품1' , '펀드' , '매우위험','약관입니당~');
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432871' , Financial_Products_seq.nextval, '금융상품1' , '펀드' , '매우위험','약관입니당~');
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432872' , Financial_Products_seq.nextval, '금융상품2' , '펀드' , '매우위험','약관입니당~');
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432874' , Financial_Products_seq.nextval, '금융상품3' , '펀드' , '매우위험','약관입니당~');
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432875' , Financial_Products_seq.nextval, '금융상품4' , '펀드' , '매우위험','약관입니당~');
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432876' , Financial_Products_seq.nextval, '금융상품5' , '펀드' , '매우위험','약관입니당~');
+    
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432877' , Financial_Products_seq.nextval, '금융상품6' , '펀드' , '매우위험','약관입니당~');
+
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432878' , Financial_Products_seq.nextval, '금융상품7' , '펀드' , '매우위험','약관입니당~');
+    
+insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
+    values('432879' , Financial_Products_seq.nextval, '금융상품8' , '펀드' , '매우위험','약관입니당~');
+    
+COMMIT;
+
+    
+
+
+

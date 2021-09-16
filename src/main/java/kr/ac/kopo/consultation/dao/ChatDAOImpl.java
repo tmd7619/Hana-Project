@@ -1,10 +1,10 @@
-package kr.ac.kopo.consultation.chat.dao;
+package kr.ac.kopo.consultation.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.ac.kopo.consultation.chat.vo.RoomVO;
+import kr.ac.kopo.consultation.vo.RoomVO;
 
 @Repository
 public class ChatDAOImpl implements ChatDAO {
@@ -15,7 +15,7 @@ public class ChatDAOImpl implements ChatDAO {
 	@Override
 	public int insertRoom(RoomVO roomVO) {
 		System.out.println("in DAOImpl :" + roomVO);
-		int check  = sqlSession.insert("chat.ChatDAO.insertRoom" , roomVO);
+		int check  = sqlSession.insert("consultation.ChatDAO.insertRoom" , roomVO);
 		
 		return check;
 	}

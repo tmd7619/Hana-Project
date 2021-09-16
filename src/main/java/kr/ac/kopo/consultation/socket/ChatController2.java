@@ -1,3 +1,4 @@
+package kr.ac.kopo.consultation.socket;
 //package kr.ac.kopo.consultation.chat.controller;
 //
 //import kr.ac.kopo.consultation.chat.service.ChatService;

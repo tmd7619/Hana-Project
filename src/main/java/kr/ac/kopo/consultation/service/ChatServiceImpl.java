@@ -1,10 +1,10 @@
-package kr.ac.kopo.consultation.chat.service;
+package kr.ac.kopo.consultation.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import kr.ac.kopo.consultation.chat.dao.ChatDAO;
-import kr.ac.kopo.consultation.chat.vo.RoomVO;
+import kr.ac.kopo.consultation.dao.ChatDAO;
+import kr.ac.kopo.consultation.vo.RoomVO;
 
 @Service
 public class ChatServiceImpl implements ChatService{

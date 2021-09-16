@@ -1,4 +1,4 @@
-package kr.ac.kopo.consultation.assets.controller;
+package kr.ac.kopo.consultation.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.ac.kopo.consultation.assets.service.AssetsService;
-import kr.ac.kopo.consultation.assets.vo.AssetsVO;
+import kr.ac.kopo.consultation.service.AssetsService;
+import kr.ac.kopo.consultation.vo.AssetsVO;
 import kr.ac.kopo.member.vo.ClientVO;
 
 @Controller

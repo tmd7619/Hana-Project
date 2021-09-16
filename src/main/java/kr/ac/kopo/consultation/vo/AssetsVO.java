@@ -1,4 +1,4 @@
-package kr.ac.kopo.consultation.assets.vo;
+package kr.ac.kopo.consultation.vo;
 
 public class AssetsVO {
 

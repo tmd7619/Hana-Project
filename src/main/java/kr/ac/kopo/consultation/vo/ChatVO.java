@@ -1,4 +1,4 @@
-package kr.ac.kopo.consultation.chat.vo;
+package kr.ac.kopo.consultation.vo;
 
 public class ChatVO {
 

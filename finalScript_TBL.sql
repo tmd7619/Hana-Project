@@ -201,8 +201,7 @@ drop sequence Financial_Products_seq ;
 CREATE SEQUENCE Financial_Products_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
-select * from Financial_Products;
-
+select * from Financial_Products where PRODUCT_TYPE = '펀드';
 
 
 

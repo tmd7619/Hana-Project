@@ -1,18 +1,20 @@
-package kr.ac.kopo.consultation.chat.controller;
+package kr.ac.kopo.consultation.controller;
 
-import kr.ac.kopo.consultation.chat.service.ChatService;
-import kr.ac.kopo.consultation.chat.vo.RoomVO;
-import kr.ac.kopo.member.vo.BankerVO;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+import kr.ac.kopo.consultation.service.ChatService;
+import kr.ac.kopo.consultation.vo.RoomVO;
+import kr.ac.kopo.member.vo.BankerVO;
 
 @Controller
 public class ChatController {

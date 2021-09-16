@@ -1,4 +1,4 @@
-package kr.ac.kopo.consultation.chat.controller;
+package kr.ac.kopo.consultation.socket;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
