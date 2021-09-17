@@ -9,7 +9,7 @@ public class MainController {
 	@RequestMapping("/")
 	public String helloJava() {
 		
-		return "client/mainIndex";
+		return "client/index";
 //		return "iframeTest";
 	}
 
