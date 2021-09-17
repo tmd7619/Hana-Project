@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -15,12 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import kr.ac.kopo.consultation.service.ChatService;
 import kr.ac.kopo.consultation.vo.RoomVO;
 import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 
 @Controller
 public class ChatController {
 
 
-    private static int cnt = 0;
 
     @Autowired
     ChatService service;
@@ -32,13 +33,20 @@ public class ChatController {
 
         return "pb/services/waitRoom";
     }
-
-   @RequestMapping(value = "/chat", method = RequestMethod.GET, headers = "Connection!=Upgrade")
-    public ModelAndView chat() {
-        ModelAndView mav = new ModelAndView();
-        mav.setViewName("room");
-        return mav;
+    
+    @RequestMapping("/pb/consultingRoom") // 상담 메인 화면
+    public String viewConsultingRoom() {
+    	
+    	return "pb/consultingIndex";
     }
+    
+    
+
+	/*
+	 * @RequestMapping(value = "/chat", method = RequestMethod.GET, headers =
+	 * "Connection!=Upgrade") public ModelAndView chat() { ModelAndView mav = new
+	 * ModelAndView(); mav.setViewName("room"); return mav; }
+	 */
 
     // 상담 room create
     @RequestMapping("/createRoom")
@@ -47,12 +55,15 @@ public class ChatController {
         ModelAndView mav = new ModelAndView();
 
         BankerVO bankerVO = (BankerVO)session.getAttribute("bankerVO");
+        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        
         RoomVO room = new RoomVO();
         Random random = new Random();
         int roomNumber = random.nextInt(1000000)+1; // 룸번호 랜덤으로 생성
         room.setRoomNumber(roomNumber);
-        room.setRoomMaster(bankerVO.getPbName()); // 방 주인
-
+        room.setClientName(clientVO.getUsername());
+        room.setPbName(bankerVO.getPbName());
+        
         System.out.println("createRoom : " + room );
 
 
@@ -62,29 +73,52 @@ public class ChatController {
 //                System.out.println("room 생성 완료 ");
 //            }
 
-            mav.addObject("roomVO" , room);
+            session.setAttribute("roomVO", room); // 상담 room 정보 세션 등록
+            
             mav.setViewName("pb/services/moveConsultingRoom");
 
         return mav;
     }
 
 
-    /**
-     * 채팅방
-     * @return
-     */
-    @RequestMapping("/moveChatting")
-    public ModelAndView chatting(RoomVO roomVO) {
+    @RequestMapping(value="/moveChatting"  ,  method = RequestMethod.GET)
+    public ModelAndView chatting(RoomVO roomVO) { // 고객 상담 화면
 
         ModelAndView mv = new ModelAndView();
         System.out.println("movechatting에서 넘어온 roomVo : " + roomVO);
 
-            mv.addObject("roomMaster", roomVO.getRoomMaster());
-            mv.addObject("roomNumber", roomVO.getRoomNumber());
 
-            mv.setViewName("chatIndex");
+//            mv.setViewName("chatIndex");
+            mv.setViewName("clientRoom");
 
         return mv;
     }
+    
+    @PostMapping("/moveChatting") // PB 상담화면
+    public ModelAndView viewChatting(HttpSession session) {
+    	
+    	RoomVO room = (RoomVO)session.getAttribute("roomVO");
+    	
+    	System.out.println("세션에서 가져온 room : "+ room);
+    	
+    	ModelAndView mav = new ModelAndView();
+    	
+		/*
+		 * mav.addObject("roomMaster", roomVO.getRoomMaster());
+		 * mav.addObject("roomNumber", roomVO.getRoomNumber());
+		 */
+    	
+        mav.setViewName("clientRoom");
+    	
+    	return mav;
+    	
+    	
+    }
+    
+    
+    
+    
+    
+    
 
 }

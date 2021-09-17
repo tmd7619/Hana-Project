@@ -5,8 +5,8 @@
         /* 페이지 이동 jsp*/
         $(document).ready(function(){
             console.log(${roomVO.roomNumber})
-            console.log("${roomVO.roomMaster}")
-            location.href='${pageContext.request.contextPath}/moveChatting?roomMaster=' + '${roomVO.roomMaster}' + '&'+'roomNumber='+${roomVO.roomNumber};
+            console.log("${roomVO.clientName}")
+            location.href='${pageContext.request.contextPath}/moveChatting?roomMaster=' + '${roomVO.clientName}' + '&'+'roomNumber='+${roomVO.roomNumber};
         })
 
     </script>

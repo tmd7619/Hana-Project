@@ -58,7 +58,8 @@ DROP TABLE Consulting_ROOM;
 CREATE TABLE Consulting_ROOM(
 Consulting_ROOM_id NUMBER PRIMARY KEY, -- Consulting_ROOM 시퀀스
 ROOM_NUMBER NUMBER NOT NULL, -- 채팅방 번호
-ROOM_MASTER VARCHAR2(30) NOT NULL ,-- 방을 개설한 PB name
+client_name VARCHAR2(30) NOT NULL ,-- 방을 개설한 고객명
+pb_name varchar2(30) not null,
 ENTER_DATE DATE DEFAULT SYSDATE,
 END_DATE DATE
 );

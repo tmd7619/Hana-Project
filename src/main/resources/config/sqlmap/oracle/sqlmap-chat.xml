@@ -6,8 +6,8 @@
 	
 
 	<insert id="insertRoom" parameterType="roomVO">
-		insert into Consulting_ROOM(Consulting_ROOM_id, room_number, room_master)
-			values(Consulting_ROOM_seq.nextval, #{roomNumber}, #{roomMaster} )
+		insert into Consulting_ROOM(Consulting_ROOM_id, room_number, client_name , pb_name)
+			values(Consulting_ROOM_seq.nextval, #{roomNumber}, #{clientName},#{pbName} )
 	</insert>
 	
 	
