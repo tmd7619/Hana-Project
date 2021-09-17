@@ -1,15 +1,16 @@
 package kr.ac.kopo.reservation.service;
 
+import java.time.LocalDate;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.reservation.dao.ReservationDAO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import kr.ac.kopo.scheduler.dao.SchedulerDAO;
 import kr.ac.kopo.scheduler.vo.SchedulerVO;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.time.LocalDate;
-import java.util.List;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -79,4 +80,21 @@ public class ReservationServiceImpl implements ReservationService {
 
          return check;
     }
+
+	@Override
+	public List<BankerVO> searchBysector(String sector) {
+		
+		
+		if(sector.equals("전체 분야")) {
+	        List<BankerVO> bankerList = reservationDAO.searchBanker();
+			
+	        return bankerList;
+	        
+		}else {
+			List<BankerVO> bankerList = reservationDAO.searchBysector(sector);
+			return bankerList;
+			
+		}
+		
+	}
 }

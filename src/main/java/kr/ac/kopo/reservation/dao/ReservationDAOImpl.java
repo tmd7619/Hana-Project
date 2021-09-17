@@ -1,12 +1,13 @@
 package kr.ac.kopo.reservation.dao;
 
-import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.reservation.vo.ReservationVO;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.reservation.vo.ReservationVO;
 
 @Repository
 public class ReservationDAOImpl implements ReservationDAO {
@@ -44,4 +45,17 @@ public class ReservationDAOImpl implements ReservationDAO {
         return check;
 
     }
+
+	@Override
+	public List<BankerVO> searchBysector(String sector) {
+			
+		 List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchBySector" , sector);
+		
+		 
+		 for(BankerVO b : bankerList) {
+			 System.out.println("넘어옴?? " + b);
+		 }
+		
+		return bankerList;
+	}
 }

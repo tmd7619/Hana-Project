@@ -52,6 +52,16 @@
     </insert>
 
 
+    <select id="searchBySector" parameterType = "String" resultMap="bankerMap">
+        select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
+        , main_content, intro_content
+        from private_banker
+        where main_field = #{sector}
+    </select>
+
+
+
+
 
         
         
