@@ -577,6 +577,16 @@
     var pbName;
     var sendMessage;
     var pbBranchName;
+    
+    
+    var socket  = null;
+    $(document).ready(function(){
+
+        // 웹소켓 연결
+        sock = new SockJS("<c:url value="/client/searchList"/>");
+        socket = sock;
+    })
+    
 
 
     $("#profileBtn").click(function () {
@@ -638,7 +648,7 @@
         })
 
     })
-
+    
 
 </script>
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>

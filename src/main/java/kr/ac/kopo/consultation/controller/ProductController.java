@@ -32,7 +32,7 @@ public class ProductController {
 		System.out.println(products);
 		
 		
-		mav.setViewName("productList");
+		mav.setViewName("pb/consulting/productList");
 		mav.addObject("productList" , products);
 		
 		return mav;
@@ -60,7 +60,7 @@ public class ProductController {
 		System.out.println(products);
 		
 		
-		mav.setViewName("productList");
+		mav.setViewName("pb/consulting/productList");
 		mav.addObject("productList" , products);
 		
 		return mav;

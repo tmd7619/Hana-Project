@@ -45,7 +45,7 @@
                     <div class="icon-wrap">
                         <div class="number d-flex align-items-center justify-content-center"><span>02</span></div>
                         <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-qa"></span>
+                            <a href="${pageContext.request.contextPath}/createRoom"><span class="flaticon-qa"></span></a>
                         </div>
                     </div>
                     <h2>상담 진행하기</h2>

@@ -1,8 +1,11 @@
 package kr.ac.kopo.scheduler.controller;
 
-import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.scheduler.service.SchedulerService;
-import kr.ac.kopo.scheduler.vo.SchedulerVO;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import javax.servlet.http.HttpSession;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.scheduler.service.SchedulerService;
+import kr.ac.kopo.scheduler.vo.SchedulerVO;
 
 @Controller
 public class BankerScheduleController {
@@ -38,14 +40,14 @@ public class BankerScheduleController {
         model.addAttribute("showSchedule" , schedulerVO);
 
 
-        return "pb/services/schedule";
+        return "pb/reservation/schedule";
     }
 
 
     //일정 추가 팝업
     @RequestMapping(value = "/pb/schedulePopup")
     public String test2() throws Exception {
-        return "pb/services/schedulePopup";
+        return "pb/reservation/schedulePopup";
     }
 
     //일정 추가 버튼 클릭 Ajax

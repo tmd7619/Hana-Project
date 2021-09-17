@@ -378,6 +378,7 @@
         <!-- Modal content -->
         <div id="modal-content2">
             <div class="login-form">
+
                 <h2>PB 로그인</h2>
                 <form action="${pageContext.request.contextPath }/pb/login" method="post" name="loginForm">
                     <div class="group-input">
@@ -434,21 +435,73 @@
 
         <div class="collapse navbar-collapse" id="ftco-nav">
             <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active"><a href="${pageContext.request.contextPath}/" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="${pageContext.request.contextPath}/client/searchList" class="nav-link">PB 찾기</a></li>
-                        <li class="nav-item"><a href="counselor.html" class="nav-link">온라인 투자 상담</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">문의 게시판</a></li>
-                        <li class="nav-item"><a href="pricing.html" class="nav-link">My 리워드</a></li>
+                        <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/pb/services" class="nav-link">PB Service</a></li>
             </ul>
         </div>
         <c:choose>
-            <c:when test="${empty userVO }">
-                <button id="loginBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">고객 로그인</button>
+            <c:when test="${empty bankerVO}">
+                <button id="loginBtn2" class="btn btn-solid-border btn-round-full" style="margin-left: 5px;padding: .5rem 1.5rem;">PB 로그인</button>
             </c:when>
-            <c:when test="${not empty userVO }">
+            <c:when test="${not empty bankerVO  }">
                 <button id="logoutBtn" class="btn btn-solid-border btn-round-full" style="margin-left: 20px;padding: .5rem 1.5rem;">로그아웃</button>
             </c:when>
         </c:choose>
+                 <i  id="noticeIcon" class="fa fa-bell" style="font-size:24px;margin-left:20px;position: relative">
+	               <div id="msgStack" style="position: absolute"></div>
+                </i>
+                
+<!--            TopBar
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item dropdown no-arrow mx-1">
+              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i id="bell" class="fas fa-bell fa-fw"></i>
+                <span class="badge badge-danger badge-counter">3+</span>
+              </a>
+              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                aria-labelledby="alertsDropdown">
+                <h6 class="dropdown-header">
+                  상담 예약 알림
+                </h6>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-primary">
+                      <i class="fas fa-file-alt text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 12, 2019</div>
+                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-success">
+                      <i class="fas fa-donate text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 7, 2019</div>
+                    $290.29 has been deposited into your account!
+                  </div>
+                </a>
+                <a class="dropdown-item d-flex align-items-center" href="#">
+                  <div class="mr-3">
+                    <div class="icon-circle bg-warning">
+                      <i class="fas fa-exclamation-triangle text-white"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="small text-gray-500">December 2, 2019</div>
+                    Spending Alert: We've noticed unusually high spending for your account.
+                  </div>
+                </a>
+                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+              </div>
+            </li>
+          </ul>
+        Topbar -->
  
     </div>
 </nav>
@@ -464,6 +517,7 @@
 
     <script type="text/javascript">
 
+    document.getElementById("noticeIcon").style.display = "none";
 
     $(document).ready(function() {
             $('#loginBtn').click(function(){
@@ -493,7 +547,29 @@
                 $('#myModal2').hide();
             }
         });
-		
+
+
+        $('#noticeIcon').click(function (){
+            $(".toast").toast({"animation": true, "autohide": false});
+            $('.toast').toast('show');
+
+        })
+        $('#closeMsg').click(function (){
+            $('#msgStack').hide();
+        })
+
+    // toast생성 및 추가
+    function onMessage(evt){
+        var data = evt.data;
+        // toast
+        let toast = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' style='z-index: 100;'>";
+        toast += "<div class='toast-header'><!--<i class='fas fa-bell mr-2'>--></i><strong class='mr-auto'>알림</strong>";
+        toast += "<small class='text-muted'>just now</small><button id='closeMsg' type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>";
+        toast += "<span aria-hidden='true'>&times;</span></button>";
+        toast += "</div> <div class='toast-body'>" + data + "</div></div>";
+        // toast += "<button id='acceptBtn>'>수락하기</button></div>";
+        $("#msgStack").append(toast);   // msgStack div에 생성한 toast 추가
+    };
 
 
     </script>

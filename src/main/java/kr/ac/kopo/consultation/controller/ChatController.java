@@ -34,10 +34,18 @@ public class ChatController {
         return "pb/services/waitRoom";
     }
     
+    @RequestMapping("/client/room")
+    public String viewRoom() {
+    	
+    	return "client/consulting/room";
+    }
+    
+    
+    
     @RequestMapping("/pb/consultingRoom") // 상담 메인 화면
     public String viewConsultingRoom() {
     	
-    	return "pb/consultingIndex";
+    	return "pb/consulting/consultingMain";
     }
     
     
@@ -75,7 +83,7 @@ public class ChatController {
 
             session.setAttribute("roomVO", room); // 상담 room 정보 세션 등록
             
-            mav.setViewName("pb/services/moveConsultingRoom");
+            mav.setViewName("pb/consulting/waitRoom");
 
         return mav;
     }
@@ -89,7 +97,7 @@ public class ChatController {
 
 
 //            mv.setViewName("chatIndex");
-            mv.setViewName("clientRoom");
+            mv.setViewName("mainRoom");
 
         return mv;
     }
@@ -108,7 +116,7 @@ public class ChatController {
 		 * mav.addObject("roomNumber", roomVO.getRoomNumber());
 		 */
     	
-        mav.setViewName("clientRoom");
+        mav.setViewName("mainRoom");
     	
     	return mav;
     	

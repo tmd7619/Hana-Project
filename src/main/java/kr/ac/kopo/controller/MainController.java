@@ -4,12 +4,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class HelloController {
+public class MainController {
 	
 	@RequestMapping("/")
 	public String helloJava() {
 		
-		return "clientIndex";
+		return "client/mainIndex";
 //		return "iframeTest";
 	}
 
@@ -18,12 +18,6 @@ public class HelloController {
 
 		return "client/reservation/socket";
 //		return "iframeTest";
-	}
-
-	@RequestMapping("/testChat")
-	public String testChat(){
-
-		return "chatIndex";
 	}
 
 	@RequestMapping("/waitRoom")

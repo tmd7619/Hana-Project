@@ -1,14 +1,15 @@
 package kr.ac.kopo.member.controller;
 
-import kr.ac.kopo.member.service.MemberService;
-import kr.ac.kopo.member.vo.BankerVO;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpSession;
+import kr.ac.kopo.member.service.MemberService;
+import kr.ac.kopo.member.vo.BankerVO;
 
 
 // 원래는 {} 배열 형태로, 여러개 등록 가능
@@ -21,7 +22,7 @@ public class BankerController {
     @RequestMapping("/pb")
     public String viewIndex(){
 
-        return "index";
+        return "pb/index";
     }
 
     @RequestMapping(value = "/pb/login", method = RequestMethod.POST)
@@ -53,7 +54,7 @@ public class BankerController {
     @RequestMapping("/pb/services")
     public String viewServices(){
 
-        return "pb/services/common";
+        return "pb/common";
     }
 
 

@@ -1,17 +1,18 @@
 package kr.ac.kopo.reservation.socket;
 
 
-import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.member.vo.ClientVO;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 
 @Controller
 public class EchoHandler  extends TextWebSocketHandler {
@@ -26,13 +27,14 @@ public class EchoHandler  extends TextWebSocketHandler {
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         sessions.add(session);
         // 세션 2개 이상이 넘어올 경우 인식 안됨??
-//        String bankerId =  getBankerId(session); // 유저 아이디 가져오기
+       String bankerName =  getBankerName(session); // 유저 아이디 가져오기
         String userId =  getUserId(session); // 유저 아이디 가져오기
-        //System.out.println("banker id ? : "+bankerId);
+       System.out.println("banker name ? : "+bankerName);
         System.out.println("user Id ? ? : "+userId);
 
         //userSessionsMap.put(bankerId , session); // 로그인한 유저 아이디 저장
         userSessionsMap.put(userId , session); // 로그인한 유저 아이디 저장
+        userSessionsMap.put(bankerName , session); // 로그인한 유저 아이디 저장
 
     }
 
@@ -40,7 +42,6 @@ public class EchoHandler  extends TextWebSocketHandler {
     // 소켓에 메세지를 보냈을 때
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        String bankerId =  getBankerId(session); // 뱅커 아이디 가져오기
         String msg = message.getPayload() ;
 
         System.out.println("넘어온 msg 값 : " + msg);
@@ -58,8 +59,8 @@ public class EchoHandler  extends TextWebSocketHandler {
         TextMessage text = new TextMessage(sendMsg);
 //        TextMessage text = new TextMessage(msg)
 
-        WebSocketSession target = userSessionsMap.get(bankerId); // bankerId session 값 target에 저장
-
+        WebSocketSession target = userSessionsMap.get(pbName); // bankerId session 값 target에 저장
+        System.out.println("userSessionsMap.get(bankerId) :  "+ target);
 
         target.sendMessage(text);
 
@@ -76,13 +77,13 @@ public class EchoHandler  extends TextWebSocketHandler {
         return userVO.getUserId();
     }
 
-    // 웹소켓에 banker id 가져오기 (Banker)
-    private String getBankerId(WebSocketSession session){
+    // 웹소켓에 banker name 가져오기 (Banker)
+    private String getBankerName(WebSocketSession session){
         Map<String, Object> httpSession = session.getAttributes();
         BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
 
         System.out.println("bankerVO 잘 가져옴 ? :  " + bankerVO);
-        return bankerVO.getPbId();
+        return bankerVO.getPbName();
     }
 
 
