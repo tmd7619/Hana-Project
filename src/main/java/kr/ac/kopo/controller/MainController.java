@@ -13,10 +13,10 @@ public class MainController {
 //		return "iframeTest";
 	}
 
-	@RequestMapping("/echo-ws")
+	@RequestMapping("/test")
 	public String testView() {
 
-		return "client/reservation/socket";
+		return "testJsp";
 //		return "iframeTest";
 	}
 

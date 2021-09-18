@@ -69,7 +69,14 @@
 	href="${pageContext.request.contextPath}/resources/css2/style.css"
 	type="text/css">
 
-</head>
+<!-- 캘린더 link -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.min.css">
+ <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.standalone.min.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
+
+
+ 
 <style>
 .pb_thumbnail {
 	margin-left: 30px;
@@ -189,13 +196,12 @@ ul.join_box {
 	overflow: hidden;
 }
 
-.btn-success{
-
-
+.btn-success {
+	
 }
-
-
 </style>
+
+</head>
 
 <body>
 	<!-- Page Preloder -->
@@ -206,7 +212,6 @@ ul.join_box {
 
 	<jsp:include page="/WEB-INF/jsp/client/searchBanker/profileModal.jsp" />
 	<jsp:include page="/WEB-INF/jsp/common/header.jsp" />
-
 
 	<section class="hero-wrap hero-wrap-2"
 		data-stellar-background-ratio="0.5">
@@ -226,32 +231,40 @@ ul.join_box {
 		</div>
 	</section>
 
+
 	<div class="container" style="padding-top: 100px; color: black">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="hero__text">
 					<ul class="hero__categories__tags">
 						<li>
-						<button name="sector" id="totalBtn" type="button" class="btn btn-success" style="background-color: #27b2a5;border-color:#27b2a5;">전체 분야</button> 
+							<button name="sector" id="totalBtn" type="button"
+								class="btn btn-success"
+								style="background-color: #27b2a5; border-color: #27b2a5;">전체 분야</button>
 						</li>
 						<li>
-						<button name="sector" type="button" class="btn btn-success" style="background-color: #27b2a5;;border-color:#27b2a5;">주식 분야</button> 
-						
+							<button name="sector" type="button" class="btn btn-success"
+								style="background-color: #27b2a5;; border-color: #27b2a5;">주식 분야</button>
+
 						</li>
 						<li>
-						<button name="sector" type="button" class="btn btn-success" style="background-color: #27b2a5;;border-color:#27b2a5;">채권 분야</button> 
-						
+							<button name="sector" type="button" class="btn btn-success"
+								style="background-color: #27b2a5;; border-color: #27b2a5;">채권 분야</button>
+
 						</li>
 						<li>
-						<button name="sector" type="button" class="btn btn-success" style="background-color: #27b2a5;;border-color:#27b2a5;">예금 분야</button> 
-						
+							<button name="sector" type="button" class="btn btn-success"
+								style="background-color: #27b2a5;; border-color: #27b2a5;">예금 분야</button>
+
 						</li>
 						<li>
-						<button name="sector" type="button" class="btn btn-success" style="background-color: #27b2a5;;border-color:#27b2a5;">펀드 분야</button> 
+							<button name="sector" type="button" class="btn btn-success"
+								style="background-color: #27b2a5;; border-color: #27b2a5;">펀드 분야</button>
 						</li>
 						<li>
-						<button name="sector" type="button" class="btn btn-success" style="background-color: #27b2a5;;border-color:#27b2a5;">랩 어카운트</button> 
-						
+							<button name="sector" type="button" class="btn btn-success"
+								style="background-color: #27b2a5;; border-color: #27b2a5;">랩 어카운트</button>
+
 						</li>
 					</ul>
 				</div>
@@ -269,8 +282,8 @@ ul.join_box {
 						<div class="blog__item__large">
 							<div class="blog__item__text">
 								<ul class="blog__item__tags">
-									<li><i class="fa fa-tags"></i>
-									<c:out value="${banker.branchName}" /></li>
+									<li><i class="fa fa-tags"></i> <c:out
+											value="${banker.branchName}" /></li>
 									<input class="pbBranchName" type="hidden"
 										value="<c:out value="${banker.branchName}"/>" />
 									<li><c:out value="${banker.mainField}" /></li>
@@ -389,7 +402,7 @@ ul.join_box {
 					<div class="blog__sidebar">
 						<div class="blog__sidebar__search">
 							<form action="#">
-								<input type="text" placeholder="Searching...">
+								<input type="text" id="da1" class="form-control" placeholder="날짜를 검색해보세요">
 								<button type="submit">
 									<i class="fa fa-search"></i>
 								</button>
@@ -612,13 +625,44 @@ ul.join_box {
 		</div>
 	</div>
 
+<div class="input-group date" data-provide="datepicker">
+    <input type="text" class="form-control">
+    <div class="input-group-addon">
+        <span class="glyphicon glyphicon-th"></span>
+    </div>
+</div>
 
-
-
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
+	<!-- Js Plugins -->
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/jquery.nice-select.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/jquery-ui.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/jquery.nicescroll.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/jquery.barfiller.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/jquery.magnific-popup.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/jquery.slicknav.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/owl.carousel.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/main.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/css2/js/bootstrap.min.js"></script>
+		
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	<script src="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.ko.min.js"></script> 
+	
 	<script>
+	
 		var consultTime;
 		var username = '${sessionScope.userVO.username}';
 		var reserveComment;
@@ -683,7 +727,8 @@ ul.join_box {
 															+ consultTime + ","
 															+ reserveComment);
 													// 예약 정보 DB 저장 ajax
-													$.ajax({
+													$
+															.ajax({
 																type : "POST",
 																url : "${pageContext.request.contextPath}/client/sendReservation",
 																dataType : 'json',
@@ -698,64 +743,104 @@ ul.join_box {
 							})
 
 		})
+
+		/* 		$('button[name=sector').click(function(){
+		 console.log($(this).text())
+		 sector = $(this).text()
+		 $.ajax({
+		 type : "POST",
+		 url : "${pageContext.request.contextPath}/client/searchBySector",
+		 data : sector,
+		 contentType : "application/json; charset=utf-8;",
+		 dataType : "text",
+		 success : function(res) {
+		 $('#sectorList').empty()
+		 $('#sectorList').append(res);
 		
-		 
-/* 		$('button[name=sector').click(function(){
+		 }
+		 });
+		
+		 }) */
+
+		var sector;
+
+		$('button[name=sector').click(
+			function() {
 			console.log($(this).text())
 			sector = $(this).text()
-			$.ajax({
-				type : "POST",
-				url : "${pageContext.request.contextPath}/client/searchBySector",
-				data : sector,
-				contentType : "application/json; charset=utf-8;",
-				dataType : "text",
-				success : function(res) {
-					$('#sectorList').empty()
-					$('#sectorList').append(res);
-					
-				}
-			});
-			
-		}) */
-		
-		 var sector;
-		
-			$('button[name=sector').click(function(){
-			console.log($(this).text())
-			sector = $(this).text()
-			location.href ="${pageContext.request.contextPath}/client/searchBySector?sector="+sector;			
+			location.href = "${pageContext.request.contextPath}/client/searchBySector?sector="
+					+ sector;
 		})
 		
 		
 		
-		
-		
-		
-		
-		
-		
-	</script>
-	<jsp:include page="/WEB-INF/jsp/common/footer.jsp" />
+		/* 	$(function() {
+				console.log('함수호출')
+				$('#datePicker').datepicker({
+					format : "yyyy-mm-dd", //데이터 포맷 형식(yyyy : 년 mm : 월 dd : 일 )
+					startDate : '-10d', //달력에서 선택 할 수 있는 가장 빠른 날짜. 이전으로는 선택 불가능 ( d : 일 m : 달 y : 년 w : 주)
+					endDate : '+10d', //달력에서 선택 할 수 있는 가장 느린 날짜. 이후로 선택 불가 ( d : 일 m : 달 y : 년 w : 주)
+					autoclose : true, //사용자가 날짜를 클릭하면 자동 캘린더가 닫히는 옵션
+					calendarWeeks : true, //캘린더 옆에 몇 주차인지 보여주는 옵션 기본값 false 보여주려면 true
+					clearBtn : false, //날짜 선택한 값 초기화 해주는 버튼 보여주는 옵션 기본값 false 보여주려면 true
+					datesDisabled : [ '2019-06-24', '2019-06-26' ],//선택 불가능한 일 설정 하는 배열 위에 있는 format 과 형식이 같아야함.
+					daysOfWeekDisabled : [ 0, 6 ], //선택 불가능한 요일 설정 0 : 일요일 ~ 6 : 토요일
+					daysOfWeekHighlighted : [ 3 ], //강조 되어야 하는 요일 설정
+					disableTouchKeyboard : false, //모바일에서 플러그인 작동 여부 기본값 false 가 작동 true가 작동 안함.
+					immediateUpdates : false, //사용자가 보는 화면으로 바로바로 날짜를 변경할지 여부 기본값 :false 
+					multidate : false, //여러 날짜 선택할 수 있게 하는 옵션 기본값 :false 
+					multidateSeparator : ",", //여러 날짜를 선택했을 때 사이에 나타나는 글짜 2019-05-01,2019-06-01
+					templates : {
+						leftArrow : '&laquo;',
+						rightArrow : '&raquo;'
+					}, //다음달 이전달로 넘어가는 화살표 모양 커스텀 마이징 
+					showWeekDays : true,// 위에 요일 보여주는 옵션 기본값 : true
+					title : "테스트", //캘린더 상단에 보여주는 타이틀
+					todayHighlight : true, //오늘 날짜에 하이라이팅 기능 기본값 :false 
+					toggleActive : true, //이미 선택된 날짜 선택하면 기본값 : false인경우 그대로 유지 true인 경우 날짜 삭제
+					weekStart : 0,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
+					language : "ko" //달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
 
-	<!-- Js Plugins -->
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/jquery.nice-select.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/jquery-ui.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/jquery.nicescroll.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/jquery.barfiller.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/jquery.magnific-popup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/jquery.slicknav.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/owl.carousel.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/main.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/css2/js/bootstrap.min.js"></script>
+				})
+				.on("changeDate", function(e) {
+					
+					consoloe.log(e)
+				})
+			}) */
+			$(document).ready(function() {
+				  var datep = {
+				     format: "yyyy-mm-dd", //데이터 포맷 형식(yyyy : 년 mm : 월 dd : 일 )
+				        startDate: '-10d', //달력에서 선택 할 수 있는 가장 빠른 날짜. 이전으로는 선택 불가능 ( d : 일 m : 달 y : 년 w : 주)
+				        endDate: '+10d', //달력에서 선택 할 수 있는 가장 느린 날짜. 이후로 선택 불가 ( d : 일 m : 달 y : 년 w : 주)
+				        autoclose : true, //사용자가 날짜를 클릭하면 자동 캘린더가 닫히는 옵션
+				        calendarWeeks : false, //캘린더 옆에 몇 주차인지 보여주는 옵션 기본값 false 보여주려면 true
+				        clearBtn : false, //날짜 선택한 값 초기화 해주는 버튼 보여주는 옵션 기본값 false 보여주려면 true
+				        //datesDisabled : [''],//선택 불가능한 일 설정 하는 배열 위에 있는 format 과 형식이 같아야함.
+				        daysOfWeekDisabled : [0,6], //선택 불가능한 요일 설정 0 : 일요일 ~ 6 : 토요일
+				       // daysOfWeekHighlighted : [''], //강조 되어야 하는 요일 설정
+				        disableTouchKeyboard : false, //모바일에서 플러그인 작동 여부 기본값 false 가 작동 true가 작동 안함.
+				        immediateUpdates: false, //사용자가 보는 화면으로 바로바로 날짜를 변경할지 여부 기본값 :false 
+				        multidate : false, //여러 날짜 선택할 수 있게 하는 옵션 기본값 :false 
+				        multidateSeparator :",", //여러 날짜를 선택했을 때 사이에 나타나는 글짜 2019-05-01,2019-06-01
+				        templates : {
+				            leftArrow: '«',
+				            rightArrow: '»'
+				        }, //다음달 이전달로 넘어가는 화살표 모양 커스텀 마이징 
+				        showWeekDays : true ,// 위에 요일 보여주는 옵션 기본값 : true
+				        title: "상담 날짜 조회", //캘린더 상단에 보여주는 타이틀
+				        todayHighlight : true , //오늘 날짜에 하이라이팅 기능 기본값 :false 
+				        toggleActive : true, //이미 선택된 날짜 선택하면 기본값 : false인경우 그대로 유지 true인 경우 날짜 삭제
+				        weekStart : 0 ,//달력 시작 요일 선택하는 것 기본값은 0인 일요일 
+				        language : "ko" //달력의 언어 선택, 그에 맞는 js로 교체해줘야한다.
+
+				  }
+				  $('#da1').datepicker(datep);
+				  	console.log('함수호출')
+				 });//ready end
+		
+	</script>	
+		
+		
 
 
 </body>
