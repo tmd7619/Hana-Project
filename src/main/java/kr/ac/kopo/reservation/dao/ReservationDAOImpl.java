@@ -1,13 +1,12 @@
 package kr.ac.kopo.reservation.dao;
 
-import java.util.List;
-
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.reservation.vo.ReservationVO;
+import java.util.List;
 
 @Repository
 public class ReservationDAOImpl implements ReservationDAO {
@@ -27,9 +26,12 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
     @Override
-    public List<BankerVO> availableSearchBanker() {
+    public List<BankerVO> availableSearchBanker(String date) {
 
-        List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace +"availableSearchBanker");
+        System.out.println("dao에 넘어온 date :"  + date);
+
+
+        List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace +"availableSearchBanker" , date.trim());
 
         return impossibleBankerList;
     }
@@ -47,15 +49,15 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
 	@Override
-	public List<BankerVO> searchBysector(String sector) {
+	public List<BankerVO> searchBySector(String sector) {
 			
-		 List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchBySector" , sector);
+		 List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchBySector" , sector.trim());
 		
 		 
 		 for(BankerVO b : bankerList) {
 			 System.out.println("넘어옴?? " + b);
 		 }
-		
 		return bankerList;
 	}
+
 }

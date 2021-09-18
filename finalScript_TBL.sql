@@ -141,8 +141,6 @@ create table pb_scheduler(
     end_time varchar2(50)
 );
 
-ALTER TABLE pb_scheduler modify (memo default '상담예약');
-
 drop sequence pb_scheduler_seq;
 CREATE SEQUENCE  pb_scheduler_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;

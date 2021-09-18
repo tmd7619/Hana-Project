@@ -118,16 +118,15 @@ insert into pb_scheduler(pb_scheduler_id, title, pb_name, pb_branch_name, imposs
         
 commit;
 
-select s.impossible,  p.pb_name, p.pb_rank, p.pb_phone, p.pb_email, p.branch_name, p.tag_name, p.main_field, p.main_content, p.intro_content
-from private_banker p , 
-(SELECT pb_name, LISTAGG(impossible,',') WITHIN GROUP (ORDER BY impossible) as impossible
-FROM pb_scheduler
-GROUP BY pb_name
-ORDER BY impossible) s
-where p.pb_name = s.pb_name;
-
-
-
+-- 특정 날짜 상담가능한 pb 조
+select s.impossible,  p.pb_name,p.branch_name, p.main_field
+        from private_banker p ,
+             (SELECT pb_name, LISTAGG(impossible,',') WITHIN GROUP (ORDER BY impossible) as impossible , start_date
+              FROM pb_scheduler
+              GROUP BY start_date, pb_name
+              ORDER BY impossible) s
+        where p.pb_name = s.pb_name and s.start_date = '2021-09-20';
+                
 --------pb_scheduler-----------------------------------------------------------------------------------------------------
 
 --------assets_info-----------------------------------------------------------------------------------------------------
@@ -135,6 +134,16 @@ where p.pb_name = s.pb_name;
 insert into assets_info(client_id, assets_info_id, deposit, fund, wrap_account, stock, bond)
     values('test', assets_info_seq.nextval, 2000000, 1500000, 5000000, 2000000, 500000);
 commit;
+
+
+
+SELECT
+-- 			title,to_char(start_date, 'yyyy:mm:dd') start_date,
+-- 			to_char(end_date,'yyyy:mm:dd') end_date ,memo
+		   title,start_date,end_date ,memo
+		FROM
+			pb_scheduler
+		WHERE pb_Name = '김피비' and pb_branch_name = '강서지점';
 
 
 

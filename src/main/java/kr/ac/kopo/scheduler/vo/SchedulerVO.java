@@ -3,7 +3,7 @@ package kr.ac.kopo.scheduler.vo;
 public class SchedulerVO {
 
     private String title; // 스케줄 제목
-    private String startDate; // 시작 시간
+    private String startDate;
     private String endDate; // 끝나는 시간
     private String pbName; // 담당 직원 이름
     private String pbBranchName; // 담당 직원 브랜치명
@@ -11,6 +11,14 @@ public class SchedulerVO {
     private String memo;
     private String startTime;
     private String endTime;
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 
     public String getStartTime() {
         return startTime;
@@ -43,13 +51,6 @@ public class SchedulerVO {
         this.title = title;
     }
 
-    public String getStartDate() {
-        return startDate;
-    }
-
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
-    }
 
     public String getEndDate() {
         return endDate;
@@ -82,6 +83,7 @@ public class SchedulerVO {
     public void setImpossible(int impossible) {
         this.impossible = impossible;
     }
+
 
     @Override
     public String toString() {

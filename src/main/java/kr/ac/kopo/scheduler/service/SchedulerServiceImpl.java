@@ -29,8 +29,8 @@ public class SchedulerServiceImpl  implements  SchedulerService{
         endTime = endTime.substring(3);
 
 //        System.out.println("변환 후 " +startTime)
-        dto.setStartDate(dto.getStartDate() +" "+startTime +":00");
-        dto.setEndDate(dto.getEndDate() +" "+endTime +":00");
+        dto.setStartDate(dto.getStartDate().trim());
+        dto.setEndDate(dto.getEndDate().trim());
 
         dto.setPbName(bankerVO.getPbName());
         dto.setPbBranchName(bankerVO.getBranchName());

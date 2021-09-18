@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -310,7 +312,7 @@
                             </p>
                             <ul class="blog__item__widget">
                                 <h3>
-                                    <p style="color: black">상담 가능 시간</p>
+                                    <p style="color: black">상담 날짜 : <c:out value="${schedulerDate}"/></p>
                                 </h3>
                                 <c:if test="${fn:contains(banker.impossible,'1')}">
                                     <li>
@@ -416,8 +418,16 @@
             <div class="col-lg-4">
                 <div class="blog__sidebar">
                     <div class="blog__sidebar__search">
-                        <form action="#">
-                            <input type="text" id="da1" class="form-control" placeholder="날짜를 검색해보세요">
+                        <form action="${pageContext.request.contextPath}/client/searchDate" method="post">
+                            <c:choose>
+                                <c:when test="${ schedulerDate == '2021-09-18'}">
+                                    <input name="schedulerDate" type="text" id="da1" class="form-control" placeholder="날짜를 검색해보세요">
+                                </c:when>
+                                <c:otherwise>
+                                    <input name="schedulerDate" type="text" id="da1" class="form-control" value="${schedulerDate}">
+                                </c:otherwise>
+                            </c:choose>
+                            <input name="sector" type="hidden" value="${sector}">
                             <button type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -763,14 +773,13 @@
 
     })
 
+    // 분야별 조회
     var sector;
-
     $('button[name=sector]').click(
         function () {
             console.log($(this).text())
             sector = $(this).text()
-            location.href = "${pageContext.request.contextPath}/client/searchBySector?sector="
-                + sector;
+            location.href = "${pageContext.request.contextPath}/client/searchBySector?sector="+sector+"&schedulerDate="+'${schedulerDate}';
         })
 
     $(document).ready(function () {

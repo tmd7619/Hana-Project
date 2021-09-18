@@ -4,7 +4,11 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="reservation.ReservationDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
 
-
+        <resultMap id="schedulerMap" type="SchedulerVO">
+            <result column="pb_name" property="pbName"/>
+            <result column="pb_branch_name" property="pbBranchName"/>
+            <result column="start_date" property="startDate"/>
+        </resultMap>
 
         <resultMap id="bankerMap" type="BankerVO">
             <result column="pb_name" property="pbName"/>
@@ -16,12 +20,9 @@
             <result column="intro_content" property="introContent"/>
             <result column="main_content" property="mainContent"/>
             <result column="tag_name" property="tagName"/>
+<!--            <collection property="schedulerVO" resultMap="schedulerMap"/>-->
         </resultMap>
 
-        <resultMap id="schedulerMap" type="SchedulerVO">
-            <result column="pb_name" property="pbName"/>
-            <result column="pb_branch_name" property="pbBranchName"/>
-        </resultMap>
 
         <resultMap id="reservationMap" type="reservationVO">
             <result column="rsrv_time" property="rsrvTime"/>
@@ -35,15 +36,14 @@
         from private_banker
     </select>
 
-    <select id="availableSearchBanker" resultMap="bankerMap">
-        select s.impossible,  p.pb_name, p.pb_rank, p.pb_phone, p.pb_email, p.branch_name,
-                p.tag_name, p.main_field, p.main_content, p.intro_content
+    <select id="availableSearchBanker" parameterType="String" resultMap="bankerMap">
+        select s.impossible,  p.pb_name,p.branch_name, p.main_field
         from private_banker p ,
-             (SELECT pb_name, LISTAGG(impossible,',') WITHIN GROUP (ORDER BY impossible) as impossible
+             (SELECT pb_name, LISTAGG(impossible,',') WITHIN GROUP (ORDER BY impossible) as impossible , start_date
               FROM pb_scheduler
-              GROUP BY pb_name
+              GROUP BY start_date, pb_name
               ORDER BY impossible) s
-        where p.pb_name = s.pb_name
+        where p.pb_name = s.pb_name and s.start_date = #{date}
     </select>
 
     <insert id="insertReservation" parameterType="reservationVO">
@@ -58,6 +58,8 @@
         from private_banker
         where main_field = #{sector}
     </select>
+
+
 
 
 

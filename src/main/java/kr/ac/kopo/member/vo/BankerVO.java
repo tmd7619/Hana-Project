@@ -16,6 +16,7 @@ public class BankerVO {
     private String tagName;
     private int    codeNum;
 
+
     public int getCodeNum() {
         return codeNum;
     }
@@ -130,12 +131,13 @@ public class BankerVO {
                 ", pbRank='" + pbRank + '\'' +
                 ", pbPhone='" + pbPhone + '\'' +
                 ", pbEmail='" + pbEmail + '\'' +
-                ", branchName='" + pbBranchName + '\'' +
+                ", pbBranchName='" + pbBranchName + '\'' +
                 ", mainField='" + mainField + '\'' +
                 ", introContent='" + introContent + '\'' +
                 ", mainContent='" + mainContent + '\'' +
                 ", impossible='" + impossible + '\'' +
                 ", tagName='" + tagName + '\'' +
+                ", codeNum=" + codeNum +
                 '}';
     }
 }

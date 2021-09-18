@@ -1,16 +1,15 @@
 package kr.ac.kopo.reservation.service;
 
-import java.time.LocalDate;
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.reservation.dao.ReservationDAO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import kr.ac.kopo.scheduler.dao.SchedulerDAO;
 import kr.ac.kopo.scheduler.vo.SchedulerVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @Service
 public class ReservationServiceImpl implements ReservationService {
@@ -29,9 +28,9 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
     @Override
-    public List<BankerVO> availableSearchBanker() { // 상담 가능한 자산관리사 조회
+    public List<BankerVO> availableSearchBanker(String date) { // 상담 가능한 자산관리사 조회
 
-        List<BankerVO> scheduledBanker = reservationDAO.availableSearchBanker(); // 모든 자산관리사 스케줄 조회
+        List<BankerVO> scheduledBanker = reservationDAO.availableSearchBanker(date); // 모든 자산관리사 스케줄 조회
 
         return scheduledBanker;
     }
@@ -69,8 +68,8 @@ public class ReservationServiceImpl implements ReservationService {
 
         schedulerVO.setStartTime(startTime);
         schedulerVO.setEndTime(endTime);
-        schedulerVO.setStartDate(now.toString() + " " + startTime);
-        schedulerVO.setEndDate(now.toString() + " " + endTime );
+        schedulerVO.setStartDate(now.toString());
+        schedulerVO.setEndDate(now.toString());
 
 
         System.out.println("in reservation schedulerVo : " + schedulerVO);
@@ -82,7 +81,7 @@ public class ReservationServiceImpl implements ReservationService {
     }
 
 	@Override
-	public List<BankerVO> searchBysector(String sector) {
+	public List<BankerVO> searchBySector(String sector) {
 		
 		
 		if(sector.equals("전체 분야")) {
@@ -91,10 +90,11 @@ public class ReservationServiceImpl implements ReservationService {
 	        return bankerList;
 	        
 		}else {
-			List<BankerVO> bankerList = reservationDAO.searchBysector(sector);
+			List<BankerVO> bankerList = reservationDAO.searchBySector(sector);
 			return bankerList;
 			
 		}
-		
 	}
+
+
 }
