@@ -1,11 +1,9 @@
 package kr.ac.kopo.consultation.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import javax.servlet.http.HttpSession;
-
+import kr.ac.kopo.consultation.service.ChatService;
+import kr.ac.kopo.consultation.vo.RoomVO;
+import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import kr.ac.kopo.consultation.service.ChatService;
-import kr.ac.kopo.consultation.vo.RoomVO;
-import kr.ac.kopo.member.vo.BankerVO;
-import kr.ac.kopo.member.vo.ClientVO;
+import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 @Controller
 public class ChatController {
@@ -90,7 +88,9 @@ public class ChatController {
 
 
     @RequestMapping(value="/moveChatting"  ,  method = RequestMethod.GET)
-    public ModelAndView chatting(RoomVO roomVO) { // 고객 상담 화면
+    public ModelAndView chatting(HttpSession session) { // 고객 상담 화면
+
+        RoomVO roomVO = (RoomVO)session.getAttribute("roomVO");
 
         ModelAndView mv = new ModelAndView();
         System.out.println("movechatting에서 넘어온 roomVo : " + roomVO);

@@ -63,35 +63,6 @@ public class ReservationController {
         return "예약완료";
     }
     
-    
-//    @PostMapping("/client/searchBySector")
-//    public ModelAndView searchList(HttpServletRequest request){
-//        String sector = (String)request.getParameter("sector");
-//        String date = (String)request.getParameter("schedulerDate");
-//        ModelAndView mav = new ModelAndView();
-//
-//        System.out.println("컨트롤러로 넘어온 sector : " + sector);
-//        System.out.println("컨트롤러로 넘어온 date : " + date);
-//
-//        List<BankerVO> bankerVOList = service.searchBysector(sector);
-//        List<BankerVO> checkBankerList = service.availableSearchBanker(date);
-//
-//        // 상담 가능한 PB 조회
-//        for(int i = 0; i < bankerVOList.size(); i ++){
-//            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-//                if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
-//                    bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
-//                }
-//            }
-//        }
-//        mav.addObject("bankerList" , bankerVOList);
-//        mav.addObject("schedulerDate" , date);
-//
-//        mav.setViewName("client/searchBanker/sectorList");
-//
-//        return mav;
-//    }
-    
     @GetMapping("/client/searchBySector")
     public ModelAndView searchBySector(HttpServletRequest request){
 
@@ -99,11 +70,6 @@ public class ReservationController {
 
         String sector = (String)request.getParameter("sector");
         String date = (String)request.getParameter("schedulerDate");
-
-        System.out.println("컨트롤러로 넘어온 sector : " + sector);
-        System.out.println("컨트롤러로 넘어온 date : " + date);
-
-
 
         List<BankerVO> bankerVOList = service.searchBySector(sector);
         List<BankerVO> checkBankerList = service.availableSearchBanker(date.trim());
@@ -133,8 +99,6 @@ public class ReservationController {
 
         String sector = (String)request.getParameter("sector");
         String date = (String)request.getParameter("schedulerDate").trim();
-        System.out.println("date 값 넘어옴? : "  + date);
-        System.out.println("sector 값 넘어옴? : "  + date);
 
         List<BankerVO> bankerVOList = service.searchBySector(sector);
         List<BankerVO> checkBankerList = service.availableSearchBanker(date);

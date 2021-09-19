@@ -198,11 +198,34 @@
         #staticBackdrop {
             overflow: hidden;
         }
-
-
-        .btn-success {
-
+        #heartBtn{
+            float :right;
+            font-size: 25px;
+            color: red;
         }
+
+        .fa-heart:hover {
+            cursor: pointer;
+        }
+
+        .fa-heart {
+            color: grey;
+        }
+
+        .fas , .fa-heart {
+            color:red;
+        }
+
+        .fa-heart-o {
+            color: red;
+            cursor: pointer;
+        }
+
+        .fa-heart {
+            color: red;
+            cursor: pointer;
+        }
+
     </style>
 
 </head>
@@ -294,16 +317,19 @@
                             <ul class="blog__item__tags">
                                 <li><i class="fa fa-tags"></i> <c:out
                                         value="${banker.branchName}"/></li>
+
                                 <input class="pbBranchName" type="hidden"
                                        value="<c:out value="${banker.branchName}"/>"/>
                                 <li><c:out value="${banker.mainField}"/></li>
+                                <span><i id="heartBtn" class="far fa-heart" style="color: red;"></i></span>
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
                             <a id="profileBtn"><img class="pb_thumbnail"
                                                     src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
                             <h3>
-                                <span><c:out value="${banker.pbName}"/></span> 자산관리사 <input
+                                <span><c:out value="${banker.pbName}"/></span> 자산관리사
+                                <input
                                     class="pbName" type="hidden"
                                     value="<c:out value="${banker.pbName}"/>"/>
                             </h3>
@@ -420,14 +446,17 @@
                     <div class="blog__sidebar__search">
                         <form action="${pageContext.request.contextPath}/client/searchDate" method="post">
                             <c:choose>
-                                <c:when test="${ schedulerDate == '2021-09-18'}">
+                                <c:when test="${ schedulerDate == '2021-09-19'}">
                                     <input name="schedulerDate" type="text" id="da1" class="form-control" placeholder="날짜를 검색해보세요">
                                 </c:when>
                                 <c:otherwise>
                                     <input name="schedulerDate" type="text" id="da1" class="form-control" value="${schedulerDate}">
                                 </c:otherwise>
                             </c:choose>
-                            <input name="sector" type="hidden" value="${sector}">
+                            <c:if test="${empty sector}">
+                                  <input name="sector" type="hidden" value="전체 분야">
+                            </c:if>
+                                  <input name="sector" type="hidden" value="${sector}">
                             <button type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -812,6 +841,17 @@
         $('#da1').datepicker(datep);
         console.log('함수호출')
     });//ready end
+
+
+    const togglingBtns = document.querySelectorAll('.fa-heart');
+
+    togglingBtns.forEach(function(btns){
+        btns.addEventListener ("click", function() {
+            btns.classList.toggle('fas')
+        });
+    })
+
+
 
 </script>
 

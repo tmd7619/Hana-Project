@@ -32,7 +32,8 @@
 	rel="stylesheet">
 <link
 	href="${pageContext.request.contextPath}/resources/css2/nice-select.css">
-<script
+
+        <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         
         
@@ -436,9 +437,9 @@
             <ul class="navbar-nav ml-auto">
                         <li class="nav-item active"><a href="${pageContext.request.contextPath}/" class="nav-link">Home</a></li>
                         <li class="nav-item"><a href="${pageContext.request.contextPath}/client/searchList" class="nav-link">PB 찾기</a></li>
-                        <li class="nav-item"><a href="counselor.html" class="nav-link">온라인 투자 상담</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">문의 게시판</a></li>
-                        <li class="nav-item"><a href="pricing.html" class="nav-link">My 리워드</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/moveChatting" class="nav-link">온라인 투자 상담</a></li>
+                        <li class="nav-item"><a href="services.html" class="nav-link">상담 내역 조회</a></li>
+                        <li class="nav-item"><a href="${pageContext.request.contextPath}/client/myPage" class="nav-link">마이페이지</a></li>
             </ul>
         </div>
         <c:choose>
@@ -493,7 +494,4 @@
                 $('#myModal2').hide();
             }
         });
-		
-
-
     </script>

@@ -28,8 +28,6 @@ public class ReservationDAOImpl implements ReservationDAO {
     @Override
     public List<BankerVO> availableSearchBanker(String date) {
 
-        System.out.println("dao에 넘어온 date :"  + date);
-
 
         List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace +"availableSearchBanker" , date.trim());
 
@@ -52,11 +50,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 	public List<BankerVO> searchBySector(String sector) {
 			
 		 List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchBySector" , sector.trim());
-		
-		 
-		 for(BankerVO b : bankerList) {
-			 System.out.println("넘어옴?? " + b);
-		 }
+
 		return bankerList;
 	}
 

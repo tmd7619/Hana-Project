@@ -23,7 +23,6 @@ public class ReservationServiceImpl implements ReservationService {
     @Override
     public List<BankerVO> searchBanker() {
         List<BankerVO> bankerList = reservationDAO.searchBanker()  ;
-        System.out.println("service로 넘어온 뱅커 목록 " + bankerList);
         return bankerList;
     }
 
@@ -72,7 +71,6 @@ public class ReservationServiceImpl implements ReservationService {
         schedulerVO.setEndDate(now.toString());
 
 
-        System.out.println("in reservation schedulerVo : " + schedulerVO);
 
         schedulerDAO.addSchedule(schedulerVO); // 스케줄 테이블 insert
         int check = reservationDAO.insertReservation(reservationVO); // 에약 정보 insert
@@ -82,9 +80,8 @@ public class ReservationServiceImpl implements ReservationService {
 
 	@Override
 	public List<BankerVO> searchBySector(String sector) {
-		
-		
-		if(sector.equals("전체 분야")) {
+
+		if(sector.trim().equals("전체 분야")) {
 	        List<BankerVO> bankerList = reservationDAO.searchBanker();
 			
 	        return bankerList;

@@ -16,9 +16,11 @@ public class MainController {
 	@RequestMapping("/test")
 	public String testView() {
 
-		return "testJsp";
+		return "client/myPage/myPage";
 //		return "iframeTest";
 	}
+
+
 
 	@RequestMapping("/waitRoom")
 	public String testWait(){
