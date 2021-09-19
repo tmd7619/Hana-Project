@@ -16,7 +16,7 @@ public class MainController {
 	@RequestMapping("/test")
 	public String testView() {
 
-		return "client/myPage/myPage";
+		return "client/myPage/myPageMain";
 //		return "iframeTest";
 	}
 

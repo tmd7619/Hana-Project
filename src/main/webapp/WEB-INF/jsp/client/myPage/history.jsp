@@ -185,47 +185,6 @@
             line-height: 60px;
         }
 
-        .fpmgBt1 {
-            background-color: #fff;
-            color: #888
-        }
-
-        .fpmgBt2 {
-            background-color: lightsalmon;
-            color: #fff
-        }
-
-        #staticBackdrop {
-            overflow: hidden;
-        }
-        #heartBtn{
-            float :right;
-            font-size: 25px;
-            color: red;
-        }
-
-        .fa-heart:hover {
-            cursor: pointer;
-        }
-
-        .fa-heart {
-            color: grey;
-        }
-
-        .fas , .fa-heart {
-            color:red;
-        }
-
-        .fa-heart-o {
-            color: red;
-            cursor: pointer;
-        }
-
-        .fa-heart {
-            color: red;
-            cursor: pointer;
-        }
-
     </style>
 
 </head>
@@ -240,7 +199,7 @@
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <section class="hero-wrap hero-wrap-2"
-         data-stellar-background-ratio="0.5">
+         data-stellar-background-ratio="0.5" style="margin-bottom: 100px;">
     <div class="overlay" style="background: #27b2a5;"></div>
     <div class="container">
         <div
@@ -248,10 +207,10 @@
             <div class="col-md-9 ftco-animate mb-5 text-center">
                 <p class="breadcrumbs mb-0">
 						<span class="mr-2"><a href="index.html">Home <i
-                                class="fa fa-chevron-right"></i></a></span> <span>Services <i
+                                class="fa fa-chevron-right"></i></a></span> <span>My Page <i
                         class="fa fa-chevron-right"></i></span>
                 </p>
-                <h1 class="mb-0 bread" style="color: #fff">Services</h1>
+                <h1 class="mb-0 bread" style="color: #fff">상담 내역 조회</h1>
             </div>
         </div>
     </div>
@@ -266,15 +225,15 @@
         <!-- Simple Tables -->
         <div class="card">
             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">Simple Tables</h6>
+                <h6 class="m-0 font-weight-bold text-primary">상담 내역</h6>
             </div>
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
                     <tr>
-                        <th>Order ID</th>
-                        <th>Customer</th>
-                        <th>Item</th>
+                        <th>상담 날짜</th>
+                        <th>담당 PB 이름</th>
+                        <th>상담 내용</th>
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
@@ -323,9 +282,6 @@
     </div>
 </div>
 <!--Row-->
-
-
-
 
 
 

@@ -562,7 +562,7 @@ ol {
 	border: none;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
-	color: #a8a8a8;
+	color: black;
 	padding: 0 10px;
 	position: relative;
 }
@@ -573,13 +573,13 @@ ol {
 	bottom: -2px;
 	height: 2px;
 	width: 100%;
-	background: #f03250;
+	background: #27b2a5;
 	content: "";
 	opacity: 0;
 }
 
 .most__search__tab .nav-tabs .nav-link.active {
-	color: #f03250;
+	color: #27b2a5;
 }
 
 .most__search__tab .nav-tabs .nav-link.active:after {
@@ -633,7 +633,7 @@ ol {
 .work__item__number {
 	font-size: 60px;
 	font-weight: 700;
-	color: #f03250;
+	color: #27b2a5;
 	opacity: 0.1;
 	position: absolute;
 	left: -16px;
