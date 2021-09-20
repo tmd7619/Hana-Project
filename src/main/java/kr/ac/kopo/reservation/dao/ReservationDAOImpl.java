@@ -1,6 +1,7 @@
 package kr.ac.kopo.reservation.dao;
 
 import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,4 +55,12 @@ public class ReservationDAOImpl implements ReservationDAO {
 		return bankerList;
 	}
 
+
+    @Override
+    public List<BankerVO> selectByFavorite(ClientVO clientVO) {
+
+        List<BankerVO> favoriteList = sqlSessionTemplate.selectList(namespace + "selectByFavorite" , clientVO.getUsername());
+
+        return favoriteList;
+    }
 }

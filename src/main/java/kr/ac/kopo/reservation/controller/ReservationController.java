@@ -2,6 +2,7 @@ package kr.ac.kopo.reservation.controller;
 
 import com.google.gson.Gson;
 import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.reservation.service.ReservationService;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class ReservationController {
 
     // Main searchList
     @RequestMapping("/client/searchList")
-    public ModelAndView searchList(){
+    public ModelAndView searchList(HttpSession session){
         ModelAndView mav = new ModelAndView();
 
         LocalDate now = LocalDate.now(); // 현재 날짜
@@ -39,6 +41,22 @@ public class ReservationController {
             }
         }
 
+
+        // 즐겨찾기 pb 조회
+        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        List<BankerVO> favoriteList = service.selectByFavorite(clientVO);
+
+
+        // 상담 가능한 PB 조회
+        for(int i = 0; i < favoriteList.size(); i ++){
+            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
+                if(checkBankerList.get(j).getPbName().equals(favoriteList.get(i).getPbName())){
+                    favoriteList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
+                }
+            }
+        }
+
+        mav.addObject("favoriteList" , favoriteList);
         mav.addObject("schedulerDate" , now.toString());
         mav.addObject("bankerList" , bankerVOList);
         mav.setViewName("client/searchBanker/bankerList");
@@ -117,9 +135,10 @@ public class ReservationController {
         mav.addObject("sector" , sector);
         mav.setViewName("client/searchBanker/bankerList");
         return mav;
-
-
     }
+
+
+
 
 
 }

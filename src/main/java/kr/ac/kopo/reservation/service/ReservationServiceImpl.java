@@ -1,6 +1,7 @@
 package kr.ac.kopo.reservation.service;
 
 import kr.ac.kopo.member.vo.BankerVO;
+import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.reservation.dao.ReservationDAO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import kr.ac.kopo.scheduler.dao.SchedulerDAO;
@@ -94,4 +95,11 @@ public class ReservationServiceImpl implements ReservationService {
 	}
 
 
+    @Override
+    public List<BankerVO> selectByFavorite(ClientVO clientVO) {
+
+        List<BankerVO> favoriteList = reservationDAO.selectByFavorite(clientVO);
+
+        return favoriteList;
+    }
 }

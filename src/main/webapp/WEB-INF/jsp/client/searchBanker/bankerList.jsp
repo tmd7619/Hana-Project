@@ -198,7 +198,7 @@
         #staticBackdrop {
             overflow: hidden;
         }
-        #heartBtn{
+        #heartBtn, #favoriteBtn{
             float :right;
             font-size: 25px;
             color: red;
@@ -311,6 +311,128 @@
     <div class="container">
         <div class="row">
             <div id="sectorList" class="col-lg-8">
+                <c:forEach items="${favoriteList}" var="favorite" varStatus="loop">
+                    <div class="blog__item__large">
+                        <div class="blog__item__text" style="border :2px solid #27b2a5">
+                            <ul class="blog__item__tags">
+                                <li><i class="fa fa-tags"></i> <c:out
+                                        value="${favorite.branchName}"/></li>
+
+                                <input class="pbBranchName" type="hidden"
+                                       value="<c:out value="${favorite.branchName}"/>"/>
+                                <li><c:out value="${favorite.mainField}"/></li>
+                                <span><i id="favoriteBtn" class="far fa-heart favorite" style="color: red;"></i></span>
+                            </ul>
+                                <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
+                                <%--                            </button>--%>
+                            <a id="profileBtn"><img class="pb_thumbnail"
+                                                    src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                            <h3>
+                                <span><c:out value="${favorite.pbName}"/></span> 자산관리사
+                                <input class="codeNum" type="hidden" value="${favorite.codeNum}">
+                                <input
+                                        class="pbName" type="hidden"
+                                        value="<c:out value="${favorite.pbName}"/>"/>
+                            </h3>
+                            <p>
+                                <c:out value="${favorite.introContent}"/>
+                            </p>
+                            <ul class="blog__item__widget">
+                                <h3>
+                                    <p style="color: black">상담 날짜 : <c:out value="${schedulerDate}"/></p>
+                                </h3>
+                                <c:if test="${fn:contains(favorite.impossible,'1')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm disabled"
+                                                style="margin-bottom: 10px; font-weight: lighter"
+                                                value="10:00">10:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not fn:contains(favorite.impossible,'1')}">
+                                    <li>
+                                        <button id="termsModal" class="btn btn-light btn-sm"
+                                                style="margin-bottom: 10px;" value="10:00">10:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${fn:contains(favorite.impossible,'2')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm disabled"
+                                                style="margin-bottom: 10px; font-weight: lighter">11:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not fn:contains(favorite.impossible,'2')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm"
+                                                style="margin-bottom: 10px;" value="11:00">11:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${fn:contains(favorite.impossible,'3')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm disabled"
+                                                style="margin-bottom: 10px; font-weight: lighter">13:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not fn:contains(favorite.impossible,'3')}">
+                                    <li>
+                                        <button value="13:00" class="btn btn-light btn-sm "
+                                                style="margin-bottom: 10px;">13:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${fn:contains(favorite.impossible,'4')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm disabled"
+                                                style="margin-bottom: 10px; font-weight: lighter">14:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not fn:contains(favorite.impossible,'4')}">
+                                    <li>
+                                        <button value="14:00" class="btn btn-light btn-sm "
+                                                style="margin-bottom: 10px;">14:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${fn:contains(favorite.impossible,'5')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm disabled"
+                                                style="margin-bottom: 10px; font-weight: lighter">15:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not fn:contains(favorite.impossible,'5')}">
+                                    <li>
+                                        <button value="15:00" class="btn btn-light btn-sm "
+                                                style="margin-bottom: 10px;">15:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${fn:contains(favorite.impossible,'6')}">
+                                    <li>
+                                        <button class="btn btn-light btn-sm disabled"
+                                                style="margin-bottom: 10px; font-weight: lighter">16:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                                <c:if test="${not fn:contains(favorite.impossible,'6')}">
+                                    <li>
+                                        <button value="16:00" class="btn btn-light btn-sm "
+                                                style="margin-bottom: 10px;">16:00
+                                        </button>
+                                    </li>
+                                </c:if>
+                            </ul>
+                            <div id="tagName">
+                                <c:out value="${favorite.tagName}"/>
+                            </div>
+                        </div>
+                    </div>
+                </c:forEach>
                 <c:forEach items="${bankerList}" var="banker" varStatus="loop">
                     <div class="blog__item__large">
                         <div class="blog__item__text">
@@ -722,6 +844,14 @@
 
 <script>
 
+
+
+    $(document).ready(function() {
+        $('.favorite').removeClass("far fa-heart")
+            $('.favorite').addClass("fas fa-heart");
+    })
+
+
     var consultTime;
     var username = '${sessionScope.userVO.username}';
     var reserveComment;
@@ -865,10 +995,6 @@
             })
         });
     })
-
-
-
-
 
 </script>
 
