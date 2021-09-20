@@ -1413,7 +1413,6 @@ ol {
 }
 
 .listing__item__pic img {
-	position: absolute;
 	width: 60px;
 	height: 60px;
 	left: 30px;

@@ -974,8 +974,8 @@
     });//ready end
 
 
+    // favorite 추가
     const togglingBtns = document.querySelectorAll('.fa-heart');
-
     togglingBtns.forEach(function(btns){
         btns.addEventListener ("click", function() {
             btns.classList.toggle('fas')
