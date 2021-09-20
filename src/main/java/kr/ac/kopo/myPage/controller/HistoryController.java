@@ -14,7 +14,7 @@ public class HistoryController {
 
     @RequestMapping("/client/myPage/history")
     public String viewHistory() {
-
+        
 
         return "client/myPage/history";
     }

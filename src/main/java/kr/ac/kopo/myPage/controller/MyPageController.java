@@ -21,11 +21,4 @@ public class MyPageController {
     }
 
 
-    @RequestMapping("/client/myPage/history")
-    public String viewHistory() {
-
-
-        return "client/myPage/history";
-    }
-
 }

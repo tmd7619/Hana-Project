@@ -112,7 +112,7 @@ select * from private_banker ;
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-
+/*
 drop table matching_client_info;
 create table matching_client_info(
     matching_client_info number primary key,
@@ -126,6 +126,7 @@ create table matching_client_info(
 drop sequence matching_client_info;
 CREATE SEQUENCE  matching_client_info_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+*/
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 drop table pb_scheduler ; -- pb 스케줄 테이블 
@@ -233,6 +234,21 @@ delete from favorite_list where pb_code_num = '123123' and client_name = '윤승
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
+drop table consulting_history;
+create table consulting_history(
+    client_id varchar2(50) primary key,
+    pb_code_num number(6) not null,
+    cslt_time date default sysdate,
+    cslt_title varchar2(200) not null,
+    cslt_coment varchar2(500) not null,
+    consulting_history_id number not null,
+    room_number number not null 
+);
+
+
+drop sequence consulting_history_seq ;
+CREATE SEQUENCE consulting_history_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 
 
