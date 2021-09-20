@@ -221,3 +221,10 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from favorite_list;
 
+delete from favorite_list where pb_code_num = '123123' and client_name = '윤승원';
+
+
+
+
+
+

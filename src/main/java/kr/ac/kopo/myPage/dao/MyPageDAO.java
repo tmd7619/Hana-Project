@@ -14,6 +14,7 @@ public interface MyPageDAO {
     List<BankerVO> searchFavoriteList(ClientVO clientVO);
     List<BankerVO>searchFavoriteListBySector(String sector , ClientVO clientVO);
     List<BankerVO> selectOneByFavorite(String codeNum , ClientVO clientVO);
+    void deleteFavorite(String codeNum , ClientVO clientVO);
 
 
 

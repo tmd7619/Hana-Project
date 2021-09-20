@@ -13,9 +13,11 @@
                         <div class="listing__item__pic__tag top_rate"><c:out
                                 value="${favorite.mainField}"/></div>
                         <div class="listing__item__pic__btns">
-<%--                            <a href="#"><span class="icon_zoom-in_alt"></span></a>--%>
-<%--                            <a href="#"><span class="icon_heart_alt"></span></a>--%>
                         </div>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true" style="margin-right: 10px;font-size: 30px;">&times;</span>
+                        </button>
                     </div>
                     <div class="listing__item__text">
                         <div class="listing__item__text__inside">

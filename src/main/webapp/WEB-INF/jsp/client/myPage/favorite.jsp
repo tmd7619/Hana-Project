@@ -183,7 +183,7 @@
             background-position: bottom;
         }
 
-        #pbImage{
+        #pbImage {
             margin-left: 15%;
             margin-top: 50px;
             width: 70%;
@@ -191,11 +191,10 @@
             position: initial;
         }
 
-        .listing__item__pic img{
+        .listing__item__pic img {
             bottom: -30px;
             border-radius: 50%;
         }
-
 
 
     </style>
@@ -246,9 +245,9 @@
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
                             <div class="sector">
-                            <a  class="nav-link" data-toggle="tab" href="#tabs-1" role="tab" >
-                                전체 분야
-                            </a>
+                                <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab">
+                                    전체 분야
+                                </a>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -280,23 +279,27 @@
                 </div>
                 <div id="favoritePage" class="tab-content">
                     <div class="tab-pane active" id="tabs-1" role="tabpanel">
-                        <div  class="row">
+                        <div class="row">
                             <c:forEach items="${favoriteList}" var="favorite" varStatus="loop">
                                 <div class="col-lg-4 col-md-6">
                                     <div class="listing__item">
                                         <div id="profileImage" class="listing__item__pic set-bg">
-                                            <img id="pbImage" src="${pageContext.request.contextPath}/resources/pbImage.png">
+                                            <img id="pbImage"
+                                                 src="${pageContext.request.contextPath}/resources/pbImage.png">
                                             <div class="listing__item__pic__tag top_rate"><c:out
                                                     value="${favorite.mainField}"/></div>
-                                            <div class="listing__item__pic__btns">
-                                            </div>
+
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true" style="margin-right: 10px;font-size: 30px;">&times;</span>
+                                            </button>
                                         </div>
                                         <div class="listing__item__text">
                                             <div class="listing__item__text__inside">
                                                 <h5 style="text-align: center"><c:out value="${favorite.branchName}"/>
                                                     <c:out value="${favorite.pbName}"/> 자산관리사</h5>
                                                 <div class="listing__item__text__rating">
-<%--                                                    <h6>$40 - $70</h6>--%>
+                                                        <%--                                                    <h6>$40 - $70</h6>--%>
                                                 </div>
                                                 <ul>
                                                     <li>10년 경력 채권 투자 전문 PB<br>
@@ -308,13 +311,17 @@
                                             <div class="listing__item__text__info">
                                                 <div class="listing__item__text__info__left">
                                                 </div>
-                                                <form action="${pageContext.request.contextPath}/client/searchList" method="post" >
-                                                    <input name="codeNum" type="hidden" value="${favorite.codeNum}">
+                                                <form action="${pageContext.request.contextPath}/client/searchList"
+                                                      method="post">
+                                                    <input class="codeNum" name="codeNum" type="hidden"
+                                                           value="${favorite.codeNum}">
+                                                    <input class="sector" name="sector" type="hidden"
+                                                           value="${favorite.mainField}">
                                                     <button style="background-color: #27b2a5;border-color: #27b2a5;float: right"
-                                                            class="btn btn-success btn-sm" type="submit" >상담 예약하기
+                                                            class="btn btn-success btn-sm" type="submit">상담 예약하기
                                                     </button>
-<%--                                                <div class="listing__item__text__info__right">--%>
-<%--                                                </div>--%>
+                                                        <%--                                                <div class="listing__item__text__info__right">--%>
+                                                        <%--                                                </div>--%>
                                                 </form>
                                             </div>
                                         </div>
@@ -356,25 +363,48 @@
 <script>
 
 
-
-
-    $('.nav-link').click(function(){
+    $('.nav-link').click(function () {
         const mainField = $(this).text().trim();
         console.log(mainField)
         $.ajax({
-            type : "POST",
-            url : "${pageContext.request.contextPath}/myPage/favoriteList/sector",
-            data : mainField,
-            contentType : "application/json; charset=utf-8;",
-            dataType : "text",
-            success : function(res) {
+            type: "POST",
+            url: "${pageContext.request.contextPath}/myPage/favoriteList/sector",
+            data: mainField,
+            contentType: "application/json; charset=utf-8;",
+            dataType: "text",
+            success: function (res) {
                 $("#favoritePage").empty();
                 $('#favoritePage').append(res)
 
             }
         });
+    })
 
+    $('.close').click(function () {
+        var parent = $(this).parents('.listing__item');
+        let codeNum = parent.find('.codeNum').val();
+        let mainField = parent.find('.sector').val()
+        console.log(codeNum)
+        console.log(mainField)
 
+        var banker = {codeNum, mainField}
+        // var deleteTag = $(this).parents('.listing__item');
+        // deleteTag.remove();
+        alert('즐겨찾기 제거 완료')
+        location.reload();
+
+        var send = JSON.stringify(banker);
+
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/myPage/favorite/delete",
+            data: send,
+            contentType: "application/json; charset=utf-8;",
+            dataType: "json",
+            success: function (res) {
+                alert('즐겨찾기 제거 완료')
+            }
+        });
     })
 
 

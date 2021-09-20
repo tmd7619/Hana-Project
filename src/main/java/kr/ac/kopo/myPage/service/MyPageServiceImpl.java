@@ -53,4 +53,12 @@ public class MyPageServiceImpl implements MyPageService {
 
         return selectedPB;
     }
+
+
+    @Override
+    public void deleteFavorite(String codeNum, ClientVO clientVO) {
+
+        myPageDAO.deleteFavorite(codeNum, clientVO);
+
+    }
 }

@@ -30,27 +30,27 @@ public class MyPageController {
 
 
     @RequestMapping("/client/myPage")
-    public String viewMyPage(){
+    public String viewMyPage() {
 
         return "client/myPage/myPageMain";
     }
 
 
     @RequestMapping("/client/myPage/history")
-    public String viewHistory(){
+    public String viewHistory() {
 
 
         return "client/myPage/history";
     }
 
     @RequestMapping("/client/myPage/favoriteList") // 마이페이지 내 즐겨찾기 목록 조회
-    public ModelAndView viewFavoriteList(HttpSession session){
+    public ModelAndView viewFavoriteList(HttpSession session) {
         ModelAndView mav = new ModelAndView();
 
-        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        ClientVO clientVO = (ClientVO) session.getAttribute("userVO");
         List<BankerVO> favoriteList = myPageService.searchFavoriteList(clientVO);
 
-        mav.addObject("favoriteList" , favoriteList);
+        mav.addObject("favoriteList", favoriteList);
         mav.setViewName("client/myPage/favorite");
 
         return mav;
@@ -58,33 +58,32 @@ public class MyPageController {
 
     @ResponseBody
     @PostMapping("/client/favorite")
-    public void addFavorite (@RequestBody FavoriteVO favoriteVO){ // favorite 추가
+    public void addFavorite(@RequestBody FavoriteVO favoriteVO) { // favorite 추가
 
-        System.out.println("넘어온 favorite 값 : "+ favoriteVO);
+        System.out.println("넘어온 favorite 값 : " + favoriteVO);
         myPageService.addFavorite(favoriteVO);
     }
 
 
     @PostMapping("/myPage/favoriteList/sector")
-    public ModelAndView searchFavoriteBySector(@RequestBody String sector , HttpSession session){
+    public ModelAndView searchFavoriteBySector(@RequestBody String sector, HttpSession session) {
 
         ModelAndView mav = new ModelAndView();
 
         System.out.println("넘어온 섹터 : " + sector);
-        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        ClientVO clientVO = (ClientVO) session.getAttribute("userVO");
 
-        List<BankerVO> favoriteListBySector  = myPageService.searchFavoriteListBySector(sector, clientVO);
+        List<BankerVO> favoriteListBySector = myPageService.searchFavoriteListBySector(sector, clientVO);
 
-        mav.addObject("favoriteListBySector" , favoriteListBySector);
+        mav.addObject("favoriteListBySector", favoriteListBySector);
         mav.setViewName("client/myPage/favoritePage");
         return mav;
     }
 
 
-
     // MY페이지 -> 상담 예약
     @PostMapping("/client/searchList")
-    public ModelAndView selecyByfavorite(HttpSession session , String codeNum){
+    public ModelAndView selecyByfavorite(HttpSession session, String codeNum) {
         ModelAndView mav = new ModelAndView();
 
         System.out.println("폼에서 넘어온 codeNum ?  :" + codeNum);
@@ -95,35 +94,56 @@ public class MyPageController {
         List<BankerVO> checkBankerList = reservationService.availableSearchBanker(now.toString()); // 현재 날짜의 상담 예약이 있는 pb들 조회
 
         // 상담 가능한 PB 조회
-        for(int i = 0; i < bankerVOList.size(); i ++){
-            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-                if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
+        for (int i = 0; i < bankerVOList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())) {
                     bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
                 }
             }
         }
         // 선택한 즐겨찾기 pb 조회
-        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        ClientVO clientVO = (ClientVO) session.getAttribute("userVO");
         List<BankerVO> selectedPB = myPageService.selectOneByFavorite(codeNum, clientVO);
 
         // 상담 가능한 PB 조회
-        for(int i = 0; i < selectedPB.size(); i ++){
-            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-                if(checkBankerList.get(j).getPbName().equals(selectedPB.get(i).getPbName())){
+        for (int i = 0; i < selectedPB.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(selectedPB.get(i).getPbName())) {
                     selectedPB.get(i).setImpossible(checkBankerList.get(j).getImpossible());
                 }
             }
         }
 
-        mav.addObject("favoriteList" , selectedPB);
-        mav.addObject("schedulerDate" , now.toString());
-        mav.addObject("bankerList" , bankerVOList);
+        mav.addObject("favoriteList", selectedPB);
+        mav.addObject("schedulerDate", now.toString());
+        mav.addObject("bankerList", bankerVOList);
         mav.setViewName("client/searchBanker/bankerList");
 
         return mav;
     }
 
+    @PostMapping("/myPage/favorite/delete")
+    public ModelAndView deleteFavorite(@RequestBody BankerVO bankerVO, HttpSession session) {
+        ModelAndView mav = new ModelAndView();
 
+        System.out.println("delete에 넘어온 bankerVO ?  : " + bankerVO);
+        ClientVO clientVO = (ClientVO) session.getAttribute("userVO");
 
+        String sector = bankerVO.getMainField();
+        String codeNum = Integer.toString(bankerVO.getCodeNum());
 
+        System.out.println("넘어온 섹터 : " + sector);
+        System.out.println("넘어온 codeNum : " + codeNum);
+
+        // 목록 제거
+        myPageService.deleteFavorite(codeNum, clientVO);
+
+        List<BankerVO> favoriteListBySector = myPageService.searchFavoriteListBySector(sector, clientVO);
+
+        mav.addObject("favoriteListBySector", favoriteListBySector);
+        mav.setViewName("client/myPage/favoritePage");
+
+        return mav;
+
+    }
 }

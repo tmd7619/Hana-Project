@@ -249,10 +249,10 @@
             <div class="col-md-9 ftco-animate mb-5 text-center">
                 <p class="breadcrumbs mb-0">
 						<span class="mr-2"><a href="index.html">Home <i
-                                class="fa fa-chevron-right"></i></a></span> <span>Services <i
+                                class="fa fa-chevron-right"></i></a></span> <span>PB 찾기 <i
                         class="fa fa-chevron-right"></i></span>
                 </p>
-                <h1 class="mb-0 bread" style="color: #fff">Services</h1>
+                <h1 class="mb-0 bread" style="color: #fff">예약 가능한 PB 조회</h1>
             </div>
         </div>
     </div>

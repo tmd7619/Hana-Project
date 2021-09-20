@@ -27,18 +27,18 @@ public class MyPageDAOImpl implements MyPageDAO {
         System.out.println("dao 넘어온 favorite" + favoriteVO);
 
 
-       int check =  sqlSessionTemplate.insert(nameSpace+"insertFavorite" , favoriteVO);
+        int check = sqlSessionTemplate.insert(nameSpace + "insertFavorite", favoriteVO);
 
-       if(check != 0 ){
+        if (check != 0) {
 
-           System.out.println("favorite insert 완료");
-       }
+            System.out.println("favorite insert 완료");
+        }
     }
 
     @Override
     public List<BankerVO> searchFavoriteList(ClientVO clientVO) {
 
-        List<BankerVO> favoriteList = sqlSessionTemplate.selectList(nameSpace+"searchFavoriteList" , clientVO.getUsername());
+        List<BankerVO> favoriteList = sqlSessionTemplate.selectList(nameSpace + "searchFavoriteList", clientVO.getUsername());
 
 
         return favoriteList;
@@ -49,10 +49,15 @@ public class MyPageDAOImpl implements MyPageDAO {
 
         Map<String, String> map = new HashMap();
 
-        map.put("sector" , sector.trim());
-        map.put("username" , clientVO.getUsername());
+        map.put("sector", sector.trim());
+        map.put("username", clientVO.getUsername());
 
-        List<BankerVO> favoriteListBySector = sqlSessionTemplate.selectList(nameSpace+"searchFavoriteListBySector" , map);
+        List<BankerVO> favoriteListBySector = sqlSessionTemplate.selectList(nameSpace + "searchFavoriteListBySector", map);
+
+        for (BankerVO b : favoriteListBySector) {
+            System.out.println("삭제 후 패이보릿 조회 : " + b);
+        }
+
 
         return favoriteListBySector;
     }
@@ -62,13 +67,30 @@ public class MyPageDAOImpl implements MyPageDAO {
 
         Map<String, String> map = new HashMap();
 
-        map.put("codeNum" , codeNum.trim());
-        map.put("username" , clientVO.getUsername());
+        map.put("codeNum", codeNum.trim());
+        map.put("username", clientVO.getUsername());
 
-        List<BankerVO> selectedPB = sqlSessionTemplate.selectList(nameSpace +"selectOneByFavorite" , map );
+        List<BankerVO> selectedPB = sqlSessionTemplate.selectList(nameSpace + "selectOneByFavorite", map);
 
         System.out.println("선택한 페이보릿 넘어옴? : " + selectedPB);
 
         return selectedPB;
+    }
+
+    @Override
+    public void deleteFavorite(String codeNum, ClientVO clientVO) {
+
+        Map<String, String> map = new HashMap();
+
+
+        map.put("codeNum", codeNum.trim());
+        map.put("username", clientVO.getUsername());
+
+        int check = sqlSessionTemplate.delete(nameSpace + "deleteFavorite", map);
+
+        if (check != 0) {
+            System.out.println("삭제 완료");
+        }
+
     }
 }

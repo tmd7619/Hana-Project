@@ -38,4 +38,14 @@
     </select>
 
 
+    <delete id="deleteFavorite" parameterType="String" >
+        delete from favorite_list where pb_code_num = #{codeNum} and client_name = #{username}
+
+    </delete>
+
+
+
+
+
+
 </mapper>
