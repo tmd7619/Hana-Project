@@ -5,6 +5,7 @@ import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.myPage.service.MyPageService;
 import kr.ac.kopo.myPage.vo.FavoriteVO;
+import kr.ac.kopo.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -21,7 +23,10 @@ public class MyPageController {
 
 
     @Autowired
-    MyPageService service;
+    MyPageService myPageService;
+
+    @Autowired
+    ReservationService reservationService;
 
 
     @RequestMapping("/client/myPage")
@@ -43,7 +48,7 @@ public class MyPageController {
         ModelAndView mav = new ModelAndView();
 
         ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
-        List<BankerVO> favoriteList = service.searchFavoriteList(clientVO);
+        List<BankerVO> favoriteList = myPageService.searchFavoriteList(clientVO);
 
         mav.addObject("favoriteList" , favoriteList);
         mav.setViewName("client/myPage/favorite");
@@ -56,7 +61,7 @@ public class MyPageController {
     public void addFavorite (@RequestBody FavoriteVO favoriteVO){ // favorite 추가
 
         System.out.println("넘어온 favorite 값 : "+ favoriteVO);
-        service.addFavorite(favoriteVO);
+        myPageService.addFavorite(favoriteVO);
     }
 
 
@@ -68,15 +73,54 @@ public class MyPageController {
         System.out.println("넘어온 섹터 : " + sector);
         ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
 
-        List<BankerVO> favoriteListBySector  = service.searchFavoriteListBySector(sector, clientVO);
+        List<BankerVO> favoriteListBySector  = myPageService.searchFavoriteListBySector(sector, clientVO);
 
         mav.addObject("favoriteListBySector" , favoriteListBySector);
         mav.setViewName("client/myPage/favoritePage");
+        return mav;
+    }
 
 
+
+    // MY페이지 -> 상담 예약
+    @PostMapping("/client/searchList")
+    public ModelAndView selecyByfavorite(HttpSession session , String codeNum){
+        ModelAndView mav = new ModelAndView();
+
+        System.out.println("폼에서 넘어온 codeNum ?  :" + codeNum);
+
+        LocalDate now = LocalDate.now(); // 현재 날짜
+
+        List<BankerVO> bankerVOList = reservationService.searchBanker(); // 모든 pb 리스트 조회
+        List<BankerVO> checkBankerList = reservationService.availableSearchBanker(now.toString()); // 현재 날짜의 상담 예약이 있는 pb들 조회
+
+        // 상담 가능한 PB 조회
+        for(int i = 0; i < bankerVOList.size(); i ++){
+            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
+                if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
+                    bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
+                }
+            }
+        }
+        // 선택한 즐겨찾기 pb 조회
+        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        List<BankerVO> selectedPB = myPageService.selectOneByFavorite(codeNum, clientVO);
+
+        // 상담 가능한 PB 조회
+        for(int i = 0; i < selectedPB.size(); i ++){
+            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
+                if(checkBankerList.get(j).getPbName().equals(selectedPB.get(i).getPbName())){
+                    selectedPB.get(i).setImpossible(checkBankerList.get(j).getImpossible());
+                }
+            }
+        }
+
+        mav.addObject("favoriteList" , selectedPB);
+        mav.addObject("schedulerDate" , now.toString());
+        mav.addObject("bankerList" , bankerVOList);
+        mav.setViewName("client/searchBanker/bankerList");
 
         return mav;
-
     }
 
 

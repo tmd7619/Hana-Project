@@ -252,27 +252,27 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-1" role="tab">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
                                 예금 분야
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
                                 주식 분야
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
                                 채권 분야
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab">
                                 펀드 분야
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tabs-5" role="tab">
+                            <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">
                                 랩 어카운트
                             </a>
                         </li>
@@ -307,11 +307,15 @@
                                             </div>
                                             <div class="listing__item__text__info">
                                                 <div class="listing__item__text__info__left">
-                                                    <span>하나마이피비</span>
                                                 </div>
-                                                <div class="listing__item__text__info__right">
-                                                    <a href="${pageContext.request.contextPath}/client/searchList" >상담 예약하기</a>
-                                                </div>
+                                                <form action="${pageContext.request.contextPath}/client/searchList" method="post" >
+                                                    <input name="codeNum" type="hidden" value="${favorite.codeNum}">
+                                                    <button style="background-color: #27b2a5;border-color: #27b2a5;float: right"
+                                                            class="btn btn-success btn-sm" type="submit" >상담 예약하기
+                                                    </button>
+<%--                                                <div class="listing__item__text__info__right">--%>
+<%--                                                </div>--%>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -350,6 +354,8 @@
 
 
 <script>
+
+
 
 
     $('.nav-link').click(function(){

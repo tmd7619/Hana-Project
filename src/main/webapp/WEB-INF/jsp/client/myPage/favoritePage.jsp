@@ -33,9 +33,17 @@
                         </div>
                         <div class="listing__item__text__info">
                             <div class="listing__item__text__info__left">
-                                <span>Restaurant</span>
                             </div>
-                            <div class="listing__item__text__info__right">상담 예약하기</div>
+                            <form action="${pageContext.request.contextPath}/client/searchList" method="post" >
+                                <input name="codeNum" type="hidden" value="${favorite.codeNum}">
+                                <button style="background-color: #27b2a5;border-color: #27b2a5;float: right"
+                                        class="btn btn-success btn-sm" type="submit" >상담 예약하기
+                                </button>
+                                    <%--                                                <div class="listing__item__text__info__right">--%>
+                                    <%--                                                </div>--%>
+                            </form>
+
+<%--                            <div class="listing__item__text__info__right">상담 예약하기</div>--%>
                         </div>
                     </div>
                 </div>

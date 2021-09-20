@@ -193,5 +193,10 @@ COMMIT;
 
     
 
+select p.pb_name , p.pb_rank, p.pb_phone, p.pb_email, p.branch_name, p.tag_name , p.main_field
+             , p.main_content, p.intro_content , p.code_num
+        from private_banker p , favorite_list f
+        where p.code_num = f.pb_code_num and f.client_name = '윤승원' and p.code_num ='123123' ;
+
 
 

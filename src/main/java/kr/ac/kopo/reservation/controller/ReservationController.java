@@ -40,8 +40,6 @@ public class ReservationController {
                 }
             }
         }
-
-
         // 즐겨찾기 pb 조회
         ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
         List<BankerVO> favoriteList = service.selectByFavorite(clientVO);
@@ -63,8 +61,7 @@ public class ReservationController {
 
         return mav;
     }
-    
-    
+
     @ResponseBody
     @PostMapping("client/sendReservation")
     public String insertReservation(@RequestBody String sendMessage) {
@@ -136,9 +133,6 @@ public class ReservationController {
         mav.setViewName("client/searchBanker/bankerList");
         return mav;
     }
-
-
-
 
 
 }

@@ -56,4 +56,19 @@ public class MyPageDAOImpl implements MyPageDAO {
 
         return favoriteListBySector;
     }
+
+    @Override
+    public List<BankerVO> selectOneByFavorite(String codeNum, ClientVO clientVO) {
+
+        Map<String, String> map = new HashMap();
+
+        map.put("codeNum" , codeNum.trim());
+        map.put("username" , clientVO.getUsername());
+
+        List<BankerVO> selectedPB = sqlSessionTemplate.selectList(nameSpace +"selectOneByFavorite" , map );
+
+        System.out.println("선택한 페이보릿 넘어옴? : " + selectedPB);
+
+        return selectedPB;
+    }
 }

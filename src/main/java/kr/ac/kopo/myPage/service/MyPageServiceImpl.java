@@ -45,4 +45,12 @@ public class MyPageServiceImpl implements MyPageService {
             return favoriteListBySector;
         }
     }
+
+    @Override
+    public List<BankerVO> selectOneByFavorite(String codeNum, ClientVO clientVO) {
+
+        List<BankerVO> selectedPB = myPageDAO.selectOneByFavorite(codeNum, clientVO);
+
+        return selectedPB;
+    }
 }

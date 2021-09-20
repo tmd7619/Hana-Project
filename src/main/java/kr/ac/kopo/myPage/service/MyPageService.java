@@ -11,5 +11,6 @@ public interface MyPageService {
     void addFavorite(FavoriteVO favoriteVO);
     List<BankerVO> searchFavoriteList(ClientVO clientVO);
     List<BankerVO> searchFavoriteListBySector(String sector, ClientVO clientVO);
+    List<BankerVO> selectOneByFavorite(String codeNum , ClientVO clientVO);
 
 }
