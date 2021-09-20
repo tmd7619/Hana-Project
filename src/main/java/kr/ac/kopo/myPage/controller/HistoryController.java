@@ -1,24 +1,15 @@
 package kr.ac.kopo.myPage.controller;
 
-
-import kr.ac.kopo.reservation.service.ReservationService;
+import kr.ac.kopo.myPage.service.HistoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MyPageController {
-
+public class HistoryController {
 
     @Autowired
-    ReservationService reservationService;
-
-
-    @RequestMapping("/client/myPage")
-    public String viewMyPage() {
-
-        return "client/myPage/myPageMain";
-    }
+    HistoryService historyService;
 
 
     @RequestMapping("/client/myPage/history")
@@ -27,5 +18,4 @@ public class MyPageController {
 
         return "client/myPage/history";
     }
-
 }

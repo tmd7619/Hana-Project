@@ -235,7 +235,7 @@
             <div class="col-lg-12">
                 <div class="section-title">
                     <h2>즐겨찾기한 PB 목록 리스트</h2>
-                    <p>Travelocity empowers travelers who are giving back on their trips in ways big and small</p>
+                    <p>PB 찾기 목록에서 하트 버튼을 누른 PB 리스트를 분아별로 조회할 수 있습니다.</p>
                 </div>
             </div>
         </div>

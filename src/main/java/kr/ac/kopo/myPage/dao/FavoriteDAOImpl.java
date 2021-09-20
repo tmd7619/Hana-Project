@@ -1,6 +1,5 @@
 package kr.ac.kopo.myPage.dao;
 
-
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.myPage.vo.FavoriteVO;
@@ -13,12 +12,12 @@ import java.util.List;
 import java.util.Map;
 
 @Repository
-public class MyPageDAOImpl implements MyPageDAO {
+public class FavoriteDAOImpl implements FavoriteDAO {
 
     @Autowired
     SqlSessionTemplate sqlSessionTemplate;
 
-    private String nameSpace = "myPage.MyPageDAO.";
+    private String nameSpace = "myPage.FavoriteDAO.";
 
 
     @Override

@@ -6,12 +6,14 @@ import kr.ac.kopo.myPage.vo.FavoriteVO;
 
 import java.util.List;
 
-public interface MyPageService {
-
+public interface FavoriteService {
     void addFavorite(FavoriteVO favoriteVO);
-    List<BankerVO> searchFavoriteList(ClientVO clientVO);
-    List<BankerVO> searchFavoriteListBySector(String sector, ClientVO clientVO);
-    List<BankerVO> selectOneByFavorite(String codeNum , ClientVO clientVO);
-    void deleteFavorite(String codeNum , ClientVO clientVO);
 
+    List<BankerVO> searchFavoriteList(ClientVO clientVO);
+
+    List<BankerVO> searchFavoriteListBySector(String sector, ClientVO clientVO);
+
+    List<BankerVO> selectOneByFavorite(String codeNum, ClientVO clientVO);
+
+    void deleteFavorite(String codeNum, ClientVO clientVO);
 }

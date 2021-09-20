@@ -2,7 +2,7 @@ package kr.ac.kopo.myPage.service;
 
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
-import kr.ac.kopo.myPage.dao.MyPageDAO;
+import kr.ac.kopo.myPage.dao.FavoriteDAO;
 import kr.ac.kopo.myPage.vo.FavoriteVO;
 import kr.ac.kopo.reservation.dao.ReservationDAO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,10 +11,11 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MyPageServiceImpl implements MyPageService {
+public class FavoriteServiceImpl implements FavoriteService {
+
 
     @Autowired
-    MyPageDAO myPageDAO;
+    FavoriteDAO favoriteDAO;
 
     @Autowired
     ReservationDAO reservationDAO;
@@ -22,7 +23,7 @@ public class MyPageServiceImpl implements MyPageService {
 
     @Override
     public void addFavorite(FavoriteVO favoriteVO) {
-        myPageDAO.addFavorite(favoriteVO);
+        favoriteDAO.addFavorite(favoriteVO);
     }
 
     @Override
@@ -41,7 +42,7 @@ public class MyPageServiceImpl implements MyPageService {
             return favoriteListBySector;
 
         } else {
-            List<BankerVO> favoriteListBySector = myPageDAO.searchFavoriteListBySector(sector, clientVO);
+            List<BankerVO> favoriteListBySector = favoriteDAO.searchFavoriteListBySector(sector, clientVO);
             return favoriteListBySector;
         }
     }
@@ -49,7 +50,7 @@ public class MyPageServiceImpl implements MyPageService {
     @Override
     public List<BankerVO> selectOneByFavorite(String codeNum, ClientVO clientVO) {
 
-        List<BankerVO> selectedPB = myPageDAO.selectOneByFavorite(codeNum, clientVO);
+        List<BankerVO> selectedPB = favoriteDAO.selectOneByFavorite(codeNum, clientVO);
 
         return selectedPB;
     }
@@ -58,7 +59,8 @@ public class MyPageServiceImpl implements MyPageService {
     @Override
     public void deleteFavorite(String codeNum, ClientVO clientVO) {
 
-        myPageDAO.deleteFavorite(codeNum, clientVO);
+        favoriteDAO.deleteFavorite(codeNum, clientVO);
 
     }
+
 }
