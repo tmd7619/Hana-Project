@@ -20,7 +20,7 @@
             <result column="intro_content" property="introContent"/>
             <result column="main_content" property="mainContent"/>
             <result column="tag_name" property="tagName"/>
-<!--            <collection property="schedulerVO" resultMap="schedulerMap"/>-->
+            <result column="code_num" property="codeNum"/>
         </resultMap>
 
 
@@ -32,7 +32,7 @@
 
     <select id="searchBanker" resultMap="bankerMap">
         select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
-        , main_content, intro_content
+        , main_content, intro_content , code_num
         from private_banker
     </select>
 
@@ -54,7 +54,7 @@
 
     <select id="searchBySector" parameterType = "String" resultMap="bankerMap">
         select pb_name , pb_rank, pb_phone, pb_email, branch_name, tag_name , main_field
-        , main_content, intro_content
+        , main_content, intro_content , code_num
         from private_banker
         where main_field = #{sector}
     </select>

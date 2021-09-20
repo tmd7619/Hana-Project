@@ -329,6 +329,7 @@
                                                     src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
                             <h3>
                                 <span><c:out value="${banker.pbName}"/></span> 자산관리사
+                                <input class="codeNum" type="hidden" value="${banker.codeNum}">
                                 <input
                                     class="pbName" type="hidden"
                                     value="<c:out value="${banker.pbName}"/>"/>
@@ -848,8 +849,24 @@
     togglingBtns.forEach(function(btns){
         btns.addEventListener ("click", function() {
             btns.classList.toggle('fas')
+            var parent = $(this).parents('.blog__item__large')
+  //          pbName = parent.find('.pbName').val();
+            const pbCodeNum = parent.find('.codeNum').val();
+            const username= "${sessionScope.userVO.username}"
+            const data = {pbCodeNum, username}
+            $.ajax({
+                type: "POST",
+                url: "${pageContext.request.contextPath}/client/favorite",
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function () {
+                }
+            })
         });
     })
+
+
 
 
 

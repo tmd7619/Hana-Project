@@ -14,6 +14,7 @@
 		<typeAlias type="kr.ac.kopo.consultation.vo.AssetsVO" alias="assetsVO"/>
 		<typeAlias type="kr.ac.kopo.scheduler.vo.SchedulerVO" alias="schedulerVO"/>
 		<typeAlias type="kr.ac.kopo.reservation.vo.ReservationVO" alias="reservationVO"/>
+		<typeAlias type="kr.ac.kopo.myPage.vo.FavoriteVO" alias="favoriteVO"/>
 
 	</typeAliases>
 

@@ -191,6 +191,8 @@ function send() {
 
 </head>
 
+
+
 <div class="col-xl-4 col-lg-5 ">
 	<div class="card">
 		<div

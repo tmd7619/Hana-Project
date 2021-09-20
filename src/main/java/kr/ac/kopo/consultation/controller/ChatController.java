@@ -96,8 +96,7 @@ public class ChatController {
         System.out.println("movechatting에서 넘어온 roomVo : " + roomVO);
 
 
-//            mv.setViewName("chatIndex");
-            mv.setViewName("mainRoom");
+            mv.setViewName("client/consulting/room");
 
         return mv;
     }

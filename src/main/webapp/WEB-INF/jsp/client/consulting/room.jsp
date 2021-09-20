@@ -16,9 +16,13 @@
 </head>
 <body>
 
-
+<div>
+    <iframe id="webrtc" src="https://localhost:8000/"
+<%--    <iframe id="webrtc" src="https://3874-117-111-17-101.ngrok.io"--%>
+            <%--allow="camera;microphone;"--%> sandbox="allow-same-origin allow-scripts" style="border: 2px solid black;width: 1000px; height: 450px">
+    </iframe>
+</div>
 <div id="chatView" class="row mb-3">
-
 
 
 

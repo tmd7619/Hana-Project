@@ -657,7 +657,7 @@ input {
 								<%--                            <h6 class="m-0 font-weight-bold text-primary">Monthly Recap Report</h6>--%>
 								<div>
 									<iframe id="webrtc" src="https://localhost:8000/"
-										allow="camera;microphone" style="border: 2px solid black">
+								allow="camera;microphone" style="border: 2px solid black">
 									</iframe>
 								</div>
 								<%--                            <div class="dropdown no-arrow">--%>

@@ -82,7 +82,9 @@ select * from Consulting_ROOM;
 DROP TABLE Private_banker;
 CREATE TABLE Private_banker
 (
-Private_Banker_id NUMBER  NOT NULL , 
+
+code_num            NUMBER(6) primary key ,  -- 사번  
+Private_Banker_id NUMBER not null , 
 pb_id                VARCHAR2(30) NOT NULL,
 pb_password          VARCHAR2(50) NOT NULL,
 pb_name              VARCHAR2(20)  NOT NULL UNIQUE ,
@@ -94,8 +96,7 @@ tag_name             VARCHAR2(200) ,  -- 해시태그
 user_id              VARCHAR2(50) ,  -- 관리중인 고객 
 main_field           VARCHAR2(50) , -- 담당 분야
 intro_content        VARCHAR2(300) , -- 소개글 
-main_content          VARCHAR2(1000) , -- 메인 소개
-code_num            NUMBER(6) NOT NULL UNIQUE  -- 사번 
+main_content          VARCHAR2(1000) -- 메인 소개
 --CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
 
@@ -203,5 +204,20 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 select * from Financial_Products where PRODUCT_TYPE = '펀드';
 
 
+--------------------------------------------------------------------------------------------------
 
+
+drop table favorite_list;
+create table favorite_list(
+    pb_code_num number(6) primary key,
+    faovorite_list_id number not null,
+    client_name varchar2(50) not null,
+    toggle number(1) default 1
+);
+
+drop sequence favorite_list_seq ;
+CREATE SEQUENCE favorite_list_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+select * from favorite_list;
 
