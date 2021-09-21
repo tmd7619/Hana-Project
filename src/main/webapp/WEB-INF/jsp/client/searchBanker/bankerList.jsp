@@ -17,24 +17,24 @@
     <!-- Google Font -->
     <%--    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">--%>
 
-<%--    <!-- Css Styles -->--%>
-<%--    <link--%>
-<%--            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"--%>
-<%--            rel="stylesheet">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="${pageContext.request.contextPath}/resources/css/animate.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="${pageContext.request.contextPath}/resources/css/owl.theme.default.min.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="${pageContext.request.contextPath}/resources/css/flaticon.css">--%>
-<%--    <link rel="stylesheet"--%>
-<%--          href="${pageContext.request.contextPath}/resources/css/style.css">--%>
+    <%--    <!-- Css Styles -->--%>
+    <%--    <link--%>
+    <%--            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"--%>
+    <%--            rel="stylesheet">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css/animate.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css/owl.theme.default.min.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css/flaticon.css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css/style.css">--%>
 
     <!-- Css Styles -->
     <link rel="stylesheet"
@@ -198,8 +198,9 @@
         #staticBackdrop {
             overflow: hidden;
         }
-        #heartBtn, #favoriteBtn{
-            float :right;
+
+        #heartBtn, #favoriteBtn {
+            float: right;
             font-size: 25px;
             color: red;
         }
@@ -212,8 +213,8 @@
             color: grey;
         }
 
-        .fas , .fa-heart {
-            color:red;
+        .fas, .fa-heart {
+            color: red;
         }
 
         .fa-heart-o {
@@ -453,8 +454,8 @@
                                 <span><c:out value="${banker.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${banker.codeNum}">
                                 <input
-                                    class="pbName" type="hidden"
-                                    value="<c:out value="${banker.pbName}"/>"/>
+                                        class="pbName" type="hidden"
+                                        value="<c:out value="${banker.pbName}"/>"/>
                             </h3>
                             <p>
                                 <c:out value="${banker.introContent}"/>
@@ -570,16 +571,18 @@
                         <form action="${pageContext.request.contextPath}/client/searchDate" method="post">
                             <c:choose>
                                 <c:when test="${ schedulerDate == '2021-09-19'}">
-                                    <input name="schedulerDate" type="text" id="da1" class="form-control" placeholder="날짜를 검색해보세요">
+                                    <input name="schedulerDate" type="text" id="da1" class="form-control"
+                                           placeholder="날짜를 검색해보세요">
                                 </c:when>
                                 <c:otherwise>
-                                    <input name="schedulerDate" type="text" id="da1" class="form-control" value="${schedulerDate}">
+                                    <input name="schedulerDate" type="text" id="da1" class="form-control"
+                                           value="${schedulerDate}">
                                 </c:otherwise>
                             </c:choose>
                             <c:if test="${empty sector}">
-                                  <input name="sector" type="hidden" value="전체 분야">
+                                <input name="sector" type="hidden" value="전체 분야">
                             </c:if>
-                                  <input name="sector" type="hidden" value="${sector}">
+                            <input name="sector" type="hidden" value="${sector}">
                             <button type="submit">
                                 <i class="fa fa-search"></i>
                             </button>
@@ -845,10 +848,9 @@
 <script>
 
 
-
-    $(document).ready(function() {
+    $(document).ready(function () {
         $('.favorite').removeClass("far fa-heart")
-            $('.favorite').addClass("fas fa-heart");
+        $('.favorite').addClass("fas fa-heart");
     })
 
 
@@ -859,13 +861,6 @@
     var sendMessage;
     var pbBranchName;
 
-    var socket = null;
-    $(document).ready(function () {
-
-        // 웹소켓 연결
-        sock = new SockJS("<c:url value="/client/searchList"/>");
-        socket = sock;
-    })
 
     $("#profileBtn").click(function () {
         $('#exampleModalScrollable').modal();
@@ -908,27 +903,26 @@
                     }
                     console.log(sendMessage)
                     console.log(JSON.stringify(sendMessage))
-                    $('#sendMsg2')
-                        .click(
-                            function () {
-                                socket.send(username + ","
-                                    + pbName + ","
-                                    + consultTime + ","
-                                    + reserveComment);
-                                // 예약 정보 DB 저장 ajax
-                                $
-                                    .ajax({
-                                        type: "POST",
-                                        url: "${pageContext.request.contextPath}/client/sendReservation",
-                                        dataType: 'json',
-                                        contentType: 'application/json',
-                                        data: JSON
-                                            .stringify(sendMessage),
-                                        success: function () {
-                                        }
-                                    })
-                                window.location.href = '${pageContext.request.contextPath}/client/searchList';
-                            })
+                    $('#sendMsg2').click(function () {
+                        // const sendMessage = username + "," + pbName + "," + consultTime + "," + reserveComment;
+                        // console.log(sendMessage)
+                        socket.send(username + ","
+                            + pbName + ","
+                            + consultTime + ","
+                            + reserveComment);
+                        // 예약 정보 DB 저장 ajax
+                        $.ajax({
+                            type: "POST",
+                            url: "${pageContext.request.contextPath}/client/sendReservation",
+                            dataType: 'json',
+                            contentType: 'application/json',
+                            data: JSON
+                                .stringify(sendMessage),
+                            success: function () {
+                            }
+                        })
+                        window.location.href = '${pageContext.request.contextPath}/client/searchList';
+                    })
                 })
 
     })
@@ -939,7 +933,7 @@
         function () {
             console.log($(this).text())
             sector = $(this).text()
-            location.href = "${pageContext.request.contextPath}/client/searchBySector?sector="+sector+"&schedulerDate="+'${schedulerDate}';
+            location.href = "${pageContext.request.contextPath}/client/searchBySector?sector=" + sector + "&schedulerDate=" + '${schedulerDate}';
         })
 
     $(document).ready(function () {
@@ -976,13 +970,13 @@
 
     // favorite 추가
     const togglingBtns = document.querySelectorAll('.fa-heart');
-    togglingBtns.forEach(function(btns){
-        btns.addEventListener ("click", function() {
+    togglingBtns.forEach(function (btns) {
+        btns.addEventListener("click", function () {
             btns.classList.toggle('fas')
             var parent = $(this).parents('.blog__item__large')
-  //          pbName = parent.find('.pbName').val();
+            //          pbName = parent.find('.pbName').val();
             const pbCodeNum = parent.find('.codeNum').val();
-            const username= "${sessionScope.userVO.username}"
+            const username = "${sessionScope.userVO.username}"
             const data = {pbCodeNum, username}
             $.ajax({
                 type: "POST",

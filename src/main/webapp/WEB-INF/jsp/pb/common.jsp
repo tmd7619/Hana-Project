@@ -5,14 +5,16 @@
     <meta charset="utf-8">
 </head>
 <body>
-<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/common/pbHeader.jsp"/>
 
 <section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
     <div class="overlay" style="background: #27b2a5;"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate mb-5 text-center">
-                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Services <i class="fa fa-chevron-right"></i></span></p>
+                <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i
+                        class="fa fa-chevron-right"></i></a></span> <span>Services <i
+                        class="fa fa-chevron-right"></i></span></p>
                 <h1 class="mb-0 bread" style="color: #fff">Services</h1>
             </div>
         </div>
@@ -33,7 +35,8 @@
                     <div class="icon-wrap">
                         <div class="number d-flex align-items-center justify-content-center"><span>01</span></div>
                         <div class="icon d-flex align-items-center justify-content-center">
-                            <a href="${pageContext.request.contextPath}/pb/scheduler"><span class="flaticon-calendar"></span> </a>
+                            <a href="${pageContext.request.contextPath}/pb/scheduler"><span
+                                    class="flaticon-calendar"></span> </a>
                         </div>
                     </div>
                     <h2>스케줄 관리하기</h2>
@@ -45,7 +48,9 @@
                     <div class="icon-wrap">
                         <div class="number d-flex align-items-center justify-content-center"><span>02</span></div>
                         <div class="icon d-flex align-items-center justify-content-center">
-                            <a href="${pageContext.request.contextPath}/createRoom"><span class="flaticon-qa"></span></a>
+                            <%--                            <a href="${pageContext.request.contextPath}/createRoom"><span class="flaticon-qa"></span></a>--%>
+                            <a id="waitRoom" href="${pageContext.request.contextPath}/createRoom"><span
+                                    class="flaticon-qa"></span></a>
                         </div>
                     </div>
                     <h2>상담 진행하기</h2>
@@ -69,5 +74,16 @@
 </section>
 
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
+</body>
+<script>
+
+    $('#waitRoom').click(function () {
+        alert("${bankerVO.pbName}")
+        socket.send("${bankerVO.pbName} 자산관리사분이 상담실에 입장했습니다. ")
+
+    })
+
+
+</script>
 
 </html>
