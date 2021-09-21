@@ -7,7 +7,7 @@
 <body>
 <jsp:include page="/WEB-INF/jsp/common/pbHeader.jsp"/>
 
-<section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" data-stellar-background-ratio="0.5" style="margin-bottom: 100px">
     <div class="overlay" style="background: #27b2a5;"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -15,7 +15,7 @@
                 <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i
                         class="fa fa-chevron-right"></i></a></span> <span>Services <i
                         class="fa fa-chevron-right"></i></span></p>
-                <h1 class="mb-0 bread" style="color: #fff">Services</h1>
+                <h1 class="mb-0 bread" style="color: #fff">PB Services</h1>
             </div>
         </div>
     </div>
@@ -25,8 +25,6 @@
     <div class="container">
         <div class="row justify-content-center pb-5">
             <div class="col-md-7 heading-section text-center ftco-animate">
-                <span class="subheading">Services</span>
-                <h2>How It Works</h2>
             </div>
         </div>
         <div class="row">

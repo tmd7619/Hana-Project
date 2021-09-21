@@ -27,10 +27,10 @@ public class EchoHandler extends TextWebSocketHandler {
         userSessionsMap.put(session.getId(), session);
 
 
-        for (String key : userSessionsMap.keySet()) {
-            WebSocketSession value = (WebSocketSession) userSessionsMap.get(key);
-            System.out.println("key : " + key + " value : " + value);
-        }
+//        for (String key : userSessionsMap.keySet()) {
+//            WebSocketSession value = (WebSocketSession) userSessionsMap.get(key);
+//            System.out.println("key : " + key + " value : " + value);
+//        }
 
     }
 
