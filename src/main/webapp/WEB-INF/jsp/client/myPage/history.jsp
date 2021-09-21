@@ -37,47 +37,39 @@
           href="${pageContext.request.contextPath}/resources/css/style.css">
 
     <!-- Css Styles -->
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/bootstrap.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/font-awesome.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/elegant-icons.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/flaticon.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/nice-select.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/barfiller.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/magnific-popup.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/jquery-ui.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css"
-          type="text/css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css2/style.css"
-          type="text/css">
-
-    <!-- 캘린더 link -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.min.css">
-    <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.standalone.min.css">
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css"/>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/bootstrap.min.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/font-awesome.min.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/elegant-icons.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/flaticon.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/nice-select.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/barfiller.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/magnific-popup.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/jquery-ui.min.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css"--%>
+    <%--          type="text/css">--%>
+    <%--    <link rel="stylesheet"--%>
+    <%--          href="${pageContext.request.contextPath}/resources/css2/style.css"--%>
+    <%--          type="text/css">--%>
 
 
     <style>
@@ -217,9 +209,6 @@
 </section>
 
 
-
-
-
 <div class="row" style="width: 70%; margin-left: 15%">
     <div class="col-lg-12 mb-4">
         <!-- Simple Tables -->
@@ -233,47 +222,28 @@
                     <tr>
                         <th>상담 날짜</th>
                         <th>담당 PB 이름</th>
-                        <th>상담 내용</th>
+                        <th>상담 제목</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>더보기</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td><a href="#">RA0449</a></td>
-                        <td>Udin Wayang</td>
-                        <td>Nasi Padang</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">RA5324</a></td>
-                        <td>Jaenab Bajigur</td>
-                        <td>Gundam 90' Edition</td>
-                        <td><span class="badge badge-warning">Shipping</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">RA8568</a></td>
-                        <td>Rivat Mahesa</td>
-                        <td>Oblong T-Shirt</td>
-                        <td><span class="badge badge-danger">Pending</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">RA1453</a></td>
-                        <td>Indri Junanda</td>
-                        <td>Hat Rounded</td>
-                        <td><span class="badge badge-info">Processing</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="#">RA1998</a></td>
-                        <td>Udin Cilok</td>
-                        <td>Baby Powder</td>
-                        <td><span class="badge badge-success">Delivered</span></td>
-                        <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
-                    </tr>
+                    <c:forEach items="${historyList}" var="history" varStatus="loop">
+                        <tr>
+                            <td><a href="#"><c:out value="${history.csltTime}"/></a></td>
+                            <td><c:out value="${history.branchName} ${history.pbName}"/></td>
+                            <td>${history.csltTitle}</td>
+                            <td><span class="badge badge-success">상담완료</span></td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal"
+                                        id="#myBtn">
+                                    Detail
+                                </button>
+                            </td>
+                                <%--                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>--%>
+                        </tr>
+                    </c:forEach>
                     </tbody>
                 </table>
             </div>
@@ -284,9 +254,31 @@
 <!--Row-->
 
 
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You Content</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                <%--                <button type="button" class="btn btn-primary">Save changes</button>--%>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
-<!-- Js Plugins -->
+<!-- Js Plugins !-->
 <script
         src="${pageContext.request.contextPath}/resources/css2/js/jquery.nice-select.min.js"></script>
 <script
@@ -305,7 +297,6 @@
         src="${pageContext.request.contextPath}/resources/css2/js/main.js"></script>
 <script
         src="${pageContext.request.contextPath}/resources/css2/js/bootstrap.min.js"></script>
-
 
 
 <script>

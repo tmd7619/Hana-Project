@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="myPage.HistoryDAO"><!--  패키지명(fullname) 적어도 됨 // 보통 적는 것이 보편적-->
+
+
+    <resultMap id="historyMap" type="HistoryVO">
+        <result column="cslt_time" property="csltTime"/>
+        <result column="cslt_title" property="csltTitle"/>
+        <result column="cslt_comment" property="csltComment"/>
+        <result column="room_number" property="roomNumber"/>
+        <result column="pb_name" property="pbName"/>
+        <result column="branch_name" property="branchName"/>
+    </resultMap>
+
+
+    <select id="selectAllHistory" parameterType="String" resultMap="historyMap">
+        select cslt_time, cslt_title, cslt_comment, pb_name, branch_name
+        from consulting_history
+        where client_id = #{userId}
+        order by cslt_time desc
+    </select>
+
+
+</mapper>

@@ -198,5 +198,30 @@ select p.pb_name , p.pb_rank, p.pb_phone, p.pb_email, p.branch_name, p.tag_name 
         from private_banker p , favorite_list f
         where p.code_num = f.pb_code_num and f.client_name = '윤승원' and p.code_num ='123123' ;
 
+--------Financial_Products-----------------------------------------------------------------------------------------------------
+
+
+--------consulting_history-----------------------------------------------------------------------------------------------------
+
+drop table consulting_history;
+create table consulting_history(
+    client_id varchar2(50) primary key,
+    cslt_time date default sysdate,
+    cslt_title varchar2(200) not null,
+    cslt_comment varchar2(500) not null,
+    consulting_history_id number not null,
+    room_number number not null ,
+    pb_name varchar2(30) not null ,
+    branch_name varchar2(100) not null
+);
+
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123123' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+
+
+
+
 
 

@@ -2,27 +2,21 @@ package kr.ac.kopo.myPage.vo;
 
 public class HistoryVO {
 
-    private String username;
-    private String codeNum;
+    private String userId;
     private String csltTime; // 상담 날짜
     private String csltTitle;
-    private String csltComent;
+    private String csltComment;
     private int roomNumber;
+    private String pbName;
+    private String branchName;
 
-    public String getUsername() {
-        return username;
+
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getCodeNum() {
-        return codeNum;
-    }
-
-    public void setCodeNum(String codeNum) {
-        this.codeNum = codeNum;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getCsltTime() {
@@ -41,12 +35,12 @@ public class HistoryVO {
         this.csltTitle = csltTitle;
     }
 
-    public String getCsltComent() {
-        return csltComent;
+    public String getCsltComment() {
+        return csltComment;
     }
 
-    public void setCsltComent(String csltComent) {
-        this.csltComent = csltComent;
+    public void setCsltComment(String csltComment) {
+        this.csltComment = csltComment;
     }
 
     public int getRoomNumber() {
@@ -57,15 +51,32 @@ public class HistoryVO {
         this.roomNumber = roomNumber;
     }
 
+    public String getPbName() {
+        return pbName;
+    }
+
+    public void setPbName(String pbName) {
+        this.pbName = pbName;
+    }
+
+    public String getBranchName() {
+        return branchName;
+    }
+
+    public void setBranchName(String branchName) {
+        this.branchName = branchName;
+    }
+
     @Override
     public String toString() {
         return "HistoryVO{" +
-                "username='" + username + '\'' +
-                ", codeNum='" + codeNum + '\'' +
+                "userId='" + userId + '\'' +
                 ", csltTime='" + csltTime + '\'' +
                 ", csltTitle='" + csltTitle + '\'' +
-                ", csltComent='" + csltComent + '\'' +
+                ", csltComment='" + csltComment + '\'' +
                 ", roomNumber=" + roomNumber +
+                ", pbName='" + pbName + '\'' +
+                ", branchName='" + branchName + '\'' +
                 '}';
     }
 }

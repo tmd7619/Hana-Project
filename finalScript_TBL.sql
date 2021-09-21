@@ -154,7 +154,7 @@ drop table reservation ; -- 상담 예약 테이블
 create table reservation(
     reservation_id number primary key,
     rsrv_time varchar2(100) not null, -- 상담시간 
-    rsrv_coment varchar2(500) , 
+    rsrv_comment varchar2(500) , 
     user_id  varchar2(50) , -- foreign key 
     username varchar2(100) not null,
     pb_name varchar2(30) not null,
@@ -240,15 +240,18 @@ create table consulting_history(
     pb_code_num number(6) not null,
     cslt_time date default sysdate,
     cslt_title varchar2(200) not null,
-    cslt_coment varchar2(500) not null,
+    cslt_comment varchar2(500) not null,
     consulting_history_id number not null,
-    room_number number not null 
+    room_number number not null ,
+    pb_name varchar2(30) not null 
 );
 
 
 drop sequence consulting_history_seq ;
 CREATE SEQUENCE consulting_history_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+
 
 
 

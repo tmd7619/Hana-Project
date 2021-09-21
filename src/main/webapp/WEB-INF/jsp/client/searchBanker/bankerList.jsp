@@ -897,7 +897,7 @@
                     sendMessage = {
                         "username": username,
                         "rsrvTime": consultTime,
-                        "rsrvComent": reserveComment,
+                        "rsrvComment": reserveComment,
                         "pbName": pbName,
                         "pbBranchName": pbBranchName
                     }
