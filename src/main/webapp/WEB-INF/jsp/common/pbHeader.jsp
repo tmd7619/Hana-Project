@@ -454,7 +454,7 @@
             <c:choose>
                 <c:when test="${empty bankerVO}">
                     <button id="loginBtn2" class="btn btn-solid-border btn-round-full"
-                            style="margin-left: 5px;padding: .5rem 1.5rem;">PB 로그인
+                            style="margin-left: 5px;padding: .5rem 1.5rem;">로그인
                     </button>
                 </c:when>
                 <c:when test="${not empty bankerVO  }">

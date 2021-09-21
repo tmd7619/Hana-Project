@@ -285,7 +285,7 @@
                 border: 0px;
             }
 
-            #loginBtn, #logoutBtn, #loginBtn2 {
+            #loginBtn, #logoutBtn, #pbsite {
 
                 border-radius: 50px;
             }
@@ -419,18 +419,6 @@
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-md-end">
-                    <div class="social-media">
-                        <p class="mb-0 d-flex">
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
-                            <a href="#" class="d-flex align-items-center justify-content-center"><span
-                                    class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a>
-                        </p>
-                    </div>
                 </div>
             </div>
         </div>
@@ -460,6 +448,9 @@
                 <c:when test="${empty userVO }">
                     <button id="loginBtn" class="btn btn-solid-border btn-round-full"
                             style="margin-left: 20px;padding: .5rem 1.5rem;">고객 로그인
+                    </button>
+                    <button id="pbsite" class="btn btn-solid-border btn-round-full"
+                            style="margin-left :5px;padding: .5rem 1.5rem;">PB 로그인
                     </button>
                 </c:when>
                 <c:when test="${not empty userVO }">
@@ -513,6 +504,12 @@
             });
 
         });
+
+        $('#pbsite').click(function () {
+            location.href = '${pageContext.request.contextPath}/pb'
+
+        });
+
 
         // 외부영역 클릭 시 팝업 닫기
         $(document).mouseup(function (e) {
