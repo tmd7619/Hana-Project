@@ -17,6 +17,7 @@ public class EchoHandler extends TextWebSocketHandler {
     // 1대1
     Map<String, WebSocketSession> userSessionsMap = new HashMap<>();
 
+
     // 서버에 접속이 싱공했을 때
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
@@ -40,27 +41,40 @@ public class EchoHandler extends TextWebSocketHandler {
 
         System.out.println("넘어온 msg 값 : " + msg);
 
+        if (msg.trim().length() == 3) {
+            TextMessage text2 = new TextMessage(msg);
+            for (WebSocketSession s : sessions) {
+                s.sendMessage(text2);
+            }
+
+        }
+
+
         String[] msgList = msg.split(",");
         String clientName = msgList[0];
         String pbName = msgList[1];
         String consultTime = msgList[2];
         String comment = msgList[3];
 
+        for (String d : msgList)
+            System.out.println("msg List :" + d);
 
-        String sendMsg = pbName + " 님, " + clientName + " 고객님의 상담 신청이 왔습니다." + "<br>" + "상담 시간 : " + consultTime;
+
+        // 손님 -> PB sendMsg
+        String sendMsg = pbName + " 님, " + clientName + " 손님의 상담 신청이 왔습니다." + "<br>" + "상담 시간 : " + consultTime;
         sendMsg += "<br>" + "coment : " + comment;
         System.out.println("sendMsg : " + sendMsg);
 
-        TextMessage text = new TextMessage(sendMsg);
-//        TextMessage text = new TextMessage(msg)
+//        String sendMsg2 = pbName + " PB 님께서 상담 요청을 수락하셨습니다. " + "<br>" + clientName
+//                + " 손님 께서는 시간이 되면 온라안 상담실에 입장해주세요" + "<br>" + "상담 시간 : " + consultTime;
 
-//        for (WebSocketSession s : sessions) {
-//            System.out.println("현재 등록된 세션  : " + s);
-//        }
+        TextMessage text = new TextMessage(sendMsg);
 
         for (WebSocketSession s : sessions) {
             s.sendMessage(text);
         }
+
+
     }
 
 //    // 웹소켓에 user id 가져오기 (Client)

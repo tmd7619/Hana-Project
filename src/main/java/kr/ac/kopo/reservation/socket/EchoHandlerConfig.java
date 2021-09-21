@@ -19,11 +19,6 @@ public class EchoHandlerConfig implements WebSocketConfigurer {
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(echoHandler, "/client/searchList")
                 .addInterceptors(new HttpSessionHandshakeInterceptor()).withSockJS();
-
-        registry.addHandler(echoHandler, "/createRoom")
-                .addInterceptors(new HttpSessionHandshakeInterceptor()).withSockJS();
-
-
     }
 
 

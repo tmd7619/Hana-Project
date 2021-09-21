@@ -905,7 +905,7 @@
                     console.log(JSON.stringify(sendMessage))
                     $('#sendMsg2').click(function () {
                         // const sendMessage = username + "," + pbName + "," + consultTime + "," + reserveComment;
-                        // console.log(sendMessage)
+                        console.log(sendMessage)
                         socket.send(username + ","
                             + pbName + ","
                             + consultTime + ","
@@ -921,7 +921,7 @@
                             success: function () {
                             }
                         })
-                        window.location.href = '${pageContext.request.contextPath}/client/searchList';
+                        location.reload();
                     })
                 })
 

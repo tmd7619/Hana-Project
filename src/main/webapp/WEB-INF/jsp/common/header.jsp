@@ -294,7 +294,7 @@
                 color: #01888c !important;
             }
 
-            #noticeIcon2 {
+            #noticeIcon {
                 transform-origin: 50% 0%;
                 animation-name: shake;
                 animation-duration: 2s;
@@ -340,8 +340,8 @@
 
             .toast {
                 z-index: 500;
-                width: 250px;
-                height: 150px;
+                width: 300px;
+                height: 170px;
                 line-height: 20px;
             }
 
@@ -459,10 +459,9 @@
                     </button>
                 </c:when>
             </c:choose>
-            <i id="noticeIcon2" class="fa fa-bell" style="font-size:24px;margin-left:20px;position: relative">
-                <div id="msgStack2" style="position: absolute"></div>
+            <i id="noticeIcon" class="fa fa-bell" style="font-size:24px;margin-left:20px;position: relative">
+                <div id="msgStack" style="position: absolute"></div>
             </i>
-
         </div>
     </nav>
     <!-- END nav -->
@@ -470,21 +469,22 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <%--toast--%>
 
 
     <script type="text/javascript">
 
 
-        document.getElementById("noticeIcon2").style.display = "none";
+        document.getElementById("noticeIcon").style.display = "none";
 
-        $('#noticeIcon2').click(function () {
+        $('#noticeIcon').click(function () {
             $(".toast").toast({"animation": true, "autohide": false});
             $('.toast').toast('show');
 
         })
         $('#closeMsg').click(function () {
-            $('#msgStack2').hide();
+            $('#msgStack').hide();
         })
 
 
@@ -522,4 +522,34 @@
                 $('#myModal2').hide();
             }
         });
+        var socket;
+        $(document).ready(function () {
+            // 웹소켓 연결
+            sock = new SockJS("${pageContext.request.contextPath}/client/searchList");
+            socket = sock;
+            console.log('고객 화면 소켓 연결')
+            // 데이터를 전달 받았을때
+            sock.onmessage = function (event) {
+                console.log(event)
+                $('#noticeIcon').show();
+                onMessage(event);
+            }
+
+        });
+
+        function onMessage(evt) {
+            var data = evt.data;
+            // toast
+            let toast = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' style='z-index: 100;'>";
+            toast += "<div class='toast-header'><!--<i class='fas fa-bell mr-2'>--></i><strong class='mr-auto'>알림</strong>";
+            toast += "<small class='text-muted'>just now</small><button id='closeMsg' type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>";
+            toast += "<span aria-hidden='true'>&times;</span></button>";
+            toast += "</div> <div class='toast-body'>" + data + " PB 님께서 상담 요청을 수락했습니다<br> "
+                + '${userVO.username}' + " 손님께서는 상담 시간이 되면<br>, 온라인 상담실에 " +
+                "입장해주세요" + "</div></div>";
+            $("#msgStack").empty();   // msgStack div에 생성한 toast 추가
+            $("#msgStack").append(toast);   // msgStack div에 생성한 toast 추가
+
+        };
+
     </script>

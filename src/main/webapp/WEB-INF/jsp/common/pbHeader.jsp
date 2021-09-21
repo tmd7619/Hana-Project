@@ -339,8 +339,8 @@
 
             .toast {
                 z-index: 500;
-                width: 250px;
-                height: 150px;
+                width: 300px;
+                height: 170px;
                 line-height: 20px;
             }
 
@@ -396,7 +396,8 @@
                         <label for="password">Password </label>
                         <input type="password" id="패스워드 입력" name="pbPassword">
                     </div>
-                    <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In
+                    <button type="submit" class="site-btn login-btn"
+                            style="cursor: pointer; background: #01888c;color: #fff">Sign In
                     </button>
                 </form>
                 <div class="switch-login">
@@ -523,10 +524,10 @@
     </nav>
     <!-- END nav -->
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
     <%--toast--%>
     <script type="text/javascript">
         document.getElementById("noticeIcon").style.display = "none";
@@ -539,7 +540,6 @@
         $('#closeMsg').click(function () {
             $('#msgStack').hide();
         })
-
 
         $(document).ready(function () {
             $('#loginBtn').click(function () {
@@ -569,4 +569,45 @@
                 $('#myModal2').hide();
             }
         });
+
+        var socket = null;
+        $(document).ready(function () {
+            // 웹소켓 연결
+            sock = new SockJS("${pageContext.request.contextPath}/client/searchList");
+            socket = sock;
+            console.log('PB 화면 소켓 연결')
+
+
+            // 데이터를 전달 받았을때
+            sock.onmessage = function (event) {
+                console.log(event)
+                $('#noticeIcon').show();
+                onMessage(event);
+            }
+
+        });
+
+        function onMessage(evt) {
+            var data = evt.data;
+            // toast
+            let toast = "<div class='toast' role='alert' aria-live='assertive' aria-atomic='true' style='z-index: 100;'>";
+            toast += "<div class='toast-header'><!--<i class='fas fa-bell mr-2'>--></i><strong class='mr-auto'>알림</strong>";
+            toast += "<small class='text-muted'>just now</small><button id='closeMsg' type='button' class='ml-2 mb-1 close' data-dismiss='toast' aria-label='Close'>";
+            toast += "<span aria-hidden='true'>&times;</span></button>";
+            toast += "</div> <div class='toast-body'>" + data + "</div>";
+            toast += "<button type='button' id='acceptBtn' class='btn btn-primary btn-xs' style='float:right;margin-right: 5px;'>수락하기</button></div>"
+
+            $("#msgStack").empty();   // msgStack div에 생성한 toast 추가
+            $("#msgStack").append(toast);   // msgStack div에 생성한 toast 추가
+
+            $('#acceptBtn').click(function () {
+                alert('상담 수락이 완료되었습니다.')
+                var bankerName = "${bankerVO.pbName}"
+                socket.send(bankerName)
+                location.reload();
+
+            })
+        };
+
+
     </script>
