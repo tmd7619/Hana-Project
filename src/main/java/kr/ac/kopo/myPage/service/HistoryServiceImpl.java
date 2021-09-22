@@ -1,8 +1,8 @@
 package kr.ac.kopo.myPage.service;
 
-import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.myPage.dao.HistoryDAO;
 import kr.ac.kopo.myPage.vo.HistoryVO;
+import kr.ac.kopo.myPage.vo.PagingVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,10 +16,16 @@ public class HistoryServiceImpl implements HistoryService {
 
 
     @Override
-    public List<HistoryVO> selectAllHistory(ClientVO clientVO) {
+    public List<HistoryVO> selectAllHistory(PagingVO vo) {
 
-        List<HistoryVO> historyList = historyDAO.selectAllHistory(clientVO);
+        List<HistoryVO> historyList = historyDAO.selectAllHistory(vo);
 
         return historyList;
     }
+
+    @Override
+    public int countBoard() {
+        return historyDAO.countBoard();
+    }
+
 }

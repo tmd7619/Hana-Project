@@ -16,6 +16,7 @@
         <typeAlias type="kr.ac.kopo.reservation.vo.ReservationVO" alias="reservationVO"/>
         <typeAlias type="kr.ac.kopo.myPage.vo.FavoriteVO" alias="favoriteVO"/>
         <typeAlias type="kr.ac.kopo.myPage.vo.HistoryVO" alias="historyVO"/>
+        <typeAlias type="kr.ac.kopo.myPage.vo.PagingVO" alias="pagingVO"/>
 
     </typeAliases>
 

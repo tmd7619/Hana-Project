@@ -15,12 +15,32 @@
     </resultMap>
 
 
-    <select id="selectAllHistory" parameterType="String" resultMap="historyMap">
-        select cslt_time, cslt_title, cslt_comment, pb_name, branch_name
-        from consulting_history
-        where client_id = #{userId}
-        order by cslt_time desc
+    <!--    <select id="selectAllHistory" parameterType="String" resultMap="historyMap">-->
+    <!--        select cslt_time, cslt_title, cslt_comment, pb_name, branch_name-->
+    <!--        from consulting_history-->
+    <!--        where client_id = #{userId}-->
+    <!--        order by cslt_time desc-->
+    <!--    </select>-->
+
+    <!-- 총 history 갯수 출력 -->
+    <select id="countBoard" resultType="int">
+        SELECT COUNT(*)
+        FROM consulting_history
     </select>
 
+    <!-- 페이징 처리 후 게시글 조회 -->
+    <select id="selectAllHistory" resultMap="historyMap" parameterType="pagingVO">
+        SELECT cslt_title, cslt_comment, pb_name, branch_name, to_char(cslt_time, 'yyyy-mm-dd HH24:MI') as cslt_time
+        FROM (
+                 SELECT ROWNUM RN, A.*
+                 FROM (
+                          SELECT *
+                          FROM consulting_history
+                          ORDER BY cslt_time DESC
+                      ) A
+             )
+        WHERE RN BETWEEN #{start} AND #{end}
+          and client_id = #{userId}
+    </select>
 
 </mapper>

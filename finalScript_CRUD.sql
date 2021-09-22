@@ -205,20 +205,53 @@ select p.pb_name , p.pb_rank, p.pb_phone, p.pb_email, p.branch_name, p.tag_name 
 
 drop table consulting_history;
 create table consulting_history(
-    client_id varchar2(50) primary key,
+    room_number number primary key ,
+    client_id varchar2(50) not null,
     cslt_time date default sysdate,
     cslt_title varchar2(200) not null,
     cslt_comment varchar2(500) not null,
     consulting_history_id number not null,
-    room_number number not null ,
     pb_name varchar2(30) not null ,
     branch_name varchar2(100) not null
 );
 
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
-    values('test' , '랩 상품 상담' , '상담햇어오용' , '123123' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123122' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+    
+    insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123124' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
 
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123125' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123126' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123127' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+    
+    
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '펀드 상품 상담' , '상담햇어오용' , '212121' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+    
+    insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '주식 상품 상담' , '상담햇어오용' , '212122' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '채권 상품 상담' , '상담햇어오용' , '212123' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '예금 상품 상담' , '상담햇어오용' , '212124' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+    values('test' , '펀 상품 상담' , '상담햇어오용' , '212125' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+
+    
+commit;
+
+SELECT COUNT(*)
+        FROM consulting_history;
 
 
 
