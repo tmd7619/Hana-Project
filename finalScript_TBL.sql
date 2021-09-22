@@ -251,7 +251,9 @@ drop sequence consulting_history_seq ;
 CREATE SEQUENCE consulting_history_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
+select to_char(cslt_time, 'yyyy-mm-dd HH24:MI:SS') as cslt_time  from consulting_history;
 
 
+select sysdate from dual;
 
 

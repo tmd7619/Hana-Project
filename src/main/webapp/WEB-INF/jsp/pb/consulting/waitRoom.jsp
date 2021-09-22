@@ -40,6 +40,47 @@
         </div>
     </div>
 </div>
-
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        Kakao.init('776599c73bff8f5f8777fca7628749ca');
+        var TempleCode = 62081;
+
+        Kakao.Auth.login({
+            scope: "talk_message",
+            success: function (res) {
+                Kakao.API.request({
+                    url: '/v2/api/talk/memo/send',
+                    data: {
+                        template_id: 62081,
+                    },
+                    success: function (response) {
+                        console.log(response);
+                        alert('발송성공')
+                    },
+                    fail: function (error) {
+                        console.log(error);
+                    },
+                });
+            }
+
+
+        })
+
+
+        // Kakao.Link.sendCustom({
+        //     templateId: 62081   // 15번 항목에서 확인하였던 이벤트번호 등록
+        // });
+    })
+</script>
+
+
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script>
+
+</script>
+
 </html>
