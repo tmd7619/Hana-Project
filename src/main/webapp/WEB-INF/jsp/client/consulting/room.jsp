@@ -14,6 +14,8 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/css2/nice-select.css">
 </head>
+
+
 <body>
 
 <div>
@@ -29,8 +31,22 @@
 </div>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script>
+    var socket2 = null
+    $(document).ready(function () {
+        sock2 = new SockJS("${pageContext.request.contextPath}/createRoom");
+        console.log('sock2 초기화됨')
+        socket2 = sock2;
+    })
+    setTimeout(function () {
+        socket2.send("윤승원,김피비,10 : 10,상담 요청")
+    }, 3000);
+
     /* 채팅 상담 화면 불러오기 */
     $.ajax({
         type: "POST",
@@ -42,7 +58,6 @@
 
         }
     });
-
 </script>
 
 </html>

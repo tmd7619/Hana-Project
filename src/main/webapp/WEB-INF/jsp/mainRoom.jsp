@@ -111,6 +111,11 @@
             text-align: center;
         }
 
+        #closeBtn {
+            border-color: crimson;
+            background-color: crimson;
+        }
+
     </style>
 
 
@@ -228,12 +233,15 @@
                 <div id="yourMsg">
                     <table class="inputTable">
                         <tr>
-                            <th>메시지</th>
-                            <th><input style="margin-left: 15px" id="chatting"
+                            <th>메시지 입력</th>
+                            <th><input style="margin-left: 15px;width: 200px;" id="chatting"
                                        placeholder="  메시지를 입력하세요."></th>
                             <th>
-                                <button class="btn btn-sm btn-primary" onclick="send()"
+                                <button class="btn btn-primary" onclick="send()"
                                         id="sendBtn">보내기
+                                </button>
+                                <button class="btn btn-primary" style="float:right;margin-left: 12px;"
+                                        id="closeBtn">상담종료
                                 </button>
                             </th>
                         </tr>

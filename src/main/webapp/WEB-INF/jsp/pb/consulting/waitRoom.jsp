@@ -45,42 +45,46 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script type="text/javascript">
 
+
+    var socket2 = null;
     $(document).ready(function () {
-        Kakao.init('776599c73bff8f5f8777fca7628749ca');
-        var TempleCode = 62081;
+        // 웹소켓 연결
 
-        Kakao.Auth.login({
-            scope: "talk_message",
-            success: function (res) {
-                Kakao.API.request({
-                    url: '/v2/api/talk/memo/send',
-                    data: {
-                        template_id: 62081,
-                    },
-                    success: function (response) {
-                        console.log(response);
-                        alert('발송성공')
-                    },
-                    fail: function (error) {
-                        console.log(error);
-                    },
-                });
-            }
+        sock2 = new SockJS("${pageContext.request.contextPath}/createRoom");
+        console.log('sock2 초기화')
+        socket2 = sock2;
+        console.log('PB 화면 소켓 연결')
 
 
-        })
+        // 데이터를 전달 받았을때
+        sock2.onmessage = function (event) {
+            alert('여기 들어옴?')
+            location.href = "${pageContext.request.contextPath}/pb/consultingRoom"
+        }
 
-
-        // Kakao.Link.sendCustom({
-        //     templateId: 62081   // 15번 항목에서 확인하였던 이벤트번호 등록
-        // });
-    })
+    });
+    // $(document).ready(function () {
+    //     Kakao.init('776599c73bff8f5f8777fca7628749ca');
+    //     var TempleCode = 62081;
+    //
+    //     Kakao.Auth.login({
+    //         scope: "talk_message",
+    //         success: function (res) {
+    //             Kakao.API.request({
+    //                 url: '/v2/api/talk/memo/send',
+    //                 data: {
+    //                     template_id: 62081,
+    //                 },
+    //                 success: function (response) {
+    //                     console.log(response);
+    //                     alert('발송성공')
+    //                 },
+    //                 fail: function (error) {
+    //                     console.log(error);
+    //                 },
+    //             });
+    //         }
+    //     })
+    // })
 </script>
-
-
-<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-<script>
-
-</script>
-
 </html>
