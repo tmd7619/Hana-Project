@@ -76,7 +76,7 @@
 <script>
 
     $('#waitRoom').click(function () {
-        alert("${bankerVO.pbName}")
+        console.log('pb대기방입장')
         socket.send("${bankerVO.pbName} 자산관리사분이 상담실에 입장했습니다. ")
 
     })

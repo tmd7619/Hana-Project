@@ -19,10 +19,15 @@
 <body>
 
 <div>
-    <iframe id="webrtc" src="https://localhost:8000/"
+    <%--    <iframe id="webrtc" src="https://localhost:8000/"--%>
+    <%--    &lt;%&ndash;    <iframe id="webrtc" src="https://3874-117-111-17-101.ngrok.io"&ndash;%&gt;--%>
+    <%--            allow="camera *;microphone *;autoplay;display-capture;fullscreen"--%>
+    <%--            style="border: 2px solid black;width: 1000px; height: 450px">--%>
+    <%--    </iframe>--%>
+    <iframe id="webrtc" src="https://localhost:3030/4531"
     <%--    <iframe id="webrtc" src="https://3874-117-111-17-101.ngrok.io"--%>
             allow="camera *;microphone *;autoplay;display-capture;fullscreen"
-            style="border: 2px solid black;width: 1000px; height: 450px">
+            style="border: 2px solid black;width: 1076px; height: 406px;margin-top: -27px;">
     </iframe>
 </div>
 <div id="chatView" class="row mb-3">
@@ -37,15 +42,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script>
-    var socket2 = null
-    $(document).ready(function () {
-        sock2 = new SockJS("${pageContext.request.contextPath}/createRoom");
-        console.log('sock2 초기화됨')
-        socket2 = sock2;
-    })
-    setTimeout(function () {
-        socket2.send("윤승원,김피비,10 : 10,상담 요청")
-    }, 3000);
 
     /* 채팅 상담 화면 불러오기 */
     $.ajax({

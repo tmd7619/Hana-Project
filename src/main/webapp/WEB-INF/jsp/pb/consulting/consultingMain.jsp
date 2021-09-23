@@ -528,10 +528,14 @@
                         <div class="card mb-4">
 
                             <div>
-                                <iframe id="webrtc" src="https://localhost:8000/"
-                                        allow="camera;microphone" style="border: 2px solid black">
-                                </iframe>
                             </div>
+                            <%--                                <iframe id="webrtc" src="https://localhost:8000/"--%>
+                            <%--                                        allow="camera;microphone" style="border: 2px solid black">--%>
+                            <%--                                </iframe>--%>
+                            <iframe id="webrtc" src="https://localhost:3030/4531"
+                                    allow="camera *;microphone *;autoplay;display-capture;fullscreen"
+                                    style="border: 2px solid black">
+                            </iframe>
                         </div>
                     </div>
                     <!-- Pie Chart -->
@@ -742,9 +746,19 @@
         }
     });
 
+    // 약관 열기
     function openPop() {
         var popup = window.open('${pageContext.request.contextPath}/openModal', '상품약관안내', 'width=1000px,height=800px,scrollbars=yes');
     }
+
+
+    // 상담 종료
+    $('#closeBtn').click(function () {
+        alert('들어옴')
+        console.log('상담종료')
+
+    })
+
 
 </script>
 

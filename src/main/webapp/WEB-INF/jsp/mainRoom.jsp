@@ -221,10 +221,10 @@
                                 <th>인증번호 입력 :</th>
                             </c:if>
                             <th><input class="checkNum" type="password" name="userName"
-                                       id="userName"></th>
+                                       id="userName" style="margin-left: 15px"></th>
                             <th>
                                 <button class="btn btn-sm btn-primary" onclick="chatName()"
-                                        id="startBtn">인증하기
+                                        id="startBtn" style="margin-left: 15px;">인증하기
                                 </button>
                             </th>
                         </tr>
@@ -233,15 +233,22 @@
                 <div id="yourMsg">
                     <table class="inputTable">
                         <tr>
-                            <th>메시지 입력</th>
+                            <th>메시지 입력 :</th>
                             <th><input style="margin-left: 15px;width: 200px;" id="chatting"
                                        placeholder="  메시지를 입력하세요."></th>
                             <th>
                                 <button class="btn btn-primary" onclick="send()"
-                                        id="sendBtn">보내기
+                                        id="sendBtn" style="margin-left: 15px">보내기
                                 </button>
-                                <button class="btn btn-primary" style="float:right;margin-left: 12px;"
-                                        id="closeBtn">상담종료
+                                <%--                                <button class="btn btn-primary" style="float:right;margin-left: 12px;"--%>
+                                <%--                                        id="closeBtn">상담종료--%>
+                                <%--                                </button>--%>
+
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                        data-target="#exampleModal"
+                                        id="#closeBtn" style="float:right;margin-left: 12px; border-color: crimson;
+                                        background-color: crimson;">
+                                    상담종료
                                 </button>
                             </th>
                         </tr>
@@ -252,3 +259,35 @@
     </div>
 </div>
 
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">상담 종료</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>상담을 종료하시겠습니까? </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">상담종료</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // 상담 종료
+    $('#closeBtn').click(function () {
+        console.log('상담종료')
+        $('#sendModal').show();
+
+    })
+</script>

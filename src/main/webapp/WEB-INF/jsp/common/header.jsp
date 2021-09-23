@@ -438,7 +438,7 @@
                     </li>
                     <li class="nav-item"><a href="${pageContext.request.contextPath}/client/searchList"
                                             class="nav-link">PB 찾기</a></li>
-                    <li class="nav-item"><a href="${pageContext.request.contextPath}/moveChatting" class="nav-link">온라인
+                    <li class="nav-item"><a href="${pageContext.request.contextPath}/client/waitRoom" class="nav-link">온라인
                         투자 상담</a></li>
                     <li class="nav-item"><a href="${pageContext.request.contextPath}/client/myPage" class="nav-link">마이페이지</a>
                     </li>
@@ -549,7 +549,7 @@
                 "입장해주세요" + "</div></div>";
             $("#msgStack").empty();   // msgStack div에 생성한 toast 추가
             $("#msgStack").append(toast);   // msgStack div에 생성한 toast 추가
-
         };
+
 
     </script>

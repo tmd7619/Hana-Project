@@ -118,9 +118,12 @@ public class ChatController {
         mav.setViewName("mainRoom");
 
         return mav;
-
-
     }
 
+    @RequestMapping("/client/waitRoom")
+    public String sendMsg() {
+
+        return "client/consulting/waitRoom";
+    }
 
 }

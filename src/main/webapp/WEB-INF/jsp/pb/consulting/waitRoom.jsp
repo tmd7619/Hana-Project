@@ -58,7 +58,6 @@
 
         // 데이터를 전달 받았을때
         sock2.onmessage = function (event) {
-            alert('여기 들어옴?')
             location.href = "${pageContext.request.contextPath}/pb/consultingRoom"
         }
 
