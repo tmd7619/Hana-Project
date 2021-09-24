@@ -256,3 +256,25 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from consulting_history;
 
+
+SELECT cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:MI') as cslt_time
+             , room_number
+        FROM (
+                 SELECT ROWNUM RN, A.*
+                 FROM (
+                          SELECT *
+                          FROM consulting_history
+                          ORDER BY cslt_time DESC
+                      ) A
+             )
+        WHERE RN BETWEEN 1 AND 5
+          and pb_code_num = 123123 ;
+
+select * from consulting_history;
+select to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time from consulting_history;
+
+

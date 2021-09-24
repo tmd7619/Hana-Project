@@ -227,6 +227,18 @@
             cursor: pointer;
         }
 
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            display: none;
+        }
+
+        .tagName {
+            font-size: 14px !important;
+            font-weight: 900;
+            color: black !important;
+        }
     </style>
 
 </head>
@@ -588,6 +600,18 @@
                             </button>
                         </form>
                     </div>
+                    <div class="blog__sidebar__tags" style="margin-bottom: 50px">
+                        <h5>인기 태그 검색</h5>
+                        <a class="tagName" href="#">친절한</a>
+                        <a class="tagName" href="#">공감하는</a>
+                        <a class="tagName" href="#">예약시간준수</a>
+                        <a class="tagName" href="#">유쾌한</a>
+                        <a class="tagName" href="#">해결사</a>
+                        <a class="tagName" href="#">명쾌한</a>
+                        <a class="tagName" href="#">세심한</a>
+                        <a class="tagName" href="#">쉽고친절한</a>
+                        <a class="tagName" href="#">든든한</a>
+                    </div>
                     <div class="blog__sidebar__categories">
                         <h5>TOP 5 조회 목록</h5>
                         <ul>
@@ -598,15 +622,8 @@
                             <li><a href="#">Credit <span>19</span></a></li>
                         </ul>
                     </div>
-                    <div class="blog__sidebar__tags">
-                        <h5>인기 태그 목록</h5>
-                        <a href="#">Business</a> <a href="#">Marketing</a> <a href="#">Payment</a>
-                        <a href="#">Travel</a> <a href="#">Finance</a> <a href="#">Videos</a>
-                        <a href="#">Ideas</a> <a href="#">Unique</a> <a href="#">Music</a>
-                        <a href="#">Key</a>
-                    </div>
                     <div class="blog__sidebar__recent">
-                        <h5>최근 상담한 자산관리사</h5>
+                        <h5>최근 다른 손님과 상담한 PB</h5>
                         <a href="#" class="blog__sidebar__recent__item">
                             <div class="blog__sidebar__recent__item__pic">
                                 <img src="img/blog/recent-1.jpg" alt="">
@@ -615,7 +632,7 @@
                                 <span><i class="fa fa-tags"></i> Shopping</span>
                                 <h6>Tortoise grilled on salt</h6>
                                 <p>
-                                    <i class="fa fa-clock-o"></i> 19th March, 2019
+                                    <i class="fa fa-clock-o"></i> 방금
                                 </p>
                             </div>
                         </a> <a href="#" class="blog__sidebar__recent__item">
@@ -818,6 +835,9 @@
     </div>
 </div>
 
+<a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
+        class="fas fa-chevron-up"></i></a>
+
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
 <!-- Js Plugins -->
 <script
@@ -990,6 +1010,23 @@
         });
     })
 
+    // 스크롤
+    $(document).ready(function () {
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 50) {
+                $('#back-to-top').fadeIn();
+            } else {
+                $('#back-to-top').fadeOut();
+            }
+        });
+        // scroll body to 0px on click
+        $('#back-to-top').click(function () {
+            $('body,html').animate({
+                scrollTop: 0
+            }, 400);
+            return false;
+        });
+    });
 </script>
 
 

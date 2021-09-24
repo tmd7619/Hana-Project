@@ -20,5 +20,11 @@ public class MyPageController {
         return "client/myPage/myPageMain";
     }
 
+    @RequestMapping("/client/myPage/myInfo")
+    public String viewMyInfo() {
+
+        return "client/myPage/myInfo";
+    }
+
 
 }

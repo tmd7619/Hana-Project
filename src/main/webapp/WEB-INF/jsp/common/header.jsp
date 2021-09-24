@@ -398,7 +398,8 @@
         <div class="container">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">하나My PB</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation"
+                    style="color :black!important">
                 <span class="oi oi-menu"></span> Menu
             </button>
 

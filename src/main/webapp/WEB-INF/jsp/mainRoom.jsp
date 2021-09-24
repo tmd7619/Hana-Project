@@ -252,8 +252,8 @@
                     <table class="inputTable">
                         <tr>
                             <th>메시지 입력 :</th>
-                            <th><input style="margin-left: 15px;width: 150px;" id="chatting"
-                                       placeholder="  메시지를 입력하세요."></th>
+                            <th><input style="margin-left: 15px;width: 130px;" id="chatting"
+                                       placeholder="  메시지입력"></th>
                             <th>
                                 <button class="btn btn-sm btn-primary" onclick="send()"
                                         id="sendBtn" style="margin-left: 15px">보내기

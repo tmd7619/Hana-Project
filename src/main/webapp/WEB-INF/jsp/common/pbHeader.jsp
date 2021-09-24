@@ -415,8 +415,8 @@
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center">
                     <p class="mb-0 phone pl-md-2">
-                        <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
-                        <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
+                        <%--                        <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>--%>
+                        <%--                        <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>--%>
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-md-end">
@@ -441,7 +441,8 @@
         <div class="container">
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">하나My PB</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
-                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation"
+                    style="color :black!important">
                 <span class="oi oi-menu"></span> Menu
             </button>
 

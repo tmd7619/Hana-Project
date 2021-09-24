@@ -13,6 +13,7 @@
         <result column="pb_name" property="pbName"/>
         <result column="branch_name" property="branchName"/>
         <result column="client_id" property="clientId"/>
+        <result column="username" property="username"/>
     </resultMap>
 
 
@@ -59,6 +60,7 @@
              , branch_name
              , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
              , room_number
+             , username
         FROM (
                  SELECT ROWNUM RN, A.*
                  FROM (

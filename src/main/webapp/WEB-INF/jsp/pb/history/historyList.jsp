@@ -213,7 +213,7 @@
 </div>
 
 
-<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+<jsp:include page="/WEB-INF/jsp/common/pbHeader.jsp"/>
 
 <section class="hero-wrap hero-wrap-2"
          data-stellar-background-ratio="0.5" style="margin-bottom: 100px;">
