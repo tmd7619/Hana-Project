@@ -381,41 +381,11 @@
     </div>
     <!--End Modal-->
 
-    <!-- The Modal -->
-    <div id="myModal2" class="modal2">
-        <!-- Modal content -->
-        <div id="modal-content2">
-            <div class="login-form">
-                <h2>PB 로그인</h2>
-                <form action="${pageContext.request.contextPath }/pb/login" method="post" name="loginForm">
-                    <div class="group-input">
-                        <label for="userId">UserID </label>
-                        <input type="text" id="아이디 입력" name="pbId">
-                    </div>
-                    <div class="group-input">
-                        <label for="password">Password </label>
-                        <input type="password" id="패스워드 입력" name="pbPassword">
-                    </div>
-                    <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In
-                    </button>
-                </form>
-                <div class="switch-login">
-                    <a href="<%=request.getContextPath() %>/register.do" class="or-login">Or Create An Account</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!--End Modal-->
-
-
     <div class="wrap">
         <div class="container">
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center">
                     <p class="mb-0 phone pl-md-2">
-                        <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +00 1234 567</a>
-                        <a href="#"><span class="fa fa-paper-plane mr-1"></span> youremail@email.com</a>
                     </p>
                 </div>
                 <div class="col-md-6 d-flex justify-content-md-end">

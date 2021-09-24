@@ -17,6 +17,15 @@ public class HistoryDAOImpl implements HistoryDAO {
 
     private String namespace = "myPage.HistoryDAO.";
 
+    @Override
+    public void insertHistory(HistoryVO historyVO) {
+
+        int check = sqlSessionTemplate.insert(namespace + "insertHistory", historyVO);
+        if (check != 0) {
+            System.out.println("history 삽입 완료");
+        }
+
+    }
 
     @Override
     public List<HistoryVO> selectAllHistory(PagingVO vo) {

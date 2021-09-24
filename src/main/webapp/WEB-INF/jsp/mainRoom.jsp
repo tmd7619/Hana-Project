@@ -116,6 +116,24 @@
             background-color: crimson;
         }
 
+        .btn-outline-primary {
+
+            color: #27b2a5;
+            border-color: #27b2a5;
+        }
+
+        .btn-primary {
+            border-color: #27b2a5;
+
+        }
+
+        .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+            color: #fff;
+            background-color: #27b2a5;
+            border-color: #27b2a5;
+
+        }
+
     </style>
 
 
@@ -234,17 +252,17 @@
                     <table class="inputTable">
                         <tr>
                             <th>메시지 입력 :</th>
-                            <th><input style="margin-left: 15px;width: 200px;" id="chatting"
+                            <th><input style="margin-left: 15px;width: 150px;" id="chatting"
                                        placeholder="  메시지를 입력하세요."></th>
                             <th>
-                                <button class="btn btn-primary" onclick="send()"
+                                <button class="btn btn-sm btn-primary" onclick="send()"
                                         id="sendBtn" style="margin-left: 15px">보내기
                                 </button>
                                 <%--                                <button class="btn btn-primary" style="float:right;margin-left: 12px;"--%>
                                 <%--                                        id="closeBtn">상담종료--%>
                                 <%--                                </button>--%>
 
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                <button type="button" class="btn btn-sm btn-primary" data-toggle="modal"
                                         data-target="#exampleModal"
                                         id="#closeBtn" style="float:right;margin-left: 12px; border-color: crimson;
                                         background-color: crimson;">
@@ -272,11 +290,27 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>상담을 종료하시겠습니까? </p>
+                <form>
+                    <div class="form-group">
+                        <label for="csltTitle" class="control-label">상담 제목
+                            :</label>
+                        <textarea style="height: 30px;width: 200px;" class="form-control"
+                                  id="csltTitle"></textarea>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group">
+                        <label for="csltComment" class="control-label">상담 내용 기록
+                            :</label>
+                        <textarea class="form-control" id="csltComment"></textarea>
+                    </div>
+                </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">상담종료</button>
+                <button id="sendMsg" type="button" class="btn btn-primary">상담종료</button>
+                <button style="border-color: #27b2a5;" type="button" class="btn btn-outline-primary"
+                        data-dismiss="modal">Close
+                </button>
             </div>
         </div>
     </div>
@@ -285,9 +319,36 @@
 
 <script>
     // 상담 종료
-    $('#closeBtn').click(function () {
-        console.log('상담종료')
-        $('#sendModal').show();
+    $('#sendMsg').click(function () {
+        console.log(${roomVO.roomNumber})
+        console.log("${userVO.username}")
+        console.log("${bankerVO.pbName}")
+        console.log("${bankerVO.codeNum}")
+        console.log("${bankerVO.branchName}")
+
+        const roomNumber = "${roomVO.roomNumber}"
+        const clientId = "${userVO.userId}"
+        const username = "${userVO.username}"
+        const pbName = "${bankerVO.pbName}"
+        const pbCodeNum = "${bankerVO.codeNum}"
+        const branchName = "${bankerVO.branchName}"
+        const csltTitle = $('#csltTitle').val()
+        const csltComment = $('#csltComment').val()
+
+
+        const history = {roomNumber, clientId, pbName, csltTitle, csltComment, pbCodeNum, username, branchName}
+
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/saveHistory",
+            dataType: 'json',
+            contentType: 'application/json',
+            data: JSON.stringify(history),
+            success: function (res) {
+            }
+        })
+        alert('상담이 종료되었습니다.')
+        location.href = "${pageContext.request.contextPath}/pb/history"
 
     })
 </script>

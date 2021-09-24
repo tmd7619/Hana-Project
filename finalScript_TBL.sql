@@ -236,14 +236,16 @@ delete from favorite_list where pb_code_num = '123123' and client_name = '윤승
 
 drop table consulting_history;
 create table consulting_history(
-    client_id varchar2(50) primary key,
+    room_number number primary key ,
+    client_id varchar2(50) not null,
     pb_code_num number(6) not null,
-    cslt_time date default sysdate,
+    cslt_time date default sysdate, -- 상담 종료 시간 
     cslt_title varchar2(200) not null,
     cslt_comment varchar2(500) not null,
     consulting_history_id number not null,
-    room_number number not null ,
-    pb_name varchar2(30) not null 
+    pb_name varchar2(30) not null ,
+    username varchar2(30) not null ,
+    branch_name varchar2(100) not null
 );
 
 
@@ -251,9 +253,6 @@ drop sequence consulting_history_seq ;
 CREATE SEQUENCE consulting_history_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
-select to_char(cslt_time, 'yyyy-mm-dd HH24:MI:SS') as cslt_time  from consulting_history;
 
-
-select sysdate from dual;
-
+select * from consulting_history;
 

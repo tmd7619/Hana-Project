@@ -14,6 +14,10 @@ public class HistoryServiceImpl implements HistoryService {
     @Autowired
     HistoryDAO historyDAO;
 
+    @Override
+    public void saveHistory(HistoryVO historyVO) {
+        historyDAO.insertHistory(historyVO);
+    }
 
     @Override
     public List<HistoryVO> selectAllHistory(PagingVO vo) {

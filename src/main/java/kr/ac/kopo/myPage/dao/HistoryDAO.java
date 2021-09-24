@@ -8,6 +8,9 @@ import java.util.List;
 public interface HistoryDAO {
 
 
+    void insertHistory(HistoryVO historyVO);
+
+
     // 페이징 처리 History 조회
     List<HistoryVO> selectAllHistory(PagingVO vo);
 

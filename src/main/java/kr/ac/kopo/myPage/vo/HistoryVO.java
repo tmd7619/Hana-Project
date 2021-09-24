@@ -2,21 +2,22 @@ package kr.ac.kopo.myPage.vo;
 
 public class HistoryVO {
 
-    private String userId;
-    private String csltTime; // 상담 날짜
+    private String clientId;
+    private String csltTime;
+    private int pbCodeNum;
     private String csltTitle;
     private String csltComment;
     private int roomNumber;
     private String pbName;
+    private String username;
     private String branchName;
 
-
-    public String getUserId() {
-        return userId;
+    public String getClientId() {
+        return clientId;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
     }
 
     public String getCsltTime() {
@@ -25,6 +26,14 @@ public class HistoryVO {
 
     public void setCsltTime(String csltTime) {
         this.csltTime = csltTime;
+    }
+
+    public int getPbCodeNum() {
+        return pbCodeNum;
+    }
+
+    public void setPbCodeNum(int pbCodeNum) {
+        this.pbCodeNum = pbCodeNum;
     }
 
     public String getCsltTitle() {
@@ -59,6 +68,14 @@ public class HistoryVO {
         this.pbName = pbName;
     }
 
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
     public String getBranchName() {
         return branchName;
     }
@@ -70,12 +87,14 @@ public class HistoryVO {
     @Override
     public String toString() {
         return "HistoryVO{" +
-                "userId='" + userId + '\'' +
+                "clientId='" + clientId + '\'' +
                 ", csltTime='" + csltTime + '\'' +
+                ", pbCodeNum=" + pbCodeNum +
                 ", csltTitle='" + csltTitle + '\'' +
                 ", csltComment='" + csltComment + '\'' +
                 ", roomNumber=" + roomNumber +
                 ", pbName='" + pbName + '\'' +
+                ", username='" + username + '\'' +
                 ", branchName='" + branchName + '\'' +
                 '}';
     }

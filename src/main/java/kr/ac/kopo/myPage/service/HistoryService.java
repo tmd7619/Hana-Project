@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface HistoryService {
 
+    void saveHistory(HistoryVO historyVO);
+
     // 페이징 처리 History 조회
     List<HistoryVO> selectAllHistory(PagingVO vo);
 

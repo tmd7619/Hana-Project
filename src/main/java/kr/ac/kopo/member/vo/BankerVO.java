@@ -8,13 +8,13 @@ public class BankerVO {
     private String pbRank;
     private String pbPhone;
     private String pbEmail;
-    private String pbBranchName;
+    private String branchName;
     private String mainField;
     private String introContent;
     private String mainContent;
     private String impossible;
     private String tagName;
-    private int    codeNum;
+    private int codeNum;
 
 
     public int getCodeNum() {
@@ -114,13 +114,12 @@ public class BankerVO {
     }
 
     public String getBranchName() {
-        return pbBranchName;
+        return branchName;
     }
 
     public void setBranchName(String branchName) {
-        this.pbBranchName = branchName;
+        this.branchName = branchName;
     }
-
 
     @Override
     public String toString() {
@@ -131,7 +130,7 @@ public class BankerVO {
                 ", pbRank='" + pbRank + '\'' +
                 ", pbPhone='" + pbPhone + '\'' +
                 ", pbEmail='" + pbEmail + '\'' +
-                ", pbBranchName='" + pbBranchName + '\'' +
+                ", branchName='" + branchName + '\'' +
                 ", mainField='" + mainField + '\'' +
                 ", introContent='" + introContent + '\'' +
                 ", mainContent='" + mainContent + '\'' +

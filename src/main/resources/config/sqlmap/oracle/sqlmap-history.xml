@@ -15,12 +15,13 @@
     </resultMap>
 
 
-    <!--    <select id="selectAllHistory" parameterType="String" resultMap="historyMap">-->
-    <!--        select cslt_time, cslt_title, cslt_comment, pb_name, branch_name-->
-    <!--        from consulting_history-->
-    <!--        where client_id = #{userId}-->
-    <!--        order by cslt_time desc-->
-    <!--    </select>-->
+    <insert id="insertHistory" parameterType="historyVO">
+        insert into consulting_history(client_id, pb_code_num, cslt_title, cslt_comment, consulting_history_id,
+                                       room_number, pb_name, username, branch_name)
+        values ( #{clientId}, #{pbCodeNum}, #{csltTitle}, #{csltComment}, consulting_history_seq.nextval, #{roomNumber}
+               , #{pbName}, #{username}, #{branchName})
+    </insert>
+
 
     <!-- 총 history 갯수 출력 -->
     <select id="countBoard" resultType="int">
@@ -30,7 +31,12 @@
 
     <!-- 페이징 처리 후 게시글 조회 -->
     <select id="selectAllHistory" resultMap="historyMap" parameterType="pagingVO">
-        SELECT cslt_title, cslt_comment, pb_name, branch_name, to_char(cslt_time, 'yyyy-mm-dd HH24:MI') as cslt_time
+        SELECT cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:MI') as cslt_time
+             , room_number
         FROM (
                  SELECT ROWNUM RN, A.*
                  FROM (

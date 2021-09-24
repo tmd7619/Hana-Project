@@ -22,289 +22,289 @@
     <link
             href="${pageContext.request.contextPath}/resources/admin/css/ruang-admin.min.css"
             rel="stylesheet">
-    <linkz
+    <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
             rel="stylesheet">
-        <link
-                href="${pageContext.request.contextPath}/resources/css2/nice-select.css">
-        <script
-                src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script
-                src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
-        <!--chartjs -->
-        </head>
+    <link
+            href="${pageContext.request.contextPath}/resources/css2/nice-select.css">
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <!--chartjs -->
+</head>
 
-        <style>
-            #chatScreen {
-                background-color: #e6efef;
-                height: 310px;
-            }
+<style>
+    #chatScreen {
+        background-color: #e6efef;
+        height: 310px;
+    }
 
-            * {
-                margin: 0;
-                padding: 0;
-            }
+    * {
+        margin: 0;
+        padding: 0;
+    }
 
-            select:focus,
-            input:focus,
-            button:focus {
-                outline: 0;
-            }
+    select:focus,
+    input:focus,
+    button:focus {
+        outline: 0;
+    }
 
-            .card.invoice {
-                height: 438px;
-            }
+    .card.invoice {
+        height: 438px;
+    }
 
-            .table-responsive {
-                overflow-x: hidden;
-            }
+    .table-responsive {
+        overflow-x: hidden;
+    }
 
-            .table-responsive::-webkit-scrollbar {
-                width: 0;
-                height: 20px;
-            }
+    .table-responsive::-webkit-scrollbar {
+        width: 0;
+        height: 20px;
+    }
 
-            /*.table-responsive::-webkit-scrollbar-track {*/
-            /*  background-color: transparent;*/
-            /*}*/
-            /*.table-responsive::-webkit-scrollbar-thumb {*/
-            /*  border-radius: 3px;*/
-            /*}*/
-            /*.table-responsive:hover::-webkit-scrollbar {*/
-            /*  width: 2px;*/
-            /*}*/
-            /*.table-responsive:hover::-webkit-scrollbar-thumb {*/
-            /*  background-color: rgba(0, 0, 0, 0.04);*/
-            /*}*/
-            .card.shadow {
-                height: 410px;
-            }
+    /*.table-responsive::-webkit-scrollbar-track {*/
+    /*  background-color: transparent;*/
+    /*}*/
+    /*.table-responsive::-webkit-scrollbar-thumb {*/
+    /*  border-radius: 3px;*/
+    /*}*/
+    /*.table-responsive:hover::-webkit-scrollbar {*/
+    /*  width: 2px;*/
+    /*}*/
+    /*.table-responsive:hover::-webkit-scrollbar-thumb {*/
+    /*  background-color: rgba(0, 0, 0, 0.04);*/
+    /*}*/
+    .card.shadow {
+        height: 410px;
+    }
 
-            .btn.btn-sm.btn-primary {
-                border: none;
-            }
+    .btn.btn-sm.btn-primary {
+        border: none;
+    }
 
-            .product-classification {
-                cursor: pointer;
-                padding: 5px 40px 5px 10px;
-                -moz-appearance: none;
-                -webkit-appearance: none;
-                appearance: none;
-                border: 1px solid #dedede;
-                font-size: 16px;
-                background: transparent;
-                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%20000002%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
-                background-position: right 10px top 50%, 0, 0;
-                background-size: 12px auto, 100%;
-                background-repeat: no-repeat;
-            }
+    .product-classification {
+        cursor: pointer;
+        padding: 5px 40px 5px 10px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: 1px solid #dedede;
+        font-size: 16px;
+        background: transparent;
+        background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%20000002%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E');
+        background-position: right 10px top 50%, 0, 0;
+        background-size: 12px auto, 100%;
+        background-repeat: no-repeat;
+    }
 
-            .container {
-                width: 500px;
-                margin: 0 auto;
-                padding: 25px
-            }
+    .container {
+        width: 500px;
+        margin: 0 auto;
+        padding: 25px
+    }
 
-            .container h1 {
-                text-align: left;
-                padding: 5px 5px 5px 15px;
-                color: #27b2a5;
-                /*border-left: 3px solid #008485;*/
-            }
+    .container h1 {
+        text-align: left;
+        padding: 5px 5px 5px 15px;
+        color: #27b2a5;
+        /*border-left: 3px solid #008485;*/
+    }
 
-            .chatting {
-                background-color: #e6efef;
-                height: 300px;
-                overflow: auto;
-                padding-bottom: 50px;
-                margin-bottom: 5px;
-            }
+    .chatting {
+        background-color: #e6efef;
+        height: 300px;
+        overflow: auto;
+        padding-bottom: 50px;
+        margin-bottom: 5px;
+    }
 
-            .chatting .me {
-                color: #3c3c3c;
-                text-align: right;
-                word-break: keep-all;
-                border-top-left-radius: 10px;
-                border-bottom-left-radius: 10px;
-                position: relative;
-                padding: 9px 0 6px;
-                margin: 5px 5px 15px 50px;
-                background: #fff;
-                top: 0;
-                z-index: 5;
-            }
+    .chatting .me {
+        color: #3c3c3c;
+        text-align: right;
+        word-break: keep-all;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        position: relative;
+        padding: 9px 0 6px;
+        margin: 5px 5px 15px 50px;
+        background: #fff;
+        top: 0;
+        z-index: 5;
+    }
 
-            .chatting .others {
-                color: #008485;
-                text-align: left;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                position: relative;
-                padding: 9px 0 6px;
-                margin: 5px 50px 15px 5px;
-                background: #fff;
-                top: 0;
-                z-index: 5;
-            }
+    .chatting .others {
+        color: #008485;
+        text-align: left;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        position: relative;
+        padding: 9px 0 6px;
+        margin: 5px 50px 15px 5px;
+        background: #fff;
+        top: 0;
+        z-index: 5;
+    }
 
-            input {
-                width: 180px;
-                height: 25px;
-            }
+    input {
+        width: 180px;
+        height: 25px;
+    }
 
-            #yourMsg {
-                display: none;
-            }
+    #yourMsg {
+        display: none;
+    }
 
-            #bubble {
-                color: #27b2a5;
-            }
+    #bubble {
+        color: #27b2a5;
+    }
 
-            .spinner-border {
-                color: #27b2a5;
-                width: 100%;
-                text-align: center;
-            }
+    .spinner-border {
+        color: #27b2a5;
+        width: 100%;
+        text-align: center;
+    }
 
-            #loader {
-                margin-top: 30px;
-                width: 70px;
-                height: 70px;
-            }
+    #loader {
+        margin-top: 30px;
+        width: 70px;
+        height: 70px;
+    }
 
-            .waitMent {
-                text-align: center;
-                margin-top: 250px;
-            }
+    .waitMent {
+        text-align: center;
+        margin-top: 250px;
+    }
 
-            .checkNum {
-                margin-left: 10px;
-                width: 200px;
-            }
+    .checkNum {
+        margin-left: 10px;
+        width: 200px;
+    }
 
-            #startBtn {
-                margin-left: 15px;
-            }
+    #startBtn {
+        margin-left: 15px;
+    }
 
-            #sendBtn {
-                margin-left: 15px;
-            }
+    #sendBtn {
+        margin-left: 15px;
+    }
 
-            #webrtc {
-                display: block;
-                height: 410px; /* mac 320px*/
-                width: 100%;
-                box-sizing: border-box;
-            }
+    #webrtc {
+        display: block;
+        height: 410px; /* mac 320px*/
+        width: 100%;
+        box-sizing: border-box;
+    }
 
-            .btn-primary {
-                background-color: #27b2a5;
-            }
+    .btn-primary {
+        background-color: #27b2a5;
+    }
 
-            .bg-primary {
-                background-color: #27b2a5 !important;
-            }
+    .bg-primary {
+        background-color: #27b2a5 !important;
+    }
 
-            .text-warning {
-                color: #FFFFFF !important;
-            }
+    .text-warning {
+        color: #FFFFFF !important;
+    }
 
-            .card-body {
-                padding-top: 0px;
-            }
+    .card-body {
+        padding-top: 0px;
+    }
 
-            #productList {
-                table-layout: fixed;
-            }
+    #productList {
+        table-layout: fixed;
+    }
 
-            #productList th {
-                position: sticky;
-                top: 0px;
-            }
+    #productList th {
+        position: sticky;
+        top: 0px;
+    }
 
-            .table-responsive {
-                height: 350px;
-            }
+    .table-responsive {
+        height: 350px;
+    }
 
-            .table th {
-                border-top: 0px;
-            }
-        </style>
-        <script type="text/javascript">
-            var ws;
+    .table th {
+        border-top: 0px;
+    }
+</style>
+<script type="text/javascript">
+    var ws;
 
-            function wsOpen() {
-                //웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-                ws = new WebSocket("ws://" + location.host + "/chatting/"
-                    + $("#roomNumber").val());
-                wsEvt();
-            }
+    function wsOpen() {
+        //웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
+        ws = new WebSocket("ws://" + location.host + "/chatting/"
+            + $("#roomNumber").val());
+        wsEvt();
+    }
 
-            function wsEvt() {
-                ws.onopen = function (data) {
-                    //소켓이 열리면 동작
-                }
+    function wsEvt() {
+        ws.onopen = function (data) {
+            //소켓이 열리면 동작
+        }
 
-                ws.onmessage = function (data) {
-                    //메시지를 받으면 동작
-                    var msg = data.data;
-                    if (msg != null && msg.trim() != '') {
-                        var d = JSON.parse(msg);
-                        if (d.type == "getId") {
-                            var si = d.sessionId != null ? d.sessionId : "";
-                            if (si != '') {
-                                $("#sessionId").val(si);
-                            }
-                        } else if (d.type == "message") {
-                            if (d.sessionId == $("#sessionId").val()) {
-                                $("#chatWindow").append(
-                                    "<p class='me'>나 :" + d.msg + "</p>");
-                            } else {
-                                $("#chatWindow").append(
-                                    "<p class='others'>" + d.userName + " :"
-                                    + d.msg + "</p>");
-                            }
-
-                        } else {
-                            console.warn("unknown type!")
-                        }
+        ws.onmessage = function (data) {
+            //메시지를 받으면 동작
+            var msg = data.data;
+            if (msg != null && msg.trim() != '') {
+                var d = JSON.parse(msg);
+                if (d.type == "getId") {
+                    var si = d.sessionId != null ? d.sessionId : "";
+                    if (si != '') {
+                        $("#sessionId").val(si);
                     }
-                }
-
-                document.addEventListener("keypress", function (e) {
-                    if (e.keyCode == 13) { //enter press
-                        send();
+                } else if (d.type == "message") {
+                    if (d.sessionId == $("#sessionId").val()) {
+                        $("#chatWindow").append(
+                            "<p class='me'>나 :" + d.msg + "</p>");
+                    } else {
+                        $("#chatWindow").append(
+                            "<p class='others'>" + d.userName + " :"
+                            + d.msg + "</p>");
                     }
-                });
-            }
 
-            function chatName() {
-                var userName = $("#userName").val();
-                console.log("현재 로그인 값" + userName)
-                if (userName == null || userName.trim() == "") {
-                    alert("사용자 이름을 입력해주세요.");
-                    $("#userName").focus();
                 } else {
-                    wsOpen();
-                    $("#yourName").hide();
-                    $("#yourMsg").show();
+                    console.warn("unknown type!")
                 }
             }
+        }
 
-            // 메세지 보내는 처리
-            function send() {
-                var option = {
-                    type: "message",
-                    roomNumber: $("#roomNumber").val(),
-                    sessionId: $("#sessionId").val(),
-                    userName: $("#userName").val(),
-                    msg: $("#chatting").val(),
-                }
-                ws.send(JSON.stringify(option))
-                $('#chatting').val("");
+        document.addEventListener("keypress", function (e) {
+            if (e.keyCode == 13) { //enter press
+                send();
             }
-        </script>
-        <%--<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>--%>
+        });
+    }
+
+    function chatName() {
+        var userName = $("#userName").val();
+        console.log("현재 로그인 값" + userName)
+        if (userName == null || userName.trim() == "") {
+            alert("사용자 이름을 입력해주세요.");
+            $("#userName").focus();
+        } else {
+            wsOpen();
+            $("#yourName").hide();
+            $("#yourMsg").show();
+        }
+    }
+
+    // 메세지 보내는 처리
+    function send() {
+        var option = {
+            type: "message",
+            roomNumber: $("#roomNumber").val(),
+            sessionId: $("#sessionId").val(),
+            userName: $("#userName").val(),
+            msg: $("#chatting").val(),
+        }
+        ws.send(JSON.stringify(option))
+        $('#chatting').val("");
+    }
+</script>
+<%--<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>--%>
 
 <body id="page-top">
 <div id="wrapper">
@@ -561,7 +561,7 @@
                         <div class="card invoice">
                             <div
                                     class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Invoice</h6>
+                                <h6 class="m-0 font-weight-bold text-primary"></h6>
                                 <div class="select__option" style="float: right">
                                     <select class="product-classification" name="products">
                                         <option value="">상품 분류</option>
@@ -750,14 +750,6 @@
     function openPop() {
         var popup = window.open('${pageContext.request.contextPath}/openModal', '상품약관안내', 'width=1000px,height=800px,scrollbars=yes');
     }
-
-
-    // 상담 종료
-    $('#closeBtn').click(function () {
-        alert('들어옴')
-        console.log('상담종료')
-
-    })
 
 
 </script>

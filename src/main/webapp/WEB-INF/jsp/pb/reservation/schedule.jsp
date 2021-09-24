@@ -117,7 +117,7 @@
                     <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i
                             class="fa fa-chevron-right"></i></a></span> <span>Services <i
                             class="fa fa-chevron-right"></i></span></p>
-                    <h1 class="mb-0 bread" style="color: #fff">PB Services</h1>
+                    <h1 class="mb-0 bread" style="color: #fff">스케줄 관리하기</h1>
                 </div>
             </div>
         </div>

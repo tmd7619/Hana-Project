@@ -13,7 +13,7 @@
 <tbody>
 <c:forEach items="${productList }" var="list" varStatus="loop">
     <tr>
-        <td><a href="#"><c:out value="${list.financialCode}"/></a></td>
+        <td><a style="color: #27b2a5" href="#"><c:out value="${list.financialCode}"/></a></td>
         <td><c:out value="${list.productType}"/></td>
         <td><c:out value="${list.productName}"/></td>
         <c:choose>
