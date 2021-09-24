@@ -37,10 +37,16 @@ public class HistoryDAOImpl implements HistoryDAO {
     }
 
     @Override
+    public List<HistoryVO> selectAllHistoryByBanker(PagingVO vo) {
+        List<HistoryVO> historyList = sqlSessionTemplate.selectList(namespace + "selectAllHistoryByBanker", vo);
+
+        return historyList;
+    }
+
+    @Override
     public int countBoard() {
 
         int rowNum = sqlSessionTemplate.selectOne(namespace + "countBoard");
-        System.out.println("rowNum ?  : " + rowNum);
         return rowNum;
     }
 }

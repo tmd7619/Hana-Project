@@ -6,6 +6,7 @@ public class PagingVO {
     private int nowPage, startPage, endPage, total, cntPerPage, lastPage, start, end;
     private int cntPage = 5;
     private String userId;
+    private int pbCodeNum;
 
     public PagingVO() {
     }
@@ -130,6 +131,14 @@ public class PagingVO {
         this.userId = userId;
     }
 
+    public int getPbCodeNum() {
+        return pbCodeNum;
+    }
+
+    public void setPbCodeNum(int pbCodeNum) {
+        this.pbCodeNum = pbCodeNum;
+    }
+
     @Override
     public String toString() {
         return "PagingVO{" +
@@ -143,6 +152,7 @@ public class PagingVO {
                 ", end=" + end +
                 ", cntPage=" + cntPage +
                 ", userId='" + userId + '\'' +
+                ", pbCodeNum=" + pbCodeNum +
                 '}';
     }
 }

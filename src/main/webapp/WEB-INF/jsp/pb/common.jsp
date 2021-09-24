@@ -60,7 +60,9 @@
                     <div class="icon-wrap">
                         <div class="number d-flex align-items-center justify-content-center"><span>03</span></div>
                         <div class="icon d-flex align-items-center justify-content-center">
-                            <span class="flaticon-checklist"></span>
+                            <a href="${pageContext.request.contextPath}/pb/history">
+                                <span class="flaticon-checklist"></span>
+                            </a>
                         </div>
                     </div>
                     <h2>상담 내역확인</h2>

@@ -14,6 +14,8 @@ public interface HistoryDAO {
     // 페이징 처리 History 조회
     List<HistoryVO> selectAllHistory(PagingVO vo);
 
+    List<HistoryVO> selectAllHistoryByBanker(PagingVO vo);
+
     // 게시물 총 갯수
     public int countBoard();
 

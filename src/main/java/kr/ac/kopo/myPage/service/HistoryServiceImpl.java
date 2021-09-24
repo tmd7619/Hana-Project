@@ -32,4 +32,10 @@ public class HistoryServiceImpl implements HistoryService {
         return historyDAO.countBoard();
     }
 
+
+    @Override
+    public List<HistoryVO> selectAllHistoryByBanker(PagingVO vo) {
+        List<HistoryVO> historyList = historyDAO.selectAllHistoryByBanker(vo);
+        return historyList;
+    }
 }

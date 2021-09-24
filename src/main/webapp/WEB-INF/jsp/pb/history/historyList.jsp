@@ -261,19 +261,21 @@
                     <thead class="thead-light">
                     <tr>
                         <th>상담 날짜</th>
-                        <th>담당 PB 이름</th>
+                        <th>담당 손님 이름</th>
                         <th>상담 제목</th>
                         <th>Status</th>
+                        <th>상담코드</th>
                         <th>더보기</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach items="${HistoryVO}" var="history" varStatus="loop">
+                    <c:forEach items="${historyList}" var="history" varStatus="loop">
                         <tr>
                             <td><a href="#"><c:out value="${history.csltTime}"/></a></td>
-                            <td><c:out value="${history.branchName} ${history.pbName}"/></td>
+                            <td><c:out value="${history.username} 손님"/></td>
                             <td>${history.csltTitle}</td>
                             <td><span class="badge badge-success">상담완료</span></td>
+                            <td>${history.roomNumber}</td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                         data-target="#exampleModal"

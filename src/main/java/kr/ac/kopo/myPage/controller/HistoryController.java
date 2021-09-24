@@ -59,7 +59,7 @@ public class HistoryController {
         return "client/myPage/history";
     }
 
-
+    @GetMapping("/pb/history")
     public String viewPBHistory(PagingVO vo, Model model
             , @RequestParam(value = "nowPage", required = false) String nowPage
             , @RequestParam(value = "cntPerPage", required = false) String cntPerPage, HttpSession session) {
@@ -80,11 +80,13 @@ public class HistoryController {
         vo = new PagingVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
 
         BankerVO bankerVO = (BankerVO) session.getAttribute("bankerVO");
-        vo.setUserId(bankerVO.getPbId());
+        vo.setPbCodeNum(bankerVO.getCodeNum());
         System.out.println(" vo ? :" + vo);
 
+
         model.addAttribute("paging", vo);
-        model.addAttribute("historyList", historyService.selectAllHistory(vo));
+        model.addAttribute("historyList", historyService.selectAllHistoryByBanker(vo));
+
 
         return "pb/history/historyList";
     }
