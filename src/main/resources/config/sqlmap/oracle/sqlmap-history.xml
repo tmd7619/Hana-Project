@@ -17,6 +17,16 @@
     </resultMap>
 
 
+    <resultMap id="inquiryMap" type="inquiryVO">
+        <result column="inquiry_title" property="inquiryTitle"/>
+        <result column="inquiry_content" property="inquiryContent"/>
+        <result column="room_number" property="roomNumber"/>
+        <result column="writer" property="writer"/>
+        <result column="reg_date" property="regDate"/>
+        <result column="inquiry_id" property="inquiryId"/>
+    </resultMap>
+
+
     <insert id="insertHistory" parameterType="historyVO">
         insert into consulting_history(client_id, pb_code_num, cslt_title, cslt_comment, consulting_history_id,
                                        room_number, pb_name, username, branch_name)
@@ -85,5 +95,22 @@
         where room_number = #{roomNumber}
     </select>
 
+
+    <insert id="insertInquiry" parameterType="inquiryVO">
+        insert into inquiry(inquiry_id, inquiry_title, inquiry_content, room_number, writer)
+        values (inquiry_seq.nextval, #{inquiryTitle}, #{inquiryContent}, #{roomNumber}, #{writer})
+    </insert>
+
+    <select id="selectAllInquiry" parameterType="inquiryVO" resultMap="inquiryMap">
+        select inquiry_title
+             , inquiry_content
+             , room_number
+             , writer
+             , to_char(reg_date, 'yyyy-mm-dd HH24:mi') as reg_date
+             , inquiry_id
+        from inquiry
+        where room_number = #{roomNumber}
+        order by inquiry_id
+    </select>
 
 </mapper>

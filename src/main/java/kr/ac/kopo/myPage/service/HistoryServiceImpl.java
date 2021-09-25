@@ -2,6 +2,7 @@ package kr.ac.kopo.myPage.service;
 
 import kr.ac.kopo.myPage.dao.HistoryDAO;
 import kr.ac.kopo.myPage.vo.HistoryVO;
+import kr.ac.kopo.myPage.vo.InquiryVO;
 import kr.ac.kopo.myPage.vo.PagingVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -47,4 +48,29 @@ public class HistoryServiceImpl implements HistoryService {
 
         return history;
     }
+
+    @Override
+    public List<InquiryVO> insertInquiry(InquiryVO inquiryVO) {
+
+        int check = historyDAO.insertInquiry(inquiryVO);
+
+        if (check != 0) {
+            System.out.println("insert Inquiry 완료");
+        }
+
+        List<InquiryVO> inquiryList = historyDAO.selectAllInquiry(inquiryVO);
+
+        return inquiryList;
+    }
+
+
+    @Override
+    public List<InquiryVO> selectInquiry(InquiryVO inquiryVO) {
+        System.out.println(inquiryVO);
+
+        List<InquiryVO> inquiryList = historyDAO.selectAllInquiry(inquiryVO);
+
+        return inquiryList;
+    }
+
 }

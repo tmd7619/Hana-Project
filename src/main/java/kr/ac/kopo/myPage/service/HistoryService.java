@@ -1,6 +1,7 @@
 package kr.ac.kopo.myPage.service;
 
 import kr.ac.kopo.myPage.vo.HistoryVO;
+import kr.ac.kopo.myPage.vo.InquiryVO;
 import kr.ac.kopo.myPage.vo.PagingVO;
 
 import java.util.List;
@@ -19,6 +20,12 @@ public interface HistoryService {
 
     // 게시물 총 갯수
     public int countBoard();
+
+    // inquiry 삽입 후 list 조회
+    public List<InquiryVO> insertInquiry(InquiryVO inquiryVO);
+
+    // inquiry list 조회
+    public List<InquiryVO> selectInquiry(InquiryVO inquiryVO);
 
 
 }

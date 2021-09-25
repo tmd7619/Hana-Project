@@ -2,26 +2,35 @@ package kr.ac.kopo.myPage.vo;
 
 public class InquiryVO {
 
-    private String inquiry_title;
-    private String inquiry_content;
+    private String inquiryTitle;
+    private String inquiryContent;
     private int roomNumber;
     private String writer;
     private String regDate;
+    private int inquiryId;
 
-    public String getInquiry_title() {
-        return inquiry_title;
+    public int getInquiryId() {
+        return inquiryId;
     }
 
-    public void setInquiry_title(String inquiry_title) {
-        this.inquiry_title = inquiry_title;
+    public void setInquiryId(int inquiryId) {
+        this.inquiryId = inquiryId;
     }
 
-    public String getInquiry_content() {
-        return inquiry_content;
+    public String getInquiryTitle() {
+        return inquiryTitle;
     }
 
-    public void setInquiry_content(String inquiry_content) {
-        this.inquiry_content = inquiry_content;
+    public void setInquiryTitle(String inquiryTitle) {
+        this.inquiryTitle = inquiryTitle;
+    }
+
+    public String getInquiryContent() {
+        return inquiryContent;
+    }
+
+    public void setInquiryContent(String inquiryContent) {
+        this.inquiryContent = inquiryContent;
     }
 
     public int getRoomNumber() {
@@ -51,11 +60,12 @@ public class InquiryVO {
     @Override
     public String toString() {
         return "InquiryVO{" +
-                "inquiry_title='" + inquiry_title + '\'' +
-                ", inquiry_content='" + inquiry_content + '\'' +
+                "inquiryTitle='" + inquiryTitle + '\'' +
+                ", inquiryContent='" + inquiryContent + '\'' +
                 ", roomNumber=" + roomNumber +
                 ", writer='" + writer + '\'' +
                 ", regDate='" + regDate + '\'' +
+                ", inquiryId=" + inquiryId +
                 '}';
     }
 }

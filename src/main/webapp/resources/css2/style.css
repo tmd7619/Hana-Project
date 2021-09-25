@@ -1633,8 +1633,8 @@ ol {
 }
 
 .listing__hero__widget div {
-    font-size: 15px;
-    color: #E1DEDE;
+    font-size: 20px;
+    color: black;
     display: inline-block;
 }
 
@@ -1905,7 +1905,7 @@ ol {
     border: 1px solid #e1e1e1;
     background: transparent;
     font-size: 15px;
-    color: #a8a8a8;
+    color: black;
     border-radius: 2px;
     margin-bottom: 20px;
 }

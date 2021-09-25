@@ -1,6 +1,7 @@
 package kr.ac.kopo.myPage.dao;
 
 import kr.ac.kopo.myPage.vo.HistoryVO;
+import kr.ac.kopo.myPage.vo.InquiryVO;
 import kr.ac.kopo.myPage.vo.PagingVO;
 
 import java.util.List;
@@ -20,6 +21,11 @@ public interface HistoryDAO {
     public int countBoard();
 
     HistoryVO selectOneHistory(int roomNumber);
+
+
+    public int insertInquiry(InquiryVO inquiryVO);
+
+    List<InquiryVO> selectAllInquiry(InquiryVO inquiryVO);
 
 
 }

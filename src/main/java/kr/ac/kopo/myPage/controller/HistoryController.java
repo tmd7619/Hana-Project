@@ -4,6 +4,7 @@ import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.myPage.service.HistoryService;
 import kr.ac.kopo.myPage.vo.HistoryVO;
+import kr.ac.kopo.myPage.vo.InquiryVO;
 import kr.ac.kopo.myPage.vo.PagingVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class HistoryController {
@@ -91,7 +93,7 @@ public class HistoryController {
         return "pb/history/historyList";
     }
 
-
+    // 상담 내역 detail + 문의글 조회
     @GetMapping("/client/historyDetail")
     public ModelAndView viewDetail(int roomNumber) {
         System.out.println("컨트롤러 넘어온 roomNumber : " + roomNumber);
@@ -99,10 +101,59 @@ public class HistoryController {
         ModelAndView mav = new ModelAndView();
 
         HistoryVO historyVO = historyService.selectOneHistory(roomNumber);
-        System.out.println("컨트롤러로 넘어온 historyVO :" + historyVO);
 
+        InquiryVO inquiryVO = new InquiryVO();
+        inquiryVO.setRoomNumber(roomNumber);
+
+        List<InquiryVO> inquiryList = historyService.selectInquiry(inquiryVO);
+
+        for (InquiryVO i : inquiryList) {
+            System.out.println("넘어온 인콰이어 : " + i);
+        }
+
+        for (int i = 0; i < inquiryList.size(); i++) {
+
+            System.out.println(inquiryList.get(i).getInquiryId());
+
+        }
+
+
+        mav.addObject("inquiryList", inquiryList);
         mav.addObject("historyVO", historyVO);
         mav.setViewName("client/myPage/historyDetail");
+
+        return mav;
+    }
+
+//    // 문의글 저장 후 목록 보이기
+//    @PostMapping("/client/register/inquiry")
+//    @ResponseBody
+//    public List<InquiryVO> registerInquiry(@RequestBody InquiryVO inquiryVO) {
+//
+//        System.out.println("컨트롤러로 넘어온 inquiryVO : " + inquiryVO);
+//
+//        List<InquiryVO> inquiryList = historyService.insertInquiry(inquiryVO);
+//
+//        return inquiryList;
+//    }
+
+    // 문의글 저장 후 목록 보이기
+    @RequestMapping("/client/register/inquiry")
+    public ModelAndView registerInquiry(@RequestBody InquiryVO inquiryVO) {
+
+        ModelAndView mav = new ModelAndView();
+
+        System.out.println("컨트롤러로 넘어온 inquiryVO : " + inquiryVO);
+
+        List<InquiryVO> inquiryList = historyService.insertInquiry(inquiryVO);
+
+        for (InquiryVO i : inquiryList) {
+            System.out.println("i : " + i);
+        }
+
+
+        mav.setViewName("client/myPage/inquiry");
+        mav.addObject("inquiryList", inquiryList);
 
         return mav;
     }

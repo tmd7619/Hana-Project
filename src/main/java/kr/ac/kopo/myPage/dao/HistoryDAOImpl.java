@@ -1,6 +1,7 @@
 package kr.ac.kopo.myPage.dao;
 
 import kr.ac.kopo.myPage.vo.HistoryVO;
+import kr.ac.kopo.myPage.vo.InquiryVO;
 import kr.ac.kopo.myPage.vo.PagingVO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,5 +57,23 @@ public class HistoryDAOImpl implements HistoryDAO {
         HistoryVO history = sqlSessionTemplate.selectOne(namespace + "selectOneHistory", roomNumber);
 
         return history;
+    }
+
+
+    @Override
+    public int insertInquiry(InquiryVO inquiryVO) {
+
+        int check = sqlSessionTemplate.insert(namespace + "insertInquiry", inquiryVO);
+
+        return check;
+    }
+
+    @Override
+    public List<InquiryVO> selectAllInquiry(InquiryVO inquiryVO) {
+        System.out.println("in dao selectAllInquiry : " + inquiryVO);
+
+        List<InquiryVO> inquiryList = sqlSessionTemplate.selectList(namespace + "selectAllInquiry", inquiryVO);
+
+        return inquiryList;
     }
 }

@@ -245,7 +245,8 @@ create table consulting_history(
     consulting_history_id number not null,
     pb_name varchar2(30) not null ,
     username varchar2(30) not null ,
-    branch_name varchar2(100) not null 
+    branch_name varchar2(100) not null ,
+    status_toggle number(1) default 0   -- 0 : 상담 완료 1 : 답변 대기 2 : 답변 완료 
 );
 
 
@@ -294,6 +295,27 @@ create table inquiry(
 drop sequence inquiry_seq ;
 CREATE SEQUENCE inquiry_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+ select inquiry_title, inquiry_content, room_number, writer, to_char(reg_date, 'yyyy-mm-dd HH24:mi') as reg_date , inquiry_id
+        from inquiry ;
+
+
+ insert into inquiry(inquiry_id, inquiry_title, inquiry_content, room_number, writer)
+        values (inquiry_seq.nextval, 'ㅇㅇ', '12312', 123123, 'ㅇㅇ');
+        
+        desc inquiry;
+
+
+        select cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
+             , room_number
+             , username
+        from consulting_history
+        where room_number = 420929;
+
 
 
 

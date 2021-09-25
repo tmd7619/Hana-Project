@@ -1,4 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -150,11 +153,48 @@
         }
 
         #mainContent {
-            border: 1px solid black;
+            border: 2px solid #008485;
             padding: 15px;
+            border-radius: 15px;
         }
 
         .listing__hero__text h2 {
+            color: black;
+            border-radius: 15px;
+        }
+
+
+        #titleSection {
+            width: 70%;
+            margin-left: 15%;
+            padding: 15px;
+        }
+
+        .listing__details__review form input {
+            width: 40%;
+            border: 2px solid #008485;
+            color: black;
+        }
+
+        .listing__details__review form textarea {
+            border: 2px solid #008485;
+            color: black;
+
+        }
+
+        #inquiryContent {
+            color: black;
+        }
+
+        #inquiryTitle {
+            color: black;
+        }
+
+        .inquiryContent {
+
+            border: 1px solid #27b2a5;
+            border-radius: 15px;
+            padding: 10px;
             color: black;
         }
 
@@ -189,86 +229,129 @@
 </section>
 
 <!-- Listing Section Begin -->
-<section class="listing-hero set-bg" data-setbg="img/listing/details/listing-hero.jpg">
-    <div class="container">
-        <div class="row" style="background-color: #f9f9f9">
-            <div class="listing__hero__option">
-                <div class="listing__hero__icon">
-                    <img src="img/listing/details/ld-icon.png" alt="">
-                </div>
-                <div class="listing__hero__text">
-                    <h2>Cosiana Sour Restaurant</h2>
-                    <div class="listing__hero__widget">
-                        <div class="listing__hero__widget__rating">
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star"></span>
-                            <span class="icon_star-half_alt"></span>
-                        </div>
-                        <div>120 Review</div>
-                    </div>
-                    <p><span class="icon_pin_alt"></span> 1012 Vesper Dr. Columbus, Georgia, United States</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</section>
+<%--<section class="listing-hero set-bg" data-setbg="img/listing/details/listing-hero.jpg">--%>
+<%--    <div class="container">--%>
+<%--        <div class="row" style="border-radius: 10px">--%>
+<%--            <div class="col-lg-12">--%>
+<%--                <div id="titleSection">--%>
+<%--                    <div class="listing__hero__option">--%>
+<%--                        <div class="listing__hero__icon">--%>
+<%--                            <img src="img/listing/details/ld-icon.png" alt="">--%>
+<%--                        </div>--%>
+<%--                        <div class="listing__hero__text" style="text-align: center;">--%>
+<%--                            <h2>상담 타이틀 : ${historyVO.csltTitle}</h2>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--                <div class="listing__hero__widget" style="float:right;margin-top: 15px">--%>
+<%--                    <div class="listing__hero__widget__rating">--%>
+<%--                        <h3>--%>
+<%--                            <div>상담 날짜 :${historyVO.csltTime}</div>--%>
+<%--                        </h3>--%>
+<%--                    </div>--%>
+<%--                </div>--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</section>--%>
 <!-- Listing Section End -->
 
 <!-- Listing Details Section Begin -->
 <section class="listing-details spad">
     <div class="container">
-        <div class="row" style="background-color: #f9f9f9">
+        <div class="row" style="background-color: #f8f9fa;border-radius: 10px">
             <div class="col-lg-12">
-                <div class="listing__details__text">
-                    <div class="listing__details__about">
-                        <h4>상담 코멘트</h4>
-                        <div id="mainContent">
-                            <p>Entries from over 70 countries cover every imaginable space; From ships to airports,
-                                museums to burger vans, from revered Michelin-starred establishments to the fleeting
-                                dynamism of pop-ups.</p>
-                            <p>The judges are the most influential global personalities from hospitality, design and
-                                lifestyle media and have previously included the Editor in Chief of Wallpaper*, Marcus
-                                Wareing and Thomas Heatherwick.
-                                The Awards are followed by over 40,000 of the most influential architects, designers,
-                                hospitality professionals and lifestyle media from around the globe.</p>
+                <div id="titleSection">
+                    <div class="listing__hero__option">
+                        <div class="listing__hero__text" style="text-align: center;margin-top: 15px;">
+                            <h2>상담 타이틀 : ${historyVO.csltTitle}</h2>
                         </div>
                     </div>
                 </div>
-                <div class="listing__details__comment">
-                    <h4>Comment</h4>
-                    <div class="listing__details__comment__item">
-                        <div class="listing__details__comment__item__pic">
-                            <img src="${pageContext.request.contextPath}/resources/pbImage.png" alt=""
-                                 style="border: 1px solid cadetblue">
+                <div class="listing__hero__widget" style="float:right;margin-top: 15px">
+                    <div class="listing__hero__widget__rating">
+                        <h3>
+                            <div>상담 날짜 : ${historyVO.csltTime}</div>
+                        </h3>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="listing__details__text">
+                    <div class="listing__details__about" style="padding: 15px;">
+                        <h4>상담 코멘트</h4>
+                        <div id="mainContent">
+                            하나금융그룹은 직원들에게 자아 실현의 기회를 제공하고, 손님의 자산 증대와 사업의 성장을 돕고, 이를 통해 사회가 번영하는데 일조하며 주주가치를 증대시키는 것을
+                            목적으로 항상 최선을 다하는 금융회사가 되겠습니다.
+                            <p>${historyVO.csltComment}</p>
                         </div>
-                        <div class="listing__details__comment__item__text">
-                            <%--                            <div class="listing__details__comment__item__rating">--%>
-                            <%--                                <i class="fa fa-star"></i>--%>
-                            <%--                                <i class="fa fa-star"></i>--%>
-                            <%--                                <i class="fa fa-star"></i>--%>
-                            <%--                                <i class="fa fa-star"></i>--%>
-                            <%--                                <i class="fa fa-star"></i>--%>
-                            <%--                            </div>--%>
-                            <span>March 22, 2019</span>
-                            <h5>Marry Jane</h5>
-                            <p>From ships to airports, museums to burger vans, from revered Michelin star
-                                establish to the fleeting dynamism of pop-ups.</p>
-                            <%--                            <ul>--%>
-                            <%--                                <li><i class="fa fa-hand-o-right"></i> Like</li>--%>
-                            <%--                                <li><i class="fa fa-share-square-o"></i> Reply</li>--%>
-                            <%--                            </ul>--%>
+                    </div>
+                </div>
+                <div id="inquiryHistory" class="listing__details__comment" style="padding:15px;">
+                    <h4>문의 내역</h4>
+                    <div class="container">
+                        <div id="ajaxInquiry" class="row">
+                            <c:forEach items="${inquiryList}" var="inquiry">
+                                <c:choose>
+                                    <c:when test="${inquiry.inquiryId mod 2 ==  1}">
+                                        <div class="col-lg-7 ">
+                                            <div class="listing__details__comment__item" style="display: block">
+                                                <div class="listing__details__comment__item__text">
+                                                    <span>${inquiry.regDate}</span>
+                                                    <div><h5>${inquiry.writer} 손님</h5>
+                                                            <%--                                                        <div class="listing__details__comment__item__pic">--%>
+                                                            <%--                                                            <img src="${pageContext.request.contextPath}/resources/pbImage.png"--%>
+                                                            <%--                                                                 alt=""--%>
+                                                            <%--                                                                 style="border: 1px solid cadetblue">--%>
+                                                            <%--                                                        </div>--%>
+
+                                                    </div>
+                                                    <div class="inquiryContent">
+                                                        <p style="color: black">문의 제목 : ${inquiry.inquiryTitle}</p>
+                                                        <p style="color: black">문의 내용 : ${inquiry.inquiryContent}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-5" style="width: 100%"></div>
+                                    </c:when>
+                                    <c:when test="${inquiry.inquiryId mod 2 eq 0}">
+                                        <div class="col-lg-5" style="width: 100%">
+                                        </div>
+                                        <div class="col-lg-7">
+                                            <div class="listing__details__comment__item" style="float: right;">
+                                                    <%--                                                <div class="listing__details__comment__item__pic">--%>
+                                                    <%--                                                    <img src="${pageContext.request.contextPath}/resources/pbImage.png"--%>
+                                                    <%--                                                         alt=""--%>
+                                                    <%--                                                         style="border: 1px solid cadetblue">--%>
+                                                    <%--                                                </div>--%>
+                                                <div class="listing__details__comment__item__text">
+                                                    <span>${inquiry.regDate}</span>
+                                                    <h5>${inquiry.writer} PB</h5>
+                                                    <div class="inquiryContent">
+                                                        <p style="color: black">문의 제목 : ${inquiry.inquiryTitle}</p>
+                                                        <p style="color: black">문의 내용 : ${inquiry.inquiryContent}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </c:when>
+                                </c:choose>
+                            </c:forEach>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="listing__details__review" style="padding: 30px; width: 100%;">
-                <h4>Add Review</h4>
-                <form action="#">
-                    <textarea placeholder="Review"></textarea>
-                    <button type="submit" class="site-btn">댓글 달기</button>
+                <h4>문의글을 남겨보세요.</h4>
+                <form id="sendForm">
+                    <input id="roomNumber" type="hidden" name="roomNumber" value="${historyVO.roomNumber}">
+                    <input id="writer" type="hidden" name="writer" value="${historyVO.username}">
+                    문의글 제목 :<br> <input id="inquiryTitle" name="inquiryTitle" type="text" placeholder="문의글 제목 입력하기">
+                    <br>
+                    문의글 내용 : <textarea id="inquiryContent" name="inquiryContent"
+                                       placeholder="남기실 문의글을 작성해보세요."></textarea>
+                    <button type="button" class="btn btn-primary" onclick="sendForm()">문의글 남기기</button>
                 </form>
             </div>
         </div>
@@ -293,5 +376,42 @@
 <script src="${pageContext.request.contextPath}/resources/css2/js/owl.carousel.min.js"></script>
 <script src="${pageContext.request.contextPath}/resources/css2/js/main.js"></script>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+
+<script>
+
+    function sendForm() {
+
+        const writer = $('#writer').val();
+        const roomNumber = $('#roomNumber').val();
+        const inquiryTitle = $('#inquiryTitle').val();
+        const inquiryContent = $('#inquiryContent').val();
+
+        const sendDate = {
+            writer, roomNumber, inquiryTitle, inquiryContent
+        }
+        console.log(sendDate)
+
+        $.ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/client/register/inquiry",
+            data: JSON.stringify(sendDate),
+            contentType: "application/json",
+            dataType: "text",
+            error: function () {
+                alert("통신실패!!!!");
+            },
+            success: function (res) {
+                console.log('inquiry ajax 성공')
+                $('#ajaxInquiry').empty();
+                $('#ajaxInquiry').append(res)
+            }
+        });
+
+
+    }
+</script>
 
 </html>
