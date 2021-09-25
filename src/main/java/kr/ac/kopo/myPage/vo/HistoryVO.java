@@ -12,6 +12,7 @@ public class HistoryVO {
     private String username;
     private String branchName;
 
+
     public String getClientId() {
         return clientId;
     }
@@ -83,6 +84,7 @@ public class HistoryVO {
     public void setBranchName(String branchName) {
         this.branchName = branchName;
     }
+
 
     @Override
     public String toString() {

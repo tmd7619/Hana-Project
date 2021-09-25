@@ -125,12 +125,11 @@
                     <div class="col-xl-8 col-lg-7">
                         <div class="card mb-4">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                <h6 class="m-0 font-weight-bold text-primary">Monthly Recap Report</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">${userVO.username} 님의 자산 현황</h6>
                                 <div class="dropdown no-arrow">
                                     <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
                                        data-toggle="dropdown"
                                        aria-haspopup="true" aria-expanded="false">
-                                        <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in"
                                          aria-labelledby="dropdownMenuLink">
@@ -142,9 +141,14 @@
                                     </div>
                                 </div>
                             </div>
+
                             <div class="card-body">
-                                <div class="chart-area">
-                                    <canvas id="myAreaChart"></canvas>
+                                <%--                                <div class="chart-area">--%>
+                                <%--                                    <canvas id="myAreaChart"></canvas>--%>
+                                <%--                                </div>--%>
+                                <div class="chart-container" style="position: relative; height:200px; width:40vw">
+                                    <canvas id="clientChart" style="margin-left: -58px;margin-top:26px;padding-left: 10px;
+                                padding-right: 10px;"></canvas>
                                 </div>
                             </div>
                         </div>
@@ -308,24 +312,123 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!---Container Fluid-->
             </div>
+            <!---Container Fluid-->
         </div>
     </div>
+</div>
 
-    <!-- Scroll to top -->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
+<!-- Scroll to top -->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
 
-    <script src="${pageContext.request.contextPath}/resources/admin/vendor/jquery/jquery.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin/js/ruang-admin.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin/vendor/chart.js/Chart.min.js"></script>
-    <script src="${pageContext.request.contextPath}/resources/admin/js/demo/chart-area-demo.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/vendor/jquery/jquery.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/vendor/jquery-easing/jquery.easing.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/js/ruang-admin.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/vendor/chart.js/Chart.min.js"></script>
+<script src="${pageContext.request.contextPath}/resources/admin/js/demo/chart-area-demo.js"></script>
+<script>
+    $(document).ready(function () {
+
+
+    })
+
+
+    var userId = {
+        userId: "${userVO.userId}"
+    }
+    console.log(userId)
+
+    var clientAssets;
+    var deposit;
+    var fund;
+    var bond;
+    var wrap;
+    var stock;
+
+    /* 고객 자산 정보 가져오기  */
+    $
+        .ajax({
+            type: "POST",
+            url: "${pageContext.request.contextPath}/client/assets",
+            data: JSON.stringify(userId),
+            contentType: "application/json; charset=utf-8;",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                deposit = res.deposit
+                fund = res.fund
+                bond = res.bond
+                wrapAccount = res.wrapAccount
+                stock = res.stock
+
+                var ctx = document.getElementById("clientChart")
+                    .getContext("2d");
+                var myPie = new Chart(
+                    ctx,
+                    {
+                        type: 'pie',
+                        data: {
+                            labels: ["예금", "펀드", "랩어카운트", "주식",
+                                "채권"],
+                            datasets: [{
+                                backgroundColor: ["#00b638",
+                                    "#efaa30", "#50c8ea",
+                                    "#3cba9f", "#e8c3b9"],
+                                data: [deposit, fund,
+                                    wrapAccount, stock, bond]
+                            }],
+                        },
+                        options: {
+                            title: {
+                                display: true,
+                                text: '${userVO.username} 고객님의 자산 보유 현황',
+                                fontStyle: 'bold',
+                                fontSize: 20,
+                                maintainAspectRatio: false,
+                            },
+                            tooltips: {
+                                callbacks: {
+                                    // this callback is used to create the tooltip label
+                                    label: function (tooltipItem,
+                                                     data) {
+                                        // get the data label and data value to display
+                                        // convert the data value to local string so it uses a comma seperated number
+                                        var dataLabel = data.labels[tooltipItem.index];
+                                        var value = ': '
+                                            + data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index]
+                                                .toLocaleString();
+
+                                        // make this isn't a multi-line label (e.g. [["label 1 - line 1, "line 2, ], [etc...]])
+                                        if (Chart.helpers
+                                            .isArray(dataLabel)) {
+                                            // show value on first line of multiline label
+                                            // need to clone because we are changing the value
+                                            dataLabel = dataLabel
+                                                .slice();
+                                            dataLabel[0] += value;
+                                        } else {
+                                            dataLabel += value;
+                                        }
+
+                                        // return the text to display on the tooltip
+                                        return dataLabel;
+                                    }
+                                }
+                            }
+                        }
+                    });
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+            }
+        });
+
+
+</script>
+
 </body>
 
 </html>

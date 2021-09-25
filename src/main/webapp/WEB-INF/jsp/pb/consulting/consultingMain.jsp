@@ -534,7 +534,7 @@
                             <%--                                </iframe>--%>
                             <iframe id="webrtc" src="https://localhost:3030/4531"
                                     allow="camera *;microphone *;autoplay;display-capture;fullscreen"
-                                    style="border: 2px solid black">
+                                    style="border: 2px solid black;visibility: hidden">
                             </iframe>
                         </div>
                     </div>
@@ -546,13 +546,13 @@
 
                         <!-- Donut Chart -->
                         <div class="card shadow mb-4">
+
                             <div class="card-header py-3">
                                 <h6 class="m-0 font-weight-bold text-primary">고객 자산 현황</h6>
                             </div>
-                            <div class="card-body">
-                                <canvas id="clientChart"></canvas>
-                                <!--      <div class="chart-pie pt-4">
-                            </div> -->
+                            <div class="chart-container" style="position: relative; height:200px; width:40vw">
+                                <canvas id="clientChart" style="margin-left: -58px;margin-top:26px;padding-left: 10px;
+                                padding-right: 10px;"></canvas>
                             </div>
                         </div>
                     </div>
@@ -605,6 +605,13 @@
     </div>
 </div>
 <script>
+
+    $(document).ready(function () {
+
+
+    })
+
+
     var userId = {
         userId: "${userVO.userId}"
     }
@@ -655,7 +662,8 @@
                                 display: true,
                                 text: '${userVO.username} 고객님의 자산 보유 현황',
                                 fontStyle: 'bold',
-                                fontSize: 20
+                                fontSize: 20,
+                                maintainAspectRatio: false,
                             },
                             tooltips: {
                                 callbacks: {

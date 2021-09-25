@@ -241,11 +241,11 @@ create table consulting_history(
     pb_code_num number(6) not null,
     cslt_time date default sysdate, -- 상담 종료 시간 
     cslt_title varchar2(200) not null,
-    cslt_comment varchar2(500) not null,
+    cslt_comment varchar2(500) not null, -- pb가 남긴 코멘트 
     consulting_history_id number not null,
     pb_name varchar2(30) not null ,
     username varchar2(30) not null ,
-    branch_name varchar2(100) not null
+    branch_name varchar2(100) not null 
 );
 
 
@@ -276,5 +276,24 @@ SELECT cslt_title
 
 select * from consulting_history;
 select to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time from consulting_history;
+
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+drop table inquiry ;
+create table inquiry(
+    inquiry_id number primary key,
+    inquiry_title varchar2(100) not null ,
+    inquiry_content varchar2(1000) not null,
+    room_number number(6) ,
+    writer varchar2(50) not null , 
+    reg_date date default sysdate 
+    
+);
+
+drop sequence inquiry_seq ;
+CREATE SEQUENCE inquiry_seq  MINVALUE 1 MAXVALUE 9999  
+INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
 
 

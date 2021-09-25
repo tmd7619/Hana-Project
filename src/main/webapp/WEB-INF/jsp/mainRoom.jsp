@@ -193,6 +193,12 @@
                 wsOpen();
                 $("#yourName").hide();
                 $("#yourMsg").show();
+                $(function () {
+                    $('#webrtc').css({
+                        "visibility": "visible"
+                    })
+
+                })
             }
         }
 
@@ -216,12 +222,10 @@
 
 <div class="col-xl-4 col-lg-5 ">
     <div class="card">
-        <div
-                class="card-header py-4 bg-primary d-flex flex-row align-items-center justify-content-between">
-            <i id="bubble" class="fas fa-comments fa-2x text-warning"></i>
+        <div class="card-header py-4 bg-primary d-flex flex-row align-items-center ">
+            <i id="bubble" class="fas fa-comments fa-2x text-warning" style="padding-right: 10px"></i>
+            <h6 class="m-0 font-weight-bold text-light" style="float: left">${bankerVO.pbName} PB의 채팅상담</h6>
 
-            <h6 class="m-0 font-weight-bold text-light">${roomVO.pbName}PB의 채팅
-                상담</h6>
         </div>
         <div>
             <input type="hidden" id="sessionId" value=""> <input
@@ -233,10 +237,10 @@
                     <table class="inputTable">
                         <tr>
                             <c:if test="${empty userVO}">
-                                <th>인증번호 입력 :</th>
+                                <th>인증번호 :</th>
                             </c:if>
                             <c:if test="${not empty userVO}">
-                                <th>인증번호 입력 :</th>
+                                <th>인증번호 :</th>
                             </c:if>
                             <th><input class="checkNum" type="password" name="userName"
                                        id="userName" style="margin-left: 15px"></th>
@@ -251,7 +255,7 @@
                 <div id="yourMsg">
                     <table class="inputTable">
                         <tr>
-                            <th>메시지 입력 :</th>
+                            <th>메시지 :</th>
                             <th><input style="margin-left: 15px;width: 130px;" id="chatting"
                                        placeholder="  메시지입력"></th>
                             <th>

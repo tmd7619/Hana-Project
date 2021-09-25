@@ -38,4 +38,13 @@ public class HistoryServiceImpl implements HistoryService {
         List<HistoryVO> historyList = historyDAO.selectAllHistoryByBanker(vo);
         return historyList;
     }
+
+
+    @Override
+    public HistoryVO selectOneHistory(int roomNumber) {
+
+        HistoryVO history = historyDAO.selectOneHistory(roomNumber);
+
+        return history;
+    }
 }

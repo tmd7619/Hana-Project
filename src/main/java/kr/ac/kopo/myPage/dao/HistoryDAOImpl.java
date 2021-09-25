@@ -49,4 +49,12 @@ public class HistoryDAOImpl implements HistoryDAO {
         int rowNum = sqlSessionTemplate.selectOne(namespace + "countBoard");
         return rowNum;
     }
+
+    @Override
+    public HistoryVO selectOneHistory(int roomNumber) {
+
+        HistoryVO history = sqlSessionTemplate.selectOne(namespace + "selectOneHistory", roomNumber);
+
+        return history;
+    }
 }

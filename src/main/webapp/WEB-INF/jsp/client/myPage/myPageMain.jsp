@@ -258,8 +258,8 @@
                     <a href="${pageContext.request.contextPath}/client/myPage/myInfo">
                         <img id="myPBimage" src="${pageContext.request.contextPath}/resources/images/myPB.png">
                     </a>
-                    <h5>내 정보 조회</h5>
-                    <p>내 자산 조회, 상담에 관한 전반적인 정보를 조회할 수 있습니다.</p>
+                    <h5>PB에게 문의하기</h5>
+                    <p>상담을 진행했던 PB 직원에게 투자 상담 관련 문의를 진행할 수 있습니다.</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6">

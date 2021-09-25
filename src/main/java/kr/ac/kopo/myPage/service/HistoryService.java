@@ -10,10 +10,12 @@ public interface HistoryService {
     void saveHistory(HistoryVO historyVO);
 
     // 페이징 처리 History 조회
-    List<HistoryVO> selectAllHistory(PagingVO vo);
+    public List<HistoryVO> selectAllHistory(PagingVO vo);
 
     // pb history 조회
-    List<HistoryVO> selectAllHistoryByBanker(PagingVO vo);
+    public List<HistoryVO> selectAllHistoryByBanker(PagingVO vo);
+
+    public HistoryVO selectOneHistory(int roomNumber);
 
     // 게시물 총 갯수
     public int countBoard();

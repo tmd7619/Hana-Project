@@ -73,4 +73,17 @@
           and pb_code_num = #{pbCodeNum}
     </select>
 
+    <select id="selectOneHistory" resultMap="historyMap" parameterType="int">
+        select cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
+             , room_number
+             , username
+        from consulting_history
+        where room_number = #{roomNumber}
+    </select>
+
+
 </mapper>

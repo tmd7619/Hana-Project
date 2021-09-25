@@ -23,7 +23,7 @@ public class MyPageController {
     @RequestMapping("/client/myPage/myInfo")
     public String viewMyInfo() {
 
-        return "client/myPage/myInfo";
+        return "client/myPage/qna";
     }
 
 

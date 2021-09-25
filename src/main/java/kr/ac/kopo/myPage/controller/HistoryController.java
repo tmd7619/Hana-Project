@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpSession;
 
@@ -87,8 +88,23 @@ public class HistoryController {
         model.addAttribute("paging", vo);
         model.addAttribute("historyList", historyService.selectAllHistoryByBanker(vo));
 
-
         return "pb/history/historyList";
+    }
+
+
+    @GetMapping("/client/historyDetail")
+    public ModelAndView viewDetail(int roomNumber) {
+        System.out.println("컨트롤러 넘어온 roomNumber : " + roomNumber);
+
+        ModelAndView mav = new ModelAndView();
+
+        HistoryVO historyVO = historyService.selectOneHistory(roomNumber);
+        System.out.println("컨트롤러로 넘어온 historyVO :" + historyVO);
+
+        mav.addObject("historyVO", historyVO);
+        mav.setViewName("client/myPage/historyDetail");
+
+        return mav;
     }
 
 

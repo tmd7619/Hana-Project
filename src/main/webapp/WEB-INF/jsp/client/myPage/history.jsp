@@ -16,60 +16,40 @@
 
     <!-- Google Font -->
     <%--    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">--%>
-
     <!-- Css Styles -->
-    <link
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-            rel="stylesheet">
     <link rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+          href="${pageContext.request.contextPath}/resources/css2/bootstrap.min.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/animate.css">
+          href="${pageContext.request.contextPath}/resources/css2/font-awesome.min.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+          href="${pageContext.request.contextPath}/resources/css2/elegant-icons.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/owl.theme.default.min.css">
+          href="${pageContext.request.contextPath}/resources/css2/flaticon.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+          href="${pageContext.request.contextPath}/resources/css2/nice-select.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/flaticon.css">
+          href="${pageContext.request.contextPath}/resources/css2/barfiller.css"
+          type="text/css">
     <link rel="stylesheet"
-          href="${pageContext.request.contextPath}/resources/css/style.css">
-
-    <!-- Css Styles -->
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/bootstrap.min.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/font-awesome.min.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/elegant-icons.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/flaticon.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/nice-select.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/barfiller.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/magnific-popup.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/jquery-ui.min.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css"--%>
-    <%--          type="text/css">--%>
-    <%--    <link rel="stylesheet"--%>
-    <%--          href="${pageContext.request.contextPath}/resources/css2/style.css"--%>
-    <%--          type="text/css">--%>
+          href="${pageContext.request.contextPath}/resources/css2/magnific-popup.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css2/jquery-ui.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css2/owl.carousel.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css2/slicknav.min.css"
+          type="text/css">
+    <link rel="stylesheet"
+          href="${pageContext.request.contextPath}/resources/css2/style.css"
+          type="text/css">
 
 
     <style>
@@ -269,15 +249,14 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${historyList}" var="history" varStatus="loop">
+                        <input class="roomNumber" type="hidden" value="${history.roomNumber}"/>
                         <tr>
                             <td><a href="#"><c:out value="${history.csltTime}"/></a></td>
                             <td><c:out value="${history.branchName} ${history.pbName}"/></td>
                             <td>${history.csltTitle}</td>
                             <td><span class="badge badge-success">상담완료</span></td>
                             <td>
-                                <button type="button" class="btn btn-primary" data-toggle="modal"
-                                        data-target="#exampleModal"
-                                        id="#myBtn">
+                                <button type="button" class="btn btn-primary">
                                     Detail
                                 </button>
                             </td>
@@ -351,7 +330,17 @@
 <script
         src="${pageContext.request.contextPath}/resources/css2/js/bootstrap.min.js"></script>
 
+<script src="${pageContext.request.contextPath}/resources/css2/js/jquery-3.3.1.min.js"></script>
+<script>
+    $('.btn.btn-primary').click(function () {
+        var parent = $(this).parents('.table-responsive')
+        const roomNumber = parent.find('.roomNumber').val();
+        console.log(roomNumber)
+        location.href = "${pageContext.request.contextPath}/client/historyDetail?roomNumber=" + roomNumber
 
+    })
+
+</script>
 </body>
 
 </html>

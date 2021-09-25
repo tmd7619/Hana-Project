@@ -15,7 +15,6 @@
     <link href="${pageContext.request.contextPath}/resources/css2/nice-select.css">
 </head>
 
-
 <body>
 
 <div>
@@ -27,12 +26,10 @@
     <iframe id="webrtc" src="https://localhost:3030/4531"
     <%--    <iframe id="webrtc" src="https://3874-117-111-17-101.ngrok.io"--%>
             allow="camera *;microphone *;autoplay;display-capture;fullscreen"
-            style="border: 2px solid black;width: 1076px; height: 406px;margin-top: -27px;">
+            style="border: 2px solid black;width: 1076px; height: 410px;margin-top: -27px;visibility: hidden">
     </iframe>
 </div>
 <div id="chatView" class="row mb-3">
-
-
 </div>
 
 </body>
@@ -51,9 +48,10 @@
         success: function (res) {
             console.log('ajax통신 성공')
             $('#chatView').append(res)
-
         }
     });
+
+
 </script>
 
 </html>

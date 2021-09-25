@@ -19,5 +19,7 @@ public interface HistoryDAO {
     // 게시물 총 갯수
     public int countBoard();
 
+    HistoryVO selectOneHistory(int roomNumber);
+
 
 }
