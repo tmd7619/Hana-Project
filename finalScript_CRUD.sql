@@ -14,21 +14,22 @@ commit;
 
 -- pb_table--------------------------------------------------------------------------------
 
+--친절한,공감하는,예약시간준수,유쾌한,해결사,명쾌한,세심한,쉽고친절한,든든한
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
     values(Private_banker_seq.nextval,'test3' ,'1234','김피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#친절한  #유쾌한  #웃음이많은  #신속해결사' ,123123
+        , '#든든한 #믿음직한 #예약시간준수' ,123123
         
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , code_num)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , code_num , tag_name)
     values(Private_banker_seq.nextval,'test4' ,'1234','윤피비', '과장' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '주식 분야' ,
-        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' ,121212
+        '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' ,121212,'유쾌한,해결사'
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
@@ -36,7 +37,7 @@ insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
     values(Private_banker_seq.nextval,'test5' ,'1234','박피비', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '광명지점' , '예금 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#진중한  #믿음직한' ,212121
+        , '#든든한  #믿음직한' ,212121
 
 );
 

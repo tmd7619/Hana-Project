@@ -93,7 +93,6 @@ pb_phone             VARCHAR2(30)  ,
 pb_email             VARCHAR2(100) , -- pb email
 branch_name          VARCHAR2(50) NOT  NULL ,
 tag_name             VARCHAR2(200) ,  -- 해시태그 
-user_id              VARCHAR2(50) ,  -- 관리중인 고객 
 main_field           VARCHAR2(50) , -- 담당 분야
 intro_content        VARCHAR2(300) , -- 소개글 
 main_content          VARCHAR2(1000) -- 메인 소개

@@ -95,4 +95,20 @@
     </select>
 
 
+    <select id="searchByTagName" parameterType="String" resultMap="bankerMap">
+        select pb_name
+             , pb_rank
+             , pb_phone
+             , pb_email
+             , branch_name
+             , tag_name
+             , main_field
+             , main_content
+             , intro_content
+             , code_num
+        from private_banker
+        where tag_name like '%${tagName}%'
+    </select>
+
+
 </mapper>

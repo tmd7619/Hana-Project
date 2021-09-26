@@ -121,8 +121,6 @@
         update consulting_history
         set status_toggle = #{statusToggle}
         where room_number = #{roomNumber}
-
-
     </update>
 
 </mapper>

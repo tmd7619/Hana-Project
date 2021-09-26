@@ -24,7 +24,7 @@ public class ReservationController {
 
     // Main searchList
     @RequestMapping("/client/searchList")
-    public ModelAndView searchList(HttpSession session){
+    public ModelAndView searchList(HttpSession session) {
         ModelAndView mav = new ModelAndView();
 
         LocalDate now = LocalDate.now(); // 현재 날짜
@@ -33,30 +33,30 @@ public class ReservationController {
         List<BankerVO> checkBankerList = service.availableSearchBanker(now.toString()); // 현재 날짜의 상담 예약이 있는 pb들 조회
 
         // 상담 가능한 PB 조회
-        for(int i = 0; i < bankerVOList.size(); i ++){
-            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-                if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
+        for (int i = 0; i < bankerVOList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())) {
                     bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
                 }
             }
         }
         // 즐겨찾기 pb 조회
-        ClientVO clientVO = (ClientVO)session.getAttribute("userVO");
+        ClientVO clientVO = (ClientVO) session.getAttribute("userVO");
         List<BankerVO> favoriteList = service.selectByFavorite(clientVO);
 
 
         // 상담 가능한 PB 조회
-        for(int i = 0; i < favoriteList.size(); i ++){
-            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-                if(checkBankerList.get(j).getPbName().equals(favoriteList.get(i).getPbName())){
+        for (int i = 0; i < favoriteList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(favoriteList.get(i).getPbName())) {
                     favoriteList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
                 }
             }
         }
 
-        mav.addObject("favoriteList" , favoriteList);
-        mav.addObject("schedulerDate" , now.toString());
-        mav.addObject("bankerList" , bankerVOList);
+        mav.addObject("favoriteList", favoriteList);
+        mav.addObject("schedulerDate", now.toString());
+        mav.addObject("bankerList", bankerVOList);
         mav.setViewName("client/searchBanker/bankerList");
 
         return mav;
@@ -77,60 +77,93 @@ public class ReservationController {
         }
         return "예약완료";
     }
-    
+
     @GetMapping("/client/searchBySector")
-    public ModelAndView searchBySector(HttpServletRequest request){
+    public ModelAndView searchBySector(HttpServletRequest request) {
 
         ModelAndView mav = new ModelAndView();
 
-        String sector = (String)request.getParameter("sector");
-        String date = (String)request.getParameter("schedulerDate");
+        String sector = (String) request.getParameter("sector");
+        String date = (String) request.getParameter("schedulerDate");
 
         List<BankerVO> bankerVOList = service.searchBySector(sector);
         List<BankerVO> checkBankerList = service.availableSearchBanker(date.trim());
 
-        for(BankerVO b :bankerVOList){
+        for (BankerVO b : bankerVOList) {
             System.out.println(b);
         }
         // 상담 가능한 PB 조회
-        for(int i = 0; i < bankerVOList.size(); i ++){
-            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-                if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
+        for (int i = 0; i < bankerVOList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())) {
                     bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
                 }
             }
         }
-        mav.addObject("sector" , sector);
-        mav.addObject("schedulerDate" , date);
-        mav.addObject("bankerList" , bankerVOList);
+        mav.addObject("sector", sector);
+        mav.addObject("schedulerDate", date);
+        mav.addObject("bankerList", bankerVOList);
         mav.setViewName("client/searchBanker/bankerList");
 
         return mav;
     }
 
     @PostMapping("/client/searchDate")
-    public ModelAndView searchDate(HttpServletRequest request){
+    public ModelAndView searchDate(HttpServletRequest request) {
 
 
-        String sector = (String)request.getParameter("sector");
-        String date = (String)request.getParameter("schedulerDate").trim();
+        String sector = (String) request.getParameter("sector");
+        String date = (String) request.getParameter("schedulerDate").trim();
 
         List<BankerVO> bankerVOList = service.searchBySector(sector);
         List<BankerVO> checkBankerList = service.availableSearchBanker(date);
 
         // 상담 가능한 PB 조회
-        for(int i = 0; i < bankerVOList.size(); i ++){
-            for(int j = 0 ; j < checkBankerList.size() ; j ++ ){
-                if(checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())){
+        for (int i = 0; i < bankerVOList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())) {
                     bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
                 }
             }
         }
         ModelAndView mav = new ModelAndView();
-        mav.addObject("schedulerDate" , date);
-        mav.addObject("bankerList" , bankerVOList);
-        mav.addObject("sector" , sector);
+        mav.addObject("schedulerDate", date);
+        mav.addObject("bankerList", bankerVOList);
+        mav.addObject("sector", sector);
         mav.setViewName("client/searchBanker/bankerList");
+        return mav;
+    }
+
+    @GetMapping("/search/tagName")
+    public ModelAndView searchTagName(String tagName, HttpServletRequest request) {
+
+
+        ModelAndView mav = new ModelAndView();
+
+        String date = (String) request.getParameter("schedulerDate");
+
+
+        System.out.println("넘어온 tagName ? : " + tagName);
+
+        List<BankerVO> bankerVOList = service.searchByTagName(tagName.trim());
+        List<BankerVO> checkBankerList = service.availableSearchBanker(date.trim());
+
+
+        // 상담 가능한 PB 조회
+        for (int i = 0; i < bankerVOList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())) {
+                    bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
+                }
+            }
+        }
+
+
+        mav.addObject("targetTagName", tagName);
+        mav.addObject("schedulerDate", date);
+        mav.addObject("bankerList", bankerVOList);
+        mav.setViewName("client/searchBanker/bankerList");
+
         return mav;
     }
 

@@ -30,9 +30,9 @@ public class ReservationDAOImpl implements ReservationDAO {
     public List<BankerVO> availableSearchBanker(String date) {
 
 
-        List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace +"availableSearchBanker" , date.trim());
+        List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace + "availableSearchBanker", date.trim());
 
-        for(BankerVO b :impossibleBankerList){
+        for (BankerVO b : impossibleBankerList) {
             System.out.println("checkList 어떻게 넘어옴 ? : " + impossibleBankerList);
         }
 
@@ -43,8 +43,8 @@ public class ReservationDAOImpl implements ReservationDAO {
     @Override
     public int insertReservation(ReservationVO reservationVO) {
 
-        int check = sqlSessionTemplate.insert(namespace +"insertReservation" , reservationVO);
-        if(check != 0){
+        int check = sqlSessionTemplate.insert(namespace + "insertReservation", reservationVO);
+        if (check != 0) {
             System.out.println("에약 정보 insert 완료");
         }
 
@@ -52,20 +52,29 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     }
 
-	@Override
-	public List<BankerVO> searchBySector(String sector) {
-			
-		 List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchBySector" , sector.trim());
+    @Override
+    public List<BankerVO> searchBySector(String sector) {
 
-		return bankerList;
-	}
+        List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchBySector", sector.trim());
+
+        return bankerList;
+    }
 
 
     @Override
     public List<BankerVO> selectByFavorite(ClientVO clientVO) {
 
-        List<BankerVO> favoriteList = sqlSessionTemplate.selectList(namespace + "selectByFavorite" , clientVO.getUsername());
+        List<BankerVO> favoriteList = sqlSessionTemplate.selectList(namespace + "selectByFavorite", clientVO.getUsername());
 
         return favoriteList;
+    }
+
+    @Override
+    public List<BankerVO> searchByTagName(String tagName) {
+
+        List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchByTagName", tagName);
+
+
+        return bankerList;
     }
 }

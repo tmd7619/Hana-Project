@@ -93,7 +93,7 @@
         }
 
         #tagName {
-            color: #27b2a5;
+            color: black;
             font-weight: normal;
         }
 
@@ -463,7 +463,7 @@
                                     </li>
                                 </c:if>
                             </ul>
-                            <div id="tagName">
+                            <div class="tagNames" id="tagName">
                                 <c:out value="${favorite.tagName}"/>
                             </div>
                         </div>
@@ -626,26 +626,35 @@
                     </div>
                     <div class="blog__sidebar__tags" style="margin-bottom: 50px">
                         <h5>인기 태그 검색</h5>
-                        <a class="tagName" href="#">친절한</a>
-                        <a class="tagName" href="#">공감하는</a>
-                        <a class="tagName" href="#">예약시간준수</a>
-                        <a class="tagName" href="#">유쾌한</a>
-                        <a class="tagName" href="#">해결사</a>
-                        <a class="tagName" href="#">명쾌한</a>
-                        <a class="tagName" href="#">세심한</a>
-                        <a class="tagName" href="#">쉽고친절한</a>
-                        <a class="tagName" href="#">든든한</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=친절한&schedulerDate=${schedulerDate}">친절한</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=공감하는">공감하는</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=예약시간준수&schedulerDate=${schedulerDate}">예약시간준수</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=유쾌한&schedulerDate=${schedulerDate}">유쾌한</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=해결사&schedulerDate=${schedulerDate}">해결사</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=명쾌한&schedulerDate=${schedulerDate}">명쾌한</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=세심한&schedulerDate=${schedulerDate}">세심한</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=쉽고친절한">쉽고친절한</a>
+                        <a class="tagName"
+                           href="${pageContext.request.contextPath}/search/tagName?tagName=든든한&schedulerDate=${schedulerDate}">든든한</a>
                     </div>
-                    <div class="blog__sidebar__categories">
-                        <h5>TOP 5 조회 목록</h5>
-                        <ul>
-                            <li><a href="#">Finance <span>18</span></a></li>
-                            <li><a href="#">Business <span>20</span></a></li>
-                            <li><a href="#">Loan <span>07</span></a></li>
-                            <li><a href="#">Consulting <span>22</span></a></li>
-                            <li><a href="#">Credit <span>19</span></a></li>
-                        </ul>
-                    </div>
+                    <%--                    <div class="blog__sidebar__categories">--%>
+                    <%--                        <h5>TOP 5 조회 목록</h5>--%>
+                    <%--                        <ul>--%>
+                    <%--                            <li><a href="#">Finance <span>18</span></a></li>--%>
+                    <%--                            <li><a href="#">Business <span>20</span></a></li>--%>
+                    <%--                            <li><a href="#">Loan <span>07</span></a></li>--%>
+                    <%--                            <li><a href="#">Consulting <span>22</span></a></li>--%>
+                    <%--                            <li><a href="#">Credit <span>19</span></a></li>--%>
+                    <%--                        </ul>--%>
+                    <%--                    </div>--%>
                     <div class="blog__sidebar__recent">
                         <h5>최근 다른 손님과 상담한 PB</h5>
                         <a href="#" class="blog__sidebar__recent__item">
@@ -1051,6 +1060,13 @@
             return false;
         });
     });
+
+    // 태그 네임 색상 변경하기
+    if ('${requestScope.targetTagName}'.trim()) {
+        $("div:contains('${targetTagName}')").css({color: "#008485"});
+        console.log('${targetTagName}')
+    } else {
+    }
 </script>
 
 
