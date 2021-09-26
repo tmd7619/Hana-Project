@@ -311,8 +311,10 @@
 
                                                     </div>
                                                     <div class="inquiryContent">
-                                                        <p style="color: black">문의 제목 : ${inquiry.inquiryTitle}</p>
-                                                        <p style="color: black">문의 내용 : ${inquiry.inquiryContent}</p>
+                                                        <p style="color: black"><strong>문의 제목
+                                                            : </strong> ${inquiry.inquiryTitle}</p>
+                                                        <p style="color: black"><strong>문의 내용
+                                                            :</strong> ${inquiry.inquiryContent}</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -332,9 +334,11 @@
                                                 <div class="listing__details__comment__item__text">
                                                     <span>${inquiry.regDate}</span>
                                                     <h5>${inquiry.writer} PB</h5>
-                                                    <div class="inquiryContent">
-                                                        <p style="color: black">문의 제목 : ${inquiry.inquiryTitle}</p>
-                                                        <p style="color: black">문의 내용 : ${inquiry.inquiryContent}</p>
+                                                    <div class="inquiryContent" style="border-color: red">
+                                                        <p style="color: black"><strong>답변 제목</strong>
+                                                            : ${inquiry.inquiryTitle}</p>
+                                                        <p style="color: black"><strong>답변 내용
+                                                            :</strong> ${inquiry.inquiryContent}</p>
                                                     </div>
                                                 </div>
                                             </div>
