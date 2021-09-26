@@ -50,7 +50,21 @@
     <link href='${pageContext.request.contextPath}/resources/fullcalendar/packages/timegrid/main.css' rel='stylesheet'/>
     <link href='${pageContext.request.contextPath}/resources/fullcalendar/packages/list/main.css' rel='stylesheet'/>
     <!-- 템플릿 custom end -->
+    <style>
+        .add-button :focus {
+            outline: none;
+            border-color: #27b2a5;
+        }
 
+        .add-button :hover {
+            color: #27b2a5;
+        }
+
+        * {
+            font-weight: 1000;
+        }
+
+    </style>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
 
@@ -71,22 +85,36 @@
                 editable: true,
                 nowIndicator: true, // 현재 시간 마크
                 events: [
+
                     <%
                             for (int i = 0; i < list.size(); i++) {
                                 SchedulerVO dto = (SchedulerVO)list.get(i);
+                                if(dto.getStatusToggle() == 1){
                     %>
                     {
                         title: '<%= dto.getTitle() %>',
                         start: '<%= dto.getStartDate() %>',
                         end: '<%= dto.getEndDate() %>',
-                        backgroundColor: "#27b2a5",
+                        backgroundColor: "#DBF1EF",
                         textColor: "white",
                         color: "white",
-                        borderColor: "#27b2a5",
+                        borderColor: "#DBF1EF",
                     },
                     <%
-                        }
-                    %>
+                        }else { %>
+                    {
+                        title: '<%= dto.getTitle() %>',
+                        start: '<%= dto.getStartDate() %>',
+                        end: '<%= dto.getEndDate() %>',
+                        backgroundColor: "gold",
+                        textColor: "white",
+                        color: "white",
+                        borderColor: "gold",
+                    },
+                    <%
+                                    }
+                            }
+                        %>
                     {
                         title: 'defult',
                         start: "2019-01-01",
@@ -149,7 +177,8 @@
                             <!-- schedule start -->
                             <div id='calendar' style="position : relative;">
                                 <div>
-                                    <button style="background-color: #27b2a5" class="add-button" type="button"
+                                    <button style="background-color: #27b2a5;border-color: #27b2a5" class="add-button"
+                                            type="button"
                                             onclick="click_add();">일정 추가
                                     </button>
                                 </div>
@@ -243,6 +272,11 @@
 <script src='${pageContext.request.contextPath}/resources/fullcalendar/packages/daygrid/main.js'></script>
 <script src='${pageContext.request.contextPath}/resources/fullcalendar/packages/timegrid/main.js'></script>
 <script src='${pageContext.request.contextPath}/resources/fullcalendar/packages/list/main.js'></script>
+
+<script>
+
+
+</script>
 
 </body>
 

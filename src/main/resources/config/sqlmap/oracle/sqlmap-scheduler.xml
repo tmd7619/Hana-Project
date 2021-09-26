@@ -12,6 +12,7 @@
         <result column="end_time" property="endTime"/>
         <result column="pb_branch_name" property="pbBranchName"/>
         <result column="pb_name" property="pbName"/>
+        <result column="status_toggle" property="statusToggle"/>
     </resultMap>
 
     <!--e
@@ -28,7 +29,9 @@
 title,
 start_date,
 end_date,
-memo
+memo,
+status_toggle
+
         FROM pb_scheduler
         WHERE pb_Name = #{pbName}
           and pb_branch_name = #{branchName}
@@ -36,9 +39,9 @@ memo
 
     <insert id="addSchedule" parameterType="schedulerVO">
         INSERT INTO pb_scheduler(pb_scheduler_id, title, start_date, end_date, memo, start_time, end_time,
-                                 pb_name, pb_branch_name, impossible)
+                                 pb_name, pb_branch_name, impossible, status_toggle)
         VALUES (pb_scheduler_seq.nextval, #{title}, #{startDate}, #{endDate}, #{memo}, #{startTime}, #{endTime},
-                #{pbName}, #{pbBranchName}, #{impossible})
+                #{pbName}, #{pbBranchName}, #{impossible}, #{statusToggle})
     </insert>
 
 

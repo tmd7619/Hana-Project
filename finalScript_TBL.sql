@@ -140,7 +140,8 @@ create table pb_scheduler(
     pb_branch_name varchar2(50) not null,
     impossible number(1) not null , -- 1 : 10시 ~ 11시 마감 ......
     start_time varchar2(50) ,
-    end_time varchar2(50)
+    end_time varchar2(50) , 
+    status_toggle number(1) default 0 -- 0 :온라인 (고객예약시 등록) 1 :  오프라인(PB등록)
 );
 
 drop sequence pb_scheduler_seq;
@@ -295,6 +296,7 @@ create table inquiry(
 drop sequence inquiry_seq ;
 CREATE SEQUENCE inquiry_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
 
  select inquiry_title, inquiry_content, room_number, writer, to_char(reg_date, 'yyyy-mm-dd HH24:mi') as reg_date , inquiry_id
         from inquiry ;

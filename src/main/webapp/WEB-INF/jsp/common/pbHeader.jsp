@@ -352,52 +352,24 @@
         </style>
     </head>
 
+
     <!-- The Modal -->
     <div id="myModal" class="modal">
         <!-- Modal content -->
         <div id="modal-content">
             <div class="login-form">
-
-                <h2>고객 로그인</h2>
-                <form action="${pageContext.request.contextPath }/login" method="post" name="loginForm">
-                    <div class="group-input">
-                        <label for="userId">UserID </label>
-                        <input type="text" id="userId" name="userId">
-                    </div>
-                    <div class="group-input">
-                        <label for="password">Password </label>
-                        <input type="password" id="password" name="password">
-                    </div>
-                    <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In
-                    </button>
-                </form>
-                <div class="switch-login">
-                    <a href="<%=request.getContextPath() %>/register.do" class="or-login">Or Create An Account</a>
-                </div>
-            </div>
-        </div>
-
-    </div>
-    <!--End Modal-->
-
-    <!-- The Modal -->
-    <div id="myModal2" class="modal2">
-        <!-- Modal content -->
-        <div id="modal-content2">
-            <div class="login-form">
-
                 <h2>PB 로그인</h2>
                 <form action="${pageContext.request.contextPath }/pb/login" method="post" name="loginForm">
                     <div class="group-input">
-                        <label for="userId">UserID </label>
-                        <input type="text" id="아이디 입력" name="pbId">
+                        <label for="userId">PB 아이디 </label>
+                        <input type="text" id="userId" name="pbId">
                     </div>
                     <div class="group-input">
-                        <label for="password">Password </label>
-                        <input type="password" id="패스워드 입력" name="pbPassword">
+                        <label for="password">비밀번호 </label>
+                        <input type="password" id="password" name="pbPassword">
                     </div>
                     <button type="submit" class="site-btn login-btn"
-                            style="cursor: pointer; background: #01888c;color: #fff">Sign In
+                            style="background: #01888c;color: #fff;cursor: pointer">Sign In
                     </button>
                 </form>
                 <div class="switch-login">
@@ -405,9 +377,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <!--End Modal-->
 
 
     <div class="wrap">
@@ -439,6 +409,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
+            <img src="${pageContext.request.contextPath}/resources/hana.png" style="width: 44px"/>
             <a class="navbar-brand" href="${pageContext.request.contextPath}/">하나My PB</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                     aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation"
@@ -455,7 +426,7 @@
             </div>
             <c:choose>
                 <c:when test="${empty bankerVO}">
-                    <button id="loginBtn2" class="btn btn-solid-border btn-round-full"
+                    <button id="loginBtn" class="btn btn-solid-border btn-round-full"
                             style="margin-left: 5px;padding: .5rem 1.5rem;">로그인
                     </button>
                 </c:when>
@@ -545,10 +516,6 @@
         $(document).ready(function () {
             $('#loginBtn').click(function () {
                 $('#myModal').show();
-
-            });
-            $('#loginBtn2').click(function () {
-                $('#myModal2').show();
 
             });
 

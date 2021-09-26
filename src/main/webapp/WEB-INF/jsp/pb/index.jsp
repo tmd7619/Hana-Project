@@ -54,8 +54,7 @@
                     </div>
                     <div class="text">
                         <h2>스케줄 관리하기</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <p>PB 직원은 온라인 / 오프라인으로 나누어 스케줄을 관리할 수 있습니다.</p>
                     </div>
                 </div>
             </div>
@@ -66,8 +65,7 @@
                     </div>
                     <div class="text">
                         <h2>온라인 상담하기</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <p>예약이 완료된 손님과 온라인 투자상담을 진행할 수 있습니다.</p>
                     </div>
                 </div>
             </div>
@@ -78,8 +76,7 @@
                     </div>
                     <div class="text">
                         <h2>상담 기록 확인</h2>
-                        <p>A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia.</p>
+                        <p>상담 기록을 확인할 수 있습니다. 또한, 손님이 남긴 문의 사항에 대해 답변을 남길 수 있습니다. </p>
                     </div>
                 </div>
             </div>

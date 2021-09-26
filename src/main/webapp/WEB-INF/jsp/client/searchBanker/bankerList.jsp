@@ -239,6 +239,13 @@
             font-weight: 900;
             color: black !important;
         }
+
+        #searchDate {
+            font-size: 20px;
+            color: #323232;
+            font-weight: 600;
+            margin-left: 12px;
+        }
     </style>
 
 </head>
@@ -580,6 +587,7 @@
             <div class="col-lg-4">
                 <div class="blog__sidebar">
                     <div class="blog__sidebar__search">
+                        <h5 id="searchDate">날짜 검색</h5>
                         <form action="${pageContext.request.contextPath}/client/searchDate" method="post">
                             <c:choose>
                                 <c:when test="${ schedulerDate == '2021-09-19'}">
