@@ -28,4 +28,8 @@ public interface HistoryDAO {
     List<InquiryVO> selectAllInquiry(InquiryVO inquiryVO);
 
 
+    // 상담내역 status 변경
+    public int updateStatus(HistoryVO historyVO);
+
+
 }

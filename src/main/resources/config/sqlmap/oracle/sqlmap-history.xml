@@ -14,6 +14,7 @@
         <result column="branch_name" property="branchName"/>
         <result column="client_id" property="clientId"/>
         <result column="username" property="username"/>
+        <result column="status_toggle" property="statusToggle"/>
     </resultMap>
 
 
@@ -50,6 +51,7 @@
              , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
              , room_number
              , username
+             , status_toggle
         FROM (
                  SELECT ROWNUM RN, A.*
                  FROM (
@@ -71,6 +73,7 @@
              , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
              , room_number
              , username
+             , status_toggle
         FROM (
                  SELECT ROWNUM RN, A.*
                  FROM (
@@ -91,6 +94,7 @@
              , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
              , room_number
              , username
+             , status_toggle
         from consulting_history
         where room_number = #{roomNumber}
     </select>
@@ -112,5 +116,13 @@
         where room_number = #{roomNumber}
         order by inquiry_id
     </select>
+
+    <update id="updateStatus" parameterType="historyVO">
+        update consulting_history
+        set status_toggle = #{statusToggle}
+        where room_number = #{roomNumber}
+
+
+    </update>
 
 </mapper>

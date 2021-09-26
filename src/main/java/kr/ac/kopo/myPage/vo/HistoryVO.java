@@ -11,7 +11,15 @@ public class HistoryVO {
     private String pbName;
     private String username;
     private String branchName;
+    private int statusToggle;
 
+    public int getStatusToggle() {
+        return statusToggle;
+    }
+
+    public void setStatusToggle(int statusToggle) {
+        this.statusToggle = statusToggle;
+    }
 
     public String getClientId() {
         return clientId;
@@ -98,6 +106,7 @@ public class HistoryVO {
                 ", pbName='" + pbName + '\'' +
                 ", username='" + username + '\'' +
                 ", branchName='" + branchName + '\'' +
+                ", statusToggle=" + statusToggle +
                 '}';
     }
 }

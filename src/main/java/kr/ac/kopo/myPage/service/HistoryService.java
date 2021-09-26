@@ -22,10 +22,13 @@ public interface HistoryService {
     public int countBoard();
 
     // inquiry 삽입 후 list 조회
-    public List<InquiryVO> insertInquiry(InquiryVO inquiryVO);
+    public List<InquiryVO> insertInquiry(InquiryVO inquiryVO, String answer);
 
     // inquiry list 조회
     public List<InquiryVO> selectInquiry(InquiryVO inquiryVO);
+
+    // 상담내역 status 변경
+    public int updateStatus(HistoryVO historyVO);
 
 
 }

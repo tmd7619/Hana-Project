@@ -173,6 +173,18 @@
             background-repeat: no-repeat;
         }
 
+        td {
+            text-align: center;
+            color: black;
+
+        }
+
+
+        .badge {
+            font-size: 18px !important;
+
+        }
+
     </style>
 
 
@@ -218,8 +230,10 @@
     <div class="col-lg-12 mb-4">
         <!-- Simple Tables -->
         <div class="card">
-            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                <h6 class="m-0 font-weight-bold text-primary">상담 내역</h6>
+            <div style="background-color:transparent;margin-left: 66px"
+                 class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary" style="font-size: 30px;color: #008485 !important;">상담
+                    내역</h6>
                 <div class="select__option" style="float: right">
                     <select id="cntPerPage" class="product-classification" name="sel" onchange="selChange()"
                             style="display: inline">
@@ -239,7 +253,7 @@
             <div class="table-responsive">
                 <table class="table align-items-center table-flush">
                     <thead class="thead-light">
-                    <tr>
+                    <tr style="text-align: center">
                         <th>상담 날짜</th>
                         <th>담당 PB 이름</th>
                         <th>상담 제목</th>
@@ -249,18 +263,30 @@
                     </thead>
                     <tbody>
                     <c:forEach items="${historyList}" var="history" varStatus="loop">
-                        <input class="roomNumber" type="hidden" value="${history.roomNumber}"/>
-                        <tr>
-                            <td><a href="#"><c:out value="${history.csltTime}"/></a></td>
+                        <tr class="selectRoomNumber">
+                            <input class="roomNumber" type="hidden"
+                                   value="${history.roomNumber}"/>
+                            <input class="statusToggle" type="hidden" value="${history.statusToggle}"/>
+                            <td><a href="#" style="color: black"><c:out value="${history.csltTime}"/></a></td>
                             <td><c:out value="${history.branchName} ${history.pbName}"/></td>
                             <td>${history.csltTitle}</td>
-                            <td><span class="badge badge-success">상담완료</span></td>
+                            <c:choose>
+                                <c:when test="${history.statusToggle eq 0}">
+                                    <td><span class=" badge badge-success">상담완료</span></td>
+                                </c:when>
+                                <c:when test="${history.statusToggle eq 1}">
+                                    <td><span class="badge badge-warning">답변대기</span></td>
+                                </c:when>
+                                <c:otherwise>
+                                    <td><span class="badge badge-info">답변완료</span></td>
+                                </c:otherwise>
+
+                            </c:choose>
                             <td>
                                 <button type="button" class="btn btn-primary">
                                     Detail
                                 </button>
                             </td>
-                                <%--                            <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>--%>
                         </tr>
                     </c:forEach>
                     </tbody>
@@ -290,27 +316,27 @@
 </div>
 <!--Row-->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <p>You Content</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
-                <%--                <button type="button" class="btn btn-primary">Save changes</button>--%>
-            </div>
-        </div>
-    </div>
-</div>
+<%--<!-- Modal -->--%>
+<%--<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"--%>
+<%--     aria-hidden="true">--%>
+<%--    <div class="modal-dialog" role="document">--%>
+<%--        <div class="modal-content">--%>
+<%--            <div class="modal-header">--%>
+<%--                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>--%>
+<%--                <button type="button" class="close" data-dismiss="modal" aria-label="Close">--%>
+<%--                    <span aria-hidden="true">&times;</span>--%>
+<%--                </button>--%>
+<%--            </div>--%>
+<%--            <div class="modal-body">--%>
+<%--                <p>You Content</p>--%>
+<%--            </div>--%>
+<%--            <div class="modal-footer">--%>
+<%--                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>--%>
+<%--                &lt;%&ndash;                <button type="button" class="btn btn-primary">Save changes</button>&ndash;%&gt;--%>
+<%--            </div>--%>
+<%--        </div>--%>
+<%--    </div>--%>
+<%--</div>--%>
 
 
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
@@ -332,13 +358,27 @@
 
 <script src="${pageContext.request.contextPath}/resources/css2/js/jquery-3.3.1.min.js"></script>
 <script>
-    $('.btn.btn-primary').click(function () {
-        var parent = $(this).parents('.table-responsive')
-        const roomNumber = parent.find('.roomNumber').val();
-        console.log(roomNumber)
-        location.href = "${pageContext.request.contextPath}/client/historyDetail?roomNumber=" + roomNumber
 
+    // $(document).ready(function () {
+    //
+    //     if ($('.statusToggle').val == 0) {
+    //         $('.statusToggle').attr('class', 'badge badge-success')
+    //     } else if ($('.statusToggle').val == 1) {
+    //         $('.statusToggle').attr('class', 'badge badge-warning')
+    //
+    //     } else {
+    //         $('.statusToggle').attr('class', 'badge badge-info')
+    //
+    //     }
+    // })
+
+
+    $(document).on("click", ".btn.btn-primary", function () {
+        const parent = $(this).parents('.selectRoomNumber')
+        const roomNumber = parent.find($('.roomNumber')).val();
+        location.href = "${pageContext.request.contextPath}/client/historyDetail?roomNumber=" + roomNumber
     })
+
 
 </script>
 </body>

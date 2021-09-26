@@ -50,7 +50,7 @@ public class HistoryServiceImpl implements HistoryService {
     }
 
     @Override
-    public List<InquiryVO> insertInquiry(InquiryVO inquiryVO) {
+    public List<InquiryVO> insertInquiry(InquiryVO inquiryVO, String answer) {
 
         int check = historyDAO.insertInquiry(inquiryVO);
 
@@ -59,6 +59,21 @@ public class HistoryServiceImpl implements HistoryService {
         }
 
         List<InquiryVO> inquiryList = historyDAO.selectAllInquiry(inquiryVO);
+
+        System.out.println("in insertInquiry answer :" + answer);
+
+        HistoryVO historyVO = new HistoryVO();
+        if (answer != null) { // 답변자일 경우,
+            historyVO.setStatusToggle(2); // status 답변완료 변경
+
+
+        } else { // 답변자일 경우,
+            historyVO.setStatusToggle(1); //  status 답변 대기중으로 변경
+        }
+
+        historyVO.setRoomNumber(inquiryVO.getRoomNumber());
+
+        historyDAO.updateStatus(historyVO);
 
         return inquiryList;
     }
@@ -73,4 +88,9 @@ public class HistoryServiceImpl implements HistoryService {
         return inquiryList;
     }
 
+
+    @Override
+    public int updateStatus(HistoryVO historyVO) {
+        return 0;
+    }
 }

@@ -203,29 +203,32 @@ select p.pb_name , p.pb_rank, p.pb_phone, p.pb_email, p.branch_name, p.tag_name 
 
 --------consulting_history-----------------------------------------------------------------------------------------------------
 
+
 drop table consulting_history;
 create table consulting_history(
     room_number number primary key ,
     client_id varchar2(50) not null,
-    cslt_time date default sysdate,
+    pb_code_num number(6) not null,
+    cslt_time date default sysdate, -- 상담 종료 시간 
     cslt_title varchar2(200) not null,
-    cslt_comment varchar2(500) not null,
+    cslt_comment varchar2(500) not null, -- pb가 남긴 코멘트 
     consulting_history_id number not null,
     pb_name varchar2(30) not null ,
-    branch_name varchar2(100) not null
+    username varchar2(30) not null ,
+    branch_name varchar2(100) not null ,
+    status_toggle number(1) default 0   -- 0 : 상담 완료 1 : 답변 대기 2 : 답변 완료 
 );
 
-
-insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
-    values('test' , '랩 상품 상담' , '상담햇어오용' , '123122' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username )
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123122' , '김피비' , '부천 지점' , consulting_history_seq.nextval , 123123 , '윤승원');
     
-    insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
-    values('test' , '랩 상품 상담' , '상담햇어오용' , '123124' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+    insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num ,username)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123124' , '김피비' , '부천 지점' , consulting_history_seq.nextval , 123123, '윤승원');
 
-insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
-    values('test' , '랩 상품 상담' , '상담햇어오용' , '123125' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num,username)
+    values('test' , '랩 상품 상담' , '상담햇어오용' , '123125' , '김피비' , '부천 지점' , consulting_history_seq.nextval , 123123, '윤승원');
 
-insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id ) 
     values('test' , '랩 상품 상담' , '상담햇어오용' , '123126' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
@@ -246,15 +249,24 @@ insert into consulting_history(client_id , cslt_title , cslt_comment, room_numbe
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id)
     values('test' , '펀 상품 상담' , '상담햇어오용' , '212125' , '김피비' , '부천 지점' , consulting_history_seq.nextval);
-
     
 commit;
 
 SELECT COUNT(*)
         FROM consulting_history;
 
+--------consulting_history-----------------------------------------------------------------------------------------------------
+
+
+--------inquiry-----------------------------------------------------------------------------------------------------
 
 
 
+ insert into inquiry(inquiry_id, inquiry_title, inquiry_content, room_number, writer)
+        values (inquiry_seq.nextval, 'ㅇㅇ', '12312', 123123, 'ㅇㅇ');
+        
+        desc inquiry;
+
+--------inquiry-----------------------------------------------------------------------------------------------------
 
 

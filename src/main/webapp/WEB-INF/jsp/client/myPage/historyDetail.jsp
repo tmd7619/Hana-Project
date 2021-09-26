@@ -192,7 +192,7 @@
 
         .inquiryContent {
 
-            border: 1px solid #27b2a5;
+            border: 3px solid #27b2a5;
             border-radius: 15px;
             padding: 10px;
             color: black;
@@ -208,6 +208,10 @@
 <%--    <div class="loader"></div>--%>
 <%--</div>--%>
 
+<c:if test="${not empty bankerVO}">
+    <jsp:include page="/WEB-INF/jsp/common/pbHeader.jsp"/>
+
+</c:if>
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <section class="hero-wrap hero-wrap-2"
@@ -343,16 +347,34 @@
                 </div>
             </div>
             <div class="listing__details__review" style="padding: 30px; width: 100%;">
-                <h4>문의글을 남겨보세요.</h4>
-                <form id="sendForm">
-                    <input id="roomNumber" type="hidden" name="roomNumber" value="${historyVO.roomNumber}">
-                    <input id="writer" type="hidden" name="writer" value="${historyVO.username}">
-                    문의글 제목 :<br> <input id="inquiryTitle" name="inquiryTitle" type="text" placeholder="문의글 제목 입력하기">
-                    <br>
-                    문의글 내용 : <textarea id="inquiryContent" name="inquiryContent"
-                                       placeholder="남기실 문의글을 작성해보세요."></textarea>
-                    <button type="button" class="btn btn-primary" onclick="sendForm()">문의글 남기기</button>
-                </form>
+                <c:choose>
+                    <c:when test="${not empty userVO}">
+                        <h4>문의글을 남겨보세요.</h4>
+                        <form id="sendForm">
+                            <input id="roomNumber" type="hidden" name="roomNumber" value="${historyVO.roomNumber}">
+                            <input id="writer" type="hidden" name="writer" value="${historyVO.username}">
+                            문의글 제목 :<br> <input class="inquiryTitle" name="inquiryTitle" type="text"
+                                                placeholder="문의글 제목 입력하기">
+                            <br>
+                            문의글 내용 : <textarea class="inquiryContent" name="inquiryContent"
+                                               placeholder="남기실 문의글을 작성해보세요."></textarea>
+                            <button type="button" class="btn btn-primary" onclick="sendForm()">문의글 남기기</button>
+                        </form>
+                    </c:when>
+                    <c:otherwise>
+                        <h4>손님에게 답변하기</h4>
+                        <form id="sendForm">
+                            <input class="roomNumber" type="hidden" name="roomNumber" value="${historyVO.roomNumber}">
+                            <input class="writer" type="hidden" name="writer" value="${historyVO.username}">
+                            답변 제목 :<br> <input class="inquiryTitle" name="inquiryTitle" type="text"
+                                               value="안녕하세요? ${bankerVO.pbName} PB 입니다.">
+                            <br>
+                            답변할 내용 : <textarea class="inquiryContent" name="inquiryContent"
+                                               placeholder="남기실 문의글을 작성해보세요."></textarea>
+                            <button type="button" class="btn btn-primary" onclick="sendForm()">답변 등록하기</button>
+                        </form>
+                    </c:otherwise>
+                </c:choose>
             </div>
         </div>
     </div>
@@ -384,10 +406,10 @@
 
     function sendForm() {
 
-        const writer = $('#writer').val();
-        const roomNumber = $('#roomNumber').val();
-        const inquiryTitle = $('#inquiryTitle').val();
-        const inquiryContent = $('#inquiryContent').val();
+        const writer = $('input[name=writer]').val();
+        const roomNumber = $('input[name=roomNumber]').val();
+        const inquiryTitle = $('input[name=inquiryTitle]').val();
+        const inquiryContent = $('textarea[name=inquiryContent]').val();
 
         const sendDate = {
             writer, roomNumber, inquiryTitle, inquiryContent

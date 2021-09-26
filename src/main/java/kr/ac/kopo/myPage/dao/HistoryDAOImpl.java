@@ -76,4 +76,19 @@ public class HistoryDAOImpl implements HistoryDAO {
 
         return inquiryList;
     }
+
+
+    @Override
+    public int updateStatus(HistoryVO historyVO) {
+
+        System.out.println("in dao updateStatus : " + historyVO);
+
+        int check = sqlSessionTemplate.update(namespace + "updateStatus", historyVO);
+
+        if (check != 0) {
+            System.out.println("답변 대기중으로 변경");
+        }
+
+        return check;
+    }
 }

@@ -313,9 +313,8 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
              , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
              , room_number
              , username
-        from consulting_history
-        where room_number = 420929;
-
+             , status_toggle
+        from consulting_history;
 
 
 

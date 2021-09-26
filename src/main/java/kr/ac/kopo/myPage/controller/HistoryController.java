@@ -139,13 +139,22 @@ public class HistoryController {
 
     // 문의글 저장 후 목록 보이기
     @RequestMapping("/client/register/inquiry")
-    public ModelAndView registerInquiry(@RequestBody InquiryVO inquiryVO) {
+    public ModelAndView registerInquiry(@RequestBody InquiryVO inquiryVO, HttpSession session) {
 
         ModelAndView mav = new ModelAndView();
 
         System.out.println("컨트롤러로 넘어온 inquiryVO : " + inquiryVO);
 
-        List<InquiryVO> inquiryList = historyService.insertInquiry(inquiryVO);
+        BankerVO bankerVO = (BankerVO) session.getAttribute("bankerVO");
+
+        String answer = null;
+
+        if (bankerVO != null) {
+
+            answer = bankerVO.getPbName();
+        }
+
+        List<InquiryVO> inquiryList = historyService.insertInquiry(inquiryVO, answer);
 
         for (InquiryVO i : inquiryList) {
             System.out.println("i : " + i);
