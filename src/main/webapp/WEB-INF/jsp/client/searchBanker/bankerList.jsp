@@ -257,6 +257,12 @@
         .blog__item__text {
             border-radius: 10px;
         }
+
+        .profileBtn {
+            cursor: pointer;
+        }
+
+
     </style>
 
 </head>
@@ -268,7 +274,6 @@
 </div>
 
 
-<jsp:include page="/WEB-INF/jsp/client/searchBanker/profileModal.jsp"/>
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <section class="hero-wrap hero-wrap-2"
@@ -356,8 +361,8 @@
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
-                            <a id="profileBtn"><img class="pb_thumbnail"
-                                                    src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                            <a class="profileBtn"><img class="pb_thumbnail"
+                                                       src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
                             <h3>
                                 <span><c:out value="${favorite.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${favorite.codeNum}">
@@ -470,11 +475,19 @@
                     </div>
                 </c:forEach>
                 <c:forEach items="${bankerList}" var="banker" varStatus="loop">
+
                     <div class="blog__item__large">
                         <div class="blog__item__text">
                             <ul class="blog__item__tags">
                                 <li><i class="fa fa-tags"></i> <c:out
                                         value="${banker.branchName}"/></li>
+
+                                <input class="introContent" type="hidden"
+                                       value="<c:out value="${banker.introContent}"/>"/>
+                                <input class="mainContent" type="hidden"
+                                       value="<c:out value="${banker.mainContent}"/>"/>
+                                <input class="mainField" type="hidden" value="<c:out value="${banker.mainField}"/>"/>
+                                <input class="rank" type="hidden" value="<c:out value='${banker.pbRank}'/>"/>
 
                                 <input class="pbBranchName" type="hidden"
                                        value="<c:out value="${banker.branchName}"/>"/>
@@ -483,8 +496,8 @@
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
-                            <a id="profileBtn"><img class="pb_thumbnail"
-                                                    src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                            <a class="profileBtn"><img class="pb_thumbnail"
+                                                       src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
                             <h3>
                                 <span><c:out value="${banker.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${banker.codeNum}">
@@ -817,7 +830,7 @@
                     <%--                        <label for="recipient-name" class="control-label">상담 정보</label>--%>
                     <%--                        <div id="recipient-name" >성함 : ${userVO.username}</div>--%>
                     <%--                        <div >상담 시간 : ${}</div>--%>
-                    <%--                    </div>--%>
+                    <%--   pb_thumbnail                 </div>--%>
                     <div class="form-group">
                         <label for="message-text" class="control-label">상담 요청 내용
                             :</label>
@@ -861,6 +874,211 @@
     </div>
 </div>
 
+
+<!-- 프로필 modal -->
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 style="margin-left: 50px;padding: 6px;" class="modal-title"
+                    id="exampleModalScrollableTitle"></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <section class="ftco-section ftco-no-pb ftco-no-pt">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
+                                 style="background-image: url(${pageContext.request.contextPath}/resources/images/about-1.jpg);">
+                            </div>
+                            <div class="col-md-6 wrap-about px-md-5 ftco-animate py-5 bg-light">
+                                <div class="heading-section py-md-5">
+                                    <span class="subheading">(주)하나금융지주</span>
+                                    <h2 class="mb-4">${bankerVO.pbName}</h2>
+
+                                    <p>A small river named Duden flows by their place and supplies it with the
+                                        necessary
+                                        regelialia. It is a paradisematic country, in which roasted parts of
+                                        sentences
+                                        fly
+                                        into
+                                        your mouth.</p>
+                                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where
+                                        it
+                                        came
+                                        from
+                                        it would have been rewritten a thousand times and everything that was left
+                                        from
+                                        its
+                                        origin would be the word "and" and the Little Blind Text should turn around
+                                        and
+                                        return
+                                        to its own, safe country.</p>
+
+                                    <a href="https://vimeo.com/45830194"
+                                       class="play-video popup-vimeo d-flex align-items-center mt-4">
+                                        <div style="width: 100px; width: 150px;height: 50px;border: 2px solid #27b2a5"
+                                             class="icon d-flex align-items-center justify-content-center"><span
+                                                style="color: #27b2a5;font-weight: bolder"
+                                                class="">상담예약하기</span></div>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="ftco-counter ftco-section ftco-no-pt ftco-no-pb img bg-light" id="section-counter">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                                <div class="block-18 py-4 mb-4">
+                                    <div class="text align-items-center">
+                                        <strong class="number" data-number="3000">0</strong>
+                                        <span>Our Satisfied  &amp; Happy Customers</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                                <div class="block-18 py-4 mb-4">
+                                    <div class="text align-items-center">
+                                        <strong class="number" data-number="30">0</strong>
+                                        <span>Years of Experience In Business</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                                <div class="block-18 py-4 mb-4">
+                                    <div class="text align-items-center">
+                                        <strong class="number" data-number="200">0</strong>
+                                        <span>Our Qualified Counselor</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3 justify-content-center counter-wrap ftco-animate">
+                                <div class="block-18 py-4 mb-4">
+                                    <div class="text align-items-center">
+                                        <strong class="number" data-number="40">0</strong>
+                                        <span>Services Points</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section class="ftco-section testimony-section">
+                    <div class="img img-bg border" style="background-image: url(images/bg_4.jpg);"></div>
+                    <div class="overlay"></div>
+                    <div class="container">
+                        <div class="row justify-content-center mb-5">
+                            <div class="col-md-7 text-center heading-section heading-section-white ftco-animate">
+                                <span class="subheading"></span>
+                                <h2 class="mb-3">손님 상담 후기글</h2>
+                            </div>
+                        </div>
+                        <div class="row ftco-animate">
+                            <div class="col-md-12">
+                                <div class="carousel-testimony owl-carousel ftco-owl">
+                                    <div class="item">
+                                        <div class="testimony-wrap py-4">
+                                            <div class="icon d-flex align-items-center justify-content-center "><span
+                                                    class="fa fa-quote-left"></div>
+                                            <div class="text">
+                                                <p class="mb-4">Far far away, behind the word mountains, far from
+                                                    the
+                                                    countries
+                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="user-img"
+                                                         style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
+                                                    <div class="pl-3">
+                                                        <p class="name">Roger Scott</p>
+                                                        <span class="position">Marketing Manager</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimony-wrap py-4">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                                    class="fa fa-quote-left"></div>
+                                            <div class="text">
+                                                <p class="mb-4">Far far away, behind the word mountains, far from
+                                                    the
+                                                    countries
+                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="user-img"
+                                                         style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
+                                                    <div class="pl-3">
+                                                        <p class="name">Roger Scott</p>
+                                                        <span class="position">Marketing Manager</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimony-wrap py-4">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                                    class="fa fa-quote-left"></div>
+                                            <div class="text">
+                                                <p class="mb-4">Far far away, behind the word mountains, far from
+                                                    the
+                                                    countries
+                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="user-img"
+                                                         style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
+                                                    <div class="pl-3">
+                                                        <p class="name">Roger Scott</p>
+                                                        <span class="position">Marketing Manager</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="testimony-wrap py-4">
+                                            <div class="icon d-flex align-items-center justify-content-center"><span
+                                                    class="fa fa-quote-left"></div>
+                                            <div class="text">
+                                                <p class="mb-4">Far far away, behind the word mountains, far from
+                                                    the
+                                                    countries
+                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <div class="d-flex align-items-center">
+                                                    <div class="user-img"
+                                                         style="background-image: ${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
+                                                    <div class="pl-3">
+                                                        <p class="name">Roger Scott</p>
+                                                        <span class="position">Marketing Manager</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer">
+                <%--                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">닫기</button>--%>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <div class="input-group date" data-provide="datepicker">
     <input type="text" class="form-control">
     <div class="input-group-addon">
@@ -870,6 +1088,9 @@
 
 <a id="back-to-top" href="#" class="btn btn-light btn-lg back-to-top" role="button"><i
         class="fas fa-chevron-up"></i></a>
+
+<%--<jsp:include page="/WEB-INF/jsp/client/searchBanker/profileModal.jsp"/>--%>
+
 
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>
 <!-- Js Plugins -->
@@ -899,7 +1120,6 @@
 <script src="${pageContext.request.contextPath}/resources/calender/bootstrap-datepicker.ko.min.js"></script>
 
 <script>
-
 
     $(document).ready(function () {
         $('.favorite').removeClass("far fa-heart")
@@ -1064,9 +1284,31 @@
     // 태그 네임 색상 변경하기
     if ('${requestScope.targetTagName}'.trim()) {
         $("div:contains('${targetTagName}')").css({color: "#008485"});
-        console.log('${targetTagName}')
-    } else {
     }
+
+    // 프로필 모달 오픈
+    $(".profileBtn").click(function () {
+        const parent = $(this).parents('.blog__item__large');
+        const pbName = parent.find('.pbName').val();
+        const pbBranchName = parent.find('.pbBranchName').val();
+        const introContent = parent.find('.introContent').val();
+        const mainContent = parent.find('.mainContent').val();
+        const mainField = parent.find('.mainFiled').val();
+        const rank = parent.find('.rank').val();
+
+        $('.modal-title').empty();
+        $('.modal-title').text(pbName + ' 상담사 프로필');
+
+        $('.mb-4').empty();
+        $('.mb-4').text(introContent)
+
+
+        console.log(pbName, pbBranchName, introContent, mainContent, mainField, rank)
+
+        $('#exampleModalScrollable').modal();
+    })
+
+
 </script>
 
 

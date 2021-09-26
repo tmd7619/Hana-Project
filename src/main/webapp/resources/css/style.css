@@ -12148,9 +12148,9 @@ textarea.form-control {
 }
 
 .wrap-about .play-video .icon {
-    width: 40px;
+    width: 100px;
     height: 30px;
-    border: 1px solid #589167;
+    border: 1px solid black;
     border-radius: 5px;
     margin-right: 10px;
     -webkit-animation: pulse 2s infinite;
@@ -12158,7 +12158,7 @@ textarea.form-control {
 }
 
 .wrap-about .play-video .icon span {
-    color: #589167;
+    color: #27b2a5;
 }
 
 .staff {

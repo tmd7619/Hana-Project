@@ -255,7 +255,7 @@
             <div class="col-lg-4 col-md-6">
                 <div class="work__item">
                     <div class="work__item__number">02.</div>
-                    <a href="${pageContext.request.contextPath}/client/myPage/myInfo">
+                    <a href="${pageContext.request.contextPath}/client/waitRoom">
                         <img id="myPBimage"
                              src="${pageContext.request.contextPath}/resources/images/online-support.png">
                     </a>

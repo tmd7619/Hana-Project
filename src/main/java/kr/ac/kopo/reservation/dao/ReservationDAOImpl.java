@@ -32,10 +32,6 @@ public class ReservationDAOImpl implements ReservationDAO {
 
         List<BankerVO> impossibleBankerList = sqlSessionTemplate.selectList(namespace + "availableSearchBanker", date.trim());
 
-        for (BankerVO b : impossibleBankerList) {
-            System.out.println("checkList 어떻게 넘어옴 ? : " + impossibleBankerList);
-        }
-
 
         return impossibleBankerList;
     }

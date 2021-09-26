@@ -23,9 +23,9 @@
     <%--            allow="camera *;microphone *;autoplay;display-capture;fullscreen"--%>
     <%--            style="border: 2px solid black;width: 1000px; height: 450px">--%>
     <%--    </iframe>--%>
-    <iframe id="webrtc" src="https://localhost:3030/4531"
+    <iframe id="webrtc" src="https://192.168.0.15:3030/4531"
     <%--    <iframe id="webrtc" src="https://3874-117-111-17-101.ngrok.io"--%>
-            allow="camera *;microphone *;autoplay;display-capture;fullscreen"
+            allow="camera *;<%--microphone *;--%>autoplay;display-capture;fullscreen"
             style="border: 2px solid black;width: 1076px; height: 410px;margin-top: -27px;visibility: hidden">
     </iframe>
 </div>

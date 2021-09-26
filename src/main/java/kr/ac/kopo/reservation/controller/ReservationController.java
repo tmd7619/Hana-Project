@@ -158,7 +158,6 @@ public class ReservationController {
             }
         }
 
-
         mav.addObject("targetTagName", tagName);
         mav.addObject("schedulerDate", date);
         mav.addObject("bankerList", bankerVOList);
@@ -166,6 +165,5 @@ public class ReservationController {
 
         return mav;
     }
-
 
 }
