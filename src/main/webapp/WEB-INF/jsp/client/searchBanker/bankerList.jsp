@@ -241,10 +241,21 @@
         }
 
         #searchDate {
-            font-size: 20px;
+            font-size: 26px;
             color: #323232;
             font-weight: 600;
-            margin-left: 12px;
+            /* margin-left: 12px; */
+            text-align: center
+        }
+
+        .btn {
+            font-size: 15px !important;
+            border: 1px solid #27b2a5 !important;
+            border-radius: 5px;
+        }
+
+        .blog__item__text {
+            border-radius: 10px;
         }
     </style>
 
@@ -364,7 +375,7 @@
                                 <c:if test="${fn:contains(favorite.impossible,'1')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px; font-weight: lighter"
+                                                style="margin-bottom: 10px; font-weight: lighter;border-radius: 5px"
                                                 value="10:00">10:00
                                         </button>
                                     </li>
@@ -372,77 +383,82 @@
                                 <c:if test="${not fn:contains(favorite.impossible,'1')}">
                                     <li>
                                         <button id="termsModal" class="btn btn-light btn-sm"
-                                                style="margin-bottom: 10px;" value="10:00">10:00
+                                                style="margin-bottom: 10px;" value="10:00;border-radius: 5px">10:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${fn:contains(favorite.impossible,'2')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px; font-weight: lighter">11:00
+                                                style="margin-bottom: 10px; font-weight: lighter;border-radius: 5px">
+                                            11:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(favorite.impossible,'2')}">
                                     <li>
                                         <button class="btn btn-light btn-sm"
-                                                style="margin-bottom: 10px;" value="11:00">11:00
+                                                style="margin-bottom: 10px;border-radius: 5px" value="11:00">11:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${fn:contains(favorite.impossible,'3')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px; font-weight: lighter">13:00
+                                                style="margin-bottom: 10px; font-weight: lighter;border-radius: 5px">
+                                            13:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(favorite.impossible,'3')}">
                                     <li>
                                         <button value="13:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">13:00
+                                                style="margin-bottom: 10px;border-radius: 5px">13:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${fn:contains(favorite.impossible,'4')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px; font-weight: lighter">14:00
+                                                style="margin-bottom: 10px; font-weight: lighter;border-radius: 5px">
+                                            14:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(favorite.impossible,'4')}">
                                     <li>
                                         <button value="14:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">14:00
+                                                style="margin-bottom: 10px;border-radius: 5px">14:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${fn:contains(favorite.impossible,'5')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px; font-weight: lighter">15:00
+                                                style="margin-bottom: 10px; font-weight: lighter;border-radius: 5px">
+                                            15:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(favorite.impossible,'5')}">
                                     <li>
                                         <button value="15:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">15:00
+                                                style="margin-bottom: 10px;border-radius: 5px">15:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${fn:contains(favorite.impossible,'6')}">
                                     <li>
                                         <button class="btn btn-light btn-sm disabled"
-                                                style="margin-bottom: 10px; font-weight: lighter">16:00
+                                                style="margin-bottom: 10px; font-weight: lighter;border-radius: 5px">
+                                            16:00
                                         </button>
                                     </li>
                                 </c:if>
                                 <c:if test="${not fn:contains(favorite.impossible,'6')}">
                                     <li>
                                         <button value="16:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">16:00
+                                                style="margin-bottom: 10px;border-radius: 5px">16:00
                                         </button>
                                     </li>
                                 </c:if>

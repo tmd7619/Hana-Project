@@ -432,7 +432,7 @@
                 </c:when>
                 <c:when test="${not empty bankerVO  }">
                     <button id="logoutBtn" class="btn btn-solid-border btn-round-full"
-                            style="margin-left: 20px;padding: .5rem 1.5rem;">로그아웃
+                            style="margin-left: 20px;padding: .5rem 1.5rem;border-radius: 50px!important;">로그아웃
                     </button>
                 </c:when>
             </c:choose>
