@@ -32,6 +32,8 @@
     <script
             src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <!--chartjs -->
+
+
 </head>
 
 <style>
@@ -230,12 +232,28 @@
         border-top: 0px;
     }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script type="text/javascript">
+
+    <%--var socket = null;--%>
+    <%--// 웹소켓 연결--%>
+    <%--const sock = new SockJS("${pageContext.request.contextPath}/chatting/" + $("#roomNumber").val());--%>
+    <%--socket = sock;--%>
+
+    var socket2 = null
+    $(document).ready(function () {
+        sock2 = new SockJS("${pageContext.request.contextPath}/createRoom");
+        socket2 = sock2;
+    })
+    // 데이터를 전달 받았을때
+    sock.onmessage = onMessage; // toast 생성
+
+
     var ws;
 
     function wsOpen() {
         //웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-        ws = new WebSocket("ws://" + location.host + "/chatting/"
+        ws = new WebSocket("wss://" + location.host + "/chatting/"
             + $("#roomNumber").val());
         wsEvt();
     }

@@ -90,7 +90,7 @@
 
     function wsOpen() {
         //웹소켓 전송시 현재 방의 번호를 넘겨서 보낸다.
-        ws = new WebSocket("ws://" + location.host + "/chating/" + $("#roomNumber").val());
+        ws = new WebSocket("wss://" + "192.168.0.15:443:" + "/chating/" + $("#roomNumber").val());
         wsEvt();
     }
 

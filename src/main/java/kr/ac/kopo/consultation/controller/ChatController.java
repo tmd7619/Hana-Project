@@ -114,7 +114,6 @@ public class ChatController {
          * mav.addObject("roomMaster", roomVO.getRoomMaster());
          * mav.addObject("roomNumber", roomVO.getRoomNumber());
          */
-
         mav.setViewName("mainRoom");
 
         return mav;
@@ -122,6 +121,7 @@ public class ChatController {
 
     @RequestMapping("/client/waitRoom")
     public String sendMsg() {
+
 
         return "client/consulting/waitRoom";
     }
