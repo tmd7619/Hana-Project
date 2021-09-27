@@ -34,7 +34,6 @@
         })
 
         setTimeout(function () {
-            alert('sock 보내짐');
             socket2.send("윤승원,김피비,10 : 10,상담 요청")
         }, 2000);
 

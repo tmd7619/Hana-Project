@@ -65,6 +65,7 @@ public class ChatController {
         RoomVO room = new RoomVO();
         Random random = new Random();
         int roomNumber = random.nextInt(1000000) + 1; // 룸번호 랜덤으로 생성
+
         room.setRoomNumber(roomNumber);
         room.setClientName(clientVO.getUsername());
         room.setPbName(bankerVO.getPbName());
@@ -94,7 +95,7 @@ public class ChatController {
         ModelAndView mv = new ModelAndView();
         System.out.println("movechatting에서 넘어온 roomVo : " + roomVO);
 
-        response.setHeader("X-Frame-Options", "ALLOW-FROM http://localhost:9999/moveChatting");
+        response.setHeader("X-Frame-Options", "ALLOW-FROM https://192.168.0.15:433/moveChatting");
 
         mv.setViewName("client/consulting/room");
 
