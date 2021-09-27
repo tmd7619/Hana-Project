@@ -2,6 +2,8 @@ package kr.ac.kopo.reservation.service;
 
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
+import kr.ac.kopo.myPage.dao.HistoryDAO;
+import kr.ac.kopo.myPage.vo.HistoryVO;
 import kr.ac.kopo.reservation.dao.ReservationDAO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import kr.ac.kopo.scheduler.dao.SchedulerDAO;
@@ -20,6 +22,9 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Autowired
     private SchedulerDAO schedulerDAO;
+
+    @Autowired
+    private HistoryDAO historyDAO;
 
     @Override
     public List<BankerVO> searchBanker() {
@@ -107,5 +112,13 @@ public class ReservationServiceImpl implements ReservationService {
         List<BankerVO> bankerList = reservationDAO.searchByTagName(tagName);
 
         return bankerList;
+    }
+
+    @Override
+    public List<HistoryVO> searchByRecentHistory() {
+
+        List<HistoryVO> list = historyDAO.searchByRecentHistory();
+        
+        return list;
     }
 }

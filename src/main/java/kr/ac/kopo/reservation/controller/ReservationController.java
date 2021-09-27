@@ -3,6 +3,7 @@ package kr.ac.kopo.reservation.controller;
 import com.google.gson.Gson;
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
+import kr.ac.kopo.myPage.vo.HistoryVO;
 import kr.ac.kopo.reservation.service.ReservationService;
 import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,6 +55,9 @@ public class ReservationController {
             }
         }
 
+        List<HistoryVO> recentList = service.searchByRecentHistory();
+        mav.addObject("recentList", recentList);
+
         mav.addObject("favoriteList", favoriteList);
         mav.addObject("schedulerDate", now.toString());
         mav.addObject("bankerList", bankerVOList);
@@ -100,6 +104,9 @@ public class ReservationController {
                 }
             }
         }
+
+        List<HistoryVO> recentList = service.searchByRecentHistory();
+        mav.addObject("recentList", recentList);
         mav.addObject("sector", sector);
         mav.addObject("schedulerDate", date);
         mav.addObject("bankerList", bankerVOList);
@@ -127,6 +134,8 @@ public class ReservationController {
             }
         }
         ModelAndView mav = new ModelAndView();
+        List<HistoryVO> recentList = service.searchByRecentHistory();
+        mav.addObject("recentList", recentList);
         mav.addObject("schedulerDate", date);
         mav.addObject("bankerList", bankerVOList);
         mav.addObject("sector", sector);
@@ -157,6 +166,12 @@ public class ReservationController {
                 }
             }
         }
+        List<HistoryVO> recentList = service.searchByRecentHistory();
+
+        for (HistoryVO h : recentList) {
+            System.out.println("컨트롤러 recent :" + h);
+        }
+        mav.addObject("recentList", recentList);
 
         mav.addObject("targetTagName", tagName);
         mav.addObject("schedulerDate", date);
@@ -165,5 +180,6 @@ public class ReservationController {
 
         return mav;
     }
+
 
 }

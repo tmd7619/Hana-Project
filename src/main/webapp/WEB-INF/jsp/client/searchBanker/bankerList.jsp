@@ -523,7 +523,8 @@
                                 <c:if test="${not fn:contains(banker.impossible,'1')}">
                                     <li>
                                         <button id="termsModal" class="btn btn-light btn-sm"
-                                                style="margin-bottom: 10px;" value="10:00">10:00
+                                                style="margin-bottom: 10px;background-color: #27b2a5;color: #fff;"
+                                                value="10:00">10:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -537,7 +538,8 @@
                                 <c:if test="${not fn:contains(banker.impossible,'2')}">
                                     <li>
                                         <button class="btn btn-light btn-sm"
-                                                style="margin-bottom: 10px;" value="11:00">11:00
+                                                style="margin-bottom: 10px;background-color: #27b2a5;color: #fff;"
+                                                value="11:00">11:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -551,7 +553,7 @@
                                 <c:if test="${not fn:contains(banker.impossible,'3')}">
                                     <li>
                                         <button value="13:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">13:00
+                                                style="margin-bottom: 10px;background-color: #27b2a5;color: #fff;">13:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -565,7 +567,7 @@
                                 <c:if test="${not fn:contains(banker.impossible,'4')}">
                                     <li>
                                         <button value="14:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">14:00
+                                                style="margin-bottom: 10px;background-color: #27b2a5;color: #fff;">14:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -579,7 +581,7 @@
                                 <c:if test="${not fn:contains(banker.impossible,'5')}">
                                     <li>
                                         <button value="15:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">15:00
+                                                style="margin-bottom: 10px;background-color: #27b2a5;color: #fff;">15:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -593,7 +595,7 @@
                                 <c:if test="${not fn:contains(banker.impossible,'6')}">
                                     <li>
                                         <button value="16:00" class="btn btn-light btn-sm "
-                                                style="margin-bottom: 10px;">16:00
+                                                style="margin-bottom: 10px;background-color: #27b2a5;color: #fff;">16:00
                                         </button>
                                     </li>
                                 </c:if>
@@ -670,62 +672,21 @@
                     <%--                    </div>--%>
                     <div class="blog__sidebar__recent">
                         <h5>최근 다른 손님과 상담한 PB</h5>
-                        <a href="#" class="blog__sidebar__recent__item">
-                            <div class="blog__sidebar__recent__item__pic">
-                                <img src="img/blog/recent-1.jpg" alt="">
-                            </div>
-                            <div class="blog__sidebar__recent__item__text">
-                                <span><i class="fa fa-tags"></i> Shopping</span>
-                                <h6>Tortoise grilled on salt</h6>
-                                <p>
-                                    <i class="fa fa-clock-o"></i> 방금
-                                </p>
-                            </div>
-                        </a> <a href="#" class="blog__sidebar__recent__item">
-                        <div class="blog__sidebar__recent__item__pic">
-                            <img src="img/blog/recent-2.jpg" alt="">
-                        </div>
-                        <div class="blog__sidebar__recent__item__text">
-                            <span><i class="fa fa-tags"></i> Hotels</span>
-                            <h6>Shrimp floured and fried</h6>
-                            <p>
-                                <i class="fa fa-clock-o"></i> 25분전
-                            </p>
-                        </div>
-                    </a> <a href="#" class="blog__sidebar__recent__item">
-                        <div class="blog__sidebar__recent__item__pic">
-                            <img src="img/blog/recent-3.jpg" alt="">
-                        </div>
-                        <div class="blog__sidebar__recent__item__text">
-                            <span><i class="fa fa-tags"></i> Restaurant</span>
-                            <h6>Sweet and sour pork ribs</h6>
-                            <p>
-                                <i class="fa fa-clock-o"></i> 40분전
-                            </p>
-                        </div>
-                    </a> <a href="#" class="blog__sidebar__recent__item">
-                        <div class="blog__sidebar__recent__item__pic">
-                            <img src="img/blog/recent-4.jpg" alt="">
-                        </div>
-                        <div class="blog__sidebar__recent__item__text">
-                            <span><i class="fa fa-tags"></i> Videos</span>
-                            <h6>Crab fried with tamarind</h6>
-                            <p>
-                                <i class="fa fa-clock-o"></i> 19th March, 2019
-                            </p>
-                        </div>
-                    </a> <a href="#" class="blog__sidebar__recent__item">
-                        <div class="blog__sidebar__recent__item__pic">
-                            <img src="img/blog/recent-5.jpg" alt="">
-                        </div>
-                        <div class="blog__sidebar__recent__item__text">
-                            <span><i class="fa fa-tags"></i> Travel</span>
-                            <h6>Tortoise grilled on salt</h6>
-                            <p>
-                                <i class="fa fa-clock-o"></i> 19th March, 2019
-                            </p>
-                        </div>
-                    </a>
+                        <c:forEach items="${recentList}" var="recent" varStatus="loop" end="4">
+                            <a href="#" class="blog__sidebar__recent__item">
+                                <div class="blog__sidebar__recent__item__pic">
+                                    <img src="img/blog/recent-1.jpg" alt="">
+                                </div>
+                                <div class="blog__sidebar__recent__item__text">
+                                    <span style="font-size: 15px"><i class="fa fa-tags"></i><c:out
+                                            value="${recent.branchName}"/></span>
+                                    <h5>${recent.pbName} 상담사</h5>
+                                    <p>
+                                        <i class="fa fa-clock-o"></i> <c:out value="${recent.csltTime}"/>
+                                    </p>
+                                </div>
+                            </a>
+                        </c:forEach>
                     </div>
                 </div>
             </div>
@@ -1295,6 +1256,7 @@
         $('#staticBackdrop').modal('show');
 
     })
+
 
 </script>
 

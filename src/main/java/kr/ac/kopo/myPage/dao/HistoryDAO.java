@@ -31,5 +31,7 @@ public interface HistoryDAO {
     // 상담내역 status 변경
     public int updateStatus(HistoryVO historyVO);
 
+    List<HistoryVO> searchByRecentHistory();
+
 
 }

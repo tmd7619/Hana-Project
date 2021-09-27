@@ -91,4 +91,17 @@ public class HistoryDAOImpl implements HistoryDAO {
 
         return check;
     }
+
+    @Override
+    public List<HistoryVO> searchByRecentHistory() {
+        int num = 5;
+
+        List<HistoryVO> list = sqlSessionTemplate.selectList(namespace + "searchByRecentHistory", num);
+
+        for (HistoryVO h : list) {
+            System.out.println(h);
+        }
+
+        return list;
+    }
 }

@@ -19,4 +19,5 @@ public interface ReservationDAO {
     List<BankerVO> selectByFavorite(ClientVO clientVO);
 
     List<BankerVO> searchByTagName(String tagName);
+
 }

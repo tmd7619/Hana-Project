@@ -126,4 +126,10 @@
         where room_number = #{roomNumber}
     </update>
 
+    <select id="searchByRecentHistory" parameterType="int" resultMap="historyMap">
+        select *
+        from consulting_history
+        order by cslt_time desc
+    </select>
+
 </mapper>

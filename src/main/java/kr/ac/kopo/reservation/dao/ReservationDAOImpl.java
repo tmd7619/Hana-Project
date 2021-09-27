@@ -70,7 +70,7 @@ public class ReservationDAOImpl implements ReservationDAO {
 
         List<BankerVO> bankerList = sqlSessionTemplate.selectList(namespace + "searchByTagName", tagName);
 
-
         return bankerList;
     }
+
 }
