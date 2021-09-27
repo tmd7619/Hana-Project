@@ -261,7 +261,7 @@
                 } else if (d.type == "message") {
                     if (d.sessionId == $("#sessionId").val()) {
                         $("#chatWindow").append(
-                            "<p class='me'>나 :" + d.msg + "</p>");
+                            "<p class='me'>본인 :" + d.msg + "</p>");
                     } else {
                         $("#chatWindow").append(
                             "<p class='others'>" + d.userName + " :"
@@ -567,7 +567,7 @@
                                 <h6 class="m-0 font-weight-bold text-primary"></h6>
                                 <div class="select__option" style="float: right">
                                     <select class="product-classification" name="products">
-                                        <option value="">상품 분류</option>
+                                        <option value="">전체 보기</option>
                                         <option value="">예금 상품</option>
                                         <option value="">채권 상품</option>
                                         <option value="">펀드 상품</option>

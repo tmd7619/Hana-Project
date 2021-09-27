@@ -1158,6 +1158,8 @@
         $('#sendModal').modal('show');
     })
 
+    var schedulerDate = '${schedulerDate}';
+
     $(function () {
         $('#sendMsg')
             .click(
@@ -1167,12 +1169,14 @@
                     $('#sendModal2').modal('show');
                     $("#time").text(consultTime)
                     $("#pb").text(pbName)
+                    console.log(schedulerDate)
                     sendMessage = {
                         "username": username,
                         "rsrvTime": consultTime,
                         "rsrvComment": reserveComment,
                         "pbName": pbName,
-                        "pbBranchName": pbBranchName
+                        "pbBranchName": pbBranchName,
+                        "startDate": schedulerDate
                     }
                     console.log(sendMessage)
                     console.log(JSON.stringify(sendMessage))
@@ -1194,7 +1198,8 @@
                             success: function () {
                             }
                         })
-                        location.reload();
+                        window.location.href = "${pageContext.request.contextPath}/client/searchList"
+
                     })
                 })
 
@@ -1283,7 +1288,8 @@
 
     // 태그 네임 색상 변경하기
     if ('${requestScope.targetTagName}'.trim()) {
-        $("div:contains('${targetTagName}')").css({color: "#008485"});
+        $("div:contains('${targetTagName}')").css({color: "red"});
+        $("div:contains('${targetTagName}')").css({fontsize: "20px"});
     }
 
     // 프로필 모달 오픈

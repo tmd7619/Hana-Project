@@ -28,4 +28,11 @@ public class ProductDAOImpl implements ProductDAO {
         return products;
     }
 
+    @Override
+    public List<ProductVO> searchAllProducts() {
+
+        List<ProductVO> products = sqlSessionTemplate.selectList("consultation.ProductDAO.searchAllProducts");
+
+        return products;
+    }
 }

@@ -191,7 +191,7 @@
     <script>
         function selChange() {
             var sel = document.getElementById('cntPerPage').value;
-            location.href = "/client/myPage/history?nowPage=${paging.nowPage}&cntPerPage=" + sel;
+            location.href = "/client/myPage/history?nowPage=" + ${paging.nowPage} +"&cntPerPage=" + sel;
         }
     </script>
 
@@ -261,8 +261,8 @@
                         <th>더보기</th>
                     </tr>
                     </thead>
-                    <tbody>
                     <c:forEach items="${historyList}" var="history" varStatus="loop">
+                        <tbody>
                         <tr class="selectRoomNumber">
                             <input class="roomNumber" type="hidden"
                                    value="${history.roomNumber}"/>
@@ -288,8 +288,8 @@
                                 </button>
                             </td>
                         </tr>
+                        </tbody>
                     </c:forEach>
-                    </tbody>
                 </table>
                 <div style="display: block; text-align: center;">
                     <c:if test="${paging.startPage != 1 }">

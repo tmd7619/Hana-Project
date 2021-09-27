@@ -62,14 +62,14 @@ public class ReservationController {
         return mav;
     }
 
-    @ResponseBody
     @PostMapping("client/sendReservation")
+    @ResponseBody
     public String insertReservation(@RequestBody String sendMessage) {
         System.out.println(sendMessage);
         Gson gson = new Gson();
 
         ReservationVO reservationVO = gson.fromJson(sendMessage, ReservationVO.class);
-
+        System.out.println(reservationVO);
         int check = service.insertReservation(reservationVO);
 
         if (check != 0) {

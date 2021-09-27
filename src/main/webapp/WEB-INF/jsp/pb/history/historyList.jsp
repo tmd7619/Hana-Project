@@ -210,7 +210,7 @@
     <script>
         function selChange() {
             var sel = document.getElementById('cntPerPage').value;
-            location.href = "/client/myPage/history?nowPage=${paging.nowPage}&cntPerPage=" + sel;
+            location.href = "/pb/history?nowPage=" + ${paging.nowPage} +"&cntPerPage=" + sel;
         }
     </script>
 
@@ -315,7 +315,7 @@
                 </table>
                 <div style="display: block; text-align: center;">
                     <c:if test="${paging.startPage != 1 }">
-                        <a href="${pageContext.request.contextPath}/client/myPage/history?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
+                        <a href="${pageContext.request.contextPath}/pb/history?nowPage=${paging.startPage - 1 }&cntPerPage=${paging.cntPerPage}">&lt;</a>
                     </c:if>
                     <c:forEach begin="${paging.startPage }" end="${paging.endPage }" var="p">
                         <c:choose>
@@ -323,12 +323,12 @@
                                 <b>${p }</b>
                             </c:when>
                             <c:when test="${p != paging.nowPage }">
-                                <a href="${pageContext.request.contextPath}/client/myPage/history?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
+                                <a href="${pageContext.request.contextPath}/pb/history?nowPage=${p }&cntPerPage=${paging.cntPerPage}">${p }</a>
                             </c:when>
                         </c:choose>
                     </c:forEach>
                     <c:if test="${paging.endPage != paging.lastPage}">
-                        <a href="${pageContext.request.contextPath}/client/myPage/history?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
+                        <a href="${pageContext.request.contextPath}/pb/history?nowPage=${paging.endPage+1 }&cntPerPage=${paging.cntPerPage}">&gt;</a>
                     </c:if>
                 </div>
             </div>

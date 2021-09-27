@@ -103,6 +103,7 @@ main_content          VARCHAR2(1000) -- 메인 소개
 
 
 DROP SEQUENCE Private_banker_seq;
+
 CREATE SEQUENCE  Private_banker_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
@@ -273,11 +274,36 @@ SELECT cslt_title
                       ) A
              )
         WHERE RN BETWEEN 1 AND 5
-          and pb_code_num = 123123 ;
+          and client_id = 'user' 
+         ;
+
+
 
 select * from consulting_history;
 select to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time from consulting_history;
 
+
+-- pb --
+SELECT cslt_title
+             , cslt_comment
+             , pb_name
+             , branch_name
+             , to_char(cslt_time, 'yyyy-mm-dd HH24:mi') as cslt_time
+             , room_number
+             , username
+             , status_toggle
+        FROM (
+                 SELECT ROWNUM RN, A.*
+                 FROM (
+                          SELECT *
+                          FROM consulting_history
+                          ORDER BY cslt_time DESC
+                      ) A
+             )
+        WHERE RN BETWEEN 1 AND 5
+          and pb_code_num = 453120;
+
+select * from consulting_history where pb_code_num = 453120;
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

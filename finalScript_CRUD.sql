@@ -43,7 +43,7 @@ insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
     values(Private_banker_seq.nextval,'pbuser' ,'1234','김하나', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#든든한 #믿음직한 #예약시간준수' ,453211
+        , '#든든한 #믿음직한 #예약시간준수' ,453120
         
 );
 
@@ -230,7 +230,7 @@ select s.impossible,  p.pb_name,p.branch_name, p.main_field
 --------assets_info-----------------------------------------------------------------------------------------------------
 
 insert into assets_info(client_id, assets_info_id, deposit, fund, wrap_account, stock, bond)
-    values('test', assets_info_seq.nextval, 2000000, 1500000, 5000000, 2000000, 500000);
+    values('user', assets_info_seq.nextval, 2000000, 1500000, 5000000, 2000000, 500000);
 commit;
 
 
@@ -317,32 +317,32 @@ commit;
  --주식 상품10개   --------------------------------------------------------------------------------------------------------------------
  
  insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232876' , Financial_Products_seq.nextval, '하나UBS스마트알파EMP분기지급형[채권혼합-재간접형]C-E' , '주식' , '다소 높은 위험','약관입니당~');
+    values('232876' , Financial_Products_seq.nextval, '하나UBS스마트알파EMP분기지급형[채권혼합-재간접형]C-E' , '파생' , '다소 높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232877' , Financial_Products_seq.nextval, '하나UBS파워e단기채증권자투자신탁(채권)A-e' , '주식' , '높은 위험','약관입니당~');
+    values('232877' , Financial_Products_seq.nextval, '하나UBS파워e단기채증권자투자신탁(채권)A-e' , '파생' , '높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232878' , Financial_Products_seq.nextval, '하나UBS 신종MMF(S-26호)C-PE' , '주식' , '보통 위험','약관입니당~');
+    values('232878' , Financial_Products_seq.nextval, '하나UBS 신종MMF(S-26호)C-PE' , '파생' , '보통 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232879' , Financial_Products_seq.nextval, '블랙록유로시장펀드(A2-EUR)' , '주식' , '보통 위험','약관입니당~');
+    values('232879' , Financial_Products_seq.nextval, '블랙록유로시장펀드(A2-EUR)' , '파생' , '보통 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232880' , Financial_Products_seq.nextval, '미래에셋로저스농산물지수특별자산(상품-파생형)B-e' , '주식' , '높은 위험','약관입니당~');
+    values('232880' , Financial_Products_seq.nextval, '미래에셋로저스농산물지수특별자산(상품-파생형)B-e' , '파생' , '높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232881' , Financial_Products_seq.nextval, '하나UBS코스닥벤처기업&공모주증권투자신탁(주식혼합-파생형)A-E' , '주식' , '높은 위험','약관입니당~');
+    values('232881' , Financial_Products_seq.nextval, '하나UBS코스닥벤처기업&공모주증권투자신탁(주식혼합-파생형)A-E' , '파생' , '높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232882' , Financial_Products_seq.nextval, '미래에셋전략배분TDF2045년혼합자산자투자신탁C-PE' , '주식' , '높은 위험','약관입니당~');   
+    values('232882' , Financial_Products_seq.nextval, '미래에셋전략배분TDF2045년혼합자산자투자신탁C-PE' , '파생' , '높은 위험','약관입니당~');   
     
  insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232870' , Financial_Products_seq.nextval, '하나코스닥벤처기업공모주증권투자신탁C-E' , '주식' , '매우 높은 위험','약관입니당~');
+    values('232870' , Financial_Products_seq.nextval, '하나코스닥벤처기업공모주증권투자신탁C-E' , '파생' , '매우 높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232871' , Financial_Products_seq.nextval, '하나UBS월지급PIMCO글로벌인컴혼합자산자투자신탁' , '주식' , '매우 높은 위험','약관입니당~');
+    values('232871' , Financial_Products_seq.nextval, '하나UBS월지급PIMCO글로벌인컴혼합자산자투자신탁' , '파생' , '매우 높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232872' , Financial_Products_seq.nextval, '하나UBS코스닥벤처기업&공모주증권투자신탁(주식혼합-파생형)C-E' , '주식' , '매우 높은 위험','약관입니당~');
+    values('232872' , Financial_Products_seq.nextval, '하나UBS코스닥벤처기업&공모주증권투자신탁(주식혼합-파생형)C-E' , '파생' , '매우 높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232873' , Financial_Products_seq.nextval, '하나UBSPIMCO글로벌인컴혼합자산자투자신탁(H)[재간]AE' , '주식' , '매우 높은 위험','약관입니당~');
+    values('232873' , Financial_Products_seq.nextval, '하나UBSPIMCO글로벌인컴혼합자산자투자신탁(H)[재간]AE' , '파생' , '매우 높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232874' , Financial_Products_seq.nextval, '하나UBSPIMCO글로벌인컴혼합자산자투자신탁(H)[재간]C-PE' , '주식' , '다소 높은 위험','약관입니당~');
+    values('232874' , Financial_Products_seq.nextval, '하나UBSPIMCO글로벌인컴혼합자산자투자신탁(H)[재간]C-PE' , '파생' , '다소 높은 위험','약관입니당~');
 insert into financial_products(FINANCIAL_CODE,FINANCIAL_PRODUCTS_ID, product_name,product_type,product_grade,product_terms)
-    values('232875' , Financial_Products_seq.nextval, '하나UBS스마트알파EMP분기지급형[채권혼합-재간접형]A-E' , '주식' , '다소 높은 위험','약관입니당~');
+    values('232875' , Financial_Products_seq.nextval, '하나UBS스마트알파EMP분기지급형[채권혼합-재간접형]A-E' , '파생' , '다소 높은 위험','약관입니당~');
  --주식 상품10개   --------------------------------------------------------------------------------------------------------------------
 
 
@@ -439,28 +439,28 @@ create table consulting_history(
 );
 
 
--- 손님 기준만들기 
+-- 손님 기준만들기 ------------------------------------------------------------------
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username , cslt_time )
-    values('user' , '랩 상품 상담' , '상담완료' , '453111' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222 , '윤승원', to_date('2021-05-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
+    values('user' , '랩 상품 상담 ' , '상담완료' , '453111' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222 , '윤승원', to_date('2021-05-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
     
     insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num ,username , cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453112' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222, '윤승원', to_date('2021-03-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user' , '자산 배분 상담 ' , '상담완료' , '453112' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222, '윤승원', to_date('2021-03-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num,username, cslt_time)
-    values('user' , '주식 상품 상담' , '상담완료' , '453113' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222, '윤승원', to_date('2021-02-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user' , '주식 상품 상담 ' , '상담완료' , '453113' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222, '윤승원', to_date('2021-02-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username, cslt_time) 
-    values('user' , '펀드 상품 상담' , '상담완료' , '453114' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222 ,'윤승원' , to_date('2021-09-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user' , '펀드 상품 상담 ' , '상담완료' , '453114' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222 ,'윤승원' , to_date('2021-09-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 조율 상담' , '상담완료' , '453115' , '최하나' , '영등포지점' , consulting_history_seq.nextval ,453213,'윤승원', to_date('2021-08-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user' , '자산 조율 상담 ' , '상담완료' , '453115' , '최하나' , '영등포지점' , consulting_history_seq.nextval ,453213,'윤승원', to_date('2021-08-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
     
     
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453116' , '최하나' , '영등포지점' , consulting_history_seq.nextval,453213,'윤승원', to_date('2021-07-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
+    values('user' , '자산 배분 상담 ' , '상담완료' , '453116' , '최하나' , '영등포지점' , consulting_history_seq.nextval,453213,'윤승원', to_date('2021-07-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
     
     insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '채권 상품 상담' , '상담완료' , '453117' , '윤하나' , '부천지점' , consulting_history_seq.nextval, 453222,'윤승원', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
+    values('user' , '채권 상품 상담 ' , '상담완료' , '453117' , '윤하나' , '부천지점' , consulting_history_seq.nextval, 453222,'윤승원', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
     values('user' , '자산 배분 상담' , '상담완료' , '453118' , '최하나' , '영등포지점' , consulting_history_seq.nextval,453213,'윤승원', to_date('2020-03-23 15:24' , 'yyyy-mm-dd HH24:MI' ));
@@ -473,6 +473,43 @@ insert into consulting_history(client_id , cslt_title , cslt_comment, room_numbe
     
 commit;
 
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username , cslt_time )
+    values('user' , '랩 상품 상담' , '상담완료' , '413111' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222 , '윤승원', to_date('2021-04-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
+    
+    insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num ,username , cslt_time)
+    values('user' , '자산 배분 상담' , '상담완료' , '423112' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222, '윤승원', to_date('2021-02-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num,username, cslt_time)
+    values('user' , '주식 상품 상담' , '상담완료' , '433113' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222, '윤승원', to_date('2021-01-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username, cslt_time) 
+    values('user' , '펀드 상품 상담' , '상담완료' , '443114' , '윤하나' , '부천지점' , consulting_history_seq.nextval , 453222 ,'윤승원' , to_date('2020-12-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
+    values('user' , '자산 조율 상담' , '상담완료' , '453115' , '최하나' , '영등포지점' , consulting_history_seq.nextval ,453213,'윤승원', to_date('2020-11-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
+    
+    
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
+    values('user' , '자산 배분 상담' , '상담완료' , '463116' , '유하나' , '상동지점' , consulting_history_seq.nextval,453214,'윤승원', to_date('2020-10-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
+    
+    insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
+    values('user' , '채권 상품 상담' , '상담완료' , '473117' , '유하나' , '상동지점' , consulting_history_seq.nextval, 453214,'윤승원', to_date('2021-9-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
+    values('user' , '자산 배분 상담' , '상담완료' , '483118' , '유하나' , '상동지점' , consulting_history_seq.nextval,453214,'윤승원', to_date('2020-08-23 15:24' , 'yyyy-mm-dd HH24:MI' ));
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
+    values('user' , '예금 상품 상담' , '상담완료' , '493119' , '유하나' , '상동지점' , consulting_history_seq.nextval, 453214,'윤승원', to_date('2021-07-15 15:53' , 'yyyy-mm-dd HH24:MI' ));
+
+insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
+    values('user' , '펀 상품 상담' , '상담완료' , '503120' , '유하나' , '상동지점' , consulting_history_seq.nextval, 453214,'윤승원', to_date('2021-06-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
+    
+commit;
+-- 손님 기준만들기 ------------------------------------------------------------------
+
+
+
 SELECT * FROM consulting_history;
 
 
@@ -480,69 +517,73 @@ SELECT * FROM consulting_history;
 
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username , cslt_time )
-    values('user' , '랩 상품 상담' , '상담완료' , '453121' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222 , '윤승원', to_date('2021-05-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
+    values('user' , '랩 상품 상담' , '상담완료' , '453121' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120 , '윤승원', to_date('2021-05-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
     
     insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num ,username , cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453122' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222, '정현석', to_date('2021-03-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user2' , '자산 배분 상담' , '상담완료' , '453122' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120, '정현석', to_date('2021-03-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num,username, cslt_time)
-    values('user' , '주식 상품 상담' , '상담완료' , '453123' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222, '황준호', to_date('2021-02-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user3' , '주식 상품 상담' , '상담완료' , '453123' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120, '황준호', to_date('2021-02-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username, cslt_time) 
-    values('user' , '펀드 상품 상담' , '상담완료' , '453124' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222 ,'구본성' , to_date('2021-09-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user4' , '펀드 상품 상담' , '상담완료' , '453124' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120 ,'구본성' , to_date('2021-09-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 조율 상담' , '상담완료' , '453125' , '김하나' , '강서지점' , consulting_history_seq.nextval ,453222,'윤승원', to_date('2021-08-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user5' , '자산 조율 상담' , '상담완료' , '453125' , '김하나' , '강서지점' , consulting_history_seq.nextval ,453120,'윤승원', to_date('2021-08-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
     
     
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453126' , '김하나' , '강서지점' , consulting_history_seq.nextval,453222,'안재훈', to_date('2021-07-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
+    values('user6' , '자산 배분 상담' , '상담완료' , '453126' , '김하나' , '강서지점' , consulting_history_seq.nextval,453120,'안재훈', to_date('2021-07-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
     
     insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '채권 상품 상담' , '상담완료' , '453127' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453222,'안재훈', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
+    values('user7' , '채권 상품 상담' , '상담완료' , '453127' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453120,'안재훈', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453128' , '김하나' , '강서지점' , consulting_history_seq.nextval,453222,'조세진', to_date('2020-03-23 15:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user8' , '자산 배분 상담' , '상담완료' , '453128' , '김하나' , '강서지점' , consulting_history_seq.nextval,453120,'조세진', to_date('2020-03-23 15:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '예금 상품 상담' , '상담완료' , '453129' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453222,'조세진', to_date('2021-08-15 15:53' , 'yyyy-mm-dd HH24:MI' ));
+    values('user9' , '예금 상품 상담' , '상담완료' , '453129' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453120,'조세진', to_date('2021-08-15 15:53' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '펀 상품 상담' , '상담완료' , '453130' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453222,'한주희', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
+    values('user10' , '펀 상품 상담' , '상담완료' , '453130' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453120,'한주희', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
     
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username , cslt_time )
-    values('user' , '랩 상품 상담' , '상담완료' , '453131' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222 , '한주희', to_date('2021-05-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
+    values('user11' , '랩 상품 상담' , '상담완료' , '453131' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120 , '한주희', to_date('2021-05-12 12:24' , 'yyyy-mm-dd HH24:MI' ) );
     
     insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num ,username , cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453132' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222, '윤정환', to_date('2021-03-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user12' , '자산 배분 상담' , '상담완료' , '453132' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120, '윤정환', to_date('2021-03-24 13:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num,username, cslt_time)
-    values('user' , '주식 상품 상담' , '상담완료' , '453133' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222, '윤정환', to_date('2021-02-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user13' , '주식 상품 상담' , '상담완료' , '453133' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120, '윤정환', to_date('2021-02-15 11:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id , pb_code_num , username, cslt_time) 
-    values('user' , '펀드 상품 상담' , '상담완료' , '453134' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453222 ,'윤정환' , to_date('2021-09-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user14' , '펀드 상품 상담' , '상담완료' , '453134' , '김하나' , '강서지점' , consulting_history_seq.nextval , 453120 ,'윤정환' , to_date('2021-09-23 13:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 조율 상담' , '상담완료' , '453135' , '김하나' , '강서지점' , consulting_history_seq.nextval ,453222,'김충만', to_date('2021-08-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user15' , '자산 조율 상담' , '상담완료' , '453135' , '김하나' , '강서지점' , consulting_history_seq.nextval ,453120,'김충만', to_date('2021-08-24 10:24' , 'yyyy-mm-dd HH24:MI' ));
     
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453136' , '김하나' , '강서지점' , consulting_history_seq.nextval,453222,'김충만', to_date('2021-07-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
+    values('user16' , '자산 배분 상담' , '상담완료' , '453136' , '김하나' , '강서지점' , consulting_history_seq.nextval,453120,'김충만', to_date('2021-07-26 13:12' , 'yyyy-mm-dd HH24:MI' ));
     
     insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '채권 상품 상담' , '상담완료' , '453137' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453222,'김충만', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
+    values('user17' , '채권 상품 상담' , '상담완료' , '453137' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453120,'김충만', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '자산 배분 상담' , '상담완료' , '453138' , '김하나' , '강서지점' , consulting_history_seq.nextval,453222,'김충만', to_date('2020-03-23 15:24' , 'yyyy-mm-dd HH24:MI' ));
+    values('user18' , '자산 배분 상담' , '상담완료' , '453138' , '김하나' , '강서지점' , consulting_history_seq.nextval,453120,'김충만', to_date('2020-03-23 15:24' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '예금 상품 상담' , '상담완료' , '453139' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453222,'정해명', to_date('2021-08-15 15:53' , 'yyyy-mm-dd HH24:MI' ));
+    values('user19' , '예금 상품 상담' , '상담완료' , '453139' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453120,'정해명', to_date('2021-08-15 15:53' , 'yyyy-mm-dd HH24:MI' ));
 
 insert into consulting_history(client_id , cslt_title , cslt_comment, room_number , pb_name, branch_name , consulting_history_id, pb_code_num , username, cslt_time)
-    values('user' , '펀 상품 상담' , '상담완료' , '453140' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453222,'정해명', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));    
+    values('user20' , '펀 상품 상담' , '상담완료' , '453140' , '김하나' , '강서지점' , consulting_history_seq.nextval, 453120,'정해명', to_date('2021-02-21 15:32' , 'yyyy-mm-dd HH24:MI' ));    
     
     
     
 commit;
+
+-- 토글 업데이트 하기
+
+update consulting_history set status_toggle = 2 where username = '윤승원';
 
 
 

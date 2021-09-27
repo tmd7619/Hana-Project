@@ -66,7 +66,7 @@
                             <div class="select__option">
                                 <select>
                                     <option value="">분야별 카테고리</option>
-                                    <option value="">주식 분야</option>
+                                    <option value="">파생 분야</option>
                                     <option value="">채권 분야</option>
                                     <option value="">펀드 분야</option>
                                     <option value="">예금 분야</option>

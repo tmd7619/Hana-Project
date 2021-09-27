@@ -68,9 +68,8 @@ public class ReservationServiceImpl implements ReservationService {
 
         schedulerVO.setStartTime(startTime);
         schedulerVO.setEndTime(endTime);
-        schedulerVO.setStartDate(now.toString());
-        schedulerVO.setEndDate(now.toString());
-
+        schedulerVO.setStartDate(reservationVO.getStartDate());
+        schedulerVO.setEndDate(reservationVO.getStartDate());
 
         schedulerDAO.addSchedule(schedulerVO); // 스케줄 테이블 insert
         int check = reservationDAO.insertReservation(reservationVO); // 에약 정보 insert
@@ -106,7 +105,7 @@ public class ReservationServiceImpl implements ReservationService {
     public List<BankerVO> searchByTagName(String tagName) {
 
         List<BankerVO> bankerList = reservationDAO.searchByTagName(tagName);
-        
+
         return bankerList;
     }
 }

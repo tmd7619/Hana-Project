@@ -359,14 +359,14 @@
         <div id="modal-content">
             <div class="login-form">
 
-                <h2>고객 로그인</h2>
+                <h2>손님 로그인</h2>
                 <form action="${pageContext.request.contextPath }/login" method="post" name="loginForm">
                     <div class="group-input">
-                        <label for="userId">UserID </label>
+                        <label for="userId">손님 아이디 </label>
                         <input type="text" id="userId" name="userId">
                     </div>
                     <div class="group-input">
-                        <label for="password">Password </label>
+                        <label for="password">비밀번호 </label>
                         <input type="password" id="password" name="password">
                     </div>
                     <button type="submit" class="site-btn login-btn" style="background: #01888c;color: #fff">Sign In

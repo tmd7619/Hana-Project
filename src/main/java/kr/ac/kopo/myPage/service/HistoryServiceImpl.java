@@ -88,7 +88,6 @@ public class HistoryServiceImpl implements HistoryService {
         return inquiryList;
     }
 
-
     @Override
     public int updateStatus(HistoryVO historyVO) {
         return 0;

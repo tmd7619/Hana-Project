@@ -62,6 +62,7 @@
              )
         WHERE RN BETWEEN #{start} AND #{end}
           and client_id = #{userId}
+        ORDER BY cslt_time DESC
     </select>
 
     <!-- 페이징 처리 후 게시글 조회 Banker-->
@@ -84,6 +85,8 @@
              )
         WHERE RN BETWEEN #{start} AND #{end}
           and pb_code_num = #{pbCodeNum}
+        ORDER BY cslt_time DESC
+
     </select>
 
     <select id="selectOneHistory" resultMap="historyMap" parameterType="int">

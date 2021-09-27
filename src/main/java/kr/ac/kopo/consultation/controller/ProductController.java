@@ -28,7 +28,7 @@ public class ProductController {
         System.out.println(productType);
 
 
-        List<ProductVO> products = service.searchProducts(productType);
+        List<ProductVO> products = service.searchAllProducts();
         System.out.println(products);
 
 
@@ -47,7 +47,6 @@ public class ProductController {
         System.out.println(productType);
 
         if (productType.equals("랩 어카운트")) {
-            productType = productType.replaceAll(" ", "");
 
         } else {
             productType = productType.substring(0, 2);
@@ -55,6 +54,10 @@ public class ProductController {
 
         System.out.println("단어처리 후 상품 분류 명 : " + productType);
 
+        if (productType.equals("전체 보기")) {
+            List<ProductVO> products = service.searchAllProducts();
+
+        }
         List<ProductVO> products = service.searchProducts(productType);
         System.out.println(products);
 

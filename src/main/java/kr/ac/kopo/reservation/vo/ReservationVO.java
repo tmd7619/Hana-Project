@@ -7,7 +7,15 @@ public class ReservationVO {
     private String username;
     private String pbName;
     private String pbBranchName;
+    private String startDate;
 
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
 
     public String getRsrvTime() {
         return rsrvTime;
@@ -58,6 +66,7 @@ public class ReservationVO {
                 ", username='" + username + '\'' +
                 ", pbName='" + pbName + '\'' +
                 ", pbBranchName='" + pbBranchName + '\'' +
+                ", startDate='" + startDate + '\'' +
                 '}';
     }
 }
