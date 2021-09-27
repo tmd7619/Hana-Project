@@ -40,10 +40,10 @@ MAXVALUE 1000
 NOCACHE;
 
 insert into Client(Client_id,user_id,password,username,nickname,birth,phone,email,address)
-values(member_seq.nextval,'test','1234','윤승원','윤또깡','951126','010-6211-7619','tmd814@naver.com','경기도부천시'
+values(member_seq.nextval,'user','1234','윤승원','윤또깡','951126','010-6211-7619','tmd814@naver.com','경기도부천시'
 );
 insert into Client(Client_id,user_id,password,username,nickname,birth,phone,email,address)
-values(Client_seq.nextval,'test2','1234','최민기','최밍키','951121','010-6211-7619','tmd814@naver.com','경기도부천시'
+values(Client_seq.nextval,'cmg123','1234','최민기','최밍키','951121','010-6211-7619','tmd814@naver.com','경기도부천시'
 );
 commit;
 rollback;
@@ -87,7 +87,7 @@ code_num            NUMBER(6) primary key ,  -- 사번
 Private_Banker_id NUMBER not null , 
 pb_id                VARCHAR2(30) NOT NULL,
 pb_password          VARCHAR2(50) NOT NULL,
-pb_name              VARCHAR2(20)  NOT NULL UNIQUE ,
+pb_name              VARCHAR2(20)  NOT NULL  ,
 pb_rank              VARCHAR2(20)  NOT NULL , 
 pb_phone             VARCHAR2(30)  , 
 pb_email             VARCHAR2(100) , -- pb email
