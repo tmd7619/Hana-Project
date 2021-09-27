@@ -482,10 +482,10 @@
                                 <li><i class="fa fa-tags"></i> <c:out
                                         value="${banker.branchName}"/></li>
 
-                                <input class="introContent" type="hidden"
-                                       value="<c:out value="${banker.introContent}"/>"/>
-                                <input class="mainContent" type="hidden"
-                                       value="<c:out value="${banker.mainContent}"/>"/>
+                                    <%--                                <input class="introContent" type="hidden"--%>
+                                    <%--                                       value="<c:out value="${banker.introContent}"/>"/>--%>
+                                    <%--                                <input class="mainContent" type="hidden"--%>
+                                    <%--                                       value="<c:out value="${banker.mainContent}"/>"/>--%>
                                 <input class="mainField" type="hidden" value="<c:out value="${banker.mainField}"/>"/>
                                 <input class="rank" type="hidden" value="<c:out value='${banker.pbRank}'/>"/>
 
@@ -689,7 +689,7 @@
                             <span><i class="fa fa-tags"></i> Hotels</span>
                             <h6>Shrimp floured and fried</h6>
                             <p>
-                                <i class="fa fa-clock-o"></i> 22th March, 2019
+                                <i class="fa fa-clock-o"></i> 25분전
                             </p>
                         </div>
                     </a> <a href="#" class="blog__sidebar__recent__item">
@@ -700,7 +700,7 @@
                             <span><i class="fa fa-tags"></i> Restaurant</span>
                             <h6>Sweet and sour pork ribs</h6>
                             <p>
-                                <i class="fa fa-clock-o"></i> 25th March, 2019
+                                <i class="fa fa-clock-o"></i> 40분전
                             </p>
                         </div>
                     </a> <a href="#" class="blog__sidebar__recent__item">
@@ -881,7 +881,7 @@
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 style="margin-left: 50px;padding: 6px;" class="modal-title"
+                <h4 id="profileTitle" style="margin-left: 50px;padding: 6px;" class="modal-title"
                     id="exampleModalScrollableTitle"></h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
@@ -892,38 +892,26 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
-                                 style="background-image: url(${pageContext.request.contextPath}/resources/images/about-1.jpg);">
+                                 style="background-image: url(${pageContext.request.contextPath}/resources/pb/IMG_7933.JPG);">
                             </div>
                             <div class="col-md-6 wrap-about px-md-5 ftco-animate py-5 bg-light">
                                 <div class="heading-section py-md-5">
                                     <span class="subheading">(주)하나금융지주</span>
-                                    <h2 class="mb-4">${bankerVO.pbName}</h2>
+                                    <h2 class="mb-41">${bankerVO.pbName}</h2>
 
-                                    <p>A small river named Duden flows by their place and supplies it with the
-                                        necessary
-                                        regelialia. It is a paradisematic country, in which roasted parts of
-                                        sentences
-                                        fly
-                                        into
-                                        your mouth.</p>
-                                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where
-                                        it
-                                        came
-                                        from
-                                        it would have been rewritten a thousand times and everything that was left
-                                        from
-                                        its
-                                        origin would be the word "and" and the Little Blind Text should turn around
-                                        and
-                                        return
-                                        to its own, safe country.</p>
+                                    <p>하나금융그룹은 직원들에게 자아 실현의 기회를 제공하고, 손님의 자산 증대와 사업의 성장을 돕고,
+                                        이를 통해 사회가 번영하는데 일조하며 주주가치를 증대시키는 것을 목적으로 항상 최선을 다하는 금융회사가 되겠습니다.</p>
+                                    <p>하나금융그룹은 편리하고 다양한 금융상품과 서비스로 손님의 삶에 기쁨과 만족을 드리고자 은행, 증권, 카드, 캐피탈,
+                                        보험 등 금융의 각 분야에서 축적된 역량과 시너지를 통한 '신뢰받고 앞서가는 글로벌 금융그룹'의 실현을 위해 끊임없이 노력하고 있습니다.</p>
 
-                                    <a href="https://vimeo.com/45830194"
-                                       class="play-video popup-vimeo d-flex align-items-center mt-4">
-                                        <div style="width: 100px; width: 150px;height: 50px;border: 2px solid #27b2a5"
-                                             class="icon d-flex align-items-center justify-content-center"><span
-                                                style="color: #27b2a5;font-weight: bolder"
-                                                class="">상담예약하기</span></div>
+                                    <a href="#"
+                                       class="play-video ">
+                                        <button id="showModal" style="border:0; outline: 0">
+                                            <div style="width: 100px; width: 150px;height: 50px;border: 2px solid #27b2a5"
+                                                 class="icon d-flex align-items-center justify-content-center"><span
+                                                    style="color: #27b2a5;font-weight: bolder"
+                                                    class="">상담예약하기</span></div>
+                                        </button>
                                     </a>
                                 </div>
 
@@ -971,7 +959,6 @@
                     </div>
                 </section>
 
-
                 <section class="ftco-section testimony-section">
                     <div class="img img-bg border" style="background-image: url(images/bg_4.jpg);"></div>
                     <div class="overlay"></div>
@@ -990,16 +977,13 @@
                                             <div class="icon d-flex align-items-center justify-content-center "><span
                                                     class="fa fa-quote-left"></div>
                                             <div class="text">
-                                                <p class="mb-4">Far far away, behind the word mountains, far from
-                                                    the
-                                                    countries
-                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <p>정말 친절하게 설명해주셔서 좋았습니다. 다음 상담도 부탁드립니다.</p>
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-img"
                                                          style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
                                                     <div class="pl-3">
-                                                        <p class="name">Roger Scott</p>
-                                                        <span class="position">Marketing Manager</span>
+                                                        <p class="name">윤상원 손님</p>
+                                                        <span class="position"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1010,16 +994,13 @@
                                             <div class="icon d-flex align-items-center justify-content-center"><span
                                                     class="fa fa-quote-left"></div>
                                             <div class="text">
-                                                <p class="mb-4">Far far away, behind the word mountains, far from
-                                                    the
-                                                    countries
-                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <p>감사합니다 PB님 든든한 저의 자산관리 조력자이십니다!!</p>
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-img"
                                                          style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
                                                     <div class="pl-3">
-                                                        <p class="name">Roger Scott</p>
-                                                        <span class="position">Marketing Manager</span>
+                                                        <p class="name">김승복 손님</p>
+                                                        <span class="position"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1030,16 +1011,13 @@
                                             <div class="icon d-flex align-items-center justify-content-center"><span
                                                     class="fa fa-quote-left"></div>
                                             <div class="text">
-                                                <p class="mb-4">Far far away, behind the word mountains, far from
-                                                    the
-                                                    countries
-                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <p>항상 김하나 PB님게 좋은 정보 얻고 있습니다. 정말 감사드립니다 !!!</p>
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-img"
                                                          style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
                                                     <div class="pl-3">
-                                                        <p class="name">Roger Scott</p>
-                                                        <span class="position">Marketing Manager</span>
+                                                        <p class="name">이승훈 손님</p>
+                                                        <span class="position"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1050,16 +1028,13 @@
                                             <div class="icon d-flex align-items-center justify-content-center"><span
                                                     class="fa fa-quote-left"></div>
                                             <div class="text">
-                                                <p class="mb-4">Far far away, behind the word mountains, far from
-                                                    the
-                                                    countries
-                                                    Vokalia and Consonantia, there live the blind texts.</p>
+                                                <p>설명을 정말 쉽게 해주시네요!! 자산에 대해 정말 깊게 알려주셔서 감사드립니다 ㅎㅎ</p>
                                                 <div class="d-flex align-items-center">
                                                     <div class="user-img"
-                                                         style="background-image: ${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
+                                                         style="background-image: url(${pageContext.request.contextPath}/resources/images/bussiness-man.png)"></div>
                                                     <div class="pl-3">
-                                                        <p class="name">Roger Scott</p>
-                                                        <span class="position">Marketing Manager</span>
+                                                        <p class="name">이인상 손님</p>
+                                                        <span class="position"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1302,11 +1277,11 @@
         const mainField = parent.find('.mainFiled').val();
         const rank = parent.find('.rank').val();
 
-        $('.modal-title').empty();
-        $('.modal-title').text(pbName + ' 상담사 프로필');
+        $('#profileTitle').empty();
+        $('#profileTitle').text(pbName + ' 상담사 프로필');
 
         $('.mb-4').empty();
-        $('.mb-4').text(introContent)
+        $('.mb-41').text("안녕하세요? 행복을 전도하는 김하나 PB입니다.")
 
 
         console.log(pbName, pbBranchName, introContent, mainContent, mainField, rank)
@@ -1314,6 +1289,12 @@
         $('#exampleModalScrollable').modal();
     })
 
+
+    $('#showModal').click(function () {
+        $('#exampleModalScrollable').modal('hide');
+        $('#staticBackdrop').modal('show');
+
+    })
 
 </script>
 
