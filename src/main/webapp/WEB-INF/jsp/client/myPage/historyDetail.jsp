@@ -208,11 +208,15 @@
 <%--    <div class="loader"></div>--%>
 <%--</div>--%>
 
-<c:if test="${not empty bankerVO}">
-    <jsp:include page="/WEB-INF/jsp/common/pbHeader.jsp"/>
+<c:choose>
+    <c:when test="${not empty bankerVO}">
+        <jsp:include page="/WEB-INF/jsp/common/pbHeader.jsp"/>
+    </c:when>
+    <c:otherwise>
+        <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
+    </c:otherwise>
+</c:choose>
 
-</c:if>
-<jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <section class="hero-wrap hero-wrap-2"
          data-stellar-background-ratio="0.5" style="margin-bottom: 100px;">
@@ -285,9 +289,9 @@
                     <div class="listing__details__about" style="padding: 15px;">
                         <h4>상담 코멘트</h4>
                         <div id="mainContent">
-                            하나금융그룹은 직원들에게 자아 실현의 기회를 제공하고, 손님의 자산 증대와 사업의 성장을 돕고, 이를 통해 사회가 번영하는데 일조하며 주주가치를 증대시키는 것을
-                            목적으로 항상 최선을 다하는 금융회사가 되겠습니다.
-                            <p>${historyVO.csltComment}</p>
+                            ${historyVO.csltComment}
+                            <%--                            하나금융그룹은 직원들에게 자아 실현의 기회를 제공하고, 손님의 자산 증대와 사업의 성장을 돕고, 이를 통해 사회가 번영하는데 일조하며 주주가치를 증대시키는 것을--%>
+                            <%--                            목적으로 항상 최선을 다하는 금융회사가 되겠습니다.--%>
                         </div>
                     </div>
                 </div>

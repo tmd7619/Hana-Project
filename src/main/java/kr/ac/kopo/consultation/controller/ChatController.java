@@ -61,6 +61,7 @@ public class ChatController {
 
         BankerVO bankerVO = (BankerVO) session.getAttribute("bankerVO");
         ClientVO clientVO = (ClientVO) session.getAttribute("userVO");
+        System.out.println("userVO 넘어옴? : " + clientVO);
 
         RoomVO room = new RoomVO();
         Random random = new Random();

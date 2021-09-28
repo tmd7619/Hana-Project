@@ -24,8 +24,7 @@ public class FavoriteDAOImpl implements FavoriteDAO {
     public void addFavorite(FavoriteVO favoriteVO) {
 
         System.out.println("dao 넘어온 favorite" + favoriteVO);
-
-
+    
         int check = sqlSessionTemplate.insert(nameSpace + "insertFavorite", favoriteVO);
 
         if (check != 0) {

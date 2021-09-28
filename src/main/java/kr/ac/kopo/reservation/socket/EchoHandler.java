@@ -62,7 +62,7 @@ public class EchoHandler extends TextWebSocketHandler {
 
         // 손님 -> PB sendMsg
         String sendMsg = pbName + " 님, " + clientName + " 손님의 상담 신청이 왔습니다." + "<br>" + "상담 시간 : " + consultTime;
-        sendMsg += "<br>" + "comment : " + comment;
+        sendMsg += "<br>" + "Comment : " + comment;
         System.out.println("sendMsg : " + sendMsg);
 
 //        String sendMsg2 = pbName + " PB 님께서 상담 요청을 수락하셨습니다. " + "<br>" + clientName

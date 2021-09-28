@@ -93,8 +93,8 @@
                     %>
                     {
                         title: '<%= dto.getTitle() %>',
-                        start: '<%= dto.getStartDate() %>',
-                        end: '<%= dto.getEndDate() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
                         backgroundColor: "#DBF1EF",
                         textColor: "white",
                         color: "white",
@@ -104,8 +104,8 @@
                         }else { %>
                     {
                         title: '<%= dto.getTitle() %>',
-                        start: '<%= dto.getStartDate() %>',
-                        end: '<%= dto.getEndDate() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
                         backgroundColor: "gold",
                         textColor: "white",
                         color: "white",

@@ -18,6 +18,7 @@ public class SchedulerServiceImpl implements SchedulerService {
     public List<SchedulerVO> showSchedule(BankerVO banker) {
         List<SchedulerVO> schedulerVO = dao.showSchedule(banker);
 
+
         return schedulerVO;
     }
 
@@ -29,6 +30,9 @@ public class SchedulerServiceImpl implements SchedulerService {
         String endTime = dto.getEndTime();
         startTime = startTime.substring(3);
         endTime = endTime.substring(3);
+
+        dto.setStartTime(startTime);
+        dto.setEndTime(endTime);
 
         if (bankerVO != null) {
             dto.setStatusToggle(1);
@@ -42,7 +46,7 @@ public class SchedulerServiceImpl implements SchedulerService {
         dto.setPbName(bankerVO.getPbName());
         dto.setPbBranchName(bankerVO.getBranchName());
 
-        if (startTime.equals("10:00"))// 10 : 00 ~ 11 : 00
+        if (startTime.equals("10:00")) // 10 : 00 ~ 11 : 00
             dto.setImpossible(1);
         else if (startTime.equals("11:00")) // 11 : 00 ~ 12 : 00
             dto.setImpossible(2);

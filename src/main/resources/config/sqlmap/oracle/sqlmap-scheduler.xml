@@ -30,7 +30,9 @@ title,
 start_date,
 end_date,
 memo,
-status_toggle
+status_toggle,
+start_time,
+end_time
 
         FROM pb_scheduler
         WHERE pb_Name = #{pbName}

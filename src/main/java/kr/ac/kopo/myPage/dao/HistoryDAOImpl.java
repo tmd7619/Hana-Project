@@ -98,9 +98,6 @@ public class HistoryDAOImpl implements HistoryDAO {
 
         List<HistoryVO> list = sqlSessionTemplate.selectList(namespace + "searchByRecentHistory", num);
 
-        for (HistoryVO h : list) {
-            System.out.println(h);
-        }
 
         return list;
     }

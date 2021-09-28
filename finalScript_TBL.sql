@@ -217,7 +217,7 @@ select * from Financial_Products where PRODUCT_TYPE = '펀드';
 drop table favorite_list;
 create table favorite_list(
     pb_code_num number(6) primary key,
-    faovorite_list_id number not null,
+    favorite_list_id number not null,
     client_name varchar2(50) not null,
     toggle number(1) default 1
 );
@@ -225,6 +225,10 @@ create table favorite_list(
 drop sequence favorite_list_seq ;
 CREATE SEQUENCE favorite_list_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
+
+  insert into favorite_list(pb_code_num, favorite_list_id, client_name)
+        values (453120, favorite_list_seq.nextval, '윤승원');
+
 
 select * from favorite_list;
 
@@ -323,9 +327,14 @@ CREATE SEQUENCE inquiry_seq  MINVALUE 1 MAXVALUE 9999
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 
+
  select inquiry_title, inquiry_content, room_number, writer, to_char(reg_date, 'yyyy-mm-dd HH24:mi') as reg_date , inquiry_id
         from inquiry ;
 
+delete from inquiry where room_number = 611131;
+update consulting_history set status_toggle = 0 where room_number = 611131;
+
+commit;
 
  insert into inquiry(inquiry_id, inquiry_title, inquiry_content, room_number, writer)
         values (inquiry_seq.nextval, 'ㅇㅇ', '12312', 123123, 'ㅇㅇ');
@@ -343,5 +352,31 @@ INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
              , status_toggle
         from consulting_history;
 
+     select *
+        from consulting_history
+        where rownum <= 5
+        order by cslt_time desc;
 
 
+CREATE TABLE pb_image
+(
+   FILE_SQ                    NUMBER(20)  NOT NULL CONSTRAINT FILE_PK PRIMARY KEY  ,
+   FILE_NAME                  VARCHAR2(200)  NULL ,
+   FILE_INPUT_DATE            VARCHAR2(200)  NULL ,
+   FILE_TYPE                  VARCHAR2(200)  NULL ,
+   FILE_SIZE                  NUMBER(20)  NULL ,
+   FILE_SAVED_FILE_NAME       VARCHAR2(200)  NULL ,
+   FILE_THUMBNAIL_FILE_NAME   VARCHAR2(200)  NULL 
+);
+
+CREATE SEQUENCE HANA_FILE_SEQ 
+INCREMENT BY 1 
+START WITH 1 
+MINVALUE 1 
+MAXVALUE 1000 
+NOCYCLE;CREATE SEQUENCE HANA_FILE_SEQ 
+INCREMENT BY 1 
+START WITH 1 
+MINVALUE 1 
+MAXVALUE 1000 
+NOCYCLE;

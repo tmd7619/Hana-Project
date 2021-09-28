@@ -116,7 +116,7 @@ public class ReservationController {
     }
 
     @PostMapping("/client/searchDate")
-    public ModelAndView searchDate(HttpServletRequest request) {
+    public ModelAndView searchDate(HttpServletRequest request, HttpSession session) {
 
 
         String sector = (String) request.getParameter("sector");
@@ -136,6 +136,8 @@ public class ReservationController {
         ModelAndView mav = new ModelAndView();
         List<HistoryVO> recentList = service.searchByRecentHistory();
         mav.addObject("recentList", recentList);
+
+        session.setAttribute("schedulerDate", date);
         mav.addObject("schedulerDate", date);
         mav.addObject("bankerList", bankerVOList);
         mav.addObject("sector", sector);

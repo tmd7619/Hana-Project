@@ -362,7 +362,7 @@
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
                             <a class="profileBtn"><img class="pb_thumbnail"
-                                                       src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>
                             <h3>
                                 <span><c:out value="${favorite.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${favorite.codeNum}">
@@ -491,13 +491,13 @@
 
                                 <input class="pbBranchName" type="hidden"
                                        value="<c:out value="${banker.branchName}"/>"/>
-                                <li><c:out value="${banker.mainField}"/></li>
+                                <span><li class="mainField"><c:out value="${banker.mainField}"/></li></span>
                                 <span><i id="heartBtn" class="far fa-heart" style="color: red;"></i></span>
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
                             <a class="profileBtn"><img class="pb_thumbnail"
-                                                       src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>
                             <h3>
                                 <span><c:out value="${banker.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${banker.codeNum}">
@@ -719,7 +719,7 @@
                                 </li>
                             </ul>
                             <textarea name="" id="">여러분을 환영합니다.
-네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+하나금융 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 하나금융 서비스의 이용과 관련하여 하나금융 서비스를 제공하는 하나금융 주식회사(이하 ‘하나금융’)와 이를 이용하는 하나금융 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 하나금융 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
        </textarea>
                         </li>
                         <li class="checkBox check03">
@@ -729,7 +729,7 @@
                                 </li>
                             </ul>
                             <textarea name="" id="">여러분을 환영합니다.
-네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+하나금융 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 하나금융 서비스의 이용과 관련하여 하나금융 서비스를 제공하는 하나금융 주식회사(이하 ‘하나금융’)와 이를 이용하는 하나금융 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 하나금융 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
        </textarea>
                         </li>
                         <li class="checkBox check03">
@@ -739,7 +739,7 @@
                                 </li>
                             </ul>
                             <textarea name="" id="">여러분을 환영합니다.
-네이버 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 네이버 서비스의 이용과 관련하여 네이버 서비스를 제공하는 네이버 주식회사(이하 ‘네이버’)와 이를 이용하는 네이버 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 네이버 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
+하나금융 서비스 및 제품(이하 ‘서비스’)을 이용해 주셔서 감사합니다. 본 약관은 다양한 하나금융 서비스의 이용과 관련하여 하나금융 서비스를 제공하는 하나금융지주 주식회사(이하 ‘하나금융’)와 이를 이용하는 하나금융 서비스 회원(이하 ‘회원’) 또는 비회원과의 관계를 설명하며, 아울러 여러분의 하나금융 서비스 이용에 도움이 될 수 있는 유익한 정보를 포함하고 있습니다.
        </textarea>
                         </li>
                         <li class="checkBox check04">
@@ -853,7 +853,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
-                                 style="background-image: url(${pageContext.request.contextPath}/resources/pb/IMG_7933.JPG);">
+                                 style="background-image: url(${pageContext.request.contextPath}/resources/pb/12.JPG);">
                             </div>
                             <div class="col-md-6 wrap-about px-md-5 ftco-animate py-5 bg-light">
                                 <div class="heading-section py-md-5">
@@ -1226,6 +1226,11 @@
     if ('${requestScope.targetTagName}'.trim()) {
         $("div:contains('${targetTagName}')").css({color: "red"});
         $("div:contains('${targetTagName}')").css({fontsize: "20px"});
+    }
+
+    // 태그 네임 색상 변경하기
+    if ('${requestScope.sector}'.trim()) {
+        $("li:contains('${sector.trim().substring(0,1)}')").css({color: "red"});
     }
 
     // 프로필 모달 오픈
