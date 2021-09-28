@@ -8,14 +8,14 @@
             <div class="col-lg-4 col-md-6">
                 <div class="listing__item">
                     <div id="profileImage" class="listing__item__pic set-bg">
-                        <img id="pbImage" src="${pageContext.request.contextPath}/resources/pbImage.png">
+                        <img id="pbImage"
+                             src="${pageContext.request.contextPath}${favorite.fileSq}">
                         <div class="listing__item__pic__tag top_rate"><c:out
                                 value="${favorite.mainField}"/></div>
                         <div class="listing__item__pic__btns">
                         </div>
-                        <button type="button" class="close" data-dismiss="modal"
-                                aria-label="Close">
-                            <span aria-hidden="true" style="margin-right: 10px;font-size: 30px;">&times;</span>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="listing__item__text">

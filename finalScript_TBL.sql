@@ -151,6 +151,9 @@ CREATE SEQUENCE  pb_scheduler_seq  MINVALUE 1 MAXVALUE 9999
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from pb_scheduler;
+
+delete from pb_scheduler where pb_scheduler_id = 7;
+commit;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 drop table reservation ; -- 상담 예약 테이블
@@ -378,3 +381,5 @@ INCREMENT BY 1
 START WITH 1 
 MINVALUE 1 
 MAXVALUE 1000 ;
+
+

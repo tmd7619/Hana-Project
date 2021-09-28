@@ -39,6 +39,12 @@ file_sq                varchar2(500)
 
 --친절한,공감하는,예약시간준수,유쾌한,해결사,명쾌한,세심한,쉽고친절한,든든한
 
+
+delete from private_banker where code_num=453222;
+commit;
+
+update private_banker set file_sq = '/resources/pb/1.jpg' where code_num = 453120;
+commit;
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ )
     values(Private_banker_seq.nextval,'pbuser' ,'1234','윤승원', '대리' , 
@@ -128,14 +134,14 @@ insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num )
     values(Private_banker_seq.nextval,'pbuser12' ,'1234','김지훈', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '랩 어카운트' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#친절한 #공감하는 #예약시간준수' ,453222 , '/Users/seungwon/intellij/final-project/src/main/webapp/resources/pb/12.jpg'
+        , '#친절한 #공감하는 #예약시간준수' ,453222
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
     values(Private_banker_seq.nextval,'pbuser13' ,'1234','이태식', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '영등포지점' , '주식 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 

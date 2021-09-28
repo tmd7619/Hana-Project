@@ -38,19 +38,6 @@
             <div class="col-md-4 d-flex align-items-stretch ftco-animate">
                 <div class="services-2 text-center">
                     <div class="icon-wrap">
-                        <div class="number d-flex align-items-center justify-content-center"><span>01</span></div>
-                        <div class="icon d-flex align-items-center justify-content-center">
-                            <a href="${pageContext.request.contextPath}/pb/scheduler"><span
-                                    class="flaticon-calendar"></span> </a>
-                        </div>
-                    </div>
-                    <h2>스케줄 관리하기</h2>
-                    <p>PB 직원은 온라인 / 오프라인으로 나누어 스케줄을 관리할 수 있습니다.</p>
-                </div>
-            </div>
-            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
-                <div class="services-2 text-center">
-                    <div class="icon-wrap">
                         <div class="number d-flex align-items-center justify-content-center"><span>02</span></div>
                         <div class="icon d-flex align-items-center justify-content-center">
                             <%--                            <a href="${pageContext.request.contextPath}/createRoom"><span class="flaticon-qa"></span></a>--%>
@@ -60,6 +47,19 @@
                     </div>
                     <h2>상담 진행하기</h2>
                     <p>예약이 완료된 손님과 온라인 투자상담을 진행할 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex align-items-stretch ftco-animate">
+                <div class="services-2 text-center">
+                    <div class="icon-wrap">
+                        <div class="number d-flex align-items-center justify-content-center"><span>01</span></div>
+                        <div class="icon d-flex align-items-center justify-content-center">
+                            <a href="${pageContext.request.contextPath}/pb/scheduler"><span
+                                    class="flaticon-calendar"></span> </a>
+                        </div>
+                    </div>
+                    <h2>스케줄 관리하기</h2>
+                    <p>PB 직원은 온라인 / 오프라인으로 나누어 스케줄을 관리할 수 있습니다.</p>
                 </div>
             </div>
             <div class="col-md-4 d-flex align-items-stretch ftco-animate">

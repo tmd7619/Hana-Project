@@ -284,14 +284,14 @@
                                 <div class="col-lg-4 col-md-6">
                                     <div class="listing__item">
                                         <div id="profileImage" class="listing__item__pic set-bg">
+                                                <%--                                            <img id="pbImage"--%>
+                                                <%--                                                 src="${pageContext.request.contextPath}/resources/pbImage.png">--%>
                                             <img id="pbImage"
-                                                 src="${pageContext.request.contextPath}/resources/pbImage.png">
+                                                 src="${pageContext.request.contextPath}${favorite.fileSq}">
                                             <div class="listing__item__pic__tag top_rate"><c:out
                                                     value="${favorite.mainField}"/></div>
-
-                                            <button type="button" class="close" data-dismiss="modal"
-                                                    aria-label="Close">
-                                                <span aria-hidden="true" style="margin-right: 10px;font-size: 30px;">&times;</span>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="listing__item__text">
@@ -302,7 +302,7 @@
                                                         <%--                                                    <h6>$40 - $70</h6>--%>
                                                 </div>
                                                 <ul>
-                                                    <li>10년 경력 채권 투자 전문 PB<br>
+                                                    <li>10년 경력 ${favorite.mainField} 투자 전문 PB<br>
                                                         투자자산운용사 등 5개 자격증 보유
                                                     </li>
                                                     <li> 연락처 : (02)-678-910</li>
@@ -391,6 +391,7 @@
         // var deleteTag = $(this).parents('.listing__item');
         // deleteTag.remove();
         alert('즐겨찾기 제거 완료')
+        location.reload();
         location.reload();
 
         var send = JSON.stringify(banker);

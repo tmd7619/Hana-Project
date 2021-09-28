@@ -149,7 +149,6 @@
     function click_ok() {
 
         var scheduleData = JSON.stringify($('form#scheduleData').serializeObject());
-        alert(scheduleData)
         $.ajax({
             data: scheduleData,
             url: "/pb/addSchedule",

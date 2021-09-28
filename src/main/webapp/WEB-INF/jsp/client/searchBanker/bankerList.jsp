@@ -363,8 +363,16 @@
                                 <%--                            </button>--%>
                                 <%--                            <a class="profileBtn"><img class="pb_thumbnail"--%>
                                 <%--                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>--%>
-                            <a class="profileBtn"><img class="pb_thumbnail"
-                                                       src="${pageContext.request.contextPath}/${banker.fileSq}"/></a>
+                            <c:choose>
+                                <c:when test="${not empty favorite.fileSq}">
+                                    <a class="profileBtn"><img class="pb_thumbnail"
+                                                               src="${pageContext.request.contextPath}${favorite.fileSq}"/></a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="profileBtn"><img class="pb_thumbnail"
+                                                               src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                                </c:otherwise>
+                            </c:choose>
                             <h3>
                                 <span><c:out value="${favorite.pbName}"/></span> 자산관리사
                                 <input class=" codeNum" type="hidden" value="${favorite.codeNum}">
@@ -500,8 +508,16 @@
                                 <%--                            </button>--%>
                                 <%--                            <a class="profileBtn"><img class="pb_thumbnail"--%>
                                 <%--                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>--%>
-                            <a class="profileBtn"><img class="pb_thumbnail"
-                                                       src="${pageContext.request.contextPath}/${banker.fileSq}"/></a>
+                            <c:choose>
+                                <c:when test="${not empty banker.fileSq}">
+                                    <a class="profileBtn"><img class="pb_thumbnail"
+                                                               src="${pageContext.request.contextPath}${banker.fileSq}"/></a>
+                                </c:when>
+                                <c:otherwise>
+                                    <a class="profileBtn"><img class="pb_thumbnail"
+                                                               src="${pageContext.request.contextPath}/resources/images/user2.png"/></a>
+                                </c:otherwise>
+                            </c:choose>
                             <h3>
                                 <span><c:out value="${banker.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${banker.codeNum}">

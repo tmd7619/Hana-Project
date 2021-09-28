@@ -89,7 +89,7 @@
                     <%
                             for (int i = 0; i < list.size(); i++) {
                                 SchedulerVO dto = (SchedulerVO)list.get(i);
-                                if(dto.getStatusToggle() == 1){
+                                if(dto.getStartTime().equals("10:00")){
                     %>
                     {
                         title: '<%= dto.getTitle() %>',
@@ -101,15 +101,59 @@
                         borderColor: "#DBF1EF",
                     },
                     <%
-                        }else { %>
+                        }else if (dto.getStartTime().equals("11:00")) { %>
                     {
                         title: '<%= dto.getTitle() %>',
                         start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
-                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
                         backgroundColor: "gold",
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
                         textColor: "white",
                         color: "white",
                         borderColor: "gold",
+                    },
+                    <%
+                        }else if (dto.getStartTime().equals("13:00")) { %>
+                    {
+                        title: '<%= dto.getTitle() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        backgroundColor: "chartreuse",
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
+                        textColor: "white",
+                        color: "white",
+                        borderColor: "chartreuse",
+                    },
+                    <%
+                        }else if (dto.getStartTime().equals("14:00")) { %>
+                    {
+                        title: '<%= dto.getTitle() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        backgroundColor: "blanchedalmond",
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
+                        textColor: "white",
+                        color: "white",
+                        borderColor: "blanchedalmond",
+                    },
+                    <%
+                        }else if (dto.getStartTime().equals("15:00")) { %>
+                    {
+                        title: '<%= dto.getTitle() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        backgroundColor: "blueviolet",
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
+                        textColor: "white",
+                        color: "white",
+                        borderColor: "blueviolet",
+                    },
+                    <%
+                        }else if (dto.getStartTime().equals("16:00")) { %>
+                    {
+                        title: '<%= dto.getTitle() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        backgroundColor: "coral",
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
+                        textColor: "white",
+                        color: "white",
+                        borderColor: "coral",
                     },
                     <%
                                     }
@@ -121,6 +165,45 @@
                         end: "2019-01-01"
                     }
                 ]
+
+                // 온라인 오프라인으로 구분하기
+                <%--events: [--%>
+
+                <%--    <%--%>
+                <%--            for (int i = 0; i < list.size(); i++) {--%>
+                <%--                SchedulerVO dto = (SchedulerVO)list.get(i);--%>
+                <%--                if(dto.getStatusToggle() == 1){--%>
+                <%--    %>--%>
+                <%--    {--%>
+                <%--        title: '<%= dto.getTitle() %>',--%>
+                <%--        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',--%>
+                <%--        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',--%>
+                <%--        backgroundColor: "#DBF1EF",--%>
+                <%--        textColor: "white",--%>
+                <%--        color: "white",--%>
+                <%--        borderColor: "#DBF1EF",--%>
+                <%--    },--%>
+                <%--    <%--%>
+                <%--        }else { %>--%>
+                <%--    {--%>
+                <%--        title: '<%= dto.getTitle() %>',--%>
+                <%--        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',--%>
+                <%--        backgroundColor: "gold",--%>
+                <%--        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',--%>
+                <%--        textColor: "white",--%>
+                <%--        color: "white",--%>
+                <%--        borderColor: "gold",--%>
+                <%--    },--%>
+                <%--    <%--%>
+                <%--                    }--%>
+                <%--            }--%>
+                <%--        %>--%>
+                <%--    {--%>
+                <%--        title: 'defult',--%>
+                <%--        start: "2019-01-01",--%>
+                <%--        end: "2019-01-01"--%>
+                <%--    }--%>
+                <%--]--%>
             });
             calendar.render();
         });

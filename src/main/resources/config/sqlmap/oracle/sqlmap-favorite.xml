@@ -16,6 +16,7 @@
         <result column="main_content" property="mainContent"/>
         <result column="tag_name" property="tagName"/>
         <result column="code_num" property="codeNum"/>
+        <result column="file_sq" property="fileSq"/>
     </resultMap>
 
     <insert id="insertFavorite" parameterType="favoriteVO">
@@ -34,6 +35,7 @@
              , p.main_content
              , p.intro_content
              , p.code_num
+             , p.file_sq
         from private_banker p,
              favorite_list f
         where p.code_num = f.pb_code_num
@@ -52,6 +54,7 @@
              , p.main_content
              , p.intro_content
              , p.code_num
+             , p.file_sq
         from private_banker p,
              favorite_list f
         where p.code_num = f.pb_code_num
