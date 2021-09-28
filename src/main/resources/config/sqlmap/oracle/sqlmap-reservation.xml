@@ -21,6 +21,7 @@
         <result column="main_content" property="mainContent"/>
         <result column="tag_name" property="tagName"/>
         <result column="code_num" property="codeNum"/>
+        <result column="file_sq" property="fileSq"/>
     </resultMap>
 
 
@@ -41,6 +42,7 @@
              , main_content
              , intro_content
              , code_num
+             , file_sq
         from private_banker
     </select>
 
@@ -72,6 +74,7 @@
              , main_content
              , intro_content
              , code_num
+             , file_sq
         from private_banker
         where main_field = #{sector}
     </select>
@@ -88,6 +91,7 @@
              , p.main_content
              , p.intro_content
              , p.code_num
+             , p.file_sq
         from private_banker p,
              favorite_list f
         where p.code_num = f.pb_code_num
@@ -106,6 +110,7 @@
              , main_content
              , intro_content
              , code_num
+             , file_sq
         from private_banker
         where tag_name like '%${tagName}%'
     </select>

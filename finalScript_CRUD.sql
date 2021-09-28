@@ -30,7 +30,8 @@ branch_name          VARCHAR2(50) NOT  NULL ,
 tag_name             VARCHAR2(200) ,  -- 해시태그 
 main_field           VARCHAR2(50) , -- 담당 분야
 intro_content        VARCHAR2(300) , -- 소개글 
-main_content          VARCHAR2(1000) -- 메인 소개
+main_content          VARCHAR2(1000) , -- 메인 소개 
+file_sq                varchar2(500)
 --CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
 
@@ -39,117 +40,117 @@ main_content          VARCHAR2(1000) -- 메인 소개
 --친절한,공감하는,예약시간준수,유쾌한,해결사,명쾌한,세심한,쉽고친절한,든든한
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser' ,'1234','김하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ )
+    values(Private_banker_seq.nextval,'pbuser' ,'1234','윤승원', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#든든한 #믿음직한 #예약시간준수' ,453120
+        , '#든든한 #믿음직한 #예약시간준수' ,453120  ,'/resources/pb/1.jpg'
         
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser2' ,'1234','윤하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser2' ,'1234','조세진', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '랩 어카운트' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#친절한 #공감하는 #예약시간준수' ,453212
+        , '#친절한 #공감하는 #예약시간준수' ,453212 , '/resources/pb/2.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser3' ,'1234','최하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser3' ,'1234','윤정환', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '영등포지점' , '주식 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#유쾌한 #해결사 #명쾌한' ,453213
+        , '#유쾌한 #해결사 #명쾌한' ,453213 , '/resources/pb/3.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser4' ,'1234','유하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser4' ,'1234','안재훈', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '상동지점' , '펀드 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#섬세한 #쉽고친절한 #든든한' ,453214
+        , '#섬세한 #쉽고친절한 #든든한' ,453214 , '/resources/pb/4.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser5' ,'1234','공하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser5' ,'1234','안성재', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부개지점' , '예금 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#든든한 #쉽고친절한 #예약시간준수' ,453215
+        , '#든든한 #쉽고친절한 #예약시간준수' ,453215 , '/resources/pb/5.jpg'
 );
 
 ---5개씩 카운트-----------------------------------------------------------------------------------------------------------------------
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser6' ,'1234','김하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser6' ,'1234','구본성', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#든든한 #믿음직한 #예약시간준수' ,453216
+        , '#든든한 #믿음직한 #예약시간준수' ,453216 , '/resources/pb/6.jpg'
         
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuse7' ,'1234','윤하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuse7' ,'1234','이기찬', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '랩 어카운트' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#친절한 #공감하는 #예약시간준수' ,453217
+        , '#친절한 #공감하는 #예약시간준수' ,453217 , '/resources/pb/7.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser8' ,'1234','최하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser8' ,'1234','김충만', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '영등포지점' , '주식 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#유쾌한 #해결사 #명쾌한' ,453218
+        , '#유쾌한 #해결사 #명쾌한' ,453218 , '/resources/pb/8.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuse9' ,'1234','유하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuse9' ,'1234','김지윤', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '상동지점' , '펀드 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#섬세한 #쉽고친절한 #든든한' ,453219
+        , '#섬세한 #쉽고친절한 #든든한' ,453219 , '/resources/pb/9.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser10' ,'1234','공하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser10' ,'1234','정해명', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부개지점' , '예금 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#든든한 #쉽고친절한 #예약시간준수' ,453220
+        , '#든든한 #쉽고친절한 #예약시간준수' ,453220 , '/resources/pb/10.jpg'
 );
 ---5개씩 카운트-----------------------------------------------------------------------------------------------------------------------
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser11' ,'1234','김하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser11' ,'1234','신예린', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#든든한 #믿음직한 #예약시간준수' ,453221
+        , '#든든한 #믿음직한 #예약시간준수' ,453221 , '/resources/pb/11.jpg'
         
 );
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser12' ,'1234','윤하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser12' ,'1234','김지훈', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '랩 어카운트' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
-        , '#친절한 #공감하는 #예약시간준수' ,453222
+        , '#친절한 #공감하는 #예약시간준수' ,453222 , '/Users/seungwon/intellij/final-project/src/main/webapp/resources/pb/12.jpg'
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
-        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser13' ,'1234','최하나', '대리' , 
+        pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num , FILE_SQ)
+    values(Private_banker_seq.nextval,'pbuser13' ,'1234','이태식', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '영등포지점' , '주식 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#유쾌한 #해결사 #명쾌한' ,453223
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser14' ,'1234','유하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser14' ,'1234','노태훈', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '상동지점' , '펀드 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#섬세한 #쉽고친절한 #든든한' ,453224
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser15' ,'1234','공하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser15' ,'1234','김용호', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부개지점' , '예금 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#든든한 #쉽고친절한 #예약시간준수' ,453225
@@ -160,7 +161,7 @@ insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser16' ,'1234','최하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser16' ,'1234','신민섭', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '강서지점' , '채권 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#든든한 #유쾌한 #예약시간준수' ,453226
@@ -169,28 +170,28 @@ insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
 
 insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser17' ,'1234','박하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser17' ,'1234','강희석', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부천지점' , '랩 어카운트' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#친절한 #든든한 #예약시간준수' ,453227
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser18' ,'1234','이하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser18' ,'1234','박채훈', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '영등포지점' , '주식 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#유쾌한 #해결사 #명쾌한' ,453228
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser19' ,'1234','홍하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser19' ,'1234','박시유', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '상동지점' , '펀드 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#섬세한 #쉽고친절한 #든든한' ,453229
         
 );insert into private_banker(Private_Banker_id,pb_id ,pb_password,pb_name,
         pb_rank, pb_phone, pb_email, branch_name, main_field , intro_content , tag_name , code_num)
-    values(Private_banker_seq.nextval,'pbuser20' ,'1234','해하나', '대리' , 
+    values(Private_banker_seq.nextval,'pbuser20' ,'1234','송보건', '대리' , 
     '010-6211-1211', 'tmd714@naver.com', '부개지점' , '예금 분야' ,
         '안녕하십니까? 하나금융투자 강서지점 김피비입니다. 10년의 채권 투자 경력을 기반으로 손님에게 가치를 전달해드리는 PB가 되겠습니다.' 
         , '#든든한 #쉽고친절한 #예약시간준수' ,453230

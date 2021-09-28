@@ -165,7 +165,7 @@
                         }
                     } else if (d.type == "message") {
                         if (d.sessionId == $("#sessionId").val()) {
-                            $("#chatWindow").append("<p class='me'>나 :" + d.msg + "</p>");
+                            $("#chatWindow").append("<p class='me'> :" + d.msg + "</p>");
                         } else {
                             $("#chatWindow").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
                         }

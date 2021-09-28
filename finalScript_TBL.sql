@@ -95,7 +95,8 @@ branch_name          VARCHAR2(50) NOT  NULL ,
 tag_name             VARCHAR2(200) ,  -- 해시태그 
 main_field           VARCHAR2(50) , -- 담당 분야
 intro_content        VARCHAR2(300) , -- 소개글 
-main_content          VARCHAR2(1000) -- 메인 소개
+main_content          VARCHAR2(1000), -- 메인 소개
+FILE_SQ               varchar2(1000)  
 --CONSTRAINT FK_PrivateBanker_user_id FOREIGN KEY(user_id) REFERENCES Member(user_id)
 );
 
@@ -142,6 +143,7 @@ create table pb_scheduler(
     start_time varchar2(50) ,
     end_time varchar2(50) , 
     status_toggle number(1) default 0 -- 0 :온라인 (고객예약시 등록) 1 :  오프라인(PB등록)
+    
 );
 
 drop sequence pb_scheduler_seq;
@@ -358,7 +360,9 @@ commit;
         order by cslt_time desc;
 
 
-CREATE TABLE pb_image
+
+
+CREATE TABLE image
 (
    FILE_SQ                    NUMBER(20)  NOT NULL CONSTRAINT FILE_PK PRIMARY KEY  ,
    FILE_NAME                  VARCHAR2(200)  NULL ,
@@ -373,10 +377,4 @@ CREATE SEQUENCE HANA_FILE_SEQ
 INCREMENT BY 1 
 START WITH 1 
 MINVALUE 1 
-MAXVALUE 1000 
-NOCYCLE;CREATE SEQUENCE HANA_FILE_SEQ 
-INCREMENT BY 1 
-START WITH 1 
-MINVALUE 1 
-MAXVALUE 1000 
-NOCYCLE;
+MAXVALUE 1000 ;

@@ -111,7 +111,7 @@
                     }
                 } else if (d.type == "message") {
                     if (d.sessionId == $("#sessionId").val()) {
-                        $("#chating").append("<p class='me'>나 :" + d.msg + "</p>");
+                        $("#chating").append("<p class='me'>본인 :" + d.msg + "</p>");
                     } else {
                         $("#chating").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
                     }

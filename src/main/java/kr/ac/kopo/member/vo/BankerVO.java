@@ -15,7 +15,15 @@ public class BankerVO {
     private String impossible;
     private String tagName;
     private int codeNum;
+    private String fileSq;
 
+    public String getFileSq() {
+        return fileSq;
+    }
+
+    public void setFileSq(String fileSq) {
+        this.fileSq = fileSq;
+    }
 
     public int getCodeNum() {
         return codeNum;
@@ -121,6 +129,7 @@ public class BankerVO {
         this.branchName = branchName;
     }
 
+
     @Override
     public String toString() {
         return "BankerVO{" +
@@ -137,6 +146,7 @@ public class BankerVO {
                 ", impossible='" + impossible + '\'' +
                 ", tagName='" + tagName + '\'' +
                 ", codeNum=" + codeNum +
+                ", fileSq='" + fileSq + '\'' +
                 '}';
     }
 }

@@ -361,11 +361,13 @@
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
+                                <%--                            <a class="profileBtn"><img class="pb_thumbnail"--%>
+                                <%--                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>--%>
                             <a class="profileBtn"><img class="pb_thumbnail"
-                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>
+                                                       src="${pageContext.request.contextPath}/${banker.fileSq}"/></a>
                             <h3>
                                 <span><c:out value="${favorite.pbName}"/></span> 자산관리사
-                                <input class="codeNum" type="hidden" value="${favorite.codeNum}">
+                                <input class=" codeNum" type="hidden" value="${favorite.codeNum}">
                                 <input
                                         class="pbName" type="hidden"
                                         value="<c:out value="${favorite.pbName}"/>"/>
@@ -496,8 +498,10 @@
                             </ul>
                                 <%--                            <button type="button" id="popbutton" class="btn btn-primary" id="#modalScroll">--%>
                                 <%--                            </button>--%>
+                                <%--                            <a class="profileBtn"><img class="pb_thumbnail"--%>
+                                <%--                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>--%>
                             <a class="profileBtn"><img class="pb_thumbnail"
-                                                       src="${pageContext.request.contextPath}/resources/pb/${loop.count}.jpg"/></a>
+                                                       src="${pageContext.request.contextPath}/${banker.fileSq}"/></a>
                             <h3>
                                 <span><c:out value="${banker.pbName}"/></span> 자산관리사
                                 <input class="codeNum" type="hidden" value="${banker.codeNum}">
