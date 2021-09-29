@@ -231,6 +231,12 @@
     .table th {
         border-top: 0px;
     }
+
+    #comment {
+        padding: 16px;
+        color: black;
+
+    }
 </style>
 <script src="https://cdn.jsdelivr.net/npm/sockjs-client@1/dist/sockjs.min.js"></script>
 <script type="text/javascript">
@@ -551,7 +557,7 @@
                         <div class="card shadow mb-4">
 
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary">고객 자산 현황</h6>
+                                <h6 class="m-0 font-weight-bold text-primary">손님 자산 현황</h6>
                             </div>
                             <div class="chart-container" style="position: relative; height:200px; width:40vw">
                                 <canvas id="clientChart" style="margin-left: -58px;margin-top:26px;padding-left: 10px;
@@ -607,6 +613,7 @@
         <!-- Footer -->
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
 <script>
 
     $(document).ready(function () {
@@ -692,8 +699,18 @@
                                             dataLabel += value;
                                         }
 
+                                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                                        //calculate the total of this data set
+                                        var total = dataset.data.reduce(function (previousValue, currentValue, currentIndex, array) {
+                                            return previousValue + currentValue;
+                                        });
+                                        //get the current items value
+                                        var currentValue = dataset.data[tooltipItem.index];
+                                        //calculate the precentage based on the total and current item, also this does a rough rounding to give a whole number
+                                        var percentage = Math.floor(((currentValue / total) * 100) + 0.5);
+
                                         // return the text to display on the tooltip
-                                        return dataLabel;
+                                        return dataLabel + " 자산비중 : " + percentage + "%";
                                     }
                                 }
                             }
@@ -753,6 +770,7 @@
         success: function (res) {
             console.log('ajax통신 성공')
             $('#chatView').append(res)
+            $('#chatWindow').append('<div id="comment"><h5>손님 성함 : ${sessionScope.reservationVO.username} </h5><h5>문의 주신 내용 : ${sessionScope.reservationVO.rsrvComment}</h5></div>')
 
         }
     });

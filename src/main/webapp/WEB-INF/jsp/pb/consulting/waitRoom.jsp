@@ -62,29 +62,29 @@
         }
 
     });
-    $(document).ready(function () {
-        Kakao.init('776599c73bff8f5f8777fca7628749ca');
-        var TempleCode = 62081;
+    <%--$(document).ready(function () {--%>
+    <%--    Kakao.init('776599c73bff8f5f8777fca7628749ca');--%>
+    <%--    var TempleCode = 62081;--%>
 
-        Kakao.Auth.login({
-            scope: "talk_message",
-            success: function (res) {
-                Kakao.API.request({
-                    url: '/v2/api/talk/memo/send',
-                    data: {
-                        template_id: 62081,
-                        template_args: {roomNumber: ${sessionScope.roomVO.roomNumber}},
-                    },
-                    success: function (response) {
-                        console.log(response);
-                    },
-                    fail: function (error) {
-                        console.log(error);
-                        alert('error')
-                    },
-                });
-            }
-        })
-    })
+    <%--    Kakao.Auth.login({--%>
+    <%--        scope: "talk_message",--%>
+    <%--        success: function (res) {--%>
+    <%--            Kakao.API.request({--%>
+    <%--                url: '/v2/api/talk/memo/send',--%>
+    <%--                data: {--%>
+    <%--                    template_id: 62081,--%>
+    <%--                    template_args: {roomNumber: ${sessionScope.roomVO.roomNumber}},--%>
+    <%--                },--%>
+    <%--                success: function (response) {--%>
+    <%--                    console.log(response);--%>
+    <%--                },--%>
+    <%--                fail: function (error) {--%>
+    <%--                    console.log(error);--%>
+    <%--                    alert('error')--%>
+    <%--                },--%>
+    <%--            });--%>
+    <%--        }--%>
+    <%--    })--%>
+    <%--})--%>
 </script>
 </html>

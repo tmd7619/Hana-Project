@@ -11,7 +11,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <iframe style="width: 100%; height:100% "
-                    src="${pageContext.request.contextPath}/resources/agreement.pdf">
+                    src="${pageContext.request.contextPath}/resources/HANAInvestment.pdf">
             </iframe>
         </div>
     </div>

@@ -4,6 +4,7 @@ import kr.ac.kopo.consultation.service.ChatService;
 import kr.ac.kopo.consultation.vo.RoomVO;
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
+import kr.ac.kopo.reservation.vo.ReservationVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -40,7 +41,13 @@ public class ChatController {
 
 
     @RequestMapping("/pb/consultingRoom") // 상담 메인 화면
-    public String viewConsultingRoom() {
+    public String viewConsultingRoom(HttpSession session) {
+        RoomVO room = (RoomVO) session.getAttribute("roomVO");
+        ReservationVO reservationVO = service.viewReservation(room);
+
+        System.out.println("챗 넘어온 예약정보 : " + reservationVO);
+
+        session.setAttribute("reservationVO", reservationVO);
 
         return "pb/consulting/consultingMain";
     }
@@ -112,10 +119,13 @@ public class ChatController {
 
         ModelAndView mav = new ModelAndView();
 
+
         /*
          * mav.addObject("roomMaster", roomVO.getRoomMaster());
          * mav.addObject("roomNumber", roomVO.getRoomNumber());
          */
+
+
         mav.setViewName("mainRoom");
 
         return mav;

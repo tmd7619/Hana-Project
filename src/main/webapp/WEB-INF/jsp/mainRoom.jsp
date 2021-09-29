@@ -165,7 +165,7 @@
                         }
                     } else if (d.type == "message") {
                         if (d.sessionId == $("#sessionId").val()) {
-                            $("#chatWindow").append("<p class='me'> :" + d.msg + "</p>");
+                            $("#chatWindow").append("<p class='me'>  본인 :" + d.msg + "</p>");
                         } else {
                             $("#chatWindow").append("<p class='others'>" + d.userName + " :" + d.msg + "</p>");
                         }
@@ -184,6 +184,7 @@
         }
 
         function chatName() {
+            $('#chatWindow').empty();
             var userName = $("#userName").val();
             console.log("현재 로그인 값" + userName)
             if (userName == null || userName.trim() == "") {
@@ -233,7 +234,9 @@
             <input type="hidden" id="sessionId" value=""> <input
                 type="hidden" id="roomNumber" value="${roomVO.roomNumber}">
 
-            <div id="chatWindow" class="chatting"></div>
+            <div id="chatWindow" class="chatting">
+            </div>
+
             <div class="card-footer text-center">
                 <div id="yourName">
                     <table class="inputTable">

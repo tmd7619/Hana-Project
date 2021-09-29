@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<hr style="margin-top: 200px;
+<hr style="margin-top: 500px;
     margin-bottom: 50px;">
 <footer class="ftco-footer" style="padding: 0;">
     <div class="container">
         <div class="row mb-5">
             <div class="col-sm-12 col-md">
                 <div class="ftco-footer-widget mb-4">
-                    <h2 class="ftco-heading-2 logo"><a href="#">Counselor</a></h2>
+                    <h2 class="ftco-heading-2 logo"><a href="#">하나My PB</a></h2>
                 </div>
             </div>
             <div class="col-sm-12 col-md">

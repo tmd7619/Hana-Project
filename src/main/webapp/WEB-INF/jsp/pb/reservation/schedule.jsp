@@ -156,6 +156,17 @@
                         borderColor: "coral",
                     },
                     <%
+                      }else if (dto.getStartTime().equals("12:00")) { %>
+                    {
+                        title: '<%= dto.getTitle() %>',
+                        start: '<%= dto.getStartDate() %>T<%=dto.getStartTime()%>',
+                        backgroundColor: "aqua",
+                        end: '<%= dto.getEndDate()%>T<%=dto.getEndTime()%>',
+                        textColor: "white",
+                        color: "white",
+                        borderColor: "aqua",
+                    },
+                    <%
                                     }
                             }
                         %>

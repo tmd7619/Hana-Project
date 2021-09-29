@@ -88,9 +88,9 @@ public class ChatWebSocketHandler extends TextWebSocketHandler {
         ClientVO userVO = (ClientVO) httpSession.get("userVO");
         BankerVO bankerVO = (BankerVO) httpSession.get("bankerVO");
 
-        if (data.length() == 4) {
+        if (data.length() == 6) {
             obj.replace("userName", userVO.getUsername() + " 손님");
-        } else if (data.length() == 6) {
+        } else if (data.length() == 4) {
             obj.replace("userName", bankerVO.getPbName() + " PB");
         } else {
             System.out.println("잘못 입력했습니다.");

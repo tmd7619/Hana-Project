@@ -116,4 +116,13 @@
     </select>
 
 
+    <select id="selectOneReservation" parameterType="roomVO" resultMap="reservationMap">
+        select rsrv_comment, username, rsrv_time
+        from reservation
+        where pb_name = #{pbName}
+          and username = #{clientName}
+
+    </select>
+
+
 </mapper>

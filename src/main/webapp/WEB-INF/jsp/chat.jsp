@@ -204,7 +204,7 @@
 
 <div id="ftco-loader" class="show fullscreen">
     <div class="waitMent">
-        <h2>잠시 대기해주세요. 고객님께서 들어오고 있습니다.</h2>
+        <h2>잠시 대기해주세요. 손님께서 들어오고 있습니다.</h2>
     </div>
     <svg class="circular" width="48px" height="48px">
         <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>

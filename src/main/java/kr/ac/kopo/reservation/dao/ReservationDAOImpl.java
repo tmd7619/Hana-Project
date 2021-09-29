@@ -1,5 +1,6 @@
 package kr.ac.kopo.reservation.dao;
 
+import kr.ac.kopo.consultation.vo.RoomVO;
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
@@ -73,4 +74,12 @@ public class ReservationDAOImpl implements ReservationDAO {
         return bankerList;
     }
 
+    @Override
+    public ReservationVO selectOneReservation(RoomVO roomVO) {
+
+        ReservationVO reservationVO = sqlSessionTemplate.selectOne(namespace + "selectOneReservation", roomVO);
+
+
+        return reservationVO;
+    }
 }

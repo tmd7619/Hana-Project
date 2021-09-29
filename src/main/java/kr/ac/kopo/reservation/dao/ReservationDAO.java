@@ -1,5 +1,6 @@
 package kr.ac.kopo.reservation.dao;
 
+import kr.ac.kopo.consultation.vo.RoomVO;
 import kr.ac.kopo.member.vo.BankerVO;
 import kr.ac.kopo.member.vo.ClientVO;
 import kr.ac.kopo.reservation.vo.ReservationVO;
@@ -19,5 +20,7 @@ public interface ReservationDAO {
     List<BankerVO> selectByFavorite(ClientVO clientVO);
 
     List<BankerVO> searchByTagName(String tagName);
+
+    ReservationVO selectOneReservation(RoomVO roomVO);
 
 }

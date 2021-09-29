@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @Controller
@@ -69,8 +70,9 @@ public class ProductController {
     }
 
     @RequestMapping("/openModal")
-    public String viewModal() {
+    public String viewModal(HttpServletResponse response) {
 
+        response.setHeader("X-Frame-Options", "ALLOW-FROM https://192.168.0.15:433/openModal");
 
         return "pb/consulting/agreement";
     }

@@ -34,27 +34,27 @@
         <td><c:out value="${list.productName}"/></td>
         <c:choose>
             <c:when test="${list.productGrade eq '매우 높은 위험' }">
-                <td style="width: 17%"><span id="gradeBtn" class="badge badge-danger"><c:out
+                <td style="width: 17%; text-align: center"><span id="gradeBtn" class="badge badge-danger"><c:out
                         value="${list.productGrade}"/></span></td>
             </c:when>
             <c:when test="${list.productGrade eq '높은 위험' }">
-                <td style="width: 17%"><span id="gradeBtn" class="badge badge-warning"><c:out
+                <td style="width: 17%; text-align: center"><span id="gradeBtn" class="badge badge-warning"><c:out
                         value="${list.productGrade}"/></span></td>
             </c:when>
             <c:when test="${list.productGrade eq '다소 높은 위험' }">
-                <td style="width: 17%"><span id="gradeBtn" class="badge badge-success"><c:out
+                <td style="width: 17%; text-align: center"><span id="gradeBtn" class="badge badge-success"><c:out
                         value="${list.productGrade}"/></span></td>
             </c:when>
             <c:when test="${list.productGrade eq '보통 위험' }">
-                <td style="width: 17%"><span id="gradeBtn" class="badge badge-info"><c:out
+                <td style="width: 17%; text-align: center"><span id="gradeBtn" class="badge badge-info"><c:out
                         value="${list.productGrade}"/></span></td>
             </c:when>
             <c:when test="${list.productGrade eq '낮은 위험' }">
-                <td style="width: 17%"><span id="gradeBtn" class="badge badge-primary"><c:out
+                <td style="width: 17%; text-align: center"><span id="gradeBtn" class="badge badge-primary"><c:out
                         value="${list.productGrade}"/></span></td>
             </c:when>
         </c:choose>
-        <td style="width: 17%">
+        <td style="width: 17%; text-align: center">
                 <%--            <button id="openModal" class="btn btn-sm btn-primary" data-toggle="modal"--%>
                 <%--                    data-target=".bs-example-modal-lg" tar>Detail--%>
                 <%--            </button>--%>

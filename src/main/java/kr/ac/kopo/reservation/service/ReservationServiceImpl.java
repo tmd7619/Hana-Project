@@ -67,8 +67,8 @@ public class ReservationServiceImpl implements ReservationService {
         LocalDate now = LocalDate.now(); // 현재시간
 
         schedulerVO.setPbName(reservationVO.getPbName()); // pb 이름 추가
-        schedulerVO.setTitle("온라인 상담 일정"); // 상담 제목
-        schedulerVO.setMemo(reservationVO.getUsername() + " 고객님과 상담 일정");
+        schedulerVO.setTitle(reservationVO.getUsername() + " 손님 비대면 상담"); // 상담 제목
+        schedulerVO.setMemo(reservationVO.getUsername() + " 손님과 비대면 상담 일정");
         schedulerVO.setPbBranchName(reservationVO.getPbBranchName()); // pb 브랜치 이름 추가
 
         schedulerVO.setStartTime(startTime);
@@ -118,7 +118,7 @@ public class ReservationServiceImpl implements ReservationService {
     public List<HistoryVO> searchByRecentHistory() {
 
         List<HistoryVO> list = historyDAO.searchByRecentHistory();
-        
+
         return list;
     }
 }
