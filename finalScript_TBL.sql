@@ -146,16 +146,16 @@ create table pb_scheduler(
     
 );
 
-select * from pb_scheduler;
+select * from pb_scheduler order by pb_scheduler_id desc;
 
 
 drop sequence pb_scheduler_seq;
 CREATE SEQUENCE  pb_scheduler_seq  MINVALUE 1 MAXVALUE 9999  
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
-select * from pb_scheduler;
+select * from pb_scheduler order by pb_scheduler_id desc;
 
-delete from pb_scheduler where pb_scheduler_id = 7;
+delete from pb_scheduler where pb_scheduler_id = 76;
 commit;
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -174,7 +174,7 @@ CREATE SEQUENCE  reservation_seq  MINVALUE 1 MAXVALUE 9999
 INCREMENT BY 1 START WITH 1  NOCACHE   NOCYCLE ;
 
 select * from reservation order by reservation_id desc;
-delete from reservation where reservation_id = 93;
+delete from reservation where reservation_id = 98;
 insert into reservation(reservation_id, rsrv_time, rsrv_comment, username, pb_name , pb_branch_name)
 values(reservation_seq.nextval, '10:00', '위험자산 비중 조절 문의', '최민기', '윤승원', '강서지점');
 commit;

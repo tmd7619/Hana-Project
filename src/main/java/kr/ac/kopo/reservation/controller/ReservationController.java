@@ -31,7 +31,7 @@ public class ReservationController {
         LocalDate now = LocalDate.now(); // 현재 날짜
 
         List<BankerVO> bankerVOList = service.searchBanker(); // 모든 pb 리스트 조회
-        List<BankerVO> checkBankerList = service.availableSearchBanker(now.toString()); // 현재 날짜의 상담 예약이 있는 pb들 조회
+        List<BankerVO> checkBankerList = service.availableSearchBanker("2021-09-29"); // 현재 날짜의 상담 예약이 있는 pb들 조회
 
         // 상담 가능한 PB 조회
         for (int i = 0; i < bankerVOList.size(); i++) {

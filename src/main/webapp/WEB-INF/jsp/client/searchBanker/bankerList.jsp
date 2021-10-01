@@ -873,7 +873,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-6 img img-3 d-flex justify-content-center align-items-center"
-                                 style="background-image: url(${pageContext.request.contextPath}/resources/pb/12.JPG);">
+                                 style="background-image: url(${pageContext.request.contextPath}/resources/pb/1.jpg);">
                             </div>
                             <div class="col-md-6 wrap-about px-md-5 ftco-animate py-5 bg-light">
                                 <div class="heading-section py-md-5">
@@ -1267,7 +1267,7 @@
         $('#profileTitle').text(pbName + ' 상담사 프로필');
 
         $('.mb-4').empty();
-        $('.mb-41').text("안녕하세요? 행복을 전도하는 김하나 PB입니다.")
+        $('.mb-41').text("안녕하세요? 행복을 전도하는 윤승원 PB입니다.")
 
 
         console.log(pbName, pbBranchName, introContent, mainContent, mainField, rank)
@@ -1282,6 +1282,13 @@
 
     })
 
+
+    $(".chkAll").click(function () {
+
+        if ($(".chkAll").prop("checked")) { //해당화면에 전체 checkbox들을 체크해준다
+            $("input[type=checkbox]").prop("checked", true);
+        }
+    });
 
 </script>
 

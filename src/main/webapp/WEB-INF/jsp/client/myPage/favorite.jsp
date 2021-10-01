@@ -184,9 +184,9 @@
         }
 
         #pbImage {
-            margin-left: 15%;
+            margin-left: 20%;
             margin-top: 50px;
-            width: 70%;
+            width: 60%;
             height: 80%;
             position: initial;
         }
