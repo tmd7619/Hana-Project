@@ -61,16 +61,16 @@
                         <p>전국의 하나금융 Private Banker가 기다리고 있습니다.</p>
                     </div>
                     <div class="hero__search__form">
-                        <form action="#">
+                        <form action="${pageContext.request.contextPath}/client/searchBySector" method="post">
                             <input type="text" placeholder="Search...">
                             <div class="select__option">
-                                <select>
+                                <select name="sector">
                                     <option value="">분야별 카테고리</option>
-                                    <option value="">파생 분야</option>
-                                    <option value="">채권 분야</option>
-                                    <option value="">펀드 분야</option>
-                                    <option value="">예금 분야</option>
-                                    <option value="">랩 어카운트</option>
+                                    <option value="주식 분야">주식 분야</option>
+                                    <option value="채권 분야">채권 분야</option>
+                                    <option value="펀드 분야">펀드 분야</option>
+                                    <option value="예금 분야">예금 분야</option>
+                                    <option value="랩 어카운트">랩 어카운트</option>
                                 </select>
                             </div>
                             <button type="submit">PB 찾아보기</button>

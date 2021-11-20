@@ -60,7 +60,7 @@
 		<mvc:jsp prefix="/WEB-INF/jsp/" suffix=".jsp" />
 	</mvc:view-resolvers>
 	
-	<bean class="kr.ac.kopo.interceptor.LoginInterceptor" id="loginInterceptor"/>
+<!--	<bean class="kr.ac.kopo.interceptor.LoginInterceptor" id="loginInterceptor"/>-->
 <!--	 <mvc:interceptors>-->
 <!--		 <mvc:mapping path="/**" /> 모든 path를 수행할때, 인터셉터 처리 하도록 설정-->
 <!--		 <mvc:exclude-mapping path="/login"/>  exclude를 제외한 나머지 path들은 인터셉터(로그인처리)를 거치도록 구성-->

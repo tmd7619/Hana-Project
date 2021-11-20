@@ -90,6 +90,8 @@ public class ReservationController {
         String sector = (String) request.getParameter("sector");
         String date = (String) request.getParameter("schedulerDate");
 
+        System.out.println("date 어떻게? :" + date);
+
         List<BankerVO> bankerVOList = service.searchBySector(sector);
         List<BankerVO> checkBankerList = service.availableSearchBanker(date.trim());
 
@@ -114,6 +116,43 @@ public class ReservationController {
 
         return mav;
     }
+
+    @PostMapping("/client/searchBySector")
+    public ModelAndView indexSearchBySector(HttpServletRequest request) {
+
+        ModelAndView mav = new ModelAndView();
+
+        String sector = (String) request.getParameter("sector");
+
+        System.out.println("sector 넘어옴 ? : " + sector);
+
+        LocalDate nowDate = LocalDate.now(); // 현재시간
+        String date = nowDate.toString();
+        List<BankerVO> bankerVOList = service.searchBySector(sector.trim());
+        List<BankerVO> checkBankerList = service.availableSearchBanker(date.trim());
+
+        for (BankerVO b : bankerVOList) {
+            System.out.println(b);
+        }
+        // 상담 가능한 PB 조회
+        for (int i = 0; i < bankerVOList.size(); i++) {
+            for (int j = 0; j < checkBankerList.size(); j++) {
+                if (checkBankerList.get(j).getPbName().equals(bankerVOList.get(i).getPbName())) {
+                    bankerVOList.get(i).setImpossible(checkBankerList.get(j).getImpossible());
+                }
+            }
+        }
+
+        List<HistoryVO> recentList = service.searchByRecentHistory();
+        mav.addObject("recentList", recentList);
+        mav.addObject("sector", sector);
+        mav.addObject("schedulerDate", date);
+        mav.addObject("bankerList", bankerVOList);
+        mav.setViewName("client/searchBanker/bankerList");
+
+        return mav;
+    }
+
 
     @PostMapping("/client/searchDate")
     public ModelAndView searchDate(HttpServletRequest request, HttpSession session) {
